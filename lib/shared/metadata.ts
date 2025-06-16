@@ -1,4 +1,4 @@
-import { strapiImage } from '../strapi/strapiImage';
+import { strapiImage } from '../api/strapiImage';
 
 export function generateMetadataObject(seo: any) {
   return {
