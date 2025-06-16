@@ -1,0 +1,35 @@
+name: Mirror to GitLab
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git config
+        run: |
+          git config user.name "${{ secrets.GITLAB_USERNAME }}"
+          git config user.email "${{ secrets.GITLAB_EMAIL }}"
+
+      - name: Add GitLab remote and push commits
+        env:
+          GITLAB_TOKEN_NAME: ${{ secrets.GITLAB_TOKEN_NAME }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_REPO: ${{ secrets.GITLAB_REPO }}
+        run: |
+          # Add the GitLab remote using token-based authentication
+          git remote add gitlab "https://${GITLAB_TOKEN_NAME}:${GITLAB_TOKEN}@gitlab.com/${GITLAB_REPO}.git"
+          # Fetch the latest changes from the GitLab remote
+          git fetch gitlab main
+          # Push commits from the main branch to GitLab
+          git push gitlab main
+
+
