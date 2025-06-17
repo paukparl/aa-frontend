@@ -4,6 +4,33 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --main-public: #E9E5DB;
+  --main-public-tint: #FFFDF7;
+  --main-school: #CBCBC8;
+  --main-school-tint: #E1E1DF;
+  --main-white: #fff;
+  --main-black: #000;
+  --main-seasonal: #91FF8B;
+  --record-news: #EEF7FF;
+  --record-exhibitions: #E9E3FF;
+  --record-events: #FFF2E1;
+  --record-facilities: #F8FFDD;
+  --programmes-foundation: #DFC784;
+  --programmes-intermediate: #FFD4E0;
+  --programmes-diploma: #D3E1EE;
+  --programmes-profpractice: #DBE6C8;
+  --programmes-postgrad: #D3C2DA;
+  --programmes-shortcourses: #FFFDC8;
+  --roam-light: #FDFFF0;
+  --roam-dark: #000000;
+  --hooke-base: #FFFFFF;
+  --hooke-middle: #000000;
+  --hooke-top: #CAF16C;
+  --dta-highlight: #7C6D5A;
+  --dta-people: #1D453F;
+  --dta-intitutions: #150D50;
+  --dta-practices: #732E5B;
+  --dta-collections: #531111;
 }
 
 body {
