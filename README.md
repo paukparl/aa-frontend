@@ -66,3 +66,45 @@ While Linked by Air uses GitHub for version control, AA uses GitLab. A GitHub Ac
 ```sh
 git remote add gitlab git@gitlab.com:p9255/aaschool-strapi-front-end.git
 ```
+
+## Developing this site with Docker
+
+Note that the AA website uses different repositories for front-end and back-end. We unfortunately do not have a setup that will run both of them in a shared Docker environment. You will have trouble making your local dockerized front-end query your local dockerized back-end. 
+
+### Setup
+
+> **NOTE:** If you are using VS Code, you don't need to do much set up at all! Use the Dev Containers extension to open the app in a dev container. These instructions are devs who are not using VS Code.
+
+> **NOTE:** If you are using a hosted dev environment such as GitHub Codespaces, you will need to edit the `vite.config.js` to include your hostname. You may also have to update the IDP's OAuth settings (which probably has an allowlist of origins) if you want to use SSO locally. 
+
+- Build the image
+
+```sh
+docker build -f ./.devcontainer/Dockerfile -t aa_frontend . 
+```
+
+- Create an `.env` file, based off the `.env.example`
+
+### Running
+
+- Run the container
+
+```sh
+docker run -b -p 3000:3000 --env-file .env -v $(pwd):/workspace --name aa_frontend aa_frontend
+```
+
+- Exec into the container
+
+```sh
+docker exec -it aa_frontend zsh
+```
+
+- Run any Strapi commands you need, like starting the dev server.
+
+```sh
+yarn dev
+```
+
+### Using git
+
+Your Docker container will probably not have your git configuration, unless you set it up. So make commits, branches, etc from a normal terminal window.
