@@ -1,0 +1,29 @@
+{
+  "name": "Architectural Association Frontend",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "sonarsource.sonarlint-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+  "postCreateCommand": "yarn install",
+  "containerEnv": {
+    "HOST": "0.0.0.0",
+    "PORT": "3000"
+  }
+}
