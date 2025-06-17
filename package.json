@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rm -rf .next && rm -rf node_modules && npm i"
+    "clean": "rm -rf .next && rm -rf node_modules && npm i",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
@@ -28,21 +30,39 @@
     "react-wrap-balancer": "^1.1.1",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^4",
+    "@storybook/addon-a11y": "^9.0.10",
+    "@storybook/addon-docs": "^9.0.10",
+    "@storybook/addon-onboarding": "^9.0.10",
+    "@storybook/addon-vitest": "^9.0.10",
+    "@storybook/nextjs-vite": "9.0.10",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/qs": "^6.9.16",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitest/browser": "^3.2.3",
+    "@vitest/coverage-v8": "^3.2.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "eslint-plugin-storybook": "^9.0.10",
+    "playwright": "^1.53.0",
     "postcss": "^8",
+    "storybook": "^9.0.10",
     "tailwindcss": "^3.4.1",
-    "typescript": "5.6.2"
+    "typescript": "5.6.2",
+    "vitest": "^3.2.3"
   },
   "engines": {
     "node": "20.x.x"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

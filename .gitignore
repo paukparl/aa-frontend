@@ -117,9 +117,10 @@ yarn-error.log
 coverage
 
 ############################
-# Strapi
+# Next.js
 ############################
 
+.next
 .env
 license.txt
 exports
@@ -128,3 +129,5 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+*storybook.log
+storybook-static
