@@ -751,11 +751,17 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.overflow-scroll {
+  overflow: scroll;
+}
 .overflow-x-auto {
   overflow-x: auto;
 }
 .font-\[monospace\] {
   font-family: monospace;
+}
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .text-\[12px\] {
   font-size: 12px;
