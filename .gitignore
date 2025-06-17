@@ -119,5 +119,15 @@ coverage
 ############################
 # Next.js
 ############################
+
 .next
 .env
+license.txt
+exports
+.strapi
+dist
+build
+.strapi-updater.json
+.strapi-cloud.json
+*storybook.log
+storybook-static
