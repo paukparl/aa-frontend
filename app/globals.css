@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --main-public: #E9E5DB;
@@ -26,11 +31,11 @@
   --hooke-base: #FFFFFF;
   --hooke-middle: #000000;
   --hooke-top: #CAF16C;
-  --dta-highlight: #7C6D5A;
-  --dta-people: #1D453F;
-  --dta-intitutions: #150D50;
-  --dta-practices: #732E5B;
-  --dta-collections: #531111;
+  --dta-brown: #7C6D5A;
+  --dta-green: #1D453F;
+  --dta-blue: #150D50;
+  --dta-maroon: #732E5B;
+  --dta-red: #531111;
 }
 
 body {
