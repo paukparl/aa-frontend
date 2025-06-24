@@ -1,9 +1,9 @@
+/* TODO: check which fonts are not being used anywhere and remove */
 import "./globals.css";
 import localFont from 'next/font/local';
 import clsx from 'clsx';
 
 // Optimize font loading using next/font to minimize layout shifts and prevent FOUC
-// Move to pages/_app.tsx if we decide on using pages router instead
 const diatype = localFont({
   src: [
     { path: './fonts/ABCDiatypeRoundedMono-Regular-Trial.woff2', weight: '400', style: 'normal' },

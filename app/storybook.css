@@ -1,3 +1,5 @@
+/* TODO: check which fonts are not being used anywhere and remove */
+
 /* Storybook does not support next/font, loading fonts separately  */
 /* This should only be used in .storybook/preview.ts 
    and is not included in the Next dev or build */
@@ -32,7 +34,44 @@
   font-weight: 500;
   font-style: italic;
 }
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('/fonts/NHaasGroteskTXPro-56It.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('/fonts/NHaasGroteskTXPro-65Md.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('/fonts/NHaasGroteskTXPro-65MdId.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('/fonts/NHaasGroteskTXPro-75Bd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NHaasGroteskTXPro';
+  src: url('/fonts/NHaasGroteskTXPro-76BdIt.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
 :root {
   --font-diatype: 'ABCDiatypeRoundedMono';
   --font-nhgdisplay: 'NHaasGroteskDSPro';
+  --font-nhgtext: 'NHaasGroteskTXPro';
 }
