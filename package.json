@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4",
+    "@eslint/eslintrc": "^3.3.1",
     "@storybook/addon-a11y": "^9.0.10",
     "@storybook/addon-docs": "^9.0.10",
     "@storybook/addon-onboarding": "^9.0.10",
@@ -64,20 +65,20 @@
   "engines": {
     "node": "20.x.x"
   },
-  "eslintConfig": {
-    "extends": [
-      "next/core-web-vitals",
-      "next/typescript",
-      "plugin:storybook/recommended"
-    ]
-  },
   "prettier": {
     "plugins": [
       "@trivago/prettier-plugin-sort-imports",
       "prettier-plugin-tailwindcss"
     ],
-    "tailwindFunctions": ["cx"],
-    "importOrder": ["server-only", "<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],
+    "tailwindFunctions": [
+      "cx"
+    ],
+    "importOrder": [
+      "server-only",
+      "<THIRD_PARTY_MODULES>",
+      "^@/(.*)$",
+      "^[./]"
+    ],
     "importOrderSeparation": false,
     "importOrderSortSpecifiers": true
   }
