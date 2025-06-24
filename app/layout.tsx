@@ -1,5 +1,6 @@
 import "./globals.css";
 import localFont from 'next/font/local';
+import clsx from 'clsx';
 
 // Optimize font loading using next/font to minimize layout shifts and prevent FOUC
 // Move to pages/_app.tsx if we decide on using pages router instead
@@ -44,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={`${diatype.variable} ${nhgdisplay.variable} ${nhgtext.variable}`}>
+    <html className={clsx(diatype.variable, nhgdisplay.variable, nhgtext.variable)}>
       <body>
         {children}
       </body>
