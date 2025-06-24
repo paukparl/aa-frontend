@@ -6,13 +6,6 @@ import { DTABody } from '../components/DTA/DTABody';
 const meta = {
   title: 'DTA/Typography/Body',
   component: DTABody,
-  parameters: {
-    docs: {
-      description: {
-        component: ' ',
-      },
-    },
-  },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
