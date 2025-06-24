@@ -31,34 +31,13 @@
   --hooke-base: #FFFFFF;
   --hooke-middle: #000000;
   --hooke-top: #CAF16C;
-  --dta-primary-background-color: #1D453F;
-  --dta-primary-highlight-color: #7C6D5A;
-  --dta-tipin-people-foreground-color: #1D453F;
-  --dta-tipin-institutions-foreground-color: #150D50;
-  --dta-tipin-practices-foreground-color: #732E5B;
-  --dta-tipin-collections-foreground-color: #531111;
-  --dta-tipin-about-foreground-color: #1D453F;
-  --dta-tipin-search-foreground-color: #1D453F;
+  --dta-brown: #7C6D5A;
+  --dta-green: #1D453F;
+  --dta-blue: #150D50;
+  --dta-maroon: #732E5B;
+  --dta-red: #531111;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-}
-
-@layer utilities {
-  .h1-dta {
-    @apply font-nhgdisplay font-medium text-2xl sm:text-5xl;
-  }
-  .h1-dta-tipin2 {
-    @apply font-diatype text-2xl sm:text-5xl;
-  }
-  .body-dta {
-    @apply font-nhgtext text-base sm:text-xl;
-  }
-  .mono-dta {
-    @apply font-diatype text-sm sm:text-2xl;
-  }
-  .caption-dta {
-    @apply font-nhgtext text-xs font-medium sm:text-base sm:font-bold;
-  }
 }
