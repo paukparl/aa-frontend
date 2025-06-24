@@ -61,7 +61,7 @@ body {
     @apply font-nhgtext text-base sm:text-xl;
   }
   .mono {
-    @apply font-diatype text-sm sm:text-2xl;
+    @apply font-diatype text-sm sm:text-lg;
   }
   .caption {
     @apply font-nhgtext text-xs font-medium sm:text-base sm:font-bold;
