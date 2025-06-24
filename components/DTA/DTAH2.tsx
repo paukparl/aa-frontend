@@ -1,19 +1,18 @@
 import clsx from 'clsx';
 
-export interface HeaderProps {
+export interface DTAH2Props {
   tipInRoute?: 'people' | 'practices' | 'institutions' | 'collections' | 'about' | 'search';
   tipInLevel?: 'first' | 'second';
   title: string;
 }
 
 /** Primary UI component for user interaction */
-export const DTAHeader = ({
+export const DTAH2 = ({
   tipInLevel = 'first',
   tipInRoute = 'practices',
   title = 'About the Archive',
   ...props
-}: HeaderProps) => {
-  const h1Type = tipInLevel === 'first' ? 'h1-dta' : 'h1-dta-tipin2';
+}: DTAH2Props) => {
   const textColorLib = {
     people: 'text-dta_tipin_people_foreground_color',
     practices: 'text-dta_tipin_practices_foreground_color',
@@ -23,6 +22,6 @@ export const DTAHeader = ({
     search: 'text-dta_tipin_search_foreground_color'
 };
   return (
-     <h1 className={clsx(h1Type, textColorLib[tipInRoute])}>{title}</h1>
+     <h2 className={clsx('h2-dta', textColorLib[tipInRoute])}>{title}</h2>
   );
 };

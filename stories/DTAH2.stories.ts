@@ -1,11 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { DTAHeader } from '../components/DTA/DTAHeader';
+import { DTAH2 } from '../components/DTA/DTAH2';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'DTA/Typography/Header',
-  component: DTAHeader,
+  title: 'DTA/Typography/H2',
+  component: DTAH2,
+  parameters: {
+    docs: {
+      description: {
+        component: 'H2 styling is only shown in the about section of the Figma',
+      },
+    },
+  },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
@@ -13,28 +20,16 @@ const meta = {
     title: { control: 'text' },
     tipInRoute: { control: 'select',
     options: ['people', 'practices', 'institutions', 'collections', 'about', 'search'], },
-    tipInLevel: {table: {
-      disable: true,
-    },}
   },
-} satisfies Meta<typeof DTAHeader>;
+} satisfies Meta<typeof DTAH2>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Level1: Story = {
+export const Default: Story = {
   args: {
-    tipInLevel: 'first',
-    title: 'About the Archive',
-    tipInRoute: 'practices',
-  },
-};
-
-export const Level2: Story = {
-  args: {
-    tipInLevel: 'second',
-    title: 'Ministry of Works',
-    tipInRoute: 'practices',
+    title: 'Who Are Goodwin and Hopwood?',
+    tipInRoute: 'about',
   },
 };
