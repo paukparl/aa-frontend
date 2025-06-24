@@ -9,6 +9,14 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    'h1',
+    'h1-tipin',
+    'h2',
+    'body',
+    'mono',
+    'caption'
+  ],
   theme: {
     extend: {
       colors: {
