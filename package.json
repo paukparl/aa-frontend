@@ -64,22 +64,5 @@
   },
   "engines": {
     "node": "20.x.x"
-  },
-  "prettier": {
-    "plugins": [
-      "@trivago/prettier-plugin-sort-imports",
-      "prettier-plugin-tailwindcss"
-    ],
-    "tailwindFunctions": [
-      "cx"
-    ],
-    "importOrder": [
-      "server-only",
-      "<THIRD_PARTY_MODULES>",
-      "^@/(.*)$",
-      "^[./]"
-    ],
-    "importOrderSeparation": false,
-    "importOrderSortSpecifiers": true
   }
 }
