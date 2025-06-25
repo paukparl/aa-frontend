@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={`${fonts.diatype.variable} ${fonts.nhgdisplay.variable} ${fonts.nhgtext.variable} antialiased`}>
+    <html className={`${fonts.diatype.variable} ${fonts.nhgdisplay.variable} ${fonts.nhgtext.variable} antialiased text-black`}>
       <body>
         {children}
       </body>
