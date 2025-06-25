@@ -1,4 +1,3 @@
-import { strapiImage } from '../api/strapiImage';
 
 export function generateMetadataObject(seo: any) {
   return {
@@ -7,7 +6,7 @@ export function generateMetadataObject(seo: any) {
     openGraph: {
       title: seo?.ogTitle || seo?.metaTitle || 'Default OG Title',
       description: seo?.ogDescription || seo?.metaDescription || 'Default OG Description',
-      images: seo?.metaImage ? [{ url: strapiImage(seo?.metaImage.url) }] : [],
+      images: seo?.metaImage ? [{ url: seo?.metaImage.url }] : [],
     },
     twitter: {
       card: seo?.twitterCard || 'summary_large_image',
