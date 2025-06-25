@@ -9,6 +9,9 @@ const nextConfig = {
     ].filter(Boolean),
   },
   pageExtensions: ["ts", "tsx"],
+  experimental: {
+    reactCompiler: true,
+  },
 };
 
 export default nextConfig;
