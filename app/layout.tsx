@@ -10,7 +10,7 @@ const diatype = localFont({
     { path: './fonts/ABCDiatypeRoundedMono-Bold-Trial.woff2', weight: '700', style: 'normal' },
     { path: './fonts/ABCDiatypeRoundedMono-BoldItalic-Trial.woff2', weight: '700', style: 'italic' },
   ],
-  variable: '--font-diatype',
+  variable: '--font-diatype-src',
   display: 'swap',
 });
 
@@ -21,7 +21,7 @@ const nhgdisplay = localFont({
     { path: './fonts/NHaasGroteskDSPro-65Md.ttf', weight: '500', style: 'normal' },
     { path: './fonts/NHaasGroteskDSPro-66MdIt.ttf', weight: '500', style: 'italic' },
   ],
-  variable: '--font-nhgdisplay',
+  variable: '--font-nhgdisplay-src',
   display: 'swap',
 });
 
@@ -34,7 +34,7 @@ const nhgtext = localFont({
     { path: './fonts/NHaasGroteskTXPro-75Bd.ttf', weight: '700', style: 'normal' },
     { path: './fonts/NHaasGroteskTXPro-76BdIt.ttf', weight: '700', style: 'italic' },
   ],
-  variable: '--font-nhgtext',
+  variable: '--font-nhgtext-src',
   display: 'swap',
 });
 
@@ -44,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={`${diatype.variable} ${nhgdisplay.variable} ${nhgtext.variable}`}>
+    <html className={`${diatype.variable} ${nhgdisplay.variable} ${nhgtext.variable} antialiased`}>
       <body>
         {children}
       </body>

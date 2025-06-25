@@ -1,43 +1,57 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
+
+@layer base {
+
+  :root {
+    /* CSS variables come here  */
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+  }
 }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --main-public: #E9E5DB;
-  --main-public-tint: #FFFDF7;
-  --main-school: #CBCBC8;
-  --main-school-tint: #E1E1DF;
-  --main-white: #fff;
-  --main-black: #000;
-  --main-seasonal: #91FF8B;
-  --record-news: #EEF7FF;
-  --record-exhibitions: #E9E3FF;
-  --record-events: #FFF2E1;
-  --record-facilities: #F8FFDD;
-  --programmes-foundation: #DFC784;
-  --programmes-intermediate: #FFD4E0;
-  --programmes-diploma: #D3E1EE;
-  --programmes-profpractice: #DBE6C8;
-  --programmes-postgrad: #D3C2DA;
-  --programmes-shortcourses: #FFFDC8;
-  --roam-light: #FDFFF0;
-  --roam-dark: #000000;
-  --hooke-base: #FFFFFF;
-  --hooke-middle: #000000;
-  --hooke-top: #CAF16C;
-  --dta-brown: #7C6D5A;
-  --dta-green: #1D453F;
-  --dta-blue: #150D50;
-  --dta-maroon: #732E5B;
-  --dta-red: #531111;
-}
+@theme inline {
 
-body {
-  color: rgb(var(--foreground-rgb));
+  /* Reset fonts */
+  --font-*: initial;
+  --font-diatype: var(--font-diatype-src), monospace; 
+  --font-nhgdisplay: var(--font-nhgdisplay-src), sans-serif;
+  --font-nhgtext: var(--font-nhgtext-src), sans-serif;
+
+  /* Colors */
+  --color-*: initial;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-main-public: #E9E5DB;
+  --color-main-public-tint: #FFFDF7;
+  --color-main-school: #CBCBC8;
+  --color-main-school-tint: #E1E1DF;
+  --color-main-white: #fff;
+  --color-main-black: #000;
+  --color-main-seasonal: #91FF8B;
+  --color-record-news: #EEF7FF;
+  --color-record-exhibitions: #E9E3FF;
+  --color-record-events: #FFF2E1;
+  --color-record-facilities: #F8FFDD;
+  --color-programmes-foundation: #DFC784;
+  --color-programmes-intermediate: #FFD4E0;
+  --color-programmes-diploma: #D3E1EE;
+  --color-programmes-profpractice: #DBE6C8;
+  --color-programmes-postgrad: #D3C2DA;
+  --color-programmes-shortcourses: #FFFDC8;
+  --color-roam-light: #FDFFF0;
+  --color-roam-dark: #000000;
+  --color-hooke-base: #FFFFFF;
+  --color-hooke-middle: #000000;
+  --color-hooke-top: #CAF16C;
+  --color-dta-brown: #7C6D5A;
+  --color-dta-green: #1D453F;
+  --color-dta-blue: #150D50;
+  --color-dta-maroon: #732E5B;
+  --color-dta-red: #531111;
+
 }
