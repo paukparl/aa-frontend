@@ -53,4 +53,58 @@
   --color-dta-maroon: #732E5B;
   --color-dta-red: #531111;
 
+  /* Uncomment color vars below once dev starts on other pages
+  rename colors to match design system */
+  /* --color-main-public: #E9E5DB;
+  --color-main-public-tint: #FFFDF7;
+  --color-main-school: #CBCBC8;
+  --color-main-school-tint: #E1E1DF;
+  --color-main-white: #fff;
+  --color-main-black: #000;
+  --color-main-seasonal: #91FF8B;
+  --color-record-news: #EEF7FF;
+  --color-record-exhibitions: #E9E3FF;
+  --color-record-events: #FFF2E1;
+  --color-record-facilities: #F8FFDD;
+  --color-programmes-foundation: #DFC784;
+  --color-programmes-intermediate: #FFD4E0;
+  --color-programmes-diploma: #D3E1EE;
+  --color-programmes-profpractice: #DBE6C8;
+  --color-programmes-postgrad: #D3C2DA;
+  --color-programmes-shortcourses: #FFFDC8;
+  --color-roam-light: #FDFFF0;
+  --color-roam-dark: #000000;
+  --color-hooke-base: #FFFFFF;
+  --color-hooke-middle: #000000;
+  --color-hooke-top: #CAF16C; */
+  --color-dta-map-background-color: #1D453F;
+  --color-dta-map-foreground-color: #ffffff;
+  --color-dta-map-highlight-color: #7C6D5A;
+  --color-dta-people-foreground-color: #1D453F;
+  --color-dta-institutions-foreground-color: #150D50;
+  --color-dta-practices-foreground-color: #732E5B;
+  --color-dta-collections-foreground-color: #531111;
+  --color-dta-about-foreground-color: #1D453F;
+  --color-dta-search-foreground-color: #1D453F;
+}
+
+@layer utilities {
+  .h1 {
+    @apply font-nhgdisplay font-medium text-2xl sm:text-5xl;
+  }
+  .h1-tipin {
+    @apply font-diatype text-2xl sm:text-5xl;
+  }
+  .h2 {
+    @apply font-nhgdisplay font-medium text-2xl sm:text-4xl xl:text-5xl;
+  }
+  .body {
+    @apply font-nhgtext text-base sm:text-xl;
+  }
+  .mono {
+    @apply font-diatype text-sm sm:text-lg;
+  }
+  .caption {
+    @apply font-nhgtext text-xs font-medium sm:text-base sm:font-bold;
+  }
 }
