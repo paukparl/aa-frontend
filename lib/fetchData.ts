@@ -17,7 +17,7 @@ import qs from "qs";
   https://docs.strapi.io/cms/api/rest/populate-select
 */
 type PopulateClause = string | string[] | {
-  [key: string]: string | string[] | StrapiOptions
+  [key: string]: string | string[] | StrapiFetchOptions
 }
 
 /*
@@ -40,7 +40,7 @@ type FilterClause = {
   };
 }
 
-type StrapiOptions = {
+export type StrapiFetchOptions = {
   sort?: Record<string, "asc" | "desc"> | string;
   fields?: string[] | string;
   pagination?: {
@@ -54,7 +54,7 @@ type StrapiOptions = {
 /*
   Just in case the back-end's controller supports some custom parameters
 */
-type FetchDataOptions = StrapiOptions & {
+type FetchDataOptions = StrapiFetchOptions & {
   headers?: Record<string, string>;
   [key: string]: unknown;
 };
