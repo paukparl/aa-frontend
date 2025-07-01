@@ -4,10 +4,10 @@ import React from 'react';
 import clsx from 'clsx';
 
 type BodyProps = {
-  content: string;
+  children: string;
   className?: string;
 };
 
-export const Body = ({ content, className }: BodyProps) => {
-  return <span className={clsx("body", className)}>{content}</span>;
+export const Body = ({ children, className }: BodyProps) => {
+  return <span className={clsx("body", className)}>{children}</span>;
 };

@@ -17,7 +17,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    content: { control: 'text' },
+    children: { control: 'text' },
   },
 } satisfies Meta<typeof Caption>;
 
@@ -27,6 +27,6 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    content: 'Caption Lorem Ipsum',
+    children: 'Caption Lorem Ipsum',
   },
 };

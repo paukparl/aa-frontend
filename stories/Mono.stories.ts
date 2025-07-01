@@ -17,7 +17,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    content: { control: 'text' },
+    children: { control: 'text' },
   },
 } satisfies Meta<typeof Mono>;
 
@@ -27,6 +27,6 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    content: 'Collection: Otto Koenigsberger Collection',
+    children: 'Collection: Otto Koenigsberger Collection',
   },
 };

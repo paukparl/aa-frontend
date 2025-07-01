@@ -4,10 +4,10 @@ import React from 'react';
 import clsx from 'clsx';
 
 type CaptionProps = {
-  content: string;
+  children: string;
   className?: string;
 };
 
-export const Caption = ({ content, className }: CaptionProps) => {
-  return <span className={clsx("caption", className)}>{content}</span>;
+export const Caption = ({ children, className }: CaptionProps) => {
+  return <span className={clsx("caption", className)}>{children}</span>;
 };

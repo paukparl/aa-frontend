@@ -17,7 +17,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    content: { control: 'text' },
+    children: { control: 'text' },
     tipIn: {table: {
       disable: true,
     },},
@@ -30,14 +30,14 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    content: 'Practices',
+    children: 'Practices',
     tipIn: false,
   },
 };
 
 export const TipIn: Story = {
   args: {
-    content: 'Ministry of Work',
+    children: 'Ministry of Work',
     tipIn: true,
   },
 };

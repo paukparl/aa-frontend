@@ -4,10 +4,10 @@ import React from 'react';
 import clsx from 'clsx';
 
 type H2Props = {
-  content: string;
+  children: string;
   className?: string;
 };
 
-export const H2 = ({ content, className }: H2Props) => {
-  return <h2 className={clsx("h2", className)}>{content}</h2>;
+export const H2 = ({ children, className }: H2Props) => {
+  return <h2 className={clsx("h2", className)}>{children}</h2>;
 };

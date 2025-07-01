@@ -4,10 +4,10 @@ import React from 'react';
 import clsx from 'clsx';
 
 type MonoProps = {
-  content: string;
+  children: string;
   className?: string;
 };
 
-export const Mono = ({ content, className }: MonoProps) => {
-  return <span className={clsx("mono", className)}>{content}</span>;
+export const Mono = ({ children, className }: MonoProps) => {
+  return <span className={clsx("mono", className)}>{children}</span>;
 };
