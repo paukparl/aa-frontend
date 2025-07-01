@@ -1,5 +1,5 @@
-import { getEvent } from "@/data/getEvent";
-import { getEvents } from "@/data/getEvents";
+import { getEvent } from "@/api/getEvent";
+import { getEvents } from "@/api/getEvents";
 // import { notFound } from "next/navigation";
 
 export default async function HomePage() {
