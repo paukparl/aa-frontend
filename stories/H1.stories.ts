@@ -1,26 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-
-import { H1 } from '../components/Typography/H1';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { H1 } from "../components/Typography/H1";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Typography/H1',
+  title: "Typography/H1",
   component: H1,
   parameters: {
     docs: {
       description: {
-        component: ' ',
+        component: " ",
       },
     },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    children: { control: 'text' },
-    tipIn: {table: {
-      disable: true,
-    },},
+    children: { control: "text" },
+    tipIn: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof H1>;
 
@@ -30,14 +31,14 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    children: 'Practices',
+    children: "Practices",
     tipIn: false,
   },
 };
 
 export const TipIn: Story = {
   args: {
-    children: 'Ministry of Work',
+    children: "Ministry of Work",
     tipIn: true,
   },
 };

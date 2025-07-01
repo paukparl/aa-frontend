@@ -4,12 +4,16 @@ import clientEnv from "@/lib/clientEnv";
 export const document = z.object({
   // There seem to be multiple ids per documentId.
   // Use documentId for consistency.
-  id: z.number(), 
+  id: z.number(),
   documentId: z.string(),
 });
 
 const mediaBase = document.extend({
-  url: z.string().transform((val) => val.startsWith('/') ? `${clientEnv.NEXT_PUBLIC_IMAGE_HOST}${val}` : val),
+  url: z
+    .string()
+    .transform((val) =>
+      val.startsWith("/") ? `${clientEnv.NEXT_PUBLIC_IMAGE_HOST}${val}` : val,
+    ),
   alternativeText: z.string().nullable(),
   caption: z.string().nullable(),
   mime: z.string(),
@@ -24,7 +28,11 @@ export const video = mediaBase;
 export const file = mediaBase;
 
 const imageFormat = z.object({
-  url: z.string().transform((val) => val.startsWith('/') ? `${clientEnv.NEXT_PUBLIC_IMAGE_HOST}${val}` : val),
+  url: z
+    .string()
+    .transform((val) =>
+      val.startsWith("/") ? `${clientEnv.NEXT_PUBLIC_IMAGE_HOST}${val}` : val,
+    ),
   width: z.number(),
   height: z.number(),
   mime: z.string(),
@@ -33,15 +41,17 @@ const imageFormat = z.object({
 export const image = mediaBase.extend({
   width: z.number(),
   height: z.number(),
-  formats: z.object({
-    small: imageFormat,
-    medium: imageFormat,
-    large: imageFormat,
-    thumbnail: imageFormat,
-  }).nullable(),
+  formats: z
+    .object({
+      small: imageFormat,
+      medium: imageFormat,
+      large: imageFormat,
+      thumbnail: imageFormat,
+    })
+    .nullable(),
 });
 
-export const getOneRes = <T extends z.ZodType>(schema: T) => 
+export const getOneRes = <T extends z.ZodType>(schema: T) =>
   z.object({
     data: document.and(schema),
     // meta: z.object({ }),
@@ -59,4 +69,3 @@ export const getManyRes = <T extends z.ZodType>(schema: T) =>
       }),
     }),
   });
-

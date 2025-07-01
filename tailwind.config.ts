@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-
 import svgToDataUri from "mini-svg-data-uri";
+import type { Config } from "tailwindcss";
 import { record } from "zod";
 
 const config: Config = {
@@ -9,14 +8,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  safelist: [
-    'h1',
-    'h1-tipin',
-    'h2',
-    'body',
-    'mono',
-    'caption'
-  ],
+  safelist: ["h1", "h1-tipin", "h2", "body", "mono", "caption"],
   theme: {
     extend: {
       colors: {
@@ -46,25 +38,24 @@ const config: Config = {
         // hooke_top: "var(--hooke-top)",
         dta_map_foreground_color: "var(--dta-map-foreground-color)",
         dta_map_background_color: "var(--dta-map-background-color)",
-        dta_map_highlight_color :"var(--dta-map-highlight-color)",
-        dta_people_foreground_color :"var(--dta-people-foreground-color)",
-        dta_institutions_foreground_color :"var(--dta-institutions-foreground-color)",
-        dta_practices_foreground_color :"var(--dta-practices-foreground-color)",
-        dta_collections_foreground_color :"var(--dta-collections-foreground-color)",
-        dta_about_foreground_color :"var(--dta-about-foreground-color)",
-        dta_search_foreground_color :"var(--dta-search-foreground-color)",
+        dta_map_highlight_color: "var(--dta-map-highlight-color)",
+        dta_people_foreground_color: "var(--dta-people-foreground-color)",
+        dta_institutions_foreground_color:
+          "var(--dta-institutions-foreground-color)",
+        dta_practices_foreground_color: "var(--dta-practices-foreground-color)",
+        dta_collections_foreground_color:
+          "var(--dta-collections-foreground-color)",
+        dta_about_foreground_color: "var(--dta-about-foreground-color)",
+        dta_search_foreground_color: "var(--dta-search-foreground-color)",
       },
       fontFamily: {
-        diatype: ['var(--font-diatype)', 'mono'],
-        nhgdisplay: ['var(--font-nhgdisplay)', 'sans-serif'],
-        nhgtext: ['var(--font-nhgtext)', 'sans-serif'],
+        diatype: ["var(--font-diatype)", "mono"],
+        nhgdisplay: ["var(--font-nhgdisplay)", "sans-serif"],
+        nhgtext: ["var(--font-nhgtext)", "sans-serif"],
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@tailwindcss/typography"),
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 
 export default config;
