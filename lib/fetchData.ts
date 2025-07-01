@@ -17,7 +17,7 @@ import qs from "qs";
   https://docs.strapi.io/cms/api/rest/populate-select
 */
 type PopulateClause = string | string[] | {
-  [key: string]: string | string[] | StrapiOptions
+  [key: string]: string | string[] | StrapiFetchOptions
 }
 
 /*
@@ -26,21 +26,21 @@ type PopulateClause = string | string[] | {
 */
 type FilterClause = {
   [key: string]: {
-    $eq?: any;
-    $ne?: any;
-    $gt?: any;
-    $gte?: any;
-    $lt?: any;
-    $lte?: any;
-    $in?: any[];
-    $nin?: any[];
+    $eq?: unknown;
+    $ne?: unknown;
+    $gt?: unknown;
+    $gte?: unknown;
+    $lt?: unknown;
+    $lte?: unknown;
+    $in?: unknown[];
+    $nin?: unknown[];
     $contains?: string;
     $ncontains?: string;
     $null?: boolean;
   };
 }
 
-type StrapiOptions = {
+export type StrapiFetchOptions = {
   sort?: Record<string, "asc" | "desc"> | string;
   fields?: string[] | string;
   pagination?: {
@@ -54,10 +54,20 @@ type StrapiOptions = {
 /*
   Just in case the back-end's controller supports some custom parameters
 */
-type FetchDataOptions = StrapiOptions & {
+type FetchDataOptions = StrapiFetchOptions & {
   headers?: Record<string, string>;
-  [key: string]: any;
+  [key: string]: unknown;
 };
+
+export class StrapiError extends Error {
+  constructor(
+    public type: 'NOT_FOUND' | 'UNKNOWN_ERROR',
+    message?: string
+  ) {
+    super(message);
+    this.name = 'StrapiError';
+  }
+}
 
 export async function fetchData<T>(
   path: string,
@@ -65,46 +75,37 @@ export async function fetchData<T>(
 ): Promise<T> {
   const { isEnabled: draftModeEnabled } = await draftMode();
 
-  try {
-    const safePath = path.replace(/^\/|\/$|\?$/g, "");
-    const { headers, ...params } = options;
+  const safePath = path.replace(/^\/|\/$|\?$/g, "");
+  const { headers, ...params } = options;
 
-    const queryString = qs.stringify({
-      ...params,
-      ...(draftModeEnabled ? { status: "draft" } : {})
-    }
+  const queryString = qs.stringify({
+    ...params,
+    ...(draftModeEnabled ? { status: "draft" } : {})
+  }
+);
+
+  // Construct the full URL for the API request
+  const endpoint = new URL(
+    `api/${safePath}?${queryString}`,
+    process.env.BACKEND_API_URL
   );
 
-    // Construct the full URL for the API request
-    const endpoint = new URL(
-      `api/${safePath}?${queryString}`,
-      process.env.BACKEND_API_URL
-    );
+  // Perform the fetch request with the provided query parameters
+  const response = await fetch(endpoint, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.BACKEND_API_TOKEN}`,
+      "Content-Type": "application/json",
+      ...headers,
+    },
+  });
 
-    // Perform the fetch request with the provided query parameters
-    const response = await fetch(endpoint, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${process.env.BACKEND_API_TOKEN}`,
-        "Content-Type": "application/json",
-        ...headers,
-      },
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(
-        `Strapi fetch failed: ${response.status} ${response.statusText} - ${errorText}`
-      );
-    }
-
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    throw new Error(
-      `Failed to fetch data from ${path}: ${
-        error instanceof Error ? error.message : String(error)
-      }`
-    );
+  if (!response.ok) {
+    if (response.statusText === 'Not Found') 
+      throw new StrapiError('NOT_FOUND');
+    throw new StrapiError('UNKNOWN_ERROR', response.statusText);
   }
+
+  const json = await response.json();
+  return json;
 }
