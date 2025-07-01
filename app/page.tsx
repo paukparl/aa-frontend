@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { fetchData } from "@/lib/api";
 import { PaginatedEventResponse } from "@/lib/schemas";
 

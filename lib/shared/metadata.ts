@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { strapiImage } from '../api/strapiImage';
 
 export function generateMetadataObject(seo: any) {

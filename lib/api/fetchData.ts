@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { draftMode } from "next/headers";
 import qs from "qs";
 
