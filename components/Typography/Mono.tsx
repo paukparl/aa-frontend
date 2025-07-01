@@ -1,7 +1,7 @@
 // Add children as object instead of string
 // depending on output from Strapi
-import React from 'react';
-import clsx from 'clsx';
+import clsx from "clsx";
+import React from "react";
 
 type MonoProps = {
   children: string;

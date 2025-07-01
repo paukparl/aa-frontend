@@ -1,23 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-
-import { Caption } from '../components/Typography/Caption';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Caption } from "../components/Typography/Caption";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Typography/Caption',
+  title: "Typography/Caption",
   component: Caption,
   parameters: {
     docs: {
       description: {
-        component: ' ',
+        component: " ",
       },
     },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    children: { control: 'text' },
+    children: { control: "text" },
   },
 } satisfies Meta<typeof Caption>;
 
@@ -27,6 +26,6 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    children: 'Caption Lorem Ipsum',
+    children: "Caption Lorem Ipsum",
   },
 };

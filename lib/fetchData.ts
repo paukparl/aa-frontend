@@ -16,9 +16,12 @@ import qs from "qs";
   Read more about Strapi's populate syntax here:
   https://docs.strapi.io/cms/api/rest/populate-select
 */
-type PopulateClause = string | string[] | {
-  [key: string]: string | string[] | StrapiFetchOptions
-}
+type PopulateClause =
+  | string
+  | string[]
+  | {
+      [key: string]: string | string[] | StrapiFetchOptions;
+    };
 
 /*
   Read more about Strapi's filter syntax here:
@@ -38,7 +41,7 @@ type FilterClause = {
     $ncontains?: string;
     $null?: boolean;
   };
-}
+};
 
 export type StrapiFetchOptions = {
   sort?: Record<string, "asc" | "desc"> | string;
@@ -49,7 +52,7 @@ export type StrapiFetchOptions = {
   };
   populate?: PopulateClause;
   filters?: FilterClause;
-}
+};
 
 /*
   Just in case the back-end's controller supports some custom parameters
@@ -61,17 +64,17 @@ type FetchDataOptions = StrapiFetchOptions & {
 
 export class StrapiError extends Error {
   constructor(
-    public type: 'NOT_FOUND' | 'UNKNOWN_ERROR',
-    message?: string
+    public type: "NOT_FOUND" | "UNKNOWN_ERROR",
+    message?: string,
   ) {
     super(message);
-    this.name = 'StrapiError';
+    this.name = "StrapiError";
   }
 }
 
 export async function fetchData<T>(
   path: string,
-  options: FetchDataOptions = {}
+  options: FetchDataOptions = {},
 ): Promise<T> {
   const { isEnabled: draftModeEnabled } = await draftMode();
 
@@ -80,14 +83,13 @@ export async function fetchData<T>(
 
   const queryString = qs.stringify({
     ...params,
-    ...(draftModeEnabled ? { status: "draft" } : {})
-  }
-);
+    ...(draftModeEnabled ? { status: "draft" } : {}),
+  });
 
   // Construct the full URL for the API request
   const endpoint = new URL(
     `api/${safePath}?${queryString}`,
-    process.env.BACKEND_API_URL
+    process.env.BACKEND_API_URL,
   );
 
   // Perform the fetch request with the provided query parameters
@@ -101,9 +103,8 @@ export async function fetchData<T>(
   });
 
   if (!response.ok) {
-    if (response.statusText === 'Not Found') 
-      throw new StrapiError('NOT_FOUND');
-    throw new StrapiError('UNKNOWN_ERROR', response.statusText);
+    if (response.statusText === "Not Found") throw new StrapiError("NOT_FOUND");
+    throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
 
   const json = await response.json();

@@ -31,5 +31,3 @@ jobs:
           git fetch gitlab main
           # Push commits from the main branch to GitLab
           git push gitlab main
-
-

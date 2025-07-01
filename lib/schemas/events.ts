@@ -8,12 +8,13 @@ export const eventPreview = z.object({
   date_time: z.string().nullable(),
 });
 
-export const eventDetail = eventPreview.extend({
-  location: z.string().nullable(),
-  description: z.string().nullable(),
-}).nullable();
+export const eventDetail = eventPreview
+  .extend({
+    location: z.string().nullable(),
+    description: z.string().nullable(),
+  })
+  .nullable();
 
 export const getEventsData = getManyRes(eventPreview);
 
 export const getEventData = getOneRes(eventDetail);
-
