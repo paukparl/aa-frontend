@@ -16,8 +16,8 @@
   /* Reset fonts */
   --font-*: initial;
   --font-diatype: var(--font-diatype-src), monospace;
-  --font-nhgdisplay: var(--font-nhgdisplay-src), sans-serif;
-  --font-nhgtext: var(--font-nhgtext-src), sans-serif;
+  --font-nhg-display: var(--font-nhg-display-src), sans-serif;
+  --font-nhg-text: var(--font-nhg-text-src), sans-serif;
 
   /* Colors */
   --color-*: initial;
@@ -88,21 +88,21 @@
 
 @layer utilities {
   .h1 {
-    @apply font-nhgdisplay text-2xl font-medium sm:text-5xl;
+    @apply font-nhg-display text-2xl font-medium sm:text-5xl;
   }
   .h1-tipin {
     @apply font-diatype text-2xl sm:text-5xl;
   }
   .h2 {
-    @apply font-nhgdisplay text-2xl font-medium sm:text-4xl xl:text-5xl;
+    @apply font-nhg-display text-2xl font-medium sm:text-4xl xl:text-5xl;
   }
   .body {
-    @apply font-nhgtext text-base sm:text-xl;
+    @apply font-nhg-text text-base sm:text-xl;
   }
   .mono {
     @apply font-diatype text-sm sm:text-lg;
   }
   .caption {
-    @apply font-nhgtext text-xs font-medium sm:text-base sm:font-bold;
+    @apply font-nhg-text text-xs font-medium sm:text-base sm:font-bold;
   }
 }

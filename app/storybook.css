@@ -72,6 +72,6 @@
 }
 :root {
   --font-diatype: "ABCDiatypeRoundedMono";
-  --font-nhgdisplay: "NHaasGroteskDSPro";
-  --font-nhgtext: "NHaasGroteskTXPro";
+  --font-nhg-display: "NHaasGroteskDSPro";
+  --font-nhg-text: "NHaasGroteskTXPro";
 }

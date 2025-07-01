@@ -11,8 +11,8 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1 className="font-nhgdisplay font-medium">Welcome to the Home Page</h1>
-      <p className="font-nhgtext italic">
+      <h1 className="font-nhg-display font-medium">Welcome to the Home Page</h1>
+      <p className="font-nhg-text italic">
         This is the main entry point of the application.
       </p>
       <pre className="font-diatype overflow-scroll">

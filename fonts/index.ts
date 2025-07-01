@@ -29,18 +29,18 @@ const diatype = localFont({
   display: "swap",
 });
 
-const nhgdisplay = localFont({
+const nhgDisplay = localFont({
   src: [
     { path: "./NHaasGroteskDSPro-55Rg.ttf", weight: "400", style: "normal" },
     { path: "./NHaasGroteskDSPro-56It.ttf", weight: "400", style: "italic" },
     { path: "./NHaasGroteskDSPro-65Md.ttf", weight: "500", style: "normal" },
     { path: "./NHaasGroteskDSPro-66MdIt.ttf", weight: "500", style: "italic" },
   ],
-  variable: "--font-nhgdisplay-src",
+  variable: "--font-nhg-display-src",
   display: "swap",
 });
 
-const nhgtext = localFont({
+const nhgText = localFont({
   src: [
     { path: "./NHaasGroteskTXPro-55Rg.ttf", weight: "400", style: "normal" },
     { path: "./NHaasGroteskTXPro-56It.ttf", weight: "400", style: "italic" },
@@ -49,12 +49,12 @@ const nhgtext = localFont({
     { path: "./NHaasGroteskTXPro-75Bd.ttf", weight: "700", style: "normal" },
     { path: "./NHaasGroteskTXPro-76BdIt.ttf", weight: "700", style: "italic" },
   ],
-  variable: "--font-nhgtext-src",
+  variable: "--font-nhg-text-src",
   display: "swap",
 });
 
 export const fonts = {
   diatype,
-  nhgdisplay,
-  nhgtext,
+  nhgDisplay,
+  nhgText,
 };

@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${fonts.diatype.variable} ${fonts.nhgdisplay.variable} ${fonts.nhgtext.variable} text-black antialiased`}
+      className={`${fonts.diatype.variable} ${fonts.nhgDisplay.variable} ${fonts.nhgText.variable} text-black antialiased`}
     >
       <body>{children}</body>
     </html>
