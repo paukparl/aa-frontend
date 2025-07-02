@@ -5,7 +5,7 @@ import {
   getEventData,
   getEventsData,
 } from "@/lib/schemas/events";
-import { file, image, video } from "@/lib/schemas/shared";
+import { document, file, image, video } from "@/lib/schemas/shared";
 
 // When importing files, use named imports for treeshaking
 
