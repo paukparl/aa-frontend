@@ -1,5 +1,5 @@
-import { getEvent } from "@/api/getEvent";
-import { getEvents } from "@/api/getEvents";
+// import { getEvent } from "@/api/getEvent";
+// import { getEvents } from "@/api/getEvents";
 import DTACarousel from "../components/DTA/DTACarousel";
 import { H2 } from "../components/Typography/H2";
 import { Mono } from "../components/Typography/Mono";
