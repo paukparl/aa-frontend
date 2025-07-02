@@ -1,5 +1,5 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
+import React from "react";
 
 interface DynamicZoneComponent {
   __component: string;
@@ -12,21 +12,23 @@ interface Props {
 }
 
 const componentMapping: { [key: string]: React.ComponentType } = {
-  'dynamic-zone.example': dynamic(() => import('./example').then(mod => mod.Example), { ssr: false }),
-}
+  "dynamic-zone.example": dynamic(
+    () => import("./example").then((mod) => mod.Example),
+    { ssr: false },
+  ),
+};
 
 const DynamicZoneManager: React.FC<Props> = ({ dynamicZone }) => {
   return (
     <div>
-      {
-        dynamicZone.map((componentData) => {
-          const Component = componentMapping[componentData.__component];
-          if (!Component) {
-            console.warn(`No component found for: ${componentData.__component}`);
-            return null;
-          }
-          return <Component key={componentData.id} {...componentData} />;
-        })}
+      {dynamicZone.map((componentData) => {
+        const Component = componentMapping[componentData.__component];
+        if (!Component) {
+          console.warn(`No component found for: ${componentData.__component}`);
+          return null;
+        }
+        return <Component key={componentData.id} {...componentData} />;
+      })}
     </div>
   );
 };

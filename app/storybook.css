@@ -5,73 +5,73 @@
    and is not included in the Next dev or build */
 
 @font-face {
-  font-family: 'ABCDiatypeRoundedMono';
-  src: url('/fonts/ABCDiatypeRoundedMono-Regular-Trial.woff2') format('woff2');
+  font-family: "ABCDiatypeRoundedMono";
+  src: url("/fonts/ABCDiatypeRoundedMono-Regular-Trial.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'NHaasGroteskDSPro';
-  src: url('/fonts/NHaasGroteskDSPro-55Rg.ttf') format('truetype');
+  font-family: "NHaasGroteskDSPro";
+  src: url("/fonts/NHaasGroteskDSPro-55Rg.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'NHaasGroteskDSPro';
-  src: url('/fonts/NHaasGroteskDSPro-55It.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'NHaasGroteskDSPro';
-  src: url('/fonts/NHaasGroteskDSPro-65Md.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NHaasGroteskDSPro';
-  src: url('/fonts/NHaasGroteskDSPro-65MdIt.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'NHaasGroteskTXPro';
-  src: url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NHaasGroteskTXPro';
-  src: url('/fonts/NHaasGroteskTXPro-56It.ttf') format('truetype');
+  font-family: "NHaasGroteskDSPro";
+  src: url("/fonts/NHaasGroteskDSPro-55It.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: 'NHaasGroteskTXPro';
-  src: url('/fonts/NHaasGroteskTXPro-65Md.ttf') format('truetype');
+  font-family: "NHaasGroteskDSPro";
+  src: url("/fonts/NHaasGroteskDSPro-65Md.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'NHaasGroteskTXPro';
-  src: url('/fonts/NHaasGroteskTXPro-65MdId.ttf') format('truetype');
+  font-family: "NHaasGroteskDSPro";
+  src: url("/fonts/NHaasGroteskDSPro-65MdIt.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
-  font-family: 'NHaasGroteskTXPro';
-  src: url('/fonts/NHaasGroteskTXPro-75Bd.ttf') format('truetype');
+  font-family: "NHaasGroteskTXPro";
+  src: url("/fonts/NHaasGroteskTXPro-55Rg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NHaasGroteskTXPro";
+  src: url("/fonts/NHaasGroteskTXPro-56It.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "NHaasGroteskTXPro";
+  src: url("/fonts/NHaasGroteskTXPro-65Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NHaasGroteskTXPro";
+  src: url("/fonts/NHaasGroteskTXPro-65MdId.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "NHaasGroteskTXPro";
+  src: url("/fonts/NHaasGroteskTXPro-75Bd.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'NHaasGroteskTXPro';
-  src: url('/fonts/NHaasGroteskTXPro-76BdIt.ttf') format('truetype');
+  font-family: "NHaasGroteskTXPro";
+  src: url("/fonts/NHaasGroteskTXPro-76BdIt.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
 }
 :root {
-  --font-diatype: 'ABCDiatypeRoundedMono';
-  --font-nhgdisplay: 'NHaasGroteskDSPro';
-  --font-nhgtext: 'NHaasGroteskTXPro';
+  --font-diatype: "ABCDiatypeRoundedMono";
+  --font-nhg-display: "NHaasGroteskDSPro";
+  --font-nhg-text: "NHaasGroteskTXPro";
 }

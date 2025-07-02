@@ -1,22 +1,20 @@
-import { z } from "zod";
-import {
-  MediaSchema,
-  RecordResponseSchema,
-  PaginatedResponseSchema,
-} from "./fetchData";
+import z from "zod/v4";
+import { getManyRes, getOneRes, image } from "@/lib/schemas/shared";
 
-export const EventSchema = z.object({
-  title: z.string(),
-  description: z.string().nullable().optional(),
-  date: z.string(), // ISO date string
-  location: z.string().nullable().optional(),
-  image: MediaSchema.optional(),
+export const eventPreview = z.object({
+  title: z.string().nullable(),
+  short_description: z.string().nullable(),
+  image: image.nullable(),
+  date_time: z.string().nullable(),
 });
 
-export type Event = z.infer<typeof EventSchema>;
+export const eventDetail = eventPreview
+  .extend({
+    location: z.string().nullable(),
+    description: z.string().nullable(),
+  })
+  .nullable();
 
-export const EventResponseSchema = RecordResponseSchema(EventSchema);
-export type EventResponse = z.infer<typeof EventResponseSchema>;
+export const getEventsData = getManyRes(eventPreview);
 
-export const PaginatedEventResponseSchema = PaginatedResponseSchema(EventSchema);
-export type PaginatedEventResponse = z.infer<typeof PaginatedEventResponseSchema>;
+export const getEventData = getOneRes(eventDetail);

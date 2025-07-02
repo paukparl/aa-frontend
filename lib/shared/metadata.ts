@@ -1,20 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { strapiImage } from '../api/strapiImage';
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateMetadataObject(seo: any) {
   return {
-    title: seo?.metaTitle || 'Default Title', // Fallback to 'Default Title' if title is not provided
-    description: seo?.metaDescription || 'Default Description', // Fallback to 'Default Description'
+    title: seo?.metaTitle || "Default Title", // Fallback to 'Default Title' if title is not provided
+    description: seo?.metaDescription || "Default Description", // Fallback to 'Default Description'
     openGraph: {
-      title: seo?.ogTitle || seo?.metaTitle || 'Default OG Title',
-      description: seo?.ogDescription || seo?.metaDescription || 'Default OG Description',
-      images: seo?.metaImage ? [{ url: strapiImage(seo?.metaImage.url) }] : [],
+      title: seo?.ogTitle || seo?.metaTitle || "Default OG Title",
+      description:
+        seo?.ogDescription || seo?.metaDescription || "Default OG Description",
+      images: seo?.metaImage ? [{ url: seo?.metaImage.url }] : [],
     },
     twitter: {
-      card: seo?.twitterCard || 'summary_large_image',
-      title: seo?.twitterTitle || seo?.metaTitle || 'Default Twitter Title',
-      description: seo?.twitterDescription || seo?.metaDescription || 'Default Twitter Description',
+      card: seo?.twitterCard || "summary_large_image",
+      title: seo?.twitterTitle || seo?.metaTitle || "Default Twitter Title",
+      description:
+        seo?.twitterDescription ||
+        seo?.metaDescription ||
+        "Default Twitter Description",
       images: seo?.twitterImage ? [{ url: seo.twitterImage }] : [],
     },
-  }
+  };
 }
