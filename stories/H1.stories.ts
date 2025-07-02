@@ -23,6 +23,9 @@ const meta = {
         disable: true,
       },
     },
+    className: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof H1>;
 

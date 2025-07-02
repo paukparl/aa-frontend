@@ -18,6 +18,9 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     children: { control: "text" },
+    className: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof Mono>;
 
