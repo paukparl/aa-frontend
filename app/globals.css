@@ -14,6 +14,24 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .dta_griditem_bg {
+    background-size: 20px 20px;
+    background-color: var(--color-dta-map-highlight);
+    background-image:
+      linear-gradient(
+        to right,
+        var(--color-dta-map-background) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        var(--color-dta-map-background) 1px,
+        transparent 1px
+      );
+  }
+  .sb-show-main.sb-main-padded {
+    padding: 0px !important;
+  }
 }
 
 @theme inline {
@@ -34,15 +52,15 @@
   --color-main-white: #fff;
   --color-main-black: #000;
   --color-main-seasonal: #91ff8b;
-  --color-dta-map-background-color: #1d453f;
-  --color-dta-map-foreground-color: #ffffff;
-  --color-dta-map-highlight-color: #7c6d5a;
-  --color-dta-people-foreground-color: #1d453f;
-  --color-dta-institutions-foreground-color: #150d50;
-  --color-dta-practices-foreground-color: #732e5b;
-  --color-dta-collections-foreground-color: #531111;
-  --color-dta-about-foreground-color: #1d453f;
-  --color-dta-search-foreground-color: #1d453f;
+  --color-dta-map-background: #1d453f;
+  --color-dta-map-foreground: #ffffff;
+  --color-dta-map-highlight: #7c6d5a;
+  --color-dta-people-foreground: #1d453f;
+  --color-dta-institutions-foreground: #150d50;
+  --color-dta-practices-foreground: #732e5b;
+  --color-dta-collections-foreground: #531111;
+  --color-dta-about-foreground: #1d453f;
+  --color-dta-search-foreground: #1d453f;
 }
 
 @layer utilities {

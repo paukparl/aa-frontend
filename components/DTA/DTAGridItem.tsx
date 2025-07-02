@@ -44,7 +44,7 @@ export const DTAGridItemPeople = ({
     <div
       className={clsx(
         className,
-        "text-dta_people_foreground_color leading-[0px]",
+        "text-color-dta-people-foreground leading-[0px]",
       )}
     >
       {image ? (
@@ -84,7 +84,7 @@ export const DTAGridItemInstitutions = ({
   className,
 }: DTAGridItemInstitutionsProps) => {
   return (
-    <div className={clsx(className, "text-dta_institutions_foreground_color")}>
+    <div className={clsx(className, "text-color-dta-institutions-foreground")}>
       {image ? (
         <img
           src={imgSrc}
@@ -117,7 +117,7 @@ export const DTAGridItemCollections = ({
   className,
 }: DTAGridItemCollectionsProps) => {
   return (
-    <div className={clsx(className, "text-dta_collections_foreground_color")}>
+    <div className={clsx(className, "text-color-dta-collections-foreground")}>
       {image ? (
         <img src={imgSrc} alt={imgAlt} className="mb-1 h-auto" />
       ) : (
@@ -145,7 +145,7 @@ export const DTAGridItemPractices = ({
     <div
       className={clsx(
         className,
-        "text-dta_search_foreground_color border-dta_search_foreground_color aspect-[5/2] border border-dashed px-3 py-2",
+        "text-color-dta-search-foreground border-color-dta-search-foreground aspect-[5/2] border border-dashed px-3 py-2",
       )}
     >
       {title != null && <Mono children={title} />}
