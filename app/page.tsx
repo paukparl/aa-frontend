@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { fetchData } from "@/lib/api";
 import { PaginatedEventResponse } from "@/lib/schemas";
 
 export default async function HomePage() {
-  const { data, meta } = await fetchData<PaginatedEventResponse>("/aa-events")
+  const { data, meta: _meta } = await fetchData<PaginatedEventResponse>("/aa-events")
   
 
   return (
