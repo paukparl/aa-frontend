@@ -1,10 +1,8 @@
-import { getEvent } from "@/api/getEvent";
-import { getEvents } from "@/api/getEvents";
+// TODO
+// prop validation that all items passed into items have the same type
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import DTACarousel from "../components/DTA/DTACarousel";
-import { H2 } from "../components/Typography/H2";
-import { Mono } from "../components/Typography/Mono";
 
-// import { notFound } from "next/navigation";
 const mockCarouselSlides = [
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
@@ -38,27 +36,32 @@ const mockCarouselSlides = [
   },
 ];
 
-export default async function HomePage() {
-  // const events = await getEvents();
-  // const event = await getEvent("0ti9pv2j81biuysjih7v7ilx1");
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const meta = {
+  title: "DTA/components/Carousel/Carousel",
+  component: DTACarousel,
+  parameters: {
+    docs: {
+      description: {
+        component: " ",
+      },
+    },
+    layout: "centered",
+  },
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    carouselSlides: {
+      table: { disable: true },
+    },
+  },
+} satisfies Meta<typeof DTACarousel>;
 
-  // if (!event) notFound()
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-  return (
-    <div>
-      <h1 className="h1">Welcome to the Home Page</h1>
-      <H2 children="heree" />
-      <Mono children="momnooooo" />
-      <p className="font-nhg-text italic">
-        This is the main entry point of the application.
-      </p>
-      <pre className="font-diatype overflow-scroll">
-        {/* {JSON.stringify(events, null, 2)} */}
-      </pre>
-      <pre className="font-diatype overflow-scroll">
-        {/* {JSON.stringify(event, null, 2)} */}
-      </pre>
-      <DTACarousel carouselSlides={mockCarouselSlides} />
-    </div>
-  );
-}
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const Default: Story = {
+  args: {
+    carouselSlides: mockCarouselSlides,
+  },
+};

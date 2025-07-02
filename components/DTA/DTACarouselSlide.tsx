@@ -18,7 +18,7 @@ export const DTACarouselSlide = ({
   className,
 }: DTACarouselSlideProps) => {
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, "w-fit")}>
       <img
         src={imgSrc}
         alt={imgAlt}
