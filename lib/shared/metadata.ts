@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateMetadataObject(seo: any) {
   return {
     title: seo?.metaTitle || "Default Title", // Fallback to 'Default Title' if title is not provided
