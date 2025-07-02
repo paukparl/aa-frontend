@@ -1,6 +1,7 @@
 import { getEvent } from "@/api/getEvent";
 import { getEvents } from "@/api/getEvents";
 import { H2 } from "../components/Typography/H2";
+import { Mono } from "../components/Typography/Mono";
 
 // import { notFound } from "next/navigation";
 
@@ -14,6 +15,7 @@ export default async function HomePage() {
     <div>
       <h1 className="h1">Welcome to the Home Page</h1>
       <H2 children="heree" />
+      <Mono children="momnooooo" />
       <p className="font-nhg-text italic">
         This is the main entry point of the application.
       </p>

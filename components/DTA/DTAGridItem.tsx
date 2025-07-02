@@ -56,10 +56,10 @@ export const DTAGridItemPeople = ({
       ) : (
         <div className="dta_griditem_bg mb-2 aspect-[4/5] h-auto w-full lg:mb-3"></div>
       )}
-      {title != null && <Mono content={title} />}
+      {title != null && <Mono children={title} />}
       {date != null && (
         <div className="mt-2">
-          <Mono content={date} />
+          <Mono children={date} />
         </div>
       )}
     </div>
@@ -94,7 +94,7 @@ export const DTAGridItemInstitutions = ({
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-[4/3] h-auto w-full object-cover"></div>
       )}
-      {title != null && <Mono content={title} />}
+      {title != null && <Mono children={title} />}
     </div>
   );
 };
@@ -123,7 +123,7 @@ export const DTAGridItemCollections = ({
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-square"></div>
       )}
-      {title != null && <Mono content={title} />}
+      {title != null && <Mono children={title} />}
     </div>
   );
 };
@@ -148,11 +148,11 @@ export const DTAGridItemPractices = ({
         "text-dta_search_foreground_color border-dta_search_foreground_color aspect-[5/2] border border-dashed px-3 py-2",
       )}
     >
-      {title != null && <Mono content={title} />}
+      {title != null && <Mono children={title} />}
       {country != null && (
         <>
           <br />
-          <Mono content={country} className="" />
+          <Mono children={country} className="" />
         </>
       )}
     </div>
