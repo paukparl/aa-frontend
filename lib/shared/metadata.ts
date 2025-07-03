@@ -1,6 +1,6 @@
 import { Schema } from "@/lib/schemas";
 
-export function generateMetadataObject(seo: Schema<"seo">) {
+export function generateMetadataObject(seo?: Schema<"seo">) {
   return {
     title: seo?.metaTitle || "Default Title", // Fallback to 'Default Title' if title is not provided
     description: seo?.metaDescription || "Default Description", // Fallback to 'Default Description'
