@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTATooltip from "../components/DTA/DTATooltip";
+import DTATooltipCard from "../components/DTA/DTATooltipCard";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/Components/Tooltip/Tooltip",
-  component: DTATooltip,
+  title: "DTA/Components/Tooltip/Tooltip Card",
+  component: DTATooltipCard,
   parameters: {
     docs: {
       description: {
-        component: " ",
+        component: "To do: style for mobile, confirm with Kyla",
       },
     },
     backgrounds: {
@@ -19,11 +19,12 @@ const meta = {
     },
     layout: "centered",
   },
+  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     className: { control: "text" },
   },
-} satisfies Meta<typeof DTATooltip>;
+} satisfies Meta<typeof DTATooltipCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -31,7 +32,20 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    className: "",
+    items: [
+      {
+        type: "person",
+        name: "George Bernard Finch",
+        practice: "London City Council",
+      },
+      {
+        type: "event",
+        eventInfo:
+          "In 1972, Handel Kitchiner becomes the Dean of the University of Edinburgh.",
+        person: "John Doe",
+        practice: "Turkish Architecture",
+      },
+    ],
   },
   globals: {
     backgrounds: { value: "dark" },

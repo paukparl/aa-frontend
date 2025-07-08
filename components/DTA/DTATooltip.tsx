@@ -16,21 +16,25 @@ export default ({ className }: DTATooltipProps) => {
           </Tooltip.Trigger>
           <Tooltip.Portal>
             <Tooltip.Content
-              className="data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade rounded bg-white px-[15px] py-2.5 text-[15px] leading-none shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] select-none"
+              className="data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade will-change-[transform,opacity]"
               sideOffset={5}
             >
               <DTATooltipCard
                 items={[
-                  { type: "person", name: "Jane Doe", practice: "practice" },
+                  {
+                    type: "person",
+                    name: "George Bernard Finch",
+                    practice: "London City Council",
+                  },
                   {
                     type: "event",
-                    person: "John Smith",
-                    eventInfo: "Design Conference",
-                    practice: "2024-10-12",
+                    eventInfo:
+                      "In 1972, Handel Kitchiner becomes the Dean of the University of Edinburgh.",
+                    person: "John Doe",
+                    practice: "Turkish Architecture",
                   },
                 ]}
               />
-              <Tooltip.Arrow className="fill-white" />
             </Tooltip.Content>
           </Tooltip.Portal>
         </Tooltip.Root>
