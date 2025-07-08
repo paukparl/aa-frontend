@@ -103,7 +103,8 @@ export async function fetchData<T>(
   });
 
   if (!response.ok) {
-    if (response.statusText === "Not Found") throw new StrapiError("NOT_FOUND");
+    if (response.statusText === "Not Found")
+      throw new StrapiError("NOT_FOUND", "Resource not found");
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
 
