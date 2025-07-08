@@ -3,7 +3,7 @@ import DTAGridItem from "../components/DTA/DTAGridItem";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/components/Grid/Item",
+  title: "DTA/Components/Grid/Item",
   component: DTAGridItem,
   parameters: {
     docs: {

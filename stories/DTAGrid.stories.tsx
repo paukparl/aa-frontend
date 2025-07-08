@@ -150,7 +150,7 @@ const practicesItems = [
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/components/Grid/Grid",
+  title: "DTA/Components/Grid/Grid",
   component: DTAGrid,
   parameters: {
     docs: {

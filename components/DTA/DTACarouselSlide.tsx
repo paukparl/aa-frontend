@@ -24,7 +24,12 @@ export const DTACarouselSlide = ({
         alt={imgAlt}
         className="mb-1 h-[180px] w-auto sm:h-[370px] xl:h-[515px]"
       />
-      {caption != null && <Caption children={caption} />}
+      {caption != null && (
+        <Caption
+          className="text-color-dta-about-foreground"
+          children={caption}
+        />
+      )}
     </div>
   );
 };
