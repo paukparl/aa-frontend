@@ -13,7 +13,8 @@ export async function getEvent(id: string) {
     return data;
   } catch (error) {
     if (error instanceof StrapiError) {
-      if (error.name === "NOT_FOUND") return null;
+      if (error.type === "NOT_FOUND") return null;
+      console.error(error);
     }
   }
 }

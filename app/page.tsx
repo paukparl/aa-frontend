@@ -1,13 +1,9 @@
 import { getEvent } from "@/api/getEvent";
 import { getEvents } from "@/api/getEvents";
 
-// import { notFound } from "next/navigation";
-
 export default async function HomePage() {
   const events = await getEvents();
-  const event = await getEvent("0ti9pv2j81biuysjih7v7ilx1");
-
-  // if (!event) notFound()
+  const event = await getEvent("nonexistent-id");
 
   return (
     <div>
