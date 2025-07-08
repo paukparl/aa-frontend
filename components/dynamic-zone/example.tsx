@@ -2,6 +2,6 @@
 
 import React from "react";
 
-export const Example = (props: any) => {
+export const Example = (_props: unknown) => {
   return <div></div>;
 };

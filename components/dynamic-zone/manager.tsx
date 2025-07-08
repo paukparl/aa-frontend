@@ -4,14 +4,14 @@ import React from "react";
 interface DynamicZoneComponent {
   __component: string;
   id: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface Props {
   dynamicZone: DynamicZoneComponent[];
 }
 
-const componentMapping: { [key: string]: any } = {
+const componentMapping: { [key: string]: React.ComponentType } = {
   "dynamic-zone.example": dynamic(
     () => import("./example").then((mod) => mod.Example),
     { ssr: false },

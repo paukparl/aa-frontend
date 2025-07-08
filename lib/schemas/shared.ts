@@ -51,6 +51,8 @@ export const image = mediaBase.extend({
     .nullable(),
 });
 
+export const media = z.union([image, video, file]);
+
 export const getOneRes = <T extends z.ZodType>(schema: T) =>
   z.object({
     data: document.and(schema),
@@ -69,3 +71,14 @@ export const getManyRes = <T extends z.ZodType>(schema: T) =>
       }),
     }),
   });
+
+export const seo = z.object({
+  metaTitle: z.string(),
+  metaDescription: z.string(),
+  metaImage: media.nullable(),
+  metaRobots: z.string().nullable(),
+  metaViewport: z.string().nullable(),
+  canonicalURL: z.string().nullable(),
+  keywords: z.string().nullable(),
+  structuredData: z.object({}).loose(),
+});
