@@ -1,6 +1,6 @@
 import { Tooltip } from "radix-ui";
 import * as React from "react";
-import DTATooltipCard from "@/components/DTA/DTATooltipCard";
+import DTATooltipCard from "@/components/DTA/components/DTATooltipCard";
 
 type DTATooltipProps = {
   className?: string;

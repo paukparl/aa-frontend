@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback, useEffect } from "react";
-import { DTACarouselSlide } from "./DTACarouselSlide";
+import { DTACarouselSlide } from "../components/DTACarouselSlide";
 
 // TODO
 // Add tail to carousel so last slide aligns left

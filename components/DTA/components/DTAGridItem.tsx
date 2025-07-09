@@ -4,7 +4,7 @@
 // add "see more" buttons (from figma component tab, not main mockup)
 import clsx from "clsx";
 import React from "react";
-import { Mono } from "../Typography/Mono";
+import { Mono } from "@/components/Typography/Mono";
 
 type DTAGridItemProps = {
   image: boolean;

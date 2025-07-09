@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTATextSingleCol from "../components/DTA/DTATextSingleCol";
+import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/Layouts/Single Column Content",
-  component: DTATextSingleCol,
+  title: "DTA/02 Layouts/Single Column Content",
+  component: DTAContentSingleCol,
   parameters: {
     docs: {
       description: {
@@ -22,7 +22,7 @@ const meta = {
       table: { disable: true },
     },
   },
-} satisfies Meta<typeof DTATextSingleCol>;
+} satisfies Meta<typeof DTAContentSingleCol>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

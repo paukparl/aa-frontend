@@ -1,6 +1,6 @@
 import * as React from "react";
-import { H1 } from "../Typography/H1";
-import { Mono } from "../Typography/Mono";
+import { H1 } from "@/components/Typography/H1";
+import { Mono } from "@/components/Typography/Mono";
 
 type PersonItem = {
   type: "person";

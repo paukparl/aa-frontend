@@ -1,7 +1,7 @@
 // TODO
 // prop validation that all items passed into items have the same type
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTACarousel from "../components/DTA/DTACarousel";
+import DTACarousel from "../components/DTA/layouts/DTACarousel";
 
 const mockCarouselSlides = [
   {
@@ -38,7 +38,7 @@ const mockCarouselSlides = [
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/Components/Carousel/Carousel",
+  title: "DTA/02 Layouts/Carousel",
   component: DTACarousel,
   parameters: {
     docs: {

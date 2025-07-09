@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTATooltip from "../components/DTA/DTATooltip";
+import DTATooltip from "../components/DTA/components/DTATooltip";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/Components/Tooltip/Tooltip",
+  title: "DTA/03 Components/Tooltip/Tooltip",
   component: DTATooltip,
   parameters: {
     docs: {

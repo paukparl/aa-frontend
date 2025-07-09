@@ -2,7 +2,7 @@
 // add width cutoff for caption
 import clsx from "clsx";
 import React from "react";
-import { Caption } from "../Typography/Caption";
+import { Caption } from "@/components/Typography/Caption";
 
 type DTACarouselSlideProps = {
   imgSrc: string;

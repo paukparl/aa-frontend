@@ -1,7 +1,7 @@
 // TODO
 // prop validation that all items passed into items have the same type
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTAGrid from "../components/DTA/DTAGrid";
+import DTAGrid from "../components/DTA/layouts/DTAGrid";
 
 const peopleItems = [
   {
@@ -150,7 +150,7 @@ const practicesItems = [
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/Components/Grid/Grid",
+  title: "DTA/02 Layouts/Grid",
   component: DTAGrid,
   parameters: {
     docs: {

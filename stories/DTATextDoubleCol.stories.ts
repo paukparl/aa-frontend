@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTATextDoubleCol from "../components/DTA/DTATextDoubleCol";
+import DTAContentDoubleCol from "../components/DTA/layouts/DTAContentDoubleCol";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/Layouts/Double Column Content",
-  component: DTATextDoubleCol,
+  title: "DTA/02 Layouts/Double Column Content",
+  component: DTAContentDoubleCol,
   parameters: {
     docs: {
       description: {
@@ -22,7 +22,7 @@ const meta = {
       table: { disable: true },
     },
   },
-} satisfies Meta<typeof DTATextDoubleCol>;
+} satisfies Meta<typeof DTAContentDoubleCol>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
