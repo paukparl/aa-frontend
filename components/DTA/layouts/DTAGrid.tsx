@@ -5,7 +5,12 @@ import clsx from "clsx";
 import React from "react";
 import DTAGridItem from "@/components/DTA/components/DTAGridItem";
 
-type GridType = "people" | "practices" | "collections" | "institutions";
+type GridType =
+  | "people"
+  | "practicesgrid"
+  | "practicestable"
+  | "collections"
+  | "institutions";
 
 type DTAGridProps = {
   items: Array<Record<string, any>>; // array of items with imgSrc, imgAlt, title, etc.
@@ -16,8 +21,9 @@ type DTAGridProps = {
 
 export default ({ items, type, className, context }: DTAGridProps) => {
   let gridTypeDict = {
-    practices:
+    practicesgrid:
       "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-5 lg:gap-5 p-5",
+    practicestable: "grid-cols-1",
     people:
       "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-[35px] md:gap-y-10 md:gap-x-5 lg:gap-y-20 lg:gap-x-5 p-5",
     collections:

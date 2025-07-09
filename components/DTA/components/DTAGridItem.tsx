@@ -117,7 +117,7 @@ export const DTAGridItemCollections = ({
   className,
 }: DTAGridItemCollectionsProps) => {
   return (
-    <div className={clsx(className, "text-color-dta-collections-foreground")}>
+    <div className={clsx(className, "text-dta-collections-foreground")}>
       {image ? (
         <img src={imgSrc} alt={imgAlt} className="mb-1 h-auto" />
       ) : (
@@ -145,7 +145,7 @@ export const DTAGridItemPractices = ({
     <div
       className={clsx(
         className,
-        "text-color-dta-search-foreground border-color-dta-search-foreground aspect-[5/2] border border-dashed px-3 py-2",
+        "text-dta-practices-foreground border-dta-practices-foreground aspect-[5/2] border border-dashed px-3 py-2",
       )}
     >
       {title != null && <Mono children={title} />}
@@ -155,6 +155,28 @@ export const DTAGridItemPractices = ({
           <Mono children={country} className="" />
         </>
       )}
+    </div>
+  );
+};
+
+export const DTAGridItemPracticesTable = ({
+  title,
+  className,
+  country,
+}: DTAGridItemPracticesProps) => {
+  return (
+    <div
+      className={clsx(
+        className,
+        "text-dta-practices-foreground border-dta-practices-foreground mb-[-1px] grid grid-cols-[75%_25%]",
+      )}
+    >
+      <div className="border border-dashed px-[20px] py-[12px]">
+        <Mono children={title} />
+      </div>
+      <div className="ml-[-1px] border border-dashed px-[20px] py-[12px]">
+        <Mono children={country} className="" />
+      </div>
     </div>
   );
 };
@@ -207,8 +229,17 @@ export default ({
         image,
       });
       break;
-    case "practices":
+    case "practicesgrid":
       return DTAGridItemPractices({ title, className, context, uid, country });
+      break;
+    case "practicestable":
+      return DTAGridItemPracticesTable({
+        title,
+        className,
+        context,
+        uid,
+        country,
+      });
       break;
     default:
       console.warn(`Unknown type: ${type}`);

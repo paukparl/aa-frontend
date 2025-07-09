@@ -123,28 +123,48 @@ const institutionsItems = [
 ];
 const practicesItems = [
   {
-    title: "Name of Practice",
-    country: "Country",
+    title: "Ministry of Works",
+    country: "Sierra Leone",
   },
   {
-    title: "Name of Practice",
-    country: "Country",
+    title: "Federal Ministry of Works and Housing, Headquarters",
+    country: "Lagos",
   },
   {
-    title: "Name of Practice",
-    country: "Country",
+    title: "Associated Design Forum, Aspen, Colorado",
+    country: "USA",
   },
   {
-    title: "Name of Practice",
-    country: "Country",
+    title: "Norman Cherner, New York",
+    country: "USA",
   },
   {
-    title: "Name of Practice",
-    country: "Country",
+    title: "Durham County Council, Durham",
+    country: "United Kingdom",
   },
   {
-    title: "Name of Practice",
-    country: "Country",
+    title: "Architects Co-Partnership, Tema, Ghana",
+    country: "USA",
+  },
+  {
+    title: "Lyles, Bissett, Carlyle and Wolff",
+    country: "USA",
+  },
+  {
+    title: "Public Works Department",
+    country: "Malaysia",
+  },
+  {
+    title: "Ghana Architectural and Civil Engineering Company",
+    country: "Ghana",
+  },
+  {
+    title: "Quine and Newberry, London",
+    country: "United Kingdom",
+  },
+  {
+    title: "Chartered surveyors",
+    country: "United Kingdom",
   },
 ];
 
@@ -168,7 +188,13 @@ const meta = {
   argTypes: {
     type: {
       control: "select",
-      options: ["people", "institutions", "practices", "collections"],
+      options: [
+        "people",
+        "institutions",
+        "practicesgrid",
+        "practicestable",
+        "collections",
+      ],
     },
     items: {
       table: { disable: true }, // hidden since we're setting it based on type
@@ -180,7 +206,8 @@ const meta = {
     const itemsMap = {
       people: peopleItems,
       institutions: institutionsItems,
-      practices: practicesItems,
+      practicesgrid: practicesItems,
+      practicestable: practicesItems,
       collections: collectionsItems,
     };
 

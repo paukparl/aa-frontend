@@ -89,12 +89,27 @@ export const Institutions: Story = {
     type: "institutions",
   },
 };
-export const Practices: Story = {
+export const PracticesGrid: Story = {
   args: {
     className: "w-[350px] h-fit sm:h-[145px] w-[300px]",
     title: "Ministry of Works",
     country: "Sierra Leone",
-    type: "practices",
+    type: "practicesgrid",
+  },
+  argTypes: {
+    image: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+};
+export const PracticesTable: Story = {
+  args: {
+    className: "w-[90vw]",
+    title: "Ministry of Works",
+    country: "Sierra Leone",
+    type: "practicestable",
   },
   argTypes: {
     image: {
