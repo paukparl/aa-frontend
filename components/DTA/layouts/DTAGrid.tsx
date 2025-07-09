@@ -17,12 +17,19 @@ type DTAGridProps = {
   type: GridType;
   context?: string; // for text color; grids on search + related pages will have different text color
   className?: string;
+  gridItemClassName?: string;
 };
 
-export default ({ items, type, className, context }: DTAGridProps) => {
+export default ({
+  items,
+  type,
+  className,
+  context,
+  gridItemClassName,
+}: DTAGridProps) => {
   let gridTypeDict = {
     practicesgrid:
-      "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-5 lg:gap-5 p-5",
+      "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-5 lg:gap-5 p-5",
     practicestable: "grid-cols-1",
     people:
       "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-[35px] md:gap-y-10 md:gap-x-5 lg:gap-y-20 lg:gap-x-5 p-5",
@@ -46,6 +53,7 @@ export default ({ items, type, className, context }: DTAGridProps) => {
           date={item.date}
           uid={item.uid}
           country={item.country}
+          gridItemClassName={gridItemClassName}
         />
       ))}
     </div>

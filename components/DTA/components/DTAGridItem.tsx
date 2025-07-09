@@ -17,6 +17,7 @@ type DTAGridItemProps = {
   uid?: string;
   date?: string;
   country?: string;
+  gridItemClassName?: string;
 };
 
 // Prop + component definitions for each type of grid item:
@@ -30,6 +31,7 @@ type DTAGridItemPeopleProps = {
   context?: string;
   uid?: string;
   date?: string;
+  gridItemClassName?: string;
 };
 
 export const DTAGridItemPeople = ({
@@ -39,14 +41,10 @@ export const DTAGridItemPeople = ({
   title,
   className,
   date,
+  gridItemClassName,
 }: DTAGridItemPeopleProps) => {
   return (
-    <div
-      className={clsx(
-        className,
-        "text-color-dta-people-foreground leading-[0px]",
-      )}
-    >
+    <div className={clsx(className, gridItemClassName, "leading-[0px]")}>
       {image ? (
         <img
           src={imgSrc}
@@ -74,6 +72,7 @@ type DTAGridItemInstitutionsProps = {
   className?: string;
   context?: string;
   uid?: string;
+  gridItemClassName?: string;
 };
 
 export const DTAGridItemInstitutions = ({
@@ -82,9 +81,10 @@ export const DTAGridItemInstitutions = ({
   imgAlt,
   title,
   className,
+  gridItemClassName,
 }: DTAGridItemInstitutionsProps) => {
   return (
-    <div className={clsx(className, "text-color-dta-institutions-foreground")}>
+    <div className={clsx(className, gridItemClassName, "")}>
       {image ? (
         <img
           src={imgSrc}
@@ -107,6 +107,7 @@ type DTAGridItemCollectionsProps = {
   className?: string;
   context?: string;
   uid?: string;
+  gridItemClassName?: string;
 };
 
 export const DTAGridItemCollections = ({
@@ -115,9 +116,10 @@ export const DTAGridItemCollections = ({
   imgAlt,
   title,
   className,
+  gridItemClassName,
 }: DTAGridItemCollectionsProps) => {
   return (
-    <div className={clsx(className, "text-dta-collections-foreground")}>
+    <div className={clsx(className, gridItemClassName)}>
       {image ? (
         <img src={imgSrc} alt={imgAlt} className="mb-1 h-auto" />
       ) : (
@@ -134,25 +136,28 @@ type DTAGridItemPracticesProps = {
   context?: string;
   country?: string;
   uid?: string;
+  gridItemClassName?: string;
 };
 
-export const DTAGridItemPractices = ({
+export const DTAGridItemPracticesGrid = ({
   title,
   className,
   country,
+  gridItemClassName,
 }: DTAGridItemPracticesProps) => {
   return (
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground border-dta-practices-foreground aspect-[5/2] border border-dashed px-3 py-2",
+        gridItemClassName,
+        "aspect-[5/2] border border-dashed px-3 py-2 leading-none",
       )}
     >
       {title != null && <Mono children={title} />}
       {country != null && (
         <>
           <br />
-          <Mono children={country} className="" />
+          <Mono children={country} className="block pt-[10px]" />
         </>
       )}
     </div>
@@ -163,18 +168,20 @@ export const DTAGridItemPracticesTable = ({
   title,
   className,
   country,
+  gridItemClassName,
 }: DTAGridItemPracticesProps) => {
   return (
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground border-dta-practices-foreground mb-[-1px] grid grid-cols-[75%_25%]",
+        gridItemClassName,
+        "mb-[-1px] grid grid-cols-[75%_25%]",
       )}
     >
-      <div className="border border-dashed px-[20px] py-[12px]">
+      <div className="border border-dashed px-[15px] py-[11px] leading-0 md:px-[20px] md:py-[12px]">
         <Mono children={title} />
       </div>
-      <div className="ml-[-1px] border border-dashed px-[20px] py-[12px]">
+      <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] leading-0 md:px-[20px] md:py-[12px]">
         <Mono children={country} className="" />
       </div>
     </div>
@@ -192,6 +199,7 @@ export default ({
   uid,
   country,
   image,
+  gridItemClassName,
 }: DTAGridItemProps) => {
   switch (type) {
     case "people":
@@ -230,7 +238,14 @@ export default ({
       });
       break;
     case "practicesgrid":
-      return DTAGridItemPractices({ title, className, context, uid, country });
+      return DTAGridItemPracticesGrid({
+        title,
+        className,
+        context,
+        uid,
+        country,
+        gridItemClassName,
+      });
       break;
     case "practicestable":
       return DTAGridItemPracticesTable({

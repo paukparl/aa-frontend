@@ -70,7 +70,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const People: Story = {
   args: {
-    className: "w-[150px] sm:w-[200px]",
+    className: "w-[150px] sm:w-[200px] text-dta-people-foreground",
     image: true,
     imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_1.jpg",
     imgAlt: "A portrait of hal lawson, blakc and white",
@@ -81,7 +81,7 @@ export const People: Story = {
 };
 export const Institutions: Story = {
   args: {
-    className: "w-[230px] sm:w-[420px]",
+    className: "w-[230px] sm:w-[420px] text-dta-institutions-foreground",
     image: true,
     imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
     imgAlt: "An image of a college building",
@@ -91,7 +91,8 @@ export const Institutions: Story = {
 };
 export const PracticesGrid: Story = {
   args: {
-    className: "w-[350px] h-fit sm:h-[145px] w-[300px]",
+    className:
+      "w-[350px] h-fit sm:h-[145px] w-[300px] text-dta-about-foreground",
     title: "Ministry of Works",
     country: "Sierra Leone",
     type: "practicesgrid",
@@ -106,7 +107,7 @@ export const PracticesGrid: Story = {
 };
 export const PracticesTable: Story = {
   args: {
-    className: "w-[90vw]",
+    className: "w-[90vw] text-dta-practices-foreground",
     title: "Ministry of Works",
     country: "Sierra Leone",
     type: "practicestable",
@@ -121,7 +122,7 @@ export const PracticesTable: Story = {
 };
 export const Collections: Story = {
   args: {
-    className: "w-[200px] sm:w-[250px]",
+    className: "w-[200px] sm:w-[250px] text-dta-collections-foreground",
     image: true,
     imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
     imgAlt: "Collection: Otto Koenigsberger Collection",

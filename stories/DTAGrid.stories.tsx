@@ -1,5 +1,3 @@
-// TODO
-// prop validation that all items passed into items have the same type
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import DTAGrid from "../components/DTA/layouts/DTAGrid";
 
@@ -175,51 +173,68 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dynamically renders a grid based on type (people, collections, etc.). Choose an option from the "type" field below.',
+        component: "",
       },
     },
   },
-  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   args: {
     type: "people",
   },
   argTypes: {
     type: {
-      control: "select",
-      options: [
-        "people",
-        "institutions",
-        "practicesgrid",
-        "practicestable",
-        "collections",
-      ],
+      table: {
+        disable: true,
+      },
     },
     items: {
-      table: { disable: true }, // hidden since we're setting it based on type
+      table: { disable: true },
     },
-  },
-  render: (args: { type: string; [key: string]: any }) => {
-    const { type, ...rest } = args;
-
-    const itemsMap = {
-      people: peopleItems,
-      institutions: institutionsItems,
-      practicesgrid: practicesItems,
-      practicestable: practicesItems,
-      collections: collectionsItems,
-    };
-
-    return <DTAGrid {...rest} type={type} items={itemsMap[type]} />;
+    gridItemClassName: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof DTAGrid>;
 
 export default meta;
 
-// Optional: single story for interaction
-export const Interactive: StoryObj<typeof meta> = {
+export const People: StoryObj<typeof meta> = {
   args: {
-    type: "people", // initial value
+    type: "people",
+    items: peopleItems,
+    className: "text-dta-people-foreground",
+  },
+};
+
+export const Collections: StoryObj<typeof meta> = {
+  args: {
+    type: "collections",
+    items: collectionsItems,
+    className: "text-dta-collections-foreground",
+  },
+};
+
+export const Institutions: StoryObj<typeof meta> = {
+  args: {
+    type: "institutions",
+    items: institutionsItems,
+    className: "text-dta-institutions-foreground",
+  },
+};
+
+export const PracticesGrid: StoryObj<typeof meta> = {
+  args: {
+    type: "practicesgrid",
+    items: practicesItems,
+    gridItemClassName:
+      "text-dta-people-foreground border-dta-people-foreground",
+  },
+};
+
+export const PracticesTable: StoryObj<typeof meta> = {
+  args: {
+    type: "practicestable",
+    items: practicesItems,
+    className: "text-dta-practices-foreground border-dta-practices-foreground",
   },
 };
