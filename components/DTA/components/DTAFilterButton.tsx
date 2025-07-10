@@ -43,13 +43,12 @@ export default ({
         className,
         (filterState === "expanded" || filterState === "applied") &&
           `${colorThemeDict[colorTheme].bg} text-white`,
-        "flex grid h-[55px] w-[100%] grid-cols-[40px_1fr] items-center border border-dashed px-[25px]",
+        "flex grid h-[50px] w-[100%] grid-cols-[35px_1fr] items-center border border-dashed px-[20px] sm:h-[55px] sm:grid-cols-[40px_1fr] sm:px-[25px]",
       )}
     >
       {filterState === "minimized" && (
         <svg
-          width="18"
-          height="18"
+          className="h-[15px] w-[15px] sm:h-[18px] sm:w-[18px]"
           viewBox="0 0 21 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -70,8 +69,7 @@ export default ({
       )}
       {filterState === "expanded" && (
         <svg
-          width="17"
-          height="5"
+          className="h-[auto] w-[14px] sm:w-[17px]"
           viewBox="0 0 20 5"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +84,7 @@ export default ({
       )}
       {filterState === "applied" && (
         <svg
-          width="18"
-          height="18"
+          className="h-[15px] w-[15px] sm:h-[18px] sm:w-[18px]"
           viewBox="0 0 23 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

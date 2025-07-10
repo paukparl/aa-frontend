@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 export const People: Story = {
   args: {
     children: "Filter by alphabet",
-    className: "w-[500px]",
+    className: "w-[90vw] sm:w-[500px]",
     filterState: "minimized",
     colorTheme: "people",
   },
@@ -45,7 +45,7 @@ export const People: Story = {
 export const Practices: Story = {
   args: {
     children: "Filter by alphabet",
-    className: "w-[500px]",
+    className: "w-[90vw] sm:w-[500px]",
     filterState: "minimized",
     colorTheme: "practices",
   },
@@ -53,7 +53,7 @@ export const Practices: Story = {
 export const Institutions: Story = {
   args: {
     children: "Filter by alphabet",
-    className: "w-[500px]",
+    className: "w-[90vw] sm:w-[500px]",
     filterState: "minimized",
     colorTheme: "institutions",
   },
@@ -61,7 +61,7 @@ export const Institutions: Story = {
 export const Collections: Story = {
   args: {
     children: "Filter by alphabet",
-    className: "w-[500px]",
+    className: "w-[90vw] sm:w-[500px]",
     filterState: "minimized",
     colorTheme: "collections",
   },
