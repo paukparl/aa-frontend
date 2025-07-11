@@ -1,43 +1,59 @@
 import clsx from "clsx";
 import * as React from "react";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
+import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
+import { Mono } from "@/components/Typography/Mono";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTAPracticesProps = {
   className?: string;
 };
 
-const mockCarouselSlides = [
+const mockPracticesSlides = [
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Ministry of Works",
+    country: "Sierra Leone",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_2.png",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Federal Ministry of Works and Housing, Headquarters",
+    country: "Lagos",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_3.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Associated Design Forum, Aspen, Colorado",
+    country: "USA",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_4.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Norman Cherner, New York",
+    country: "USA",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_5.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Durham County Council, Durham",
+    country: "United Kingdom",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_6.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Architects Co-Partnership, Tema, Ghana",
+    country: "USA",
+  },
+  {
+    title: "Lyles, Bissett, Carlyle and Wolff",
+    country: "USA",
+  },
+  {
+    title: "Public Works Department",
+    country: "Malaysia",
+  },
+  {
+    title: "Ghana Architectural and Civil Engineering Company",
+    country: "Ghana",
+  },
+  {
+    title: "Quine and Newberry, London",
+    country: "United Kingdom",
+  },
+  {
+    title: "Chartered surveyors",
+    country: "United Kingdom",
   },
 ];
 
@@ -60,11 +76,12 @@ export default ({ className }: DTAPracticesProps) => {
         className="px-[30px]"
         children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      {/* # All 570 records */}
-      {/* <DTAGrid
-        className="px-[30px]"
-        children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      /> */}
+      <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
+      <DTAGrid
+        type="practicestable"
+        items={mockPracticesSlides}
+        className="text-dta-practices-foreground px-[30px] pt-[30px]"
+      />
       {/* pagination footer */}
     </div>
   );

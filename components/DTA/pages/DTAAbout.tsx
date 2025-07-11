@@ -57,21 +57,23 @@ export default ({ className }: DTAAboutProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-about"
       />
-      <H1 className="px-[30px] pb-[30px]" children="About the Archive" />
-      <DTAContentSingleCol
-        className="px-[30px]"
-        children="The Archive Lab examines alternative organisational approaches to history and artefacts, as means of challenging received narratives and examining the role of the AA in the perpetuation of abiding Western European-centered readings of history and culture in architectural education. The Lab brings together individual and unit- and programme-wide initiatives that explore strategies for decolonisation and the diasporic experience, and investigate their impact on the built environment and cultural production."
-      />
-      <DTACarousel carouselSlides={mockCarouselSlides} />
-      <DTAContentSingleCol
-        className="px-[30px]"
-        children="The first embodiment of this work is the Entangled Archive, a Graham Foundation-funded project to digitise material from the AA Department of Tropical Architecture (DTA, 1950-1972) and provide an online platform for researchers eager to examine the network of global relationships entangled with the DTA, and challenge the orthodoxy of its programme. The project will catalogue existing DTA material held by the AA Archives; make this work available through digitisation and publication in an online database; and contact living alumni to trace the legacy of the DTA discover and preserve missing documents, and to record the experiences of this dispersed international cohort. This resource and the online exhibition of the collated work will act as a springboard for discussion of the role of education in colonial and decolonial projects."
-      />
-      <H2 className="px-[30px]" children="Who Are Goodwin and Hopwood?" />
-      <DTAContentSingleCol
-        className="px-[30px]"
-        children="After studying at the Architectural Association in London, John Godwin and Gillian Hopwood moved to Nigeria, where they significantly shaped the country's architectural landscape for more than sixty years. When Nigeria became independent in 1960 following British dominance since the 19th century, the couple worked to create architecture that was site-specific, modern, and adapted to the climate relevant to Nigeria's aspirational political and economic policies. In this richly illustrated monograph, organised by typology, Ben Tosland examines Godwin and Hopwood's form of tropical modernism and illuminates its contemporary meanings and concluding with its relevance in times of the climate crisis."
-      />
+      <div className="flex flex-col gap-[30px]">
+        <H1 className="px-[30px]" children="About the Archive" />
+        <DTAContentSingleCol
+          className="px-[30px]"
+          children="The Archive Lab examines alternative organisational approaches to history and artefacts, as means of challenging received narratives and examining the role of the AA in the perpetuation of abiding Western European-centered readings of history and culture in architectural education. The Lab brings together individual and unit- and programme-wide initiatives that explore strategies for decolonisation and the diasporic experience, and investigate their impact on the built environment and cultural production."
+        />
+        <DTACarousel carouselSlides={mockCarouselSlides} />
+        <DTAContentSingleCol
+          className="px-[30px]"
+          children="The first embodiment of this work is the Entangled Archive, a Graham Foundation-funded project to digitise material from the AA Department of Tropical Architecture (DTA, 1950-1972) and provide an online platform for researchers eager to examine the network of global relationships entangled with the DTA, and challenge the orthodoxy of its programme. The project will catalogue existing DTA material held by the AA Archives; make this work available through digitisation and publication in an online database; and contact living alumni to trace the legacy of the DTA discover and preserve missing documents, and to record the experiences of this dispersed international cohort. This resource and the online exhibition of the collated work will act as a springboard for discussion of the role of education in colonial and decolonial projects."
+        />
+        <H2 className="px-[30px]" children="Who Are Goodwin and Hopwood?" />
+        <DTAContentSingleCol
+          className="px-[30px]"
+          children="After studying at the Architectural Association in London, John Godwin and Gillian Hopwood moved to Nigeria, where they significantly shaped the country's architectural landscape for more than sixty years. When Nigeria became independent in 1960 following British dominance since the 19th century, the couple worked to create architecture that was site-specific, modern, and adapted to the climate relevant to Nigeria's aspirational political and economic policies. In this richly illustrated monograph, organised by typology, Ben Tosland examines Godwin and Hopwood's form of tropical modernism and illuminates its contemporary meanings and concluding with its relevance in times of the climate crisis."
+        />
+      </div>
     </div>
   );
 };

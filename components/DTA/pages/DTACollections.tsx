@@ -1,43 +1,30 @@
 import clsx from "clsx";
 import * as React from "react";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
+import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
+import { Mono } from "@/components/Typography/Mono";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTACollectionsProps = {
   className?: string;
 };
 
-const mockCarouselSlides = [
+const mockCollectionsData = [
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_2.png",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_3.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
-  },
-  {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_4.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
-  },
-  {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_5.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
-  },
-  {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_6.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
   },
 ];
 
@@ -55,16 +42,17 @@ export default ({ className }: DTACollectionsProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-collections"
       />
-      <H1 className="px-[30px] pb-[30px]" children="Collections" />
+      <H1 className="px-[30px]" children="Collections" />
       <DTAContentSingleCol
-        className="px-[30px]"
+        className="px-[30px] pt-[30px]"
         children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      {/* # All 570 records */}
-      {/* <DTAGrid
-        className="px-[30px]"
-        children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      /> */}
+      <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
+      <DTAGrid
+        type="collections"
+        items={mockCollectionsData}
+        className="text-dta-collections-foreground px-[30px] pt-[30px]"
+      />
       {/* pagination footer */}
     </div>
   );

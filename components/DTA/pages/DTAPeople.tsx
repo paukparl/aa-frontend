@@ -1,43 +1,91 @@
 import clsx from "clsx";
 import * as React from "react";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
+import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
+import { Mono } from "@/components/Typography/Mono";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTAPeopleProps = {
   className?: string;
 };
 
-const mockCarouselSlides = [
+const mockPeopleSlides = [
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Ronald Arthur Diss",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_1.jpg",
+    date: "3 Sep 1984",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_2.png",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "George Bernard Finch",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_2.jpg",
+    date: "1 Oct 1974",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_3.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Person's Name",
+    date: "13 May 1995",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_4.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Kenneth Brian Frampton",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_3.jpg",
+    date: "18 Feb 1959",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_5.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Besim Selim Hakim",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_4.jpg",
+    date: "7 Jul 1970",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_6.jpg",
-    imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    title: "Sepala Wimaladharma Molligoda",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_5.jpg",
+    date: "3 Jan 1897",
+  },
+  {
+    title: "I. Gusti Gede Ngurah",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_6.jpg",
+    date: "14 Dec 1990",
+  },
+  {
+    title: "John Owusu Addo",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_7.jpg",
+    date: "8 Aug 1985",
+  },
+  {
+    title: "Sau Yan Sonny Chan",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_8.jpg",
+    date: "19 Jun 1992",
+  },
+  {
+    title: "Syamal De Sarkar",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_9.jpg",
+    date: "30 Jun 1980",
+  },
+  {
+    title: "Kingsley Oliver Robotham",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_10.jpg",
+    date: "28 Feb 1988",
+  },
+  {
+    title: "Joel Ghivelder",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_11.jpg",
+    date: "17 Apr 1905",
+  },
+  {
+    title: "Lorem Ipsum Dolor Sit",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_12.jpg",
+    date: "21 Sep 1937",
   },
 ];
 
@@ -60,11 +108,12 @@ export default ({ className }: DTAPeopleProps) => {
         className="px-[30px]"
         children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      {/* # All 570 records */}
-      {/* <DTAGrid
-        className="px-[30px]"
-        children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      /> */}
+      <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
+      <DTAGrid
+        type="people"
+        items={mockPeopleSlides}
+        className="text-dta-people-foreground px-[30px] pt-[30px]"
+      />
       {/* pagination footer */}
     </div>
   );
