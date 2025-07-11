@@ -43,7 +43,7 @@ export default ({
         className,
         (filterState === "expanded" || filterState === "applied") &&
           `${colorThemeDict[colorTheme].bg} text-white`,
-        "flex grid h-[50px] w-[100%] grid-cols-[35px_1fr] items-center border border-dashed px-[20px] sm:h-[55px] sm:grid-cols-[40px_1fr] sm:px-[25px]",
+        "flex grid h-[50px] w-[100%] cursor-pointer grid-cols-[35px_1fr] items-center border border-dashed px-[20px] sm:h-[55px] sm:grid-cols-[40px_1fr] sm:px-[25px]",
       )}
     >
       {filterState === "minimized" && (
