@@ -52,7 +52,7 @@ export default ({
     <div
       className={clsx(
         className,
-        "flex flex-wrap items-center gap-[15px] md:gap-[20px]",
+        "flex flex-wrap items-center gap-[15px] sm:gap-[20px]",
       )}
     >
       {links.map((item) => (

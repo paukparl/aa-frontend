@@ -3,6 +3,7 @@ import * as React from "react";
 import DTACarousel from "@/components/DTA/layouts/DTACarousel";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import { H1 } from "@/components/Typography/H1";
+import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTAAboutProps = {
   className?: string;
@@ -49,6 +50,12 @@ export default ({ className }: DTAAboutProps) => {
         "text-dta-about-foreground flex min-h-[100vh] w-full flex-col gap-[40px] bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[90%]",
       )}
     >
+      <TipinHeader
+        className="px-[30px]"
+        pageTitle="About the Archive"
+        breadcrumbLinks={[{ title: "DTA Archive" }]}
+        colorTheme="dta-about"
+      />
       <H1 className="px-[30px]" children="About the Archive" />
       <DTAContentSingleCol
         className="px-[30px]"
