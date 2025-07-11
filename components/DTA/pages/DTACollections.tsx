@@ -4,7 +4,7 @@ import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
-type DTAPeopleProps = {
+type DTACollectionsProps = {
   className?: string;
 };
 
@@ -41,24 +41,24 @@ const mockCarouselSlides = [
   },
 ];
 
-export default ({ className }: DTAPeopleProps) => {
+export default ({ className }: DTACollectionsProps) => {
   return (
     <div
       className={clsx(
         className,
-        "text-dta-people-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[90%]",
+        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[90%]",
       )}
     >
       <TipinHeader
         className="px-[30px]"
-        pageTitle="People"
+        pageTitle="Collections"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
-        colorTheme="dta-people"
+        colorTheme="dta-collections"
       />
-      <H1 className="px-[30px] pb-[30px]" children="People" />
+      <H1 className="px-[30px] pb-[30px]" children="Collections" />
       <DTAContentSingleCol
         className="px-[30px]"
-        children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
       {/* # All 570 records */}
       {/* <DTAGrid

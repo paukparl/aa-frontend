@@ -39,7 +39,7 @@ export default ({ className, carouselSlides }: DTACarouselProps) => {
       <div className={clsx("embla", className)} ref={emblaRef}>
         <div className="embla__container w-full gap-[10px]">
           {carouselSlides.map((carouselSlide: any, index: number) => (
-            <div className="embla__slide shrink-0" key={index}>
+            <div className="embla__slide shrink-0 pl-[30px]" key={index}>
               <DTACarouselSlide
                 imgSrc={carouselSlide.imgSrc}
                 imgAlt={carouselSlide.imgAlt}
@@ -49,7 +49,7 @@ export default ({ className, carouselSlides }: DTACarouselProps) => {
           ))}
         </div>
       </div>
-      <div className="flex justify-end gap-[20px]">
+      <div className="flex justify-end gap-[20px] pr-[30px]">
         <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
           <img src="/icons/arrow-left-large.svg" className="h-auto w-[25px]" />
         </button>
