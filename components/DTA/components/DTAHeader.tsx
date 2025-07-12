@@ -4,11 +4,11 @@ import React from "react";
 import { Body } from "@/components/Typography/Body";
 
 type DTAHeaderProps = {
-  title: string;
+  children: string;
   className?: string;
 };
 
-export default ({ title, className }: DTAHeaderProps) => {
+export default ({ children, className }: DTAHeaderProps) => {
   return (
     <div
       className={clsx(
@@ -16,7 +16,7 @@ export default ({ title, className }: DTAHeaderProps) => {
         "mb-[10px] w-full border-b-[1.5px] pb-[10px] md:border-b-[2px]",
       )}
     >
-      <Body children={title} />
+      <Body children={children} />
     </div>
   );
 };

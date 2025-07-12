@@ -3,7 +3,7 @@ import DTACollections from "@/components/DTA/pages/DTACollections";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/01 Pages/Collections",
+  title: "DTA/01 Pages/01 Tip-In/Collections",
   component: DTACollections,
   parameters: {
     docs: {

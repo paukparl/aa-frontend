@@ -3,7 +3,7 @@ import DTAPeople from "@/components/DTA/pages/DTAPeople";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/01 Pages/People",
+  title: "DTA/01 Pages/01 Tip-In/People",
   component: DTAPeople,
   parameters: {
     docs: {

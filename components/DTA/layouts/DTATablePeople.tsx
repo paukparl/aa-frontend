@@ -15,7 +15,7 @@ export default ({ type, content, className }: DTATablePeopleProps) => {
     <div
       className={clsx(className, "mb-[10px] flex w-full flex-col gap-[5px]")}
     >
-      <DTAHeader className="capitalize" title={type} />
+      <DTAHeader className="capitalize" children={type} />
       {content.map((row) => (
         <div className="flex justify-between">
           <Body children={row.info} />

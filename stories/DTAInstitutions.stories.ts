@@ -3,7 +3,7 @@ import DTAInstitutions from "@/components/DTA/pages/DTAInstitutions";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/01 Pages/Institutions",
+  title: "DTA/01 Pages/01 Tip-In/Institutions",
   component: DTAInstitutions,
   parameters: {
     docs: {
