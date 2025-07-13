@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTATipinMap from "../components/DTA/components/DTATipinMap";
+import DTARelatedContent from "../components/DTA/layouts/DTARelatedContent";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/02 Layouts/Tip-in Map",
-  component: DTATipinMap,
+  title: "DTA/02 Layouts/Related Content Row",
+  component: DTARelatedContent,
   parameters: {
     docs: {
       description: {
@@ -18,12 +18,16 @@ const meta = {
     className: {
       table: { disable: true },
     },
+    gridType: {
+      control: "select",
+      options: ["people", "practices", "institutions", "collections"],
+    },
     colorTheme: {
       control: "select",
       options: ["people", "practices", "institutions", "collections"],
     },
   },
-} satisfies Meta<typeof DTATipinMap>;
+} satisfies Meta<typeof DTARelatedContent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -31,5 +35,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     colorTheme: "people",
+    gridType: "people",
   },
 };
