@@ -145,7 +145,7 @@ export const DTAGridItemPracticesGrid = ({
       className={clsx(
         className,
         gridItemClassName,
-        "aspect-[5/2] border border-dashed px-3 py-2 leading-none",
+        "aspect-[3/2] border border-dashed px-3 py-2 leading-none sm:aspect-[5/2] lg:aspect-[5/2]",
       )}
     >
       {title != null && <Mono children={title} />}

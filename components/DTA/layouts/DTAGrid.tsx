@@ -26,8 +26,7 @@ export default ({
   gridItemClassName,
 }: DTAGridProps) => {
   let gridTypeDict = {
-    practicesgrid:
-      "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-5 lg:gap-5",
+    practicesgrid: "grid-cols-2 lg:grid-cols-3 gap-5 md:gap-5 lg:gap-5",
     practicestable: "grid-cols-1",
     people:
       "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-[35px] md:gap-y-10 md:gap-x-5 lg:gap-y-20 lg:gap-x-5",
