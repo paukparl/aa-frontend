@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import * as React from "react";
 import DTATipinMap from "@/components/DTA/components/DTATipinMap";
+import DTAContentDoubleCol from "@/components/DTA/layouts/DTAContentDoubleCol";
 import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
-import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
@@ -28,7 +28,13 @@ export default ({ className, title, info }: DTAInstitutionProps) => {
         colorTheme="dta-institutions"
       />
       <H1 tipIn className="pt-[30px]" children={title} />
-      <Body className="pt-[30px]" children={info} />
+      <DTAContentDoubleCol
+        className="mt-[30px]"
+        imgSrc="/storybook/DTA/components/2colContent/jamaica-col.jpg"
+        textContent={info}
+        colorTheme="institutions"
+        contentType="image"
+      />
       <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
         <DTATipinMap colorTheme="institutions" />
         <DTARelatedContent gridType="people" colorTheme="institutions" />
