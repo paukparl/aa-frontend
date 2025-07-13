@@ -1,15 +1,11 @@
 import clsx from "clsx";
 import * as React from "react";
 import DTAHeader from "@/components/DTA/components/DTAHeader";
-import DTATipinMap from "@/components/DTA/components/DTATipinMap";
-import DTARelatedInstitutions from "@/components/DTA/layouts/DTARelatedInstitutions";
-import DTARelatedPeople from "@/components/DTA/layouts/DTARelatedPeople";
-import DTARelatedPractices from "@/components/DTA/layouts/DTARelatedPractices";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
-type DTAObjectProps = {
+type DTAPracticeProps = {
   className?: string;
 };
 
@@ -31,7 +27,7 @@ const mockObjectData = [
   },
 ];
 
-const DTAObjectProps = [
+const DTAPracticeProps = [
   {
     title: "Name of Object",
     image: true,
@@ -49,30 +45,30 @@ const DTAObjectProps = [
   },
 ];
 
-export default ({ className }: DTAObjectProps) => {
+export default ({ className }: DTAPracticeProps) => {
   return (
     <div
       className={clsx(
         className,
-        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[75%]",
+        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[75%]",
       )}
     >
       <TipinHeader
         className="px-[30px]"
-        pageTitle="Object Title"
-        breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Collections" }]}
-        colorTheme="dta-collections"
+        pageTitle="Practice Name"
+        breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Practices" }]}
+        colorTheme="dta-practices"
       />
       <H1 tipIn className="px-[30px]" children="Object Title, Year" />
       <Body
         className="px-[30px] pt-[30px]"
-        children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
       <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related People" />
+        <DTAHeader children="Related Collections" />
       </div>
       <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related Practices" />
+        <DTAHeader children="Related People" />
       </div>
       <div className="mt-[30px] px-[30px]">
         <DTAHeader children="Related Institutions" />

@@ -13,7 +13,6 @@ type DTAGridItemProps = {
   className?: string;
   title: string;
   type: string;
-  context?: string;
   uid?: string;
   date?: string;
   country?: string;
@@ -28,7 +27,6 @@ type DTAGridItemPeopleProps = {
   imgSrc?: string;
   imgAlt?: string;
   className?: string;
-  context?: string;
   uid?: string;
   date?: string;
   gridItemClassName?: string;
@@ -70,7 +68,6 @@ type DTAGridItemInstitutionsProps = {
   imgSrc?: string;
   imgAlt?: string;
   className?: string;
-  context?: string;
   uid?: string;
   gridItemClassName?: string;
 };
@@ -105,7 +102,6 @@ type DTAGridItemCollectionsProps = {
   imgSrc?: string;
   imgAlt?: string;
   className?: string;
-  context?: string;
   uid?: string;
   gridItemClassName?: string;
 };
@@ -133,8 +129,7 @@ export const DTAGridItemCollections = ({
 type DTAGridItemPracticesProps = {
   title: string;
   className?: string;
-  context?: string;
-  country?: string;
+  country: string;
   uid?: string;
   gridItemClassName?: string;
 };
@@ -195,7 +190,6 @@ export default ({
   title,
   className,
   date,
-  context,
   uid,
   country,
   image,
@@ -210,7 +204,6 @@ export default ({
         title,
         className,
         date,
-        context,
         uid,
       });
       break;
@@ -220,7 +213,6 @@ export default ({
         imgAlt,
         title,
         className,
-        context,
         uid,
         country,
         image,
@@ -232,7 +224,6 @@ export default ({
         imgAlt,
         title,
         className,
-        context,
         uid,
         image,
       });
@@ -241,7 +232,6 @@ export default ({
       return DTAGridItemPracticesGrid({
         title,
         className,
-        context,
         uid,
         country,
         gridItemClassName,
@@ -251,7 +241,6 @@ export default ({
       return DTAGridItemPracticesTable({
         title,
         className,
-        context,
         uid,
         country,
       });
