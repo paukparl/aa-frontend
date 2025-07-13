@@ -11,7 +11,6 @@ const meta = {
         component: "",
       },
     },
-    layout: "centered",
   },
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
@@ -36,5 +35,6 @@ export const Default: Story = {
   args: {
     colorTheme: "people",
     gridType: "people",
+    className: "p-[20px] sm:p-[30px]",
   },
 };

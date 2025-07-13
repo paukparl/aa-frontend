@@ -111,9 +111,10 @@ export default ({
     ],
   };
   return (
-    <div>
+    <div className={className}>
       <DTAHeader className="capitalize" children={`Related ${gridType}`} />
       <DTAGrid
+        className="pt-[10px] lg:pt-[20px]"
         items={mockGridItems[gridType]}
         type={gridType === "practices" ? "practicesgrid" : gridType}
       />
