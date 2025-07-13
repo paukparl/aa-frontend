@@ -10,24 +10,6 @@ type DTAPersonProps = {
   className?: string;
 };
 
-const mockObjectData = [
-  {
-    title: "Name of Object",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
-  },
-  {
-    title: "Name of Object",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
-  },
-  {
-    title: "Name of Object",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
-  },
-];
-
 const DTAPersonProps = [
   {
     title: "Name of Object",
@@ -55,20 +37,25 @@ export default ({ className }: DTAPersonProps) => {
       )}
     >
       <TipinHeader
-        pageTitle="Person Name"
+        pageTitle="Handel Kitchiner (Hal) Lawson"
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "People" }]}
         colorTheme="dta-people"
       />
-      <H1 tipIn className="pt-[30px]" children="Object Title, Year" />
+      <H1
+        tipIn
+        className="pt-[30px]"
+        children="Handel Kitchiner (Hal) Lawson"
+      />
+      <H1 tipIn className="block pt-[20px]" children="1928-1985" />
       <Body
         className="pt-[30px]"
         children="Brief sentence describing what person means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
       <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
-        <DTATipinMap colorTheme="institutions" />
-        <DTARelatedContent gridType="people" colorTheme="institutions" />
-        <DTARelatedContent gridType="collections" colorTheme="institutions" />
-        <DTARelatedContent gridType="practices" colorTheme="institutions" />
+        <DTATipinMap colorTheme="people" />
+        <DTARelatedContent gridType="people" colorTheme="people" />
+        <DTARelatedContent gridType="collections" colorTheme="people" />
+        <DTARelatedContent gridType="practices" colorTheme="people" />
       </div>
     </div>
   );

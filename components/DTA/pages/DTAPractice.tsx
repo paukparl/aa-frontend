@@ -59,16 +59,16 @@ export default ({ className }: DTAPracticeProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Practices" }]}
         colorTheme="dta-practices"
       />
-      <H1 tipIn className="pt-[30px]" children="Object Title, Year" />
+      <H1 tipIn className="pt-[30px]" children="Ministry of Works" />
       <Body
         className="pt-[30px]"
-        children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        children="Abell House, John Islip Street, London, UK"
       />
       <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
-        <DTATipinMap colorTheme="institutions" />
-        <DTARelatedContent gridType="people" colorTheme="institutions" />
-        <DTARelatedContent gridType="collections" colorTheme="institutions" />
-        <DTARelatedContent gridType="practices" colorTheme="institutions" />
+        <DTATipinMap colorTheme="practices" />
+        <DTARelatedContent gridType="people" colorTheme="practices" />
+        <DTARelatedContent gridType="collections" colorTheme="practices" />
+        <DTARelatedContent gridType="practices" colorTheme="practices" />
       </div>
     </div>
   );
