@@ -2,17 +2,58 @@ import clsx from "clsx";
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
 
+type contentType = "image" | "publication";
+type colorTheme = "people" | "institutions" | "collections" | "about";
 type DTAContentDoubleColProps = {
   className?: string;
-  children: string;
+  textContent: string;
+  colorTheme: colorTheme;
+  contentType: contentType;
+  imgSrc?: string;
 };
 
-export default ({ className, children }: DTAContentDoubleColProps) => {
+export default ({
+  className,
+  textContent,
+  contentType,
+  imgSrc,
+  colorTheme,
+}: DTAContentDoubleColProps) => {
+  const colorThemeDict = {
+    people: {
+      text: "text-dta-people-foreground",
+    },
+    about: {
+      text: "text-dta-about-foreground",
+    },
+    institutions: {
+      text: "text-dta-institutions-foreground",
+    },
+    collections: {
+      text: "text-dta-collections-foreground",
+    },
+  };
   return (
-    <div className={clsx(className, "w-full")}>
-      <div className="w-full sm:w-[calc(7/12)] md:w-[75%] xl:w-[50%]">
-        <Body children={children} />
-      </div>
+    <div className={clsx(className, "grid grid-cols-1 lg:grid-cols-2")}>
+      {contentType === "publication" && (
+        <>
+          <div className="w-full sm:w-[calc(7/12)] md:w-[75%] xl:w-[100%]">
+            <Body children={textContent} />
+          </div>
+          <div>publication</div>
+        </>
+      )}
+      {contentType === "image" && (
+        <>
+          <img src={imgSrc} className="w-[100%] sm:w-[60%] lg:w-[100%]" />
+          <div className="w-full pt-[20px] lg:pt-0 lg:pl-[20px]">
+            <Body
+              className={colorThemeDict[colorTheme].text}
+              children={textContent}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

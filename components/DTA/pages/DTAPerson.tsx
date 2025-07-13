@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import * as React from "react";
 import DTATipinMap from "@/components/DTA/components/DTATipinMap";
+import DTAContentDoubleCol from "@/components/DTA/layouts/DTAContentDoubleCol";
 import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
-import { Body } from "@/components/Typography/Body";
+import DTATablePeople from "@/components/DTA/layouts/DTATablePeople";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
@@ -47,10 +48,37 @@ export default ({ className }: DTAPersonProps) => {
         children="Handel Kitchiner (Hal) Lawson"
       />
       <H1 tipIn className="block pt-[20px]" children="1928-1985" />
-      <Body
-        className="pt-[30px]"
-        children="Brief sentence describing what person means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      <DTAContentDoubleCol
+        className="my-[30px]"
+        colorTheme="people"
+        contentType="image"
+        imgSrc="/storybook/DTA/components/2colContent/hal-portrait.jpg"
+        textContent="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,"
       />
+      <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2">
+        <DTATablePeople
+          type="education"
+          content={[
+            { info: "Course, Institution, Country", year: "Year" },
+            { info: "Course, Institution, Country", year: "Year" },
+            { info: "Course, Institution, Country", year: "Year" },
+            { info: "Course, Institution, Country", year: "Year" },
+            { info: "Course, Institution, Country", year: "Year" },
+            { info: "Course, Institution, Country", year: "Year" },
+          ]}
+        />
+        <DTATablePeople
+          type="career"
+          content={[
+            { info: "Role, Institution, Country", year: "Year" },
+            { info: "Role, Institution, Country", year: "Year" },
+            { info: "Role, Institution, Country", year: "Year" },
+            { info: "Role, Institution, Country", year: "Year" },
+            { info: "Role, Institution, Country", year: "Year" },
+            { info: "Role, Institution, Country", year: "Year" },
+          ]}
+        />
+      </div>
       <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
         <DTATipinMap colorTheme="people" />
         <DTARelatedContent gridType="people" colorTheme="people" />
