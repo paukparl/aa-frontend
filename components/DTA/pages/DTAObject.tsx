@@ -3,6 +3,7 @@ import * as React from "react";
 import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
+import MediaGallery from "@/components/globals/components/MediaGallery";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTAObjectProps = {
@@ -27,6 +28,33 @@ const DTAObjectProps = [
 ];
 
 export default ({ className }: DTAObjectProps) => {
+  const mockSlideData = [
+    {
+      src: "/storybook/Globals/components/mediagallery/slide1.jpg",
+      caption:
+        "Miller J Frampton K, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+    {
+      src: "/storybook/Globals/components/mediagallery/slide2.jpg",
+      caption:
+        "Miller K Frampton, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+    {
+      src: "/storybook/Globals/components/mediagallery/slide3.jpg",
+      caption:
+        "Hal J Lawson, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+    {
+      src: "/storybook/Globals/components/mediagallery/slide4.jpg",
+      caption:
+        "Miller J Frampton K, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+    {
+      src: "/storybook/Globals/components/mediagallery/slide5.jpg",
+      caption:
+        "Miller J Frampton K, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+  ];
   return (
     <div
       className={clsx(
@@ -43,6 +71,11 @@ export default ({ className }: DTAObjectProps) => {
       <Body
         className="pt-[30px]"
         children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      />
+      <MediaGallery
+        slides={mockSlideData}
+        className="py-[10px]"
+        colorTheme="dta-collections"
       />
       <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
         <DTARelatedContent gridType="people" colorTheme="collections" />
