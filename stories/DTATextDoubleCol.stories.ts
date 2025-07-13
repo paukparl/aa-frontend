@@ -54,7 +54,7 @@ export const Publication: Story = {
   args: {
     contentType: "publication",
     textContent:
-      "The Department of Tropical Architecture Archive provides an online digital platform to make the work held by the Architectural Association (AA) Archive and the dispersed work of the graduates of the Department of Tropical Architecture (DTA) available to the next generation of researchers eager to examine the network of global relationships and challenge the orthodoxy of the DTA program.",
-    colorTheme: "collections",
+      "After studying at the Architectural Association in London, John Godwin and Gillian Hopwood moved to Nigeria, where they significantly shaped the country's architectural landscape for more than sixty years. When Nigeria became independent in 1960 following British dominance since the 19th century, the couple worked to create architecture that was site-specific, modern, and adapted to the climate relevant to Nigeria's aspirational political and economic policies. In this richly illustrated monograph, organised by typology, Ben Tosland examines Godwin and Hopwood's form of tropical modernism and illuminates its contemporary meanings and concluding with its relevance in times of the climate crisis.",
+    colorTheme: "about",
   },
 };

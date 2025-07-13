@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
+import CardPublication from "@/components/globals/components/CardPublication";
 
 type contentType = "image" | "publication";
 type colorTheme = "people" | "institutions" | "collections" | "about";
@@ -38,9 +39,18 @@ export default ({
       {contentType === "publication" && (
         <>
           <div className="w-full sm:w-[calc(7/12)] md:w-[75%] xl:w-[100%]">
-            <Body children={textContent} />
+            <Body
+              children={textContent}
+              className={colorThemeDict[colorTheme].text}
+            />
           </div>
-          <div>publication</div>
+          <div className="pt-[20px] lg:pt-0">
+            <CardPublication
+              title="Who are Godwin and Hopwood?"
+              author="Ben Tosland"
+              imgSrc="/storybook/DTA/components/2colContent/pub.png"
+            />
+          </div>
         </>
       )}
       {contentType === "image" && (
