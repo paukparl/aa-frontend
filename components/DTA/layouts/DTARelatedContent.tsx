@@ -1,10 +1,11 @@
+import clsx from "clsx";
 import DTAHeader from "@/components/DTA/components/DTAHeader";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 type gridType = "people" | "practices" | "institutions" | "collections";
 
-type DTARelatedCollectionsProps = {
+type DTARelatedContentProps = {
   colorTheme: colorTheme;
   gridType: gridType;
   className?: string;
@@ -14,7 +15,7 @@ export default ({
   className,
   gridType,
   colorTheme,
-}: DTARelatedCollectionsProps) => {
+}: DTARelatedContentProps) => {
   const mockGridItems = {
     collections: [
       {
@@ -110,11 +111,34 @@ export default ({
       },
     ],
   };
+  const colorThemeDict = {
+    people: { className: "text-dta-people-foreground", gridItemClassName: "" },
+    practices: {
+      className: "text-dta-practices-foreground",
+      gridItemClassName:
+        "text-dta-practices-foreground border-dta-practices-foreground",
+    },
+    institutions: {
+      className: "text-dta-institutions-foreground",
+      gridItemClassName: "",
+    },
+    collections: {
+      className: "text-dta-collections-foreground",
+      gridItemClassName: "",
+    },
+  };
   return (
     <div className={className}>
-      <DTAHeader className="capitalize" children={`Related ${gridType}`} />
+      <DTAHeader
+        className={(clsx("capitalize"), colorThemeDict[colorTheme].className)}
+        children={`Related ${gridType}`}
+      />
       <DTAGrid
-        className="pt-[10px] lg:pt-[20px]"
+        className={clsx(
+          "pt-[10px] lg:pt-[20px]",
+          colorThemeDict[colorTheme].className,
+        )}
+        gridItemClassName={colorThemeDict[colorTheme].gridItemClassName}
         items={mockGridItems[gridType]}
         type={gridType === "practices" ? "practicesgrid" : gridType}
       />
