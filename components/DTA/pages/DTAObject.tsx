@@ -1,10 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTAHeader from "@/components/DTA/components/DTAHeader";
-import DTATipinMap from "@/components/DTA/components/DTATipinMap";
-import DTARelatedInstitutions from "@/components/DTA/layouts/DTARelatedInstitutions";
-import DTARelatedPeople from "@/components/DTA/layouts/DTARelatedPeople";
-import DTARelatedPractices from "@/components/DTA/layouts/DTARelatedPractices";
+import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
@@ -12,25 +8,6 @@ import TipinHeader from "@/components/globals/layouts/TipinHeader";
 type DTAObjectProps = {
   className?: string;
 };
-
-const mockObjectData = [
-  {
-    title: "Name of Object",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
-  },
-  {
-    title: "Name of Object",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
-  },
-  {
-    title: "Name of Object",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
-  },
-];
-
 const DTAObjectProps = [
   {
     title: "Name of Object",
@@ -54,28 +31,23 @@ export default ({ className }: DTAObjectProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[75%]",
+        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] px-[30px] py-[30px] pb-[50px] backdrop-blur-lg sm:pb-[70px] lg:w-[75%]",
       )}
     >
       <TipinHeader
-        className="px-[30px]"
         pageTitle="Object Title"
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Collections" }]}
         colorTheme="dta-collections"
       />
-      <H1 tipIn className="px-[30px]" children="Object Title, Year" />
+      <H1 tipIn className="pt-[30px]" children="Title, Year" />
       <Body
-        className="px-[30px] pt-[30px]"
+        className="pt-[30px]"
         children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related People" />
-      </div>
-      <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related Practices" />
-      </div>
-      <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related Institutions" />
+      <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
+        <DTARelatedContent gridType="people" colorTheme="collections" />
+        <DTARelatedContent gridType="institutions" colorTheme="collections" />
+        <DTARelatedContent gridType="practices" colorTheme="collections" />
       </div>
     </div>
   );

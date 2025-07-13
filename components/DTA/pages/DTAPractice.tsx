@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTAHeader from "@/components/DTA/components/DTAHeader";
+import DTATipinMap from "@/components/DTA/components/DTATipinMap";
+import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
@@ -50,28 +51,24 @@ export default ({ className }: DTAPracticeProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[75%]",
+        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] px-[30px] py-[30px] pb-[50px] backdrop-blur-lg sm:pb-[70px] lg:w-[75%]",
       )}
     >
       <TipinHeader
-        className="px-[30px]"
         pageTitle="Practice Name"
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Practices" }]}
         colorTheme="dta-practices"
       />
-      <H1 tipIn className="px-[30px]" children="Object Title, Year" />
+      <H1 tipIn className="pt-[30px]" children="Object Title, Year" />
       <Body
-        className="px-[30px] pt-[30px]"
+        className="pt-[30px]"
         children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related Collections" />
-      </div>
-      <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related People" />
-      </div>
-      <div className="mt-[30px] px-[30px]">
-        <DTAHeader children="Related Institutions" />
+      <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
+        <DTATipinMap colorTheme="institutions" />
+        <DTARelatedContent gridType="people" colorTheme="institutions" />
+        <DTARelatedContent gridType="collections" colorTheme="institutions" />
+        <DTARelatedContent gridType="practices" colorTheme="institutions" />
       </div>
     </div>
   );
