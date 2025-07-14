@@ -10,13 +10,15 @@ type CardPublicationProps = {
 };
 export default ({ title, author, className, imgSrc }: CardPublicationProps) => {
   return (
-    <div>
-      <img src={imgSrc} className="w-ful max-h-[70vh] object-contain" />
-      <Body
-        children={title}
-        className="text-dta-about-foreground block pt-[10px] font-bold"
-      />
-      <Body children={author} className="text-dta-about-foreground block" />
+    <div className="flex w-full justify-start sm:justify-center">
+      <div className="w-[50%] sm:w-fit">
+        <img src={imgSrc} className="max-h-[70vh] w-full object-contain" />
+        <Body
+          children={title}
+          className="text-dta-about-foreground block pt-[10px] font-bold"
+        />
+        <Body children={author} className="text-dta-about-foreground block" />
+      </div>
     </div>
   );
 };

@@ -59,7 +59,7 @@ export default ({
         <Mono
           className={clsx(
             colorThemeDict[colorTheme].bg,
-            "px-[10px] py-[5px] text-white",
+            "px-[7px] py-[3px] text-white sm:px-[10px] sm:py-[5px]",
           )}
           children={item.title}
         />

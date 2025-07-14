@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
+import DTAFilterButton from "@/components/DTA/components/DTAFilterButton";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -104,11 +105,28 @@ export default ({ className }: DTAPeopleProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-people"
       />
-      <H1 className="px-[30px] pb-[30px]" children="People" />
+      <H1 className="px-[30px] pb-[10px] sm:pb-[30px]" children="People" />
       <DTAContentSingleCol
         className="px-[30px]"
         children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
+      <div className="mt-[15px] grid gap-[10px] px-[30px] sm:mt-[30px] lg:grid-cols-3 lg:gap-[20px]">
+        <DTAFilterButton
+          filterState="minimized"
+          children="Filter by alphabet"
+          colorTheme="people"
+        />
+        <DTAFilterButton
+          filterState="minimized"
+          children="Place of Birth"
+          colorTheme="people"
+        />
+        <DTAFilterButton
+          filterState="minimized"
+          children="Year of Study"
+          colorTheme="people"
+        />
+      </div>
       <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
       <DTAGrid
         type="people"

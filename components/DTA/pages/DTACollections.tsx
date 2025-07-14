@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
+import DTAFilterButton from "@/components/DTA/components/DTAFilterButton";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -89,29 +90,32 @@ export default ({ className }: DTACollectionsProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[90%]",
+        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] px-[30px] py-[30px] backdrop-blur-lg lg:w-[90%]",
       )}
     >
       <TipinHeader
-        className="px-[30px]"
         pageTitle="Collections"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-collections"
       />
-      <H1 className="px-[30px]" children="Collections" />
-      <DTAContentSingleCol
-        className="px-[30px] pt-[30px]"
-        children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      <H1 className="pb-[10px] sm:pb-[30px]" children="Collections" />
+      <DTAContentSingleCol children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+      <DTAFilterButton
+        className="mt-[30px]"
+        filterState="minimized"
+        children="All Collections"
+        colorTheme="collections"
       />
-      <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
+      <Mono children="All 570 records" className="pt-[40px]" />
       <DTAGrid
         type="collections"
         items={mockCollectionsData}
-        className="text-dta-collections-foreground px-[30px] pt-[30px]"
+        className="text-dta-collections-foreground pt-[30px]"
       />
       <FooterPagination
         totalPages={10}
-        className="text-dta-collections-foreground px-[30px] pt-[50px]"
+        className="text-dta-collections-foreground pt-[50px]"
       />
     </div>
   );
