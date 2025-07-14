@@ -49,7 +49,10 @@ const Pagination = ({ totalPages, className }: PaginationProps) => {
   const pageItems = getPageItems();
 
   return (
-    <nav aria-label="Pagination Navigation" className={clsx(className)}>
+    <nav
+      aria-label="Pagination Navigation pt-[20px] sm:pt-[30px]"
+      className={clsx(className)}
+    >
       <ul className="m-0 flex items-center gap-[25px] p-0">
         <Mono children="Page:" />
         {pageItems.map((item, ind) =>

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
+import DTAFilterButton from "@/components/DTA/components/DTAFilterButton";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -63,30 +64,40 @@ export default ({ className }: DTAPracticesProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[90%]",
+        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
-        className="px-[30px]"
         pageTitle="Practices"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-practices"
       />
-      <H1 className="px-[30px] pb-[30px]" children="Practices" />
-      <DTAContentSingleCol
-        className="px-[30px]"
-        children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      />
-      <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
-      <DTAGrid
-        type="practicestable"
-        items={mockPracticesSlides}
-        className="text-dta-practices-foreground px-[30px] pt-[30px]"
-      />
-      <FooterPagination
-        totalPages={2}
-        className="text-dta-practices-foreground px-[30px] pt-[50px]"
-      />
+      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
+        <H1 children="Practices" />
+        <DTAContentSingleCol children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <div className="grid gap-[10px] lg:grid-cols-2 lg:gap-[20px]">
+          <DTAFilterButton
+            filterState="minimized"
+            children="Filter by alphabet"
+            colorTheme="practices"
+          />
+          <DTAFilterButton
+            filterState="minimized"
+            children="Country"
+            colorTheme="practices"
+          />
+        </div>
+        <Mono children="All 570 records" className="mt-[10px]" />
+        <DTAGrid
+          type="practicestable"
+          items={mockPracticesSlides}
+          className="text-dta-practices-foreground"
+        />
+        <FooterPagination
+          totalPages={2}
+          className="text-dta-practices-foreground"
+        />
+      </div>
     </div>
   );
 };

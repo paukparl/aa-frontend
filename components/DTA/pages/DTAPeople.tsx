@@ -96,47 +96,45 @@ export default ({ className }: DTAPeopleProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-people-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] py-[30px] backdrop-blur-lg lg:w-[90%]",
+        "text-dta-people-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
-        className="px-[30px]"
         pageTitle="People"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-people"
       />
-      <H1 className="px-[30px] pb-[10px] sm:pb-[30px]" children="People" />
-      <DTAContentSingleCol
-        className="px-[30px]"
-        children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      />
-      <div className="mt-[15px] grid gap-[10px] px-[30px] sm:mt-[30px] lg:grid-cols-3 lg:gap-[20px]">
-        <DTAFilterButton
-          filterState="minimized"
-          children="Filter by alphabet"
-          colorTheme="people"
+      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
+        <H1 children="People" />
+        <DTAContentSingleCol children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <div className="grid gap-[10px] lg:grid-cols-3 lg:gap-[20px]">
+          <DTAFilterButton
+            filterState="minimized"
+            children="Filter by alphabet"
+            colorTheme="people"
+          />
+          <DTAFilterButton
+            filterState="minimized"
+            children="Place of Birth"
+            colorTheme="people"
+          />
+          <DTAFilterButton
+            filterState="minimized"
+            children="Year of Study"
+            colorTheme="people"
+          />
+        </div>
+        <Mono children="All 570 records" className="mt-[10px]" />
+        <DTAGrid
+          type="people"
+          items={mockPeopleSlides}
+          className="text-dta-people-foreground"
         />
-        <DTAFilterButton
-          filterState="minimized"
-          children="Place of Birth"
-          colorTheme="people"
-        />
-        <DTAFilterButton
-          filterState="minimized"
-          children="Year of Study"
-          colorTheme="people"
+        <FooterPagination
+          totalPages={32}
+          className="text-dta-people-foreground"
         />
       </div>
-      <Mono children="All 570 records" className="px-[30px] pt-[40px]" />
-      <DTAGrid
-        type="people"
-        items={mockPeopleSlides}
-        className="text-dta-people-foreground px-[30px] pt-[30px]"
-      />
-      <FooterPagination
-        totalPages={32}
-        className="text-dta-people-foreground px-[30px] pt-[50px]"
-      />
     </div>
   );
 };

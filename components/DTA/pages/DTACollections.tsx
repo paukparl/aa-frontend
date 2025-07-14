@@ -106,7 +106,7 @@ export default ({ className }: DTACollectionsProps) => {
           children="All Collections"
           colorTheme="collections"
         />
-        <Mono children="All 570 records" className="pt-[20px]" />
+        <Mono children="All 570 records" className="mt-[10px]" />
         <DTAGrid
           type="collections"
           items={mockCollectionsData}
@@ -114,7 +114,7 @@ export default ({ className }: DTACollectionsProps) => {
         />
         <FooterPagination
           totalPages={10}
-          className="text-dta-collections-foreground pt-[20px] sm:pt-[30px]"
+          className="text-dta-collections-foreground"
         />
       </div>
     </div>
