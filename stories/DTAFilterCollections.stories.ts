@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTAFilterAlphabet } from "@/components/DTA/components/DTAFilterAlphabet";
+import { DTAFilterCollections } from "@/components/DTA/components/DTAFilterCollections";
 
 const meta = {
-  title: "DTA/02 Layouts/Filters/Alphabet Filter",
-  component: DTAFilterAlphabet,
+  title: "DTA/02 Layouts/Filters/Collections Filter",
+  component: DTAFilterCollections,
   parameters: {
     docs: {
       description: {
@@ -16,14 +16,13 @@ const meta = {
       table: { disable: true },
     },
   },
-} satisfies Meta<typeof DTAFilterAlphabet>;
+} satisfies Meta<typeof DTAFilterCollections>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    colorTheme: "people",
     className: "px-[40px] pt-[30vh]",
   },
   globals: {

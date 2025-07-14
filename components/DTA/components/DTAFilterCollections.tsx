@@ -6,57 +6,33 @@ import * as React from "react";
 import { Mono } from "@/components/Typography/Mono";
 import DTAFilterButton from "./DTAFilterButton";
 
-const alphabet = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-
-type DTAFilterAlphabetProps = {
-  colorTheme: "people" | "practices" | "institutions" | "collections";
+type DTAFilterCollectionsProps = {
   className?: string;
 };
 
-export const DTAFilterAlphabet = ({
-  colorTheme,
+export const DTAFilterCollections = ({
   className,
-}: DTAFilterAlphabetProps) => {
+}: DTAFilterCollectionsProps) => {
+  const mockCollectionsData = [
+    "Otto Koenigsberger Collection",
+    "Student Work",
+    "Slide Library",
+    "DTA Publications and Documents",
+    "External Collections",
+  ];
   const [open, setOpen] = React.useState(false);
-  const [activeLetters, setActiveLetters] = React.useState<string[]>([]);
+  const [activeFilters, setactiveFilters] = React.useState<string[]>([]);
 
   // Determine filterState: expanded if open, applied if any letters selected, else minimized
   const filterState = open
     ? "expanded"
-    : activeLetters.length > 0
+    : activeFilters.length > 0
       ? "applied"
       : "minimized";
 
   // Toggle letter selection
   const handleToggle = (letter: string) => {
-    setActiveLetters((current) => {
+    setactiveFilters((current) => {
       if (current.includes(letter)) {
         return current.filter((l) => l !== letter);
       } else {
@@ -67,54 +43,54 @@ export const DTAFilterAlphabet = ({
 
   // Render button label
   const buttonLabel =
-    activeLetters.length === 0
-      ? "Filter by alphabet"
-      : activeLetters.length <= 3
-        ? `Filter: ${activeLetters.map((l) => l.toUpperCase()).join(", ")}`
-        : `Filter: ${activeLetters.length} selected`;
+    activeFilters.length === 0
+      ? "Filter by collection"
+      : activeFilters.length <= 3
+        ? `Filter: ${activeFilters.map((l) => l.toUpperCase()).join(", ")}`
+        : `Filter: ${activeFilters.length} selected`;
 
   return (
     <Collapsible.Root open={open} onOpenChange={setOpen} className={className}>
       <Collapsible.Trigger asChild>
         <button
           aria-expanded={open}
-          aria-controls="alphabet-filter-content"
+          aria-controls="collection-filter-content"
           type="button"
           className="w-fit"
         >
           <DTAFilterButton
             filterState={filterState}
-            colorTheme={colorTheme}
+            colorTheme="collections"
             children={buttonLabel}
-            className="w-[300px]"
+            className="w-fit"
           />
         </button>
       </Collapsible.Trigger>
 
       <Collapsible.Content
-        id="alphabet-filter-content"
+        id="collection-filter-content"
         className="mt-1 w-fit border border-dashed border-gray-400 bg-white p-2"
       >
         <ul
           role="listbox"
-          aria-label="Alphabet filter"
+          aria-label="collection filter"
           className="flex flex-wrap gap-2"
         >
-          {alphabet.map((letter) => (
-            <li key={letter}>
+          {mockCollectionsData.map((filter) => (
+            <li key={filter}>
               <button
                 type="button"
                 role="option"
-                aria-selected={activeLetters.includes(letter)}
-                onClick={() => handleToggle(letter)}
+                aria-selected={activeFilters.includes(filter)}
+                onClick={() => handleToggle(filter)}
                 className={clsx(
                   "cursor-pointer px-2 py-1",
-                  activeLetters.includes(letter)
-                    ? "font-bold underline"
+                  activeFilters.includes(filter)
+                    ? "underline"
                     : "hover:underline",
                 )}
               >
-                <Mono children={letter.toUpperCase()} />
+                <Mono children={filter} />
               </button>
             </li>
           ))}

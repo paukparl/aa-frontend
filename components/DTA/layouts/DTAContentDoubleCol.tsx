@@ -38,7 +38,7 @@ export default ({
     <div className={clsx(className, "grid grid-cols-1 lg:grid-cols-2")}>
       {contentType === "publication" && (
         <>
-          <div className="w-full sm:w-[calc(7/12)] xl:w-[100%]">
+          <div className="w-full xl:w-[100%]">
             <Body
               children={textContent}
               className={colorThemeDict[colorTheme].text}
