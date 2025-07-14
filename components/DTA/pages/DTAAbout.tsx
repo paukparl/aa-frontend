@@ -58,7 +58,7 @@ export default ({ className }: DTAAboutProps) => {
         colorTheme="dta-about"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="About the Archive" className="mb-[20px]" />
+        <H1 children="About the Archive" />
         <DTAContentSingleCol children="The Archive Lab examines alternative organisational approaches to history and artefacts, as means of challenging received narratives and examining the role of the AA in the perpetuation of abiding Western European-centered readings of history and culture in architectural education. The Lab brings together individual and unit- and programme-wide initiatives that explore strategies for decolonisation and the diasporic experience, and investigate their impact on the built environment and cultural production." />
         <DTACarousel carouselSlides={mockCarouselSlides} />
         <DTAContentSingleCol children="The first embodiment of this work is the Entangled Archive, a Graham Foundation-funded project to digitise material from the AA Department of Tropical Architecture (DTA, 1950-1972) and provide an online platform for researchers eager to examine the network of global relationships entangled with the DTA, and challenge the orthodoxy of its programme. The project will catalogue existing DTA material held by the AA Archives; make this work available through digitisation and publication in an online database; and contact living alumni to trace the legacy of the DTA discover and preserve missing documents, and to record the experiences of this dispersed international cohort. This resource and the online exhibition of the collated work will act as a springboard for discussion of the role of education in colonial and decolonial projects." />

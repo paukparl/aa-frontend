@@ -90,7 +90,7 @@ export default ({ className }: DTACollectionsProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] px-[30px] py-[30px] backdrop-blur-lg lg:w-[90%]",
+        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
@@ -98,25 +98,25 @@ export default ({ className }: DTACollectionsProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-collections"
       />
-      <H1 className="pb-[10px] sm:pb-[30px]" children="Collections" />
-      <DTAContentSingleCol children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-
-      <DTAFilterButton
-        className="mt-[30px]"
-        filterState="minimized"
-        children="All Collections"
-        colorTheme="collections"
-      />
-      <Mono children="All 570 records" className="pt-[40px]" />
-      <DTAGrid
-        type="collections"
-        items={mockCollectionsData}
-        className="text-dta-collections-foreground pt-[30px]"
-      />
-      <FooterPagination
-        totalPages={10}
-        className="text-dta-collections-foreground pt-[50px]"
-      />
+      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
+        <H1 children="Collections" />
+        <DTAContentSingleCol children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <DTAFilterButton
+          filterState="minimized"
+          children="All Collections"
+          colorTheme="collections"
+        />
+        <Mono children="All 570 records" className="pt-[20px]" />
+        <DTAGrid
+          type="collections"
+          items={mockCollectionsData}
+          className="text-dta-collections-foreground"
+        />
+        <FooterPagination
+          totalPages={10}
+          className="text-dta-collections-foreground pt-[20px] sm:pt-[30px]"
+        />
+      </div>
     </div>
   );
 };

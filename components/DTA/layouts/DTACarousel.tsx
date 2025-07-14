@@ -51,10 +51,7 @@ export default function DTACarousel({
       <div className={clsx("embla relative", className)} ref={emblaRef}>
         <div className="embla__container w-full gap-[10px]">
           {carouselSlides.map((slide, index) => (
-            <div
-              className="embla__slide shrink-0 pl-[0px] sm:pl-[30px]"
-              key={index}
-            >
+            <div className="embla__slide shrink-0" key={index}>
               <DTACarouselSlide
                 imgSrc={slide.imgSrc}
                 imgAlt={slide.imgAlt}
@@ -63,7 +60,6 @@ export default function DTACarousel({
               />
             </div>
           ))}
-          {/* Add tail spacing so last slide can align left */}
           <div className="w-[20vw] shrink-0" aria-hidden />
         </div>
 
@@ -71,7 +67,7 @@ export default function DTACarousel({
         {/* <div className="pointer-events-none absolute top-0 right-0 h-full w-[50px] bg-gradient-to-l from-white to-transparent" /> */}
       </div>
 
-      <div className="mt-[0px] flex justify-end gap-[20px] sm:pr-[30px]">
+      <div className="mt-[0px] flex justify-end gap-[20px]">
         <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
           <img
             src="/icons/arrow-left-large.svg"

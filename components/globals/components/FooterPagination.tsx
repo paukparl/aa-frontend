@@ -50,7 +50,7 @@ const Pagination = ({ totalPages, className }: PaginationProps) => {
 
   return (
     <nav aria-label="Pagination Navigation" className={clsx(className)}>
-      <ul className="m-0 flex gap-[25px] p-0">
+      <ul className="m-0 flex items-center gap-[25px] p-0">
         <Mono children="Page:" />
         {pageItems.map((item, ind) =>
           item === "..." ? (
@@ -66,7 +66,7 @@ const Pagination = ({ totalPages, className }: PaginationProps) => {
                 className={clsx(
                   "cursor-pointer",
                   activePage === item &&
-                    "underline decoration-dotted underline-offset-[5px]",
+                    "underline decoration-dotted underline-offset-[3px]",
                 )}
                 onClick={() => handleClick(item as number)}
                 style={{
