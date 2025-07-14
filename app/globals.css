@@ -71,6 +71,8 @@
   }
   .body {
     @apply font-nhg-text text-base sm:text-xl;
+    line-height: 1.2;
+    letter-spacing: 0.75px;
   }
   .mono {
     @apply font-diatype text-sm sm:text-lg;
