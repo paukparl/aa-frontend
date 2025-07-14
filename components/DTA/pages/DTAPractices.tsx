@@ -4,6 +4,7 @@ import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
+import FooterPagination from "@/components/globals/components/FooterPagination";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTAPracticesProps = {
@@ -82,7 +83,10 @@ export default ({ className }: DTAPracticesProps) => {
         items={mockPracticesSlides}
         className="text-dta-practices-foreground px-[30px] pt-[30px]"
       />
-      {/* pagination footer */}
+      <FooterPagination
+        totalPages={2}
+        className="text-dta-practices-foreground px-[30px] pt-[50px]"
+      />
     </div>
   );
 };

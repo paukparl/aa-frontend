@@ -4,6 +4,7 @@ import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
+import FooterPagination from "@/components/globals/components/FooterPagination";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 
 type DTACollectionsProps = {
@@ -25,6 +26,61 @@ const mockCollectionsData = [
     title: "Name of Object",
     image: true,
     imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+  },
+  {
+    title: "Name of Object",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
   },
 ];
 
@@ -53,7 +109,10 @@ export default ({ className }: DTACollectionsProps) => {
         items={mockCollectionsData}
         className="text-dta-collections-foreground px-[30px] pt-[30px]"
       />
-      {/* pagination footer */}
+      <FooterPagination
+        totalPages={10}
+        className="text-dta-collections-foreground px-[30px] pt-[50px]"
+      />
     </div>
   );
 };
