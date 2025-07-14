@@ -37,4 +37,7 @@ export const Default: Story = {
     gridType: "people",
     className: "p-[20px] sm:p-[30px]",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

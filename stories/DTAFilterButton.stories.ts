@@ -65,4 +65,7 @@ export const Collections: Story = {
     filterState: "minimized",
     colorTheme: "collections",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

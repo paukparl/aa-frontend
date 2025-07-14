@@ -64,4 +64,7 @@ export const Default: Story = {
   args: {
     carouselSlides: mockCarouselSlides,
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

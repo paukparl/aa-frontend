@@ -33,4 +33,7 @@ export const Default: Story = {
     children:
       "The Department of Tropical Architecture Archive provides an online digital platform to make the work held by the Architectural Association (AA) Archive and the dispersed work of the graduates of the Department of Tropical Architecture (DTA) available to the next generation of researchers eager to examine the network of global relationships and challenge the orthodoxy of the DTA program.",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

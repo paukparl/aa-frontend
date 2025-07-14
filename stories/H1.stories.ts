@@ -38,11 +38,17 @@ export const Default: Story = {
     children: "Practices",
     tipIn: false,
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 
 export const TipIn: Story = {
   args: {
     children: "Ministry of Work",
     tipIn: true,
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

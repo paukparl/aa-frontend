@@ -204,6 +204,9 @@ export const People: StoryObj<typeof meta> = {
     items: peopleItems,
     className: "text-dta-people-foreground",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 
 export const Collections: StoryObj<typeof meta> = {
@@ -212,6 +215,9 @@ export const Collections: StoryObj<typeof meta> = {
     items: collectionsItems,
     className: "text-dta-collections-foreground",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 
 export const Institutions: StoryObj<typeof meta> = {
@@ -219,6 +225,9 @@ export const Institutions: StoryObj<typeof meta> = {
     type: "institutions",
     items: institutionsItems,
     className: "text-dta-institutions-foreground",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };
 
@@ -229,6 +238,9 @@ export const PracticesGrid: StoryObj<typeof meta> = {
     gridItemClassName:
       "text-dta-people-foreground border-dta-people-foreground",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 
 export const PracticesTable: StoryObj<typeof meta> = {
@@ -236,5 +248,8 @@ export const PracticesTable: StoryObj<typeof meta> = {
     type: "practicestable",
     items: practicesItems,
     className: "text-dta-practices-foreground border-dta-practices-foreground",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

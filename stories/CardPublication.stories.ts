@@ -43,4 +43,7 @@ export const Default: Story = {
     imgSrc: "/storybook/DTA/components/2colContent/pub.png",
     className: "",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

@@ -51,4 +51,7 @@ export const Default: Story = {
     colorTheme: "dta-people",
     className: "w-[75vw]",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

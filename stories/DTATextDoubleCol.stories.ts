@@ -49,6 +49,9 @@ export const Image: Story = {
       "Jamaica College first opened its doors in 1795, as The Drax Free School in the vestry of the St. Ann’s Bay Courthouse in the parish of St. Ann. It was named for Charles Drax, a St. Ann planter who had left an endowment of over 5,000 pounds sterling for the establishment of a free school in his will, some years before. In 1806, Walton Pen in St. Ann was purchased to house the school, and it was renamed The Jamaica Free School.",
     colorTheme: "people",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 export const Publication: Story = {
   args: {
@@ -56,5 +59,8 @@ export const Publication: Story = {
     textContent:
       "After studying at the Architectural Association in London, John Godwin and Gillian Hopwood moved to Nigeria, where they significantly shaped the country's architectural landscape for more than sixty years. When Nigeria became independent in 1960 following British dominance since the 19th century, the couple worked to create architecture that was site-specific, modern, and adapted to the climate relevant to Nigeria's aspirational political and economic policies. In this richly illustrated monograph, organised by typology, Ben Tosland examines Godwin and Hopwood's form of tropical modernism and illuminates its contemporary meanings and concluding with its relevance in times of the climate crisis.",
     colorTheme: "about",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

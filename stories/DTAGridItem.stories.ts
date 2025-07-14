@@ -78,6 +78,9 @@ export const People: Story = {
     type: "people",
     date: "1928-1985",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 export const Institutions: Story = {
   args: {
@@ -87,6 +90,9 @@ export const Institutions: Story = {
     imgAlt: "An image of a college building",
     title: "College TKTK",
     type: "institutions",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };
 export const PracticesGrid: Story = {
@@ -104,6 +110,9 @@ export const PracticesGrid: Story = {
       },
     },
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 export const PracticesTable: Story = {
   args: {
@@ -119,6 +128,9 @@ export const PracticesTable: Story = {
       },
     },
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 export const Collections: Story = {
   args: {
@@ -129,5 +141,8 @@ export const Collections: Story = {
     title: "Name of Object",
     type: "collections",
     date: "1928-1985",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

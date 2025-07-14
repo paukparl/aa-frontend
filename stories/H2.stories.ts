@@ -32,4 +32,7 @@ export const Default: Story = {
   args: {
     children: "Who Are Godwin and Hopwood?",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

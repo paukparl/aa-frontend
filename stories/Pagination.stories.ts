@@ -28,4 +28,7 @@ export const Default: Story = {
     totalPages: 30,
     className: "w-[300px]",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

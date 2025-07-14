@@ -1,5 +1,3 @@
-// TODO
-// add width cutoff for caption
 import clsx from "clsx";
 import React from "react";
 import { Caption } from "@/components/Typography/Caption";
@@ -9,6 +7,7 @@ type DTACarouselSlideProps = {
   imgAlt: string;
   className?: string;
   caption?: string;
+  isActive?: boolean;
 };
 
 export const DTACarouselSlide = ({
@@ -16,6 +15,7 @@ export const DTACarouselSlide = ({
   imgAlt,
   caption,
   className,
+  isActive,
 }: DTACarouselSlideProps) => {
   return (
     <div className={clsx(className, "w-fit")}>
@@ -24,11 +24,15 @@ export const DTACarouselSlide = ({
         alt={imgAlt}
         className="mb-1 h-[180px] w-auto sm:h-[370px] xl:h-[515px]"
       />
-      {caption != null && (
+      {caption && (
         <Caption
-          className="text-color-dta-about-foreground"
-          children={caption}
-        />
+          className={clsx(
+            "text-color-dta-about-foreground transition-opacity duration-300 ease-in-out",
+            isActive ? "opacity-100" : "opacity-0",
+          )}
+        >
+          {caption}
+        </Caption>
       )}
     </div>
   );

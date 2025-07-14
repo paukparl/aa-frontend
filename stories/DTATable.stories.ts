@@ -43,6 +43,9 @@ export const Education: Story = {
     ],
     className: "text-dta-people-foreground !w-[90vw] md:!w-[700px]",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 export const Career: Story = {
   args: {
@@ -56,5 +59,8 @@ export const Career: Story = {
       { info: "Role, Institution, Country", year: "1984" },
     ],
     className: "text-dta-people-foreground !w-[90vw] md:!w-[700px]",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

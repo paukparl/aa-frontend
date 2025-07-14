@@ -63,4 +63,7 @@ export const Default: Story = {
     className: "p-[30px]",
     colorTheme: "dta-collections",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

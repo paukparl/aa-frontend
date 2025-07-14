@@ -16,7 +16,7 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    title: { control: "text" },
+    children: { control: "text" },
     className: {
       table: { disable: true },
     },
@@ -29,7 +29,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    title: "Map",
+    children: "Map",
     className: "text-dta-people-foreground !w-[90vw] md:!w-[700px]",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

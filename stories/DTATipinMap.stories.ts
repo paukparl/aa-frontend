@@ -32,4 +32,7 @@ export const Default: Story = {
   args: {
     colorTheme: "people",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

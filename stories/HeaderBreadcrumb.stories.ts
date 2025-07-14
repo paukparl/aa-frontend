@@ -50,4 +50,7 @@ export const Default: Story = {
     links: [{ title: "DTA Archive" }, { title: "People" }],
     colorTheme: "dta-people",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

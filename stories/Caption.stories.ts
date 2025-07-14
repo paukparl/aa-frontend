@@ -32,4 +32,7 @@ export const Default: Story = {
   args: {
     children: "Caption Lorem Ipsum",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };

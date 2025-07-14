@@ -39,4 +39,7 @@ export const Default: Story = {
     className: "",
     caption: "Caption Lorem Ipsum",
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
