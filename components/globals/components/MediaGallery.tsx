@@ -59,7 +59,7 @@ export default ({ slides, className, colorTheme }: MediaGalleryProps) => {
               className={clsx(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
-                "h-[75px] w-[75px] cursor-pointer object-cover p-[5px]",
+                "h-[65px] w-[65px] cursor-pointer object-cover p-[3px] sm:h-[75px] sm:w-[75px] sm:p-[5px]",
               )}
               onClick={() => handleClick(index)}
             />

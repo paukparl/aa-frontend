@@ -19,7 +19,7 @@ export default ({ className, title, info }: DTAInstitutionProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-institutions-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.95)] px-[30px] py-[30px] pb-[50px] backdrop-blur-lg sm:pb-[70px] lg:w-[75%]",
+        "text-dta-institutions-foreground g:w-[75%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.95)] p-[10px] backdrop-blur-lg sm:p-[30px]",
       )}
     >
       <TipinHeader
@@ -27,19 +27,20 @@ export default ({ className, title, info }: DTAInstitutionProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Institutions" }]}
         colorTheme="dta-institutions"
       />
-      <H1 tipIn className="pt-[30px]" children={title} />
-      <DTAContentDoubleCol
-        className="mt-[30px]"
-        imgSrc="/storybook/DTA/components/2colContent/jamaica-col.jpg"
-        textContent={info}
-        colorTheme="institutions"
-        contentType="image"
-      />
-      <div className="mt-[30px] flex flex-col gap-[30px] lg:gap-[50px]">
-        <DTATipinMap colorTheme="institutions" />
-        <DTARelatedContent gridType="people" colorTheme="institutions" />
-        <DTARelatedContent gridType="collections" colorTheme="institutions" />
-        <DTARelatedContent gridType="practices" colorTheme="institutions" />
+      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
+        <H1 tipIn children={title} />
+        <DTAContentDoubleCol
+          imgSrc="/storybook/DTA/components/2colContent/jamaica-col.jpg"
+          textContent={info}
+          colorTheme="institutions"
+          contentType="image"
+        />
+        <div className="flex flex-col gap-[30px] pb-[50px] lg:gap-[50px]">
+          <DTATipinMap colorTheme="institutions" />
+          <DTARelatedContent gridType="people" colorTheme="institutions" />
+          <DTARelatedContent gridType="collections" colorTheme="institutions" />
+          <DTARelatedContent gridType="practices" colorTheme="institutions" />
+        </div>
       </div>
     </div>
   );
