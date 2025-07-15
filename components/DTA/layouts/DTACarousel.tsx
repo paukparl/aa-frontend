@@ -24,20 +24,29 @@ export default function DTACarousel({
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevButDisabled, setPrevButDisabled] = useState(true);
+  const [nextButDisabled, setNextButDisabled] = useState(false);
 
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+    }
   }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
+    if (emblaApi) {
+      emblaApi.scrollNext();
+    }
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
-
     const onSelect = () => {
       setActiveIndex(emblaApi.selectedScrollSnap());
+      setPrevButDisabled(emblaApi.selectedScrollSnap() === 0);
+      setNextButDisabled(
+        emblaApi.selectedScrollSnap() === carouselSlides.length - 1,
+      );
     };
 
     emblaApi.on("select", onSelect);
@@ -62,24 +71,29 @@ export default function DTACarousel({
           ))}
           <div className="w-[20vw] shrink-0" aria-hidden />
         </div>
-
-        {/* Fade on right edge */}
-        {/* <div className="pointer-events-none absolute top-0 right-0 h-full w-[50px] bg-gradient-to-l from-white to-transparent" /> */}
       </div>
 
       <div className="mt-[0px] flex justify-end gap-[20px]">
-        <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
-          <img
-            src="/icons/arrow-left-large.svg"
-            className="h-auto w-[20px] sm:w-[25px]"
-          />
-        </button>
-        <button className="embla__next cursor-pointer" onClick={scrollNext}>
-          <img
-            src="/icons/arrow-right-large.svg"
-            className="h-auto w-[20px] sm:w-[25px]"
-          />
-        </button>
+        <div className="h-auto min-h-[10px] w-[20px] sm:w-[25px]">
+          {!prevButDisabled && (
+            <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
+              <img
+                src="/icons/arrow-left-large.svg"
+                className="h-auto w-[20px] sm:w-[25px]"
+              />
+            </button>
+          )}
+        </div>
+        <div className="h-auto min-h-[10px] w-[20px] sm:w-[25px]">
+          {!nextButDisabled && (
+            <button className="embla__next cursor-pointer" onClick={scrollNext}>
+              <img
+                src="/icons/arrow-right-large.svg"
+                className="h-auto w-[20px] sm:w-[25px]"
+              />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
