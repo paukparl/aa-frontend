@@ -56,11 +56,17 @@ export default function DTACarousel({
   }, [emblaApi]);
 
   return (
-    <div>
-      <div className={clsx("embla relative", className)} ref={emblaRef}>
-        <div className="embla__container w-full gap-[10px]">
+    <div className={className}>
+      <div
+        className="embla relative mask-r-from-95% mask-r-to-100%"
+        ref={emblaRef}
+      >
+        <div className="embla__container w-full">
           {carouselSlides.map((slide, index) => (
-            <div className="embla__slide shrink-0" key={index}>
+            <div
+              className="embla__slide shrink-0 pl-[10px] sm:pl-[30px]"
+              key={index}
+            >
               <DTACarouselSlide
                 imgSrc={slide.imgSrc}
                 imgAlt={slide.imgAlt}
@@ -73,7 +79,7 @@ export default function DTACarousel({
         </div>
       </div>
 
-      <div className="mt-[0px] flex justify-end gap-[20px]">
+      <div className="mt-[0px] flex justify-end gap-[20px] pr-[10px] sm:pr-[30px]">
         <div className="h-auto min-h-[10px] w-[20px] sm:w-[25px]">
           {!prevButDisabled && (
             <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
