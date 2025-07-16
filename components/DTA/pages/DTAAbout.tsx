@@ -15,32 +15,36 @@ const mockCarouselSlides = [
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
     imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    caption:
+      "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem m Dolor",
   },
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_2.png",
     imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    caption: "Caption Lorem Ipsum Dolor ",
   },
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_3.jpg",
     imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    caption:
+      "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor",
   },
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_4.jpg",
     imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    caption: "Caption Lorem Ipsum Caption Lorem Ipsum Dolor",
   },
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_5.jpg",
     imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    caption:
+      "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor",
   },
   {
     imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_6.jpg",
     imgAlt: "Image of a person",
-    caption: "Caption Lorem Ipsum Dolor",
+    caption:
+      "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor",
   },
 ];
 

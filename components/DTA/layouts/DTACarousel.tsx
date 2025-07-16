@@ -48,10 +48,8 @@ export default function DTACarousel({
         emblaApi.selectedScrollSnap() === carouselSlides.length - 1,
       );
     };
-
     emblaApi.on("select", onSelect);
     onSelect(); // initialize on mount
-
     return () => emblaApi.off("select", onSelect);
   }, [emblaApi]);
 
