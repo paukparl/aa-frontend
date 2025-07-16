@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { DTAFilterAlphabet } from "@/components/DTA/components/DTAFilterAlphabet";
 
 const meta = {
-  title: "DTA/02 Layouts/Filters/Alphabet Filter",
+  title: "DTA/03 Components/Filter/Alphabet Filter",
   component: DTAFilterAlphabet,
   parameters: {
     docs: {

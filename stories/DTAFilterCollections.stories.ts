@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { DTAFilterCollections } from "@/components/DTA/components/DTAFilterCollections";
 
 const meta = {
-  title: "DTA/02 Layouts/Filters/Collections Filter",
+  title: "DTA/03 Components/Filter/Collections Filter",
   component: DTAFilterCollections,
   parameters: {
     docs: {

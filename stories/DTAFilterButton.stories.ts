@@ -3,7 +3,7 @@ import DTAFilterButton from "../components/DTA/components/DTAFilterButton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/03 Components/Filter/Filter Button",
+  title: "DTA/03 Components/Filter/Button",
   component: DTAFilterButton,
   parameters: {
     docs: {

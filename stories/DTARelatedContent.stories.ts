@@ -3,7 +3,7 @@ import DTARelatedContent from "../components/DTA/layouts/DTARelatedContent";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/02 Layouts/Related Content Row",
+  title: "DTA/03 Components/Related Content Row",
   component: DTARelatedContent,
   parameters: {
     docs: {

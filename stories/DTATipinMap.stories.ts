@@ -3,7 +3,7 @@ import DTATipinMap from "../components/DTA/components/DTATipinMap";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/02 Layouts/Tip-in Map",
+  title: "DTA/03 Components/Tip-in Map",
   component: DTATipinMap,
   parameters: {
     docs: {
