@@ -15,20 +15,25 @@ type multiFilterType =
   | "yearOfStudy";
 
 type DTAFilterMultiProps = {
+  index: number;
+  activeIndex: number | null;
+  setActiveIndex: (index: number | null) => void;
   colorTheme: "people" | "practices" | "institutions";
-  className?: string;
   multiFilterType: multiFilterType;
   filters: Array<string>;
 };
 
-export const DTAFilterMulti = ({
+export const DTAFilterMultiSelect = ({
+  index,
+  activeIndex,
+  setActiveIndex,
   colorTheme,
-  className,
   multiFilterType,
   filters,
 }: DTAFilterMultiProps) => {
-  const [open, setOpen] = React.useState(false);
+  const open = activeIndex === index;
   const [activeFilters, setActiveFilters] = React.useState<Array<string>>([]);
+
   const filterTypeDict = {
     alphabet: {
       emptyLabel: "Filter by alphabet",
@@ -69,14 +74,13 @@ export const DTAFilterMulti = ({
       className: "grid grid-cols-3",
     },
   };
-  // Determine filterState: expanded if open, applied if any letters selected, else minimized
+
   const filterState = open
     ? "expanded"
     : activeFilters.length > 0
       ? "applied"
       : "minimized";
 
-  // Toggle filter selection
   const handleToggle = (filter: string) => {
     setActiveFilters((current) => {
       if (current.includes(filter)) {
@@ -87,7 +91,6 @@ export const DTAFilterMulti = ({
     });
   };
 
-  // Render button label
   const buttonLabel =
     activeFilters.length === 0
       ? filterTypeDict[multiFilterType].emptyLabel
@@ -96,14 +99,12 @@ export const DTAFilterMulti = ({
         : `${filterTypeDict[multiFilterType].filterLabel}${activeFilters.length} selected`;
 
   return (
-    <Collapsible.Root open={open} onOpenChange={setOpen} className={className}>
+    <Collapsible.Root
+      open={open}
+      onOpenChange={(o) => setActiveIndex(o ? index : null)}
+    >
       <Collapsible.Trigger asChild>
-        <button
-          aria-expanded={open}
-          aria-controls="multi-select-filter-button"
-          type="button"
-          className="w-full"
-        >
+        <button aria-expanded={open} type="button" className="w-full">
           <DTAFilterButton
             filterState={filterState}
             colorTheme={colorTheme}
@@ -112,13 +113,15 @@ export const DTAFilterMulti = ({
         </button>
       </Collapsible.Trigger>
 
+      {/* Dropdowns under each button */}
+      {/* Only visible on mobile, full-width desktop dropdowns are in the parent row component */}
       <Collapsible.Content
-        id="multi-select-filter-content"
-        className="absolute left-[0px] mt-[20px] w-fit border border-dashed border-gray-400 bg-white p-2 sm:mt-[30px]"
+        className={clsx(
+          "relative mt-[10px] w-full border border-dashed border-gray-400 bg-white p-2 sm:mt-[30px] sm:hidden",
+        )}
       >
         <ul
           role="listbox"
-          aria-label="Multi-Select filter"
           className={clsx(
             "gap-[20px]",
             filterTypeDict[multiFilterType].className,
@@ -138,7 +141,7 @@ export const DTAFilterMulti = ({
                     : "hover:underline",
                 )}
               >
-                <Mono children={filter} />
+                <Mono children={filter.toUpperCase()} />
               </button>
             </li>
           ))}

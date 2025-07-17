@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTAFilterMulti } from "@/components/DTA/components/DTAFilterMulti";
+import { DTAFilterMultiRow } from "@/components/DTA/components/DTAFilterMultiRow";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -189,23 +189,17 @@ export default ({ className }: DTAInstitutionsProps) => {
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
         <H1 children="Institutions" />
         <DTAContentSingleCol children="Brief sentence describing what institutions means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-        <div className="relative grid gap-[10px] lg:grid-cols-3 lg:gap-[20px]">
-          <DTAFilterMulti
-            filters={mockAlphabetFilters}
-            multiFilterType="alphabet"
-            colorTheme="institutions"
-          />
-          <DTAFilterMulti
-            filters={mockInstitutionTypeFilters}
-            multiFilterType="institutionType"
-            colorTheme="institutions"
-          />
-          <DTAFilterMulti
-            filters={mockCountryFilters}
-            multiFilterType="country"
-            colorTheme="institutions"
-          />
-        </div>
+        <DTAFilterMultiRow
+          colorTheme="institutions"
+          filtersInfo={[
+            { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
+            {
+              filters: mockInstitutionTypeFilters,
+              multiFilterType: "institutionType",
+            },
+            { filters: mockCountryFilters, multiFilterType: "country" },
+          ]}
+        />
         <Mono children="All 570 records" className="mt-[10px]" />
         <DTAGrid
           type="institutions"
