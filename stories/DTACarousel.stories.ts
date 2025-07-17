@@ -1,7 +1,7 @@
 // TODO
 // prop validation that all items passed into items have the same type
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTACarousel from "../components/DTA/layouts/DTACarousel";
+import DTACarousel from "../components/DTA/components/DTACarousel";
 
 const mockCarouselSlides = [
   {

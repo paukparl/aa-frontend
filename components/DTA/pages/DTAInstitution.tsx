@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import * as React from "react";
+import DTARelatedContent from "@/components/DTA/components/DTARelatedContent";
 import DTATipinMap from "@/components/DTA/components/DTATipinMap";
 import DTAContentDoubleCol from "@/components/DTA/layouts/DTAContentDoubleCol";
-import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
 import { H1 } from "@/components/Typography/H1";
 import TipinHeader from "@/components/globals/layouts/TipinHeader";
 

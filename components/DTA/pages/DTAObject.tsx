@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTARelatedContent from "@/components/DTA/layouts/DTARelatedContent";
+import DTARelatedContent from "@/components/DTA/components/DTARelatedContent";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import MediaGallery from "@/components/globals/components/MediaGallery";
