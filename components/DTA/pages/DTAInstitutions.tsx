@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import * as React from "react";
-import { DTAFilterMultiRow } from "@/components/DTA/components/DTAFilterMultiRow";
+import React, { useState } from "react";
+import { DTAFilterMultiRow } from "@/components/DTA/components/Filter/DTAFilterMultiSelectRow";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -174,6 +174,20 @@ const mockInstitutionTypeFilters = [
   "Transnational Organizations",
 ];
 export default ({ className }: DTAInstitutionsProps) => {
+  const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
+  const toggleFilter = (groupIndex: number, filter: string) => {
+    setActiveFilters((prev) => {
+      const updated = [...prev];
+      const group = new Set(updated[groupIndex] ?? []);
+      if (group.has(filter)) {
+        group.delete(filter);
+      } else {
+        group.add(filter);
+      }
+      updated[groupIndex] = Array.from(group);
+      return updated;
+    });
+  };
   return (
     <div
       className={clsx(
@@ -190,6 +204,8 @@ export default ({ className }: DTAInstitutionsProps) => {
         <H1 children="Institutions" />
         <DTAContentSingleCol children="Brief sentence describing what institutions means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
         <DTAFilterMultiRow
+          activeFilters={activeFilters}
+          toggleFilter={toggleFilter}
           colorTheme="institutions"
           filtersInfo={[
             { filters: mockAlphabetFilters, multiFilterType: "alphabet" },

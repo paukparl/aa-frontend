@@ -1,0 +1,70 @@
+"use client";
+
+import React, { useState } from "react";
+import { DTAFilterMultiSelect } from "@/components/DTA/components/Filter/DTAFilterMultiSelect";
+import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
+
+type multiFilterType =
+  | "alphabet"
+  | "country"
+  | "birthPlace"
+  | "institutionType"
+  | "year"
+  | "yearOfStudy";
+
+type MultiFilterArrayProps = {
+  multiFilterType: multiFilterType;
+  filters: Array<string>;
+};
+
+type DTAFilterMultiRowProps = {
+  activeFilters: string[][];
+  toggleFilter: (groupIndex: number, filterValue: string) => void;
+  colorTheme: "people" | "practices" | "institutions";
+  filtersInfo: Array<MultiFilterArrayProps>;
+};
+
+export const DTAFilterMultiRow = ({
+  colorTheme,
+  filtersInfo,
+  activeFilters,
+  toggleFilter,
+}: DTAFilterMultiRowProps) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  return (
+    <div className="w-full">
+      {/* Filter buttons in a row */}
+      <div className="grid w-full gap-[10px] lg:grid-cols-3 lg:gap-[20px]">
+        {filtersInfo.map((item, i) => (
+          <DTAFilterMultiSelect
+            setActiveIndex={setActiveIndex}
+            key={i}
+            index={i}
+            activeFilters={activeFilters}
+            activeIndex={activeIndex}
+            toggleFilter={toggleFilter}
+            multiFilterType={item.multiFilterType}
+            filters={item.filters}
+            colorTheme={colorTheme}
+          />
+        ))}
+      </div>
+
+      {/* Dropdowns in a stacked block that spans full width */}
+      {/* Only visible on desktop, mobile dropdowns are in each multi select component */}
+      <div className="mt-[10px] hidden sm:block">
+        {filtersInfo.map((item, i) => (
+          <div key={i} className={activeIndex === i ? "block" : "hidden"}>
+            <DTAFilterMultiSelectDropdown
+              groupIndex={i}
+              toggleFilter={toggleFilter}
+              activeFilters={activeFilters}
+              multiFilterType={item.multiFilterType}
+              filters={item.filters}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};

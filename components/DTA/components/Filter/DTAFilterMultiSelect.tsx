@@ -3,6 +3,7 @@
 import * as Collapsible from "@radix-ui/react-collapsible";
 import clsx from "clsx";
 import * as React from "react";
+import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
 import { Mono } from "@/components/Typography/Mono";
 import DTAFilterButton from "./DTAFilterButton";
 
@@ -15,8 +16,10 @@ type multiFilterType =
   | "yearOfStudy";
 
 type DTAFilterMultiProps = {
+  activeFilters: string[][];
   index: number;
   activeIndex: number | null;
+  toggleFilter: (dropdownIndex: number, filterValue: string) => void;
   setActiveIndex: (index: number | null) => void;
   colorTheme: "people" | "practices" | "institutions";
   multiFilterType: multiFilterType;
@@ -30,9 +33,11 @@ export const DTAFilterMultiSelect = ({
   colorTheme,
   multiFilterType,
   filters,
+  activeFilters,
+  toggleFilter,
 }: DTAFilterMultiProps) => {
+  console.log(activeFilters);
   const open = activeIndex === index;
-  const [activeFilters, setActiveFilters] = React.useState<Array<string>>([]);
 
   const filterTypeDict = {
     alphabet: {
@@ -77,26 +82,17 @@ export const DTAFilterMultiSelect = ({
 
   const filterState = open
     ? "expanded"
-    : activeFilters.length > 0
+    : activeFilters[index].length > 0
       ? "applied"
       : "minimized";
 
-  const handleToggle = (filter: string) => {
-    setActiveFilters((current) => {
-      if (current.includes(filter)) {
-        return current.filter((f) => f !== filter);
-      } else {
-        return [...current, filter];
-      }
-    });
-  };
-
   const buttonLabel =
-    activeFilters.length === 0
+    activeFilters[index].length === 0
       ? filterTypeDict[multiFilterType].emptyLabel
-      : activeFilters.length <= filterTypeDict[multiFilterType].maxFilters
-        ? `${filterTypeDict[multiFilterType].filterLabel}${activeFilters.join(", ")}`
-        : `${filterTypeDict[multiFilterType].filterLabel}${activeFilters.length} selected`;
+      : activeFilters[index].length <=
+          filterTypeDict[multiFilterType].maxFilters
+        ? `${filterTypeDict[multiFilterType].filterLabel}${activeFilters[index].join(", ")}`
+        : `${filterTypeDict[multiFilterType].filterLabel}${activeFilters[index].length} selected`;
 
   return (
     <Collapsible.Root
@@ -115,37 +111,15 @@ export const DTAFilterMultiSelect = ({
 
       {/* Dropdowns under each button */}
       {/* Only visible on mobile, full-width desktop dropdowns are in the parent row component */}
-      <Collapsible.Content
-        className={clsx(
-          "relative mt-[10px] w-full border border-dashed border-gray-400 bg-white p-2 sm:mt-[30px] sm:hidden",
-        )}
-      >
-        <ul
-          role="listbox"
-          className={clsx(
-            "gap-[20px]",
-            filterTypeDict[multiFilterType].className,
-          )}
-        >
-          {filters.map((filter) => (
-            <li key={filter}>
-              <button
-                type="button"
-                role="option"
-                aria-selected={activeFilters.includes(filter)}
-                onClick={() => handleToggle(filter)}
-                className={clsx(
-                  "cursor-pointer px-2 py-1",
-                  activeFilters.includes(filter)
-                    ? "font-bold underline"
-                    : "hover:underline",
-                )}
-              >
-                <Mono children={filter.toUpperCase()} />
-              </button>
-            </li>
-          ))}
-        </ul>
+      <Collapsible.Content>
+        <DTAFilterMultiSelectDropdown
+          groupIndex={index}
+          multiFilterType={multiFilterType}
+          filters={filters}
+          className="sm:hidden"
+          activeFilters={activeFilters}
+          toggleFilter={toggleFilter}
+        />
       </Collapsible.Content>
     </Collapsible.Root>
   );

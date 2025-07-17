@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTAFilterButton from "@/components/DTA/components/DTAFilterButton";
+import DTAFilterButton from "@/components/DTA/components/Filter/DTAFilterButton";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
