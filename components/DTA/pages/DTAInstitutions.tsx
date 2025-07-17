@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useState } from "react";
-import { DTAFilterMultiRow } from "@/components/DTA/components/Filter/DTAFilterMultiSelectRow";
+import { DTAFilterMultiSelectRow } from "@/components/DTA/components/Filter/DTAFilterMultiSelectRow";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -203,7 +203,7 @@ export default ({ className }: DTAInstitutionsProps) => {
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
         <H1 children="Institutions" />
         <DTAContentSingleCol children="Brief sentence describing what institutions means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-        <DTAFilterMultiRow
+        <DTAFilterMultiSelectRow
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
           colorTheme="institutions"

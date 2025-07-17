@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import React, { useState } from "react";
 import { DTAFilterMultiSelect } from "@/components/DTA/components/Filter/DTAFilterMultiSelect";
 import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
@@ -24,7 +25,7 @@ type DTAFilterMultiRowProps = {
   filtersInfo: Array<MultiFilterArrayProps>;
 };
 
-export const DTAFilterMultiRow = ({
+export const DTAFilterMultiSelectRow = ({
   colorTheme,
   filtersInfo,
   activeFilters,
@@ -34,7 +35,12 @@ export const DTAFilterMultiRow = ({
   return (
     <div className="w-full">
       {/* Filter buttons in a row */}
-      <div className="grid w-full gap-[10px] lg:grid-cols-3 lg:gap-[20px]">
+      <div
+        className={clsx(
+          "grid w-full gap-[10px] lg:gap-[20px]",
+          colorTheme === "practices" ? "lg:grid-cols-2" : "lg:grid-cols-3",
+        )}
+      >
         {filtersInfo.map((item, i) => (
           <DTAFilterMultiSelect
             setActiveIndex={setActiveIndex}

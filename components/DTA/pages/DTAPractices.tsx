@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import * as React from "react";
-import DTAFilterButton from "@/components/DTA/components/Filter/DTAFilterButton";
+import React, { useState } from "react";
+import { DTAFilterMultiSelectRow } from "@/components/DTA/components/Filter/DTAFilterMultiSelectRow";
 import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
@@ -58,8 +58,153 @@ const mockPracticesSlides = [
     country: "United Kingdom",
   },
 ];
-
+const mockAlphabetFilters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+const mockCountryFilters = [
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "Angola",
+  "Argentina",
+  "Armenia",
+  "Azerbaijan",
+  "Bangladesh",
+  "Barbados",
+  "Belarus",
+  "Belize",
+  "Bhutan",
+  "Bolivia",
+  "Botswana",
+  "Brazil",
+  "Bulgaria",
+  "Cambodia",
+  "Chile",
+  "China",
+  "Colombia",
+  "Costa Rica",
+  "Croatia",
+  "Cuba",
+  "Czech Republic",
+  "Dominican Republic",
+  "Ecuador",
+  "Egypt",
+  "El Salvador",
+  "Eritrea",
+  "Estonia",
+  "Ethiopia",
+  "Fiji",
+  "Georgia",
+  "Ghana",
+  "Guatemala",
+  "Guyana",
+  "Haiti",
+  "Honduras",
+  "Hungary",
+  "India",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Jamaica",
+  "Jordan",
+  "Kazakhstan",
+  "Kenya",
+  "Laos",
+  "Latvia",
+  "Lebanon",
+  "Liberia",
+  "Libya",
+  "Lithuania",
+  "Malaysia",
+  "Maldives",
+  "Mexico",
+  "Micronesia",
+  "Mongolia",
+  "Myanmar",
+  "Namibia",
+  "Nepal",
+  "Nicaragua",
+  "Oman",
+  "Pakistan",
+  "Palestine",
+  "Panama",
+  "Papua New Guinea",
+  "Paraguay",
+  "Peru",
+  "Philippines",
+  "Romania",
+  "Rwanda",
+  "Samoa",
+  "Saudi Arabia",
+  "Senegal",
+  "Serbia",
+  "Sierra Leone",
+  "Singapore",
+  "Slovakia",
+  "Slovenia",
+  "Somalia",
+  "South Africa",
+  "South Korea",
+  "South Sudan",
+  "Sri Lanka",
+  "Sudan",
+  "Syria",
+  "Taiwan",
+  "Tanzania",
+  "Thailand",
+  "Tunisia",
+  "Turkey",
+  "Uganda",
+  "Ukraine",
+  "United Kingdom",
+  "Uruguay",
+  "Uzbekistan",
+  "Venezuela",
+  "Vietnam",
+  "Yemen",
+  "Zambia",
+  "Zimbabwe",
+];
 export default ({ className }: DTAPracticesProps) => {
+  const [activeFilters, setActiveFilters] = useState<string[][]>([[], []]);
+  const toggleFilter = (groupIndex: number, filter: string) => {
+    setActiveFilters((prev) => {
+      const updated = [...prev];
+      const group = new Set(updated[groupIndex] ?? []);
+      if (group.has(filter)) {
+        group.delete(filter);
+      } else {
+        group.add(filter);
+      }
+      updated[groupIndex] = Array.from(group);
+      return updated;
+    });
+  };
   return (
     <div
       className={clsx(
@@ -75,18 +220,15 @@ export default ({ className }: DTAPracticesProps) => {
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
         <H1 children="Practices" />
         <DTAContentSingleCol children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-        <div className="grid gap-[10px] lg:grid-cols-2 lg:gap-[20px]">
-          <DTAFilterButton
-            filterState="minimized"
-            children="Filter by alphabet"
-            colorTheme="practices"
-          />
-          <DTAFilterButton
-            filterState="minimized"
-            children="Country"
-            colorTheme="practices"
-          />
-        </div>
+        <DTAFilterMultiSelectRow
+          activeFilters={activeFilters}
+          toggleFilter={toggleFilter}
+          colorTheme="practices"
+          filtersInfo={[
+            { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
+            { filters: mockCountryFilters, multiFilterType: "country" },
+          ]}
+        />
         <Mono children="All 570 records" className="mt-[10px]" />
         <DTAGrid
           type="practicestable"
