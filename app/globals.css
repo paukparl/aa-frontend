@@ -1,7 +1,8 @@
 @import "tailwindcss";
-
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-animate";
+
+@import "./view-transition.css";
 
 @layer base {
   :root {

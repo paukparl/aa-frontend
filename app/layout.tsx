@@ -1,6 +1,8 @@
 import { CSSProperties, ReactNode } from "react";
+import Layout from "@/components/Layout";
 import { PrevRouteProvider } from "@/contexts/PrevRouteContext";
 import { fonts } from "@/fonts";
+import { cn } from "@/lib/cn";
 import "./globals.css";
 
 export default async function RootLayout({
@@ -13,15 +15,18 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fonts.diatype.variable} ${fonts.nhgDisplay.variable} ${fonts.nhgText.variable} text-black antialiased`}
-      style={
-        {
-          "--color-home": homeColor,
-        } as CSSProperties
-      }
+      className={cn(
+        fonts.diatype.variable,
+        fonts.nhgDisplay.variable,
+        fonts.nhgText.variable,
+        "text-black antialiased",
+      )}
+      style={{ "--color-home": homeColor } as CSSProperties}
     >
       <body>
-        <PrevRouteProvider>{children}</PrevRouteProvider>
+        <PrevRouteProvider>
+          <Layout>{children}</Layout>
+        </PrevRouteProvider>
       </body>
     </html>
   );
