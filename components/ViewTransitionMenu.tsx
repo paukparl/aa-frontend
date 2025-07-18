@@ -111,7 +111,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
             "fixed inset-0 top-0 left-0 z-60 size-full overflow-auto",
           )}
         >
-          <Dialog.Content className={cn("bg-bg-menu min-h-full outline-none")}>
+          <Dialog.Content className={cn("bg-menu min-h-full outline-none")}>
             <Dialog.Title className={cn("sr-only")} />
             <Dialog.Description className={cn("sr-only")} />
 
