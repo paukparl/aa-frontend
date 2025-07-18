@@ -205,6 +205,13 @@ export default ({ className }: DTAPracticesProps) => {
       return updated;
     });
   };
+  const clearFilters = (groupIndex: number) => {
+    setActiveFilters((prev) => {
+      const updated = [...prev];
+      updated[groupIndex] = [];
+      return updated;
+    });
+  };
   return (
     <div
       className={clsx(
@@ -221,6 +228,7 @@ export default ({ className }: DTAPracticesProps) => {
         <H1 children="Practices" />
         <DTAContentSingleCol children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
         <DTAFilterMultiSelectRow
+          clearFilters={clearFilters}
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
           colorTheme="practices"

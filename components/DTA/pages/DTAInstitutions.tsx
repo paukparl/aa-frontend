@@ -188,6 +188,13 @@ export default ({ className }: DTAInstitutionsProps) => {
       return updated;
     });
   };
+  const clearFilters = (groupIndex: number) => {
+    setActiveFilters((prev) => {
+      const updated = [...prev];
+      updated[groupIndex] = [];
+      return updated;
+    });
+  };
   return (
     <div
       className={clsx(
@@ -206,6 +213,7 @@ export default ({ className }: DTAInstitutionsProps) => {
         <DTAFilterMultiSelectRow
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
+          clearFilters={clearFilters}
           colorTheme="institutions"
           filtersInfo={[
             { filters: mockAlphabetFilters, multiFilterType: "alphabet" },

@@ -20,6 +20,7 @@ type DTAFilterMultiProps = {
   index: number;
   activeIndex: number | null;
   toggleFilter: (dropdownIndex: number, filterValue: string) => void;
+  clearFilters: (groupIndex: number) => void;
   setActiveIndex: (index: number | null) => void;
   colorTheme: "people" | "practices" | "institutions";
   multiFilterType: multiFilterType;
@@ -35,6 +36,7 @@ export const DTAFilterMultiSelect = ({
   filters,
   activeFilters,
   toggleFilter,
+  clearFilters,
 }: DTAFilterMultiProps) => {
   console.log(activeFilters);
   const open = activeIndex === index;
@@ -105,6 +107,8 @@ export const DTAFilterMultiSelect = ({
             filterState={filterState}
             colorTheme={colorTheme}
             children={buttonLabel}
+            clearFilters={clearFilters}
+            index={index}
           />
         </button>
       </Collapsible.Trigger>

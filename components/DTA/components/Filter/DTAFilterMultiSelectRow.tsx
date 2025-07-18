@@ -21,6 +21,7 @@ type MultiFilterArrayProps = {
 type DTAFilterMultiRowProps = {
   activeFilters: string[][];
   toggleFilter: (groupIndex: number, filterValue: string) => void;
+  clearFilters: (groupIndex: number) => void;
   colorTheme: "people" | "practices" | "institutions";
   filtersInfo: Array<MultiFilterArrayProps>;
 };
@@ -30,6 +31,7 @@ export const DTAFilterMultiSelectRow = ({
   filtersInfo,
   activeFilters,
   toggleFilter,
+  clearFilters,
 }: DTAFilterMultiRowProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   return (
@@ -49,6 +51,7 @@ export const DTAFilterMultiSelectRow = ({
             activeFilters={activeFilters}
             activeIndex={activeIndex}
             toggleFilter={toggleFilter}
+            clearFilters={clearFilters}
             multiFilterType={item.multiFilterType}
             filters={item.filters}
             colorTheme={colorTheme}

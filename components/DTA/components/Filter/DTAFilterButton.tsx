@@ -11,6 +11,8 @@ type DTAFilterButtonProps = {
   filterState: filterState;
   colorTheme: colorTheme;
   className?: string;
+  clearFilters: (groupIndex: number) => void;
+  index: number;
 };
 
 export default ({
@@ -18,6 +20,8 @@ export default ({
   className,
   filterState,
   colorTheme,
+  clearFilters,
+  index,
 }: DTAFilterButtonProps) => {
   const colorThemeDict = {
     people: {
@@ -88,6 +92,7 @@ export default ({
           viewBox="0 0 23 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          onClick={() => clearFilters(index)}
         >
           <path
             className="stroke-white"
