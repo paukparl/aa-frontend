@@ -7,12 +7,13 @@ import { Mono } from "@/components/Typography/Mono";
 type filterState = "minimized" | "expanded" | "applied";
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 type DTAFilterButtonProps = {
+  singleSelect?: boolean;
   children: string;
   filterState: filterState;
   colorTheme: colorTheme;
   className?: string;
-  clearFilters: (groupIndex: number) => void;
-  index: number;
+  clearFilters: (groupIndex: number | undefined) => void;
+  index?: number;
 };
 
 export default ({
@@ -22,6 +23,7 @@ export default ({
   colorTheme,
   clearFilters,
   index,
+  singleSelect,
 }: DTAFilterButtonProps) => {
   const colorThemeDict = {
     people: {
@@ -92,7 +94,9 @@ export default ({
           viewBox="0 0 23 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          onClick={() => clearFilters(index)}
+          onClick={() =>
+            singleSelect ? clearFilters(undefined) : clearFilters(index)
+          }
         >
           <path
             className="stroke-white"

@@ -38,7 +38,6 @@ export const DTAFilterMultiSelect = ({
   toggleFilter,
   clearFilters,
 }: DTAFilterMultiProps) => {
-  console.log(activeFilters);
   const open = activeIndex === index;
 
   const filterTypeDict = {
