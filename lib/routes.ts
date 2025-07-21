@@ -28,15 +28,15 @@ export const hookeParkTipin1Slugs = [
   "people",
   "projects",
   "contact",
-];
-
-export const dtaSubpanelSlugs = ["map", "about", "search"];
+] as const;
 
 export const dtaTipin1Slugs = [
   "people",
   "practices",
   "institutions",
   "collections",
+  "about",
+  "search",
 ] as const;
 
 export type SchoolSubpanelSlug = (typeof schoolSubpanelSlugs)[number];
@@ -44,8 +44,6 @@ export type SchoolSubpanelSlug = (typeof schoolSubpanelSlugs)[number];
 export type PublicSubpanelSlug = (typeof publicSubpanelSlugs)[number];
 
 export type HookeParkTipin1Slug = (typeof hookeParkTipin1Slugs)[number];
-
-export type DtaSubpanelSlug = (typeof dtaSubpanelSlugs)[number];
 
 export type DtaTipin1Slug = (typeof dtaTipin1Slugs)[number];
 
@@ -59,7 +57,7 @@ type SubpanelSlugType<
         : T extends "hooke-park"
           ? never
           : T extends "dta"
-            ? DtaSubpanelSlug
+            ? never
             : never)
   | undefined;
 
@@ -84,7 +82,7 @@ export const routes = {
         : panelOrMicrosite === "hooke-park"
           ? `/school/hooke-park${subpanel ? `/${subpanel}` : ""}`
           : panelOrMicrosite === "dta"
-            ? `/public/dta${subpanel ? `/${subpanel}` : ""}`
+            ? `/public/dta`
             : // roam
               `/public/roam${subpanel ? `/${subpanel}` : ""}`,
   tipin1: <T extends "school" | "public" | "hooke-park" | "dta" | "roam">(
@@ -99,7 +97,7 @@ export const routes = {
         : panelOrMicrosite === "hooke-park"
           ? `/school/hooke-park${subpanel ? `/${subpanel}` : ""}/${tipin1}`
           : panelOrMicrosite === "dta"
-            ? `/public/dta${subpanel ? `/${subpanel}` : ""}/${tipin1}`
+            ? `/public/dta/${tipin1}`
             : // roam
               `/public/roam${subpanel ? `/${subpanel}` : ""}/${tipin1}`,
   tipin2: <T extends "school" | "public" | "hooke-park" | "dta" | "roam">(
@@ -115,81 +113,118 @@ export const routes = {
         : panelOrMicrosite === "hooke-park"
           ? `/school/hooke-park${subpanel ? `/${subpanel}` : ""}/${tipin1}/${tipin2}`
           : panelOrMicrosite === "dta"
-            ? `/public/dta${subpanel ? `/${subpanel}` : ""}/${tipin1}/${tipin2}`
+            ? `/public/dta/${tipin1}/${tipin2}`
             : // roam
               `/public/roam${subpanel ? `/${subpanel}` : ""}/${tipin1}/${tipin2}`,
 };
+
+// Regexes for route parsing
+
+// Panel routes
+// /school
+const schoolPanelRegex = new RegExp(`^/(?<panel>school)$`);
+// /school/[subpanel]
+const schoolSubpanelRegex = new RegExp(
+  `^/(?<panel>school)/(?<subpanel>${schoolSubpanelSlugs.join("|")})$`,
+);
+// /school/hooke-park
+const hookeParkRegex = new RegExp(
+  `^/(?<panel>school)/(?<microsite>hooke-park)$`,
+);
+// /public
+const publicPanelRegex = new RegExp(`^/(?<panel>public)$`);
+// /public/[subpanel]
+const publicSubpanelRegex = new RegExp(
+  `^/(?<panel>public)/(?<subpanel>${publicSubpanelSlugs.join("|")})$`,
+);
+// /public/dta
+const dtaRegex = new RegExp(`^/(?<panel>public)/(?<microsite>dta)$`);
+// /public/roam
+const roamRegex = new RegExp(`^/(?<panel>public)/(?<microsite>roam)$`);
+
+// Tipin1 routes
+// /school/[subpanel]/[tipin1]
+const schoolSubpanelTipin1Regex = new RegExp(
+  `^/(?<panel>school)/(?<subpanel>${schoolSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)$`,
+);
+// /school/[tipin1]
+const schoolPanelTipin1Regex = new RegExp(
+  `^/(?<panel>school)/(?!${schoolSubpanelSlugs.join("|")})(?<tipin1>[^/]+)$`,
+);
+// /school/hooke-park/[tipin1]
+const hookeParkTipin1Regex = new RegExp(
+  `^/(?<panel>school)/(?<microsite>hooke-park)/(?<tipin1>${hookeParkTipin1Slugs.join("|")})$`,
+);
+// /public/[subpanel]/[tipin1]
+const publicSubpanelTipin1Regex = new RegExp(
+  `^/(?<panel>public)/(?<subpanel>${publicSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)$`,
+);
+// /public/[tipin1]
+const publicPanelTipin1Regex = new RegExp(
+  `^/(?<panel>public)/(?!${publicSubpanelSlugs.join("|")})(?<tipin1>[^/]+)$`,
+);
+// /public/dta/[tipin1]
+const dtaTipin1Regex = new RegExp(
+  `^/(?<panel>public)/(?<microsite>dta)/(?<tipin1>${dtaTipin1Slugs.join("|")})$`,
+);
+// /public/roam/[tipin1]
+const roamTipin1Regex = new RegExp(
+  `^/(?<panel>public)/(?<microsite>roam)/(?<tipin1>[^/]+)$`,
+);
+
+// Tipin2 routes
+// /school/[subpanel]/[tipin1]/[tipin2]
+const schoolSubpanelTipin2Regex = new RegExp(
+  `^/(?<panel>school)/(?<subpanel>${schoolSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
+);
+// /school/[tipin1]/[tipin2]
+const schoolPanelTipin2Regex = new RegExp(
+  `^/(?<panel>school)/(?!${schoolSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
+);
+// /school/hooke-park/[tipin1]/[tipin2]
+const hookeParkPanelTipin2Regex = new RegExp(
+  `^/(?<panel>school)/(?<microsite>hooke-park)/(?<tipin1>${hookeParkTipin1Slugs.join("|")})/(?<tipin2>[^/]+)$`,
+);
+// /public/[subpanel]/[tipin1]/[tipin2]
+const publicSubpanelTipin2Regex = new RegExp(
+  `^/(?<panel>public)/(?<subpanel>${publicSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
+);
+// /public/[tipin1]/[tipin2]
+const publicPanelTipin2Regex = new RegExp(
+  `^/(?<panel>public)/(?!${publicSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
+);
+// /public/dta/[tipin1]/[tipin2]
+const dtaTipin2Regex = new RegExp(
+  `^/(?<panel>public)/(?<microsite>dta)/(?<tipin1>${dtaTipin1Slugs.join("|")})/(?<tipin2>[^/]+)$`,
+);
 
 export const routeParsers = {
   home: (pathname: string) => new RegExp(`^/$`).test(pathname),
 
   panel: (pathname: string) =>
-    // /school
-    (new RegExp(`^/(?<panel>school)$`).exec(pathname)?.groups ??
-      // /school/[subpanel]
-      new RegExp(
-        `^/(?<panel>school)/(?<subpanel>${schoolSubpanelSlugs.join("|")})$`,
-      ).exec(pathname)?.groups ??
-      // /school/hooke-park
-      new RegExp(`^/(?<panel>school)/(?<microsite>hooke-park)$`).exec(pathname)
-        ?.groups ??
-      // /public
-      new RegExp(`^/(?<panel>public)$`).exec(pathname)?.groups ??
-      // /public/[subpanel]
-      new RegExp(
-        `^/(?<panel>public)/(?<subpanel>${publicSubpanelSlugs.join("|")})$`,
-      ).exec(pathname)?.groups ??
-      // /public/dta
-      new RegExp(`^/(?<panel>public)/(?<microsite>dta)$`).exec(pathname)
-        ?.groups ??
-      // /public/dta/[subpanel]
-      new RegExp(
-        `^/(?<panel>public)/(?<microsite>dta)/(?<subpanel>${dtaSubpanelSlugs.join("|")})$`,
-      ).exec(pathname)?.groups ??
-      // /public/roam
-      new RegExp(`^/(?<panel>public)/(?<microsite>roam)$`).exec(pathname)
-        ?.groups ??
+    (schoolPanelRegex.exec(pathname)?.groups ??
+      schoolSubpanelRegex.exec(pathname)?.groups ??
+      hookeParkRegex.exec(pathname)?.groups ??
+      publicPanelRegex.exec(pathname)?.groups ??
+      publicSubpanelRegex.exec(pathname)?.groups ??
+      dtaRegex.exec(pathname)?.groups ??
+      roamRegex.exec(pathname)?.groups ??
       null) as
       | { panel: "school"; microsite: undefined; subpanel?: SchoolSubpanelSlug }
       | { panel: "school"; microsite: "hooke-park"; subpanel: undefined }
       | { panel: "public"; microsite: undefined; subpanel?: PublicSubpanelSlug }
-      | { panel: "public"; microsite: "dta"; subpanel?: DtaSubpanelSlug }
+      | { panel: "public"; microsite: "dta"; subpanel: undefined }
       | { panel: "public"; microsite: "roam"; subpanel: undefined }
       | null,
 
   tipin1: (pathname: string) =>
-    // /school/[subpanel]/[tipin1]
-    (new RegExp(
-      `^/(?<panel>school)/(?<subpanel>${schoolSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)$`,
-    ).exec(pathname)?.groups ??
-      // /school/[tipin1]
-      new RegExp(
-        `^/(?<panel>school)/(?!${schoolSubpanelSlugs.join("|")})(?<tipin1>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /school/hooke-park/[tipin1]
-      new RegExp(
-        `^/(?<panel>school)/(?<microsite>hooke-park)/(?<tipin1>${hookeParkTipin1Slugs.join("|")})$`,
-      ).exec(pathname)?.groups ??
-      // /public/[subpanel]/[tipin1]
-      new RegExp(
-        `^/(?<panel>public)/(?<subpanel>${publicSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /public/[tipin1]
-      new RegExp(
-        `^/(?<panel>public)/(?!${publicSubpanelSlugs.join("|")})(?<tipin1>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /public/dta/[subpanel]/[tipin1]
-      new RegExp(
-        `^/(?<panel>public)/(?<microsite>dta)/(?<subpanel>${dtaSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /public/dta/[tipin1]
-      new RegExp(
-        `^/(?<panel>public)/(?<microsite>dta)/(?!${dtaSubpanelSlugs.join("|")})(?<tipin1>${dtaTipin1Slugs.join("|")})$`,
-      ).exec(pathname)?.groups ??
-      // /public/roam/[tipin1]
-      new RegExp(
-        `^/(?<panel>public)/(?<microsite>roam)/(?<tipin1>[^/]+)$`,
-      ).exec(pathname)?.groups ??
+    (schoolSubpanelTipin1Regex.exec(pathname)?.groups ??
+      schoolPanelTipin1Regex.exec(pathname)?.groups ??
+      hookeParkTipin1Regex.exec(pathname)?.groups ??
+      publicSubpanelTipin1Regex.exec(pathname)?.groups ??
+      publicPanelTipin1Regex.exec(pathname)?.groups ??
+      dtaTipin1Regex.exec(pathname)?.groups ??
+      roamTipin1Regex.exec(pathname)?.groups ??
       null) as
       | {
           panel: "school";
@@ -212,12 +247,6 @@ export const routeParsers = {
       | {
           panel: "public";
           microsite: "dta";
-          subpanel: DtaSubpanelSlug;
-          tipin1: string;
-        }
-      | {
-          panel: "public";
-          microsite: "dta";
           subpanel: undefined;
           tipin1: DtaTipin1Slug;
         }
@@ -230,30 +259,12 @@ export const routeParsers = {
       | null,
 
   tipin2: (pathname: string) =>
-    // /school/[subpanel]/[tipin1]/[tipin2]
-    (new RegExp(
-      `^/(?<panel>school)/(?<subpanel>${schoolSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
-    ).exec(pathname)?.groups ??
-      // /school/[tipin1]/[tipin2]
-      new RegExp(
-        `^/(?<panel>school)/(?!${schoolSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /school/hooke-park/[tipin1]/[tipin2]
-      new RegExp(
-        `^/(?<panel>school)/(?<microsite>hooke-park)/(?<tipin1>${hookeParkTipin1Slugs.join("|")})/(?<tipin2>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /public/[subpanel]/[tipin1]/[tipin2]
-      new RegExp(
-        `^/(?<panel>public)/(?<subpanel>${publicSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /public/[tipin1]/[tipin2]
-      new RegExp(
-        `^/(?<panel>public)/(?!${publicSubpanelSlugs.join("|")})/(?<tipin1>[^/]+)/(?<tipin2>[^/]+)$`,
-      ).exec(pathname)?.groups ??
-      // /public/dta/[tipin1]/[tipin2]
-      new RegExp(
-        `^/(?<panel>public)/(?<microsite>dta)/(?<tipin1>${dtaTipin1Slugs.join("|")})/(?<tipin2>[^/]+)$`,
-      ).exec(pathname)?.groups ??
+    (schoolSubpanelTipin2Regex.exec(pathname)?.groups ??
+      schoolPanelTipin2Regex.exec(pathname)?.groups ??
+      hookeParkPanelTipin2Regex.exec(pathname)?.groups ??
+      publicSubpanelTipin2Regex.exec(pathname)?.groups ??
+      publicPanelTipin2Regex.exec(pathname)?.groups ??
+      dtaTipin2Regex.exec(pathname)?.groups ??
       null) as
       | {
           panel: "school";
