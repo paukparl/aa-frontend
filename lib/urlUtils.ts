@@ -38,7 +38,17 @@ export function composeUrl({
       ? params
       : parseUrlSearchParams(params)
     : undefined;
-  const url = `${baseUrl ? baseUrl.replace(/\/$/, "") : ""}${path.replace(/^(?!\/)/, "/")}${searchParams ? (searchParams.toString().length >= 3 ? `?${searchParams}` : "") : ""}${hash ? `#${hash}` : ""}`;
+  // Remove trailing slash
+  const normalizedBaseUrl = baseUrl ? baseUrl.replace(/\/$/, "") : "";
+  // Add leading slash if not present
+  const normalizedPath = path.replace(/^(?!\/)/, "/");
+  const queryString =
+    searchParams &&
+    Array.from(searchParams.entries()).some(([key, value]) => key && value)
+      ? `?${searchParams}`
+      : "";
+  const hashString = hash ? `#${hash}` : "";
+  const url = `${normalizedBaseUrl}${normalizedPath}${queryString}${hashString}`;
   return url;
 }
 
