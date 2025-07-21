@@ -71,36 +71,21 @@ function Panel({
               ? "translate(var(--home-panel-x-at-home), var(--home-panel-y-at-home))"
               : panel === "school"
                 ? "translate(var(--home-panel-x-at-school), var(--home-panel-y-at-school))"
-                : panel === "public"
-                  ? "translate(var(--home-panel-x-at-public), var(--home-panel-y-at-public))"
-                  : panel === "hooke-park"
-                    ? "translate(var(--home-panel-x-at-hooke-park), var(--home-panel-y-at-hooke-park))"
-                    : panel === "dta"
-                      ? "translate(var(--home-panel-x-at-dta), var(--home-panel-y-at-dta))"
-                      : "translate(var(--home-panel-x-at-roam), var(--home-panel-y-at-roam))"
+                : // public
+                  "translate(var(--home-panel-x-at-public), var(--home-panel-y-at-public))"
             : type === "school"
               ? panel === "home"
                 ? "translate(var(--school-panel-x-at-home), var(--school-panel-y-at-home))"
                 : panel === "school"
                   ? "translate(var(--school-panel-x-at-school), var(--school-panel-y-at-school))"
-                  : panel === "public"
-                    ? "translate(var(--school-panel-x-at-public), var(--school-panel-y-at-public))"
-                    : panel === "hooke-park"
-                      ? "translate(var(--school-panel-x-at-hooke-park), var(--school-panel-y-at-hooke-park))"
-                      : panel === "dta"
-                        ? "translate(var(--school-panel-x-at-dta), var(--school-panel-y-at-dta))"
-                        : "translate(var(--school-panel-x-at-roam), var(--school-panel-y-at-roam))"
+                  : // public
+                    "translate(var(--school-panel-x-at-public), var(--school-panel-y-at-public))"
               : panel === "home"
                 ? "translate(var(--public-panel-x-at-home), var(--public-panel-y-at-home))"
                 : panel === "school"
                   ? "translate(var(--public-panel-x-at-school), var(--public-panel-y-at-school))"
-                  : panel === "public"
-                    ? "translate(var(--public-panel-x-at-public), var(--public-panel-y-at-public))"
-                    : panel === "hooke-park"
-                      ? "translate(var(--public-panel-x-at-hooke-park), var(--public-panel-y-at-hooke-park))"
-                      : panel === "dta"
-                        ? "translate(var(--public-panel-x-at-dta), var(--public-panel-y-at-dta))"
-                        : "translate(var(--public-panel-x-at-roam), var(--public-panel-y-at-roam))",
+                  : // public
+                    "translate(var(--public-panel-x-at-public), var(--public-panel-y-at-public))",
       }}
     >
       <div

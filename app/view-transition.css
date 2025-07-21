@@ -11,12 +11,6 @@
     --home-panel-y-at-school: calc(var(--header-h) * -1);
     --home-panel-x-at-public: calc(var(--school-btn-w) * -1);
     --home-panel-y-at-public: calc(-100dvh + var(--header-h));
-    --home-panel-x-at-hooke-park: calc(-100dvw + var(--header-h));
-    --home-panel-y-at-hooke-park: calc(var(--header-h) * -1);
-    --home-panel-x-at-dta: calc(var(--school-btn-w) * -1);
-    --home-panel-y-at-dta: calc(-100dvh + var(--header-h));
-    --home-panel-x-at-roam: calc(var(--school-btn-w) * -1);
-    --home-panel-y-at-roam: calc(-100dvh + var(--header-h));
 
     --school-panel-x-at-home: calc(100dvw - var(--header-h));
     --school-panel-y-at-home: calc(var(--header-h) * -1);
@@ -24,12 +18,6 @@
     --school-panel-y-at-school: calc(var(--header-h) * -1);
     --school-panel-x-at-public: calc(100dvw - var(--school-btn-w));
     --school-panel-y-at-public: calc(-100dvh + var(--header-h));
-    --school-panel-x-at-hooke-park: calc(var(--header-h));
-    --school-panel-y-at-hooke-park: calc(var(--header-h) * -1);
-    --school-panel-x-at-dta: calc(100dvw - var(--school-btn-w));
-    --school-panel-y-at-dta: calc(-100dvh + var(--header-h));
-    --school-panel-x-at-roam: calc(100dvw - var(--school-btn-w));
-    --school-panel-y-at-roam: calc(-100dvh + var(--header-h));
 
     --public-panel-x-at-home: calc(0dvw);
     --public-panel-y-at-home: calc(100dvh - var(--header-h));
@@ -37,12 +25,6 @@
     --public-panel-y-at-school: calc(100dvh - var(--header-h));
     --public-panel-x-at-public: calc(0dvw);
     --public-panel-y-at-public: calc(var(--header-h));
-    --public-panel-x-at-hooke-park: calc(0dvw);
-    --public-panel-y-at-hooke-park: calc(100dvh - var(--header-h));
-    --public-panel-x-at-dta: calc(0dvw);
-    --public-panel-y-at-dta: calc(var(--header-h));
-    --public-panel-x-at-roam: calc(0dvw);
-    --public-panel-y-at-roam: calc(var(--header-h));
 
     /* --fade-in-duration: 0.2s;
     --fade-out-duration: 0.2s; */
