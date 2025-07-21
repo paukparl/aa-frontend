@@ -20,10 +20,6 @@ export default function SchoolPanelPageGridNav() {
       </GridNavLink>
       <GridNavLink href={routes.panel("school", "people")}>People</GridNavLink>
       <GridNavLink href={routes.panel("school", "about")}>About</GridNavLink>
-      {/* @ts-expect-error: For demo only */}
-      <GridNavLink href={routes.panel("school", "abc")}>
-        Abc (Not Found)
-      </GridNavLink>
     </GridNavRoot>
   );
 }

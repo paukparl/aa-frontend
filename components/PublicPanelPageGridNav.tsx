@@ -28,10 +28,6 @@ export default function PublicPanelPageGridNav() {
       <GridNavLink href={routes.panel("public", "support")}>
         Support
       </GridNavLink>
-      {/* @ts-expect-error: For demo only */}
-      <GridNavLink href={routes.panel("public", "abc")}>
-        Abc (Not Found)
-      </GridNavLink>
     </GridNavRoot>
   );
 }
