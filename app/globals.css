@@ -11,6 +11,8 @@
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --default-transition-duration: 0.1s;
+    --default-transition-timing-function: linear;
   }
   .dta_griditem_bg {
     background-size: 20px 20px;

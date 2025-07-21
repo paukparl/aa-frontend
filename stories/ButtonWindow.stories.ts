@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import CardPublication from "../components/globals/components/CardPublication";
+import { ButtonWindow } from "../components/globals/components/ButtonWindow";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "globals/Components/Publication Card",
-  component: CardPublication,
+  title: "globals/Components/Window Button",
+  component: ButtonWindow,
   parameters: {
     docs: {
       description: {
@@ -13,24 +13,22 @@ const meta = {
     },
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    title: {
-      table: { disable: true },
-    },
-    author: {
-      table: { disable: true },
-    },
-    imgSrc: {
+    displayText: {
       table: { disable: true },
     },
     className: {
       table: { disable: true },
     },
+    colorTheme: {
+      table: { disable: true },
+    },
+    link: {
+      table: { disable: true },
+    },
   },
-} satisfies Meta<typeof CardPublication>;
+} satisfies Meta<typeof ButtonWindow>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -38,12 +36,12 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    title: "Who are Godwin and Hopwood?",
-    author: "Ben Tosland",
-    imgSrc: "/storybook/DTA/components/2colContent/pub.png",
+    displayText: "Become\na Member",
+    colorTheme: "dta-map",
+    link: "",
     className: "",
   },
   globals: {
-    backgrounds: { value: "light" },
+    backgrounds: { value: "dark" },
   },
 };
