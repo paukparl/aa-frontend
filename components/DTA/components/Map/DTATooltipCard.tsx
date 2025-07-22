@@ -22,7 +22,7 @@ type DTATooltipCardProps = {
   items: Array<PersonItem | EventItem>;
 };
 
-export default ({ className, items }: DTATooltipCardProps) => {
+export const DTATooltipCard = ({ className, items }: DTATooltipCardProps) => {
   return (
     <>
       <div className="h-fit w-[260px] rounded-[2px] bg-white px-[10px] pt-[7px] pb-[12px] leading-[12px]">

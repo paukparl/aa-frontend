@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { useState } from "react";
 import { DTAFilterSingleSelect } from "@/components/DTA/components/Filter/DTAFilterSingleSelect";
-import DTAContentSingleCol from "@/components/DTA/layouts/DTAContentSingleCol";
+import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
 import DTAGrid from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";

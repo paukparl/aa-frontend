@@ -7,7 +7,10 @@ type DTAContentSingleColProps = {
   children: string;
 };
 
-export default ({ className, children }: DTAContentSingleColProps) => {
+export const DTAContentSingleCol = ({
+  className,
+  children,
+}: DTAContentSingleColProps) => {
   return (
     <div className={clsx(className, "w-full")}>
       <div className="w-full sm:w-[calc(7/12)] md:w-[75%] xl:w-[50%]">

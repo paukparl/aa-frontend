@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTATooltip } from "@/components/DTA/components/Map/DTATooltip";
+import { DTAMap } from "@/components/DTA/pages/DTAMap";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/03 Components/Tooltip/Tooltip",
-  component: DTATooltip,
+  title: "DTA/01 Pages/Map",
+  component: DTAMap,
   parameters: {
     docs: {
       description: {
@@ -14,16 +14,17 @@ const meta = {
     backgrounds: {
       options: {
         light: { name: "Light", value: "#ffffff" },
-        dark: { name: "Dark", value: "#7C6D5A" },
+        dark: { name: "Dark", value: "#1d453f" },
       },
     },
-    layout: "centered",
   },
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    className: { control: "text" },
+    className: {
+      table: { disable: true },
+    },
   },
-} satisfies Meta<typeof DTATooltip>;
+} satisfies Meta<typeof DTAMap>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
