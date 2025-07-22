@@ -12,7 +12,7 @@ type DTAMapProps = {
   className?: string;
 };
 
-export const DTAMap = ({ className }: DTAMapProps) => {
+export const PageDTAMap = ({ className }: DTAMapProps) => {
   return (
     <div
       className={clsx(

@@ -8,54 +8,86 @@ import { Mono } from "@/components/Typography/Mono";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
-type DTAPracticesProps = {
+type DTAPeopleProps = {
   className?: string;
 };
 
-const mockPracticesSlides = [
+const mockPeopleSlides = [
   {
-    title: "Ministry of Works",
-    country: "Sierra Leone",
+    title: "Ronald Arthur Diss",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_1.jpg",
+    date: "3 Sep 1984",
   },
   {
-    title: "Federal Ministry of Works and Housing, Headquarters",
-    country: "Lagos",
+    title: "George Bernard Finch",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_2.jpg",
+    date: "1 Oct 1974",
   },
   {
-    title: "Associated Design Forum, Aspen, Colorado",
-    country: "USA",
+    title: "Person's Name",
+    date: "13 May 1995",
   },
   {
-    title: "Norman Cherner, New York",
-    country: "USA",
+    title: "Kenneth Brian Frampton",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_3.jpg",
+    date: "18 Feb 1959",
   },
   {
-    title: "Durham County Council, Durham",
-    country: "United Kingdom",
+    title: "Besim Selim Hakim",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_4.jpg",
+    date: "7 Jul 1970",
   },
   {
-    title: "Architects Co-Partnership, Tema, Ghana",
-    country: "USA",
+    title: "Sepala Wimaladharma Molligoda",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_5.jpg",
+    date: "3 Jan 1897",
   },
   {
-    title: "Lyles, Bissett, Carlyle and Wolff",
-    country: "USA",
+    title: "I. Gusti Gede Ngurah",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_6.jpg",
+    date: "14 Dec 1990",
   },
   {
-    title: "Public Works Department",
-    country: "Malaysia",
+    title: "John Owusu Addo",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_7.jpg",
+    date: "8 Aug 1985",
   },
   {
-    title: "Ghana Architectural and Civil Engineering Company",
-    country: "Ghana",
+    title: "Sau Yan Sonny Chan",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_8.jpg",
+    date: "19 Jun 1992",
   },
   {
-    title: "Quine and Newberry, London",
-    country: "United Kingdom",
+    title: "Syamal De Sarkar",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_9.jpg",
+    date: "30 Jun 1980",
   },
   {
-    title: "Chartered surveyors",
-    country: "United Kingdom",
+    title: "Kingsley Oliver Robotham",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_10.jpg",
+    date: "28 Feb 1988",
+  },
+  {
+    title: "Joel Ghivelder",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_11.jpg",
+    date: "17 Apr 1905",
+  },
+  {
+    title: "Lorem Ipsum Dolor Sit",
+    image: true,
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_12.jpg",
+    date: "21 Sep 1937",
   },
 ];
 const mockAlphabetFilters = [
@@ -86,7 +118,7 @@ const mockAlphabetFilters = [
   "Y",
   "Z",
 ];
-const mockCountryFilters = [
+const mockBirthPlaceFilters = [
   "Afghanistan",
   "Albania",
   "Algeria",
@@ -190,8 +222,37 @@ const mockCountryFilters = [
   "Zambia",
   "Zimbabwe",
 ];
-export const DTAPractices = ({ className }: DTAPracticesProps) => {
-  const [activeFilters, setActiveFilters] = useState<string[][]>([[], []]);
+const mockYearOfStudyFilters = [
+  "1950",
+  "1951",
+  "1952",
+  "1953",
+  "1954",
+  "1955",
+  "1956",
+  "1957",
+  "1978",
+  "1959",
+  "1960",
+  "1961",
+  "1962",
+  "1963",
+  "1964",
+  "1965",
+  "1966",
+  "1967",
+  "1968",
+  "1969",
+  "1970",
+  "1971",
+  "1972",
+  "1973",
+  "1974",
+  "1975",
+  "Unknown",
+];
+export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
+  const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
   const toggleFilter = (groupIndex: number, filter: string) => {
     setActiveFilters((prev) => {
       const updated = [...prev];
@@ -216,36 +277,40 @@ export const DTAPractices = ({ className }: DTAPracticesProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
+        "text-dta-people-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
-        pageTitle="Practices"
+        pageTitle="People"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
-        colorTheme="dta-practices"
+        colorTheme="dta-people"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="Practices" />
-        <DTAContentSingleCol children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1 children="People" />
+        <DTAContentSingleCol children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
         <DTAFilterMultiSelectRow
           clearFilters={clearFilters}
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
-          colorTheme="practices"
+          colorTheme="people"
           filtersInfo={[
             { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
-            { filters: mockCountryFilters, multiFilterType: "country" },
+            {
+              filters: mockBirthPlaceFilters,
+              multiFilterType: "birthPlace",
+            },
+            { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
           ]}
         />
         <Mono children="All 570 records" className="mt-[10px]" />
         <DTAGrid
-          type="practicestable"
-          items={mockPracticesSlides}
-          className="text-dta-practices-foreground"
+          type="people"
+          items={mockPeopleSlides}
+          className="text-dta-people-foreground"
         />
         <FooterPagination
-          totalPages={2}
-          className="text-dta-practices-foreground"
+          totalPages={32}
+          className="text-dta-people-foreground"
         />
       </div>
     </div>

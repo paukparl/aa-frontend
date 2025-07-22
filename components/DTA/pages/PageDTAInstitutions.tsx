@@ -8,86 +8,31 @@ import { Mono } from "@/components/Typography/Mono";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
-type DTAPeopleProps = {
+type DTAInstitutionsProps = {
   className?: string;
 };
 
-const mockPeopleSlides = [
+const mockInstitutionsSlides = [
   {
-    title: "Ronald Arthur Diss",
+    title: "Name of Institution",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_1.jpg",
-    date: "3 Sep 1984",
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
   },
   {
-    title: "George Bernard Finch",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_2.jpg",
-    date: "1 Oct 1974",
+    title: "Lorem Ipsum",
   },
   {
-    title: "Person's Name",
-    date: "13 May 1995",
+    title: "Institute XYZ",
   },
   {
-    title: "Kenneth Brian Frampton",
+    title: "Lorem Ipsum",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_3.jpg",
-    date: "18 Feb 1959",
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
   },
   {
-    title: "Besim Selim Hakim",
+    title: "Lorem Ipsum",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_4.jpg",
-    date: "7 Jul 1970",
-  },
-  {
-    title: "Sepala Wimaladharma Molligoda",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_5.jpg",
-    date: "3 Jan 1897",
-  },
-  {
-    title: "I. Gusti Gede Ngurah",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_6.jpg",
-    date: "14 Dec 1990",
-  },
-  {
-    title: "John Owusu Addo",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_7.jpg",
-    date: "8 Aug 1985",
-  },
-  {
-    title: "Sau Yan Sonny Chan",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_8.jpg",
-    date: "19 Jun 1992",
-  },
-  {
-    title: "Syamal De Sarkar",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_9.jpg",
-    date: "30 Jun 1980",
-  },
-  {
-    title: "Kingsley Oliver Robotham",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_10.jpg",
-    date: "28 Feb 1988",
-  },
-  {
-    title: "Joel Ghivelder",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_11.jpg",
-    date: "17 Apr 1905",
-  },
-  {
-    title: "Lorem Ipsum Dolor Sit",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_12.jpg",
-    date: "21 Sep 1937",
+    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
   },
 ];
 const mockAlphabetFilters = [
@@ -118,7 +63,7 @@ const mockAlphabetFilters = [
   "Y",
   "Z",
 ];
-const mockBirthPlaceFilters = [
+const mockCountryFilters = [
   "Afghanistan",
   "Albania",
   "Algeria",
@@ -222,36 +167,13 @@ const mockBirthPlaceFilters = [
   "Zambia",
   "Zimbabwe",
 ];
-const mockYearOfStudyFilters = [
-  "1950",
-  "1951",
-  "1952",
-  "1953",
-  "1954",
-  "1955",
-  "1956",
-  "1957",
-  "1978",
-  "1959",
-  "1960",
-  "1961",
-  "1962",
-  "1963",
-  "1964",
-  "1965",
-  "1966",
-  "1967",
-  "1968",
-  "1969",
-  "1970",
-  "1971",
-  "1972",
-  "1973",
-  "1974",
-  "1975",
-  "Unknown",
+const mockInstitutionTypeFilters = [
+  "Universities",
+  "Governmental Bodies",
+  "Non-Governmental Bodies",
+  "Transnational Organizations",
 ];
-export const DTAPeople = ({ className }: DTAPeopleProps) => {
+export const PageDTAInstitutions = ({ className }: DTAInstitutionsProps) => {
   const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
   const toggleFilter = (groupIndex: number, filter: string) => {
     setActiveFilters((prev) => {
@@ -277,40 +199,40 @@ export const DTAPeople = ({ className }: DTAPeopleProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-people-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
+        "text-dta-institutions-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
-        pageTitle="People"
+        pageTitle="Institutions"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
-        colorTheme="dta-people"
+        colorTheme="dta-institutions"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="People" />
-        <DTAContentSingleCol children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1 children="Institutions" />
+        <DTAContentSingleCol children="Brief sentence describing what institutions means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
         <DTAFilterMultiSelectRow
-          clearFilters={clearFilters}
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
-          colorTheme="people"
+          clearFilters={clearFilters}
+          colorTheme="institutions"
           filtersInfo={[
             { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
             {
-              filters: mockBirthPlaceFilters,
-              multiFilterType: "birthPlace",
+              filters: mockInstitutionTypeFilters,
+              multiFilterType: "institutionType",
             },
-            { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
+            { filters: mockCountryFilters, multiFilterType: "country" },
           ]}
         />
         <Mono children="All 570 records" className="mt-[10px]" />
         <DTAGrid
-          type="people"
-          items={mockPeopleSlides}
-          className="text-dta-people-foreground"
+          type="institutions"
+          items={mockInstitutionsSlides}
+          className="text-dta-institutions-foreground"
         />
         <FooterPagination
-          totalPages={32}
-          className="text-dta-people-foreground"
+          totalPages={13}
+          className="text-dta-institutions-foreground"
         />
       </div>
     </div>

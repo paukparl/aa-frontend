@@ -48,7 +48,7 @@ const mockCarouselSlides = [
   },
 ];
 
-export const DTAAbout = ({ className }: DTAAboutProps) => {
+export const PageDTAAbout = ({ className }: DTAAboutProps) => {
   return (
     <div
       className={clsx(

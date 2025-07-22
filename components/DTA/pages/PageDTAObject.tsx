@@ -27,7 +27,7 @@ const DTAObjectProps = [
   },
 ];
 
-export const DTAObject = ({ className }: DTAObjectProps) => {
+export const PageDTAObject = ({ className }: DTAObjectProps) => {
   const mockSlideData = [
     {
       src: "/storybook/Globals/components/mediagallery/slide1.jpg",

@@ -29,7 +29,7 @@ const DTAPersonProps = [
   },
 ];
 
-export const DTAPerson = ({ className }: DTAPersonProps) => {
+export const PageDTAPerson = ({ className }: DTAPersonProps) => {
   return (
     <div
       className={clsx(

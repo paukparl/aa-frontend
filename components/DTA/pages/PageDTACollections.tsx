@@ -127,7 +127,7 @@ const mockCollectionFilters = [
   },
 ];
 
-export const DTACollections = ({ className }: DTACollectionsProps) => {
+export const PageDTACollections = ({ className }: DTACollectionsProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const setFilter = (index: number) => {
     setActiveIndex(index);

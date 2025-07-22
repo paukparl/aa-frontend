@@ -46,7 +46,7 @@ const DTAPracticeProps = [
   },
 ];
 
-export const DTAPractice = ({ className }: DTAPracticeProps) => {
+export const PageDTAPractice = ({ className }: DTAPracticeProps) => {
   return (
     <div
       className={clsx(

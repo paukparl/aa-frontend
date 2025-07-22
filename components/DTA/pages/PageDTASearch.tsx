@@ -1,0 +1,29 @@
+import clsx from "clsx";
+import * as React from "react";
+import { H1 } from "@/components/Typography/H1";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+
+type PageDTASearchProps = {
+  className?: string;
+};
+
+export const PageDTASearch = ({ className }: PageDTASearchProps) => {
+  return (
+    <div
+      className={clsx(
+        className,
+        "text-dta-about-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg sm:pb-[75px] lg:w-[90%]",
+      )}
+    >
+      <div className="flex flex-col gap-[20px] p-[10px] sm:gap-[30px] sm:p-[30px]">
+        <TipinHeader
+          pageTitle="Search"
+          breadcrumbLinks={[{ title: "DTA Archive" }]}
+          colorTheme="dta-search"
+        />
+        <H1 children="Search" />
+      </div>
+      THIS IS THE SEARCH PAGE
+    </div>
+  );
+};

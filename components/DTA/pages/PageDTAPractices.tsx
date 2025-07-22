@@ -8,31 +8,54 @@ import { Mono } from "@/components/Typography/Mono";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
-type DTAInstitutionsProps = {
+type DTAPracticesProps = {
   className?: string;
 };
 
-const mockInstitutionsSlides = [
+const mockPracticesSlides = [
   {
-    title: "Name of Institution",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+    title: "Ministry of Works",
+    country: "Sierra Leone",
   },
   {
-    title: "Lorem Ipsum",
+    title: "Federal Ministry of Works and Housing, Headquarters",
+    country: "Lagos",
   },
   {
-    title: "Institute XYZ",
+    title: "Associated Design Forum, Aspen, Colorado",
+    country: "USA",
   },
   {
-    title: "Lorem Ipsum",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+    title: "Norman Cherner, New York",
+    country: "USA",
   },
   {
-    title: "Lorem Ipsum",
-    image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+    title: "Durham County Council, Durham",
+    country: "United Kingdom",
+  },
+  {
+    title: "Architects Co-Partnership, Tema, Ghana",
+    country: "USA",
+  },
+  {
+    title: "Lyles, Bissett, Carlyle and Wolff",
+    country: "USA",
+  },
+  {
+    title: "Public Works Department",
+    country: "Malaysia",
+  },
+  {
+    title: "Ghana Architectural and Civil Engineering Company",
+    country: "Ghana",
+  },
+  {
+    title: "Quine and Newberry, London",
+    country: "United Kingdom",
+  },
+  {
+    title: "Chartered surveyors",
+    country: "United Kingdom",
   },
 ];
 const mockAlphabetFilters = [
@@ -167,14 +190,8 @@ const mockCountryFilters = [
   "Zambia",
   "Zimbabwe",
 ];
-const mockInstitutionTypeFilters = [
-  "Universities",
-  "Governmental Bodies",
-  "Non-Governmental Bodies",
-  "Transnational Organizations",
-];
-export const DTAInstitutions = ({ className }: DTAInstitutionsProps) => {
-  const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
+export const PageDTAPractices = ({ className }: DTAPracticesProps) => {
+  const [activeFilters, setActiveFilters] = useState<string[][]>([[], []]);
   const toggleFilter = (groupIndex: number, filter: string) => {
     setActiveFilters((prev) => {
       const updated = [...prev];
@@ -199,40 +216,36 @@ export const DTAInstitutions = ({ className }: DTAInstitutionsProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-institutions-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
+        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
-        pageTitle="Institutions"
+        pageTitle="Practices"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
-        colorTheme="dta-institutions"
+        colorTheme="dta-practices"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="Institutions" />
-        <DTAContentSingleCol children="Brief sentence describing what institutions means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1 children="Practices" />
+        <DTAContentSingleCol children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
         <DTAFilterMultiSelectRow
+          clearFilters={clearFilters}
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
-          clearFilters={clearFilters}
-          colorTheme="institutions"
+          colorTheme="practices"
           filtersInfo={[
             { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
-            {
-              filters: mockInstitutionTypeFilters,
-              multiFilterType: "institutionType",
-            },
             { filters: mockCountryFilters, multiFilterType: "country" },
           ]}
         />
         <Mono children="All 570 records" className="mt-[10px]" />
         <DTAGrid
-          type="institutions"
-          items={mockInstitutionsSlides}
-          className="text-dta-institutions-foreground"
+          type="practicestable"
+          items={mockPracticesSlides}
+          className="text-dta-practices-foreground"
         />
         <FooterPagination
-          totalPages={13}
-          className="text-dta-institutions-foreground"
+          totalPages={2}
+          className="text-dta-practices-foreground"
         />
       </div>
     </div>

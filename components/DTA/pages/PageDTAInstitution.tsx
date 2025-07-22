@@ -14,7 +14,7 @@ type DTAInstitutionProps = {
   relatedCollections: Array<Record<string, any>>;
 };
 
-export const DTAInstitution = ({
+export const PageDTAInstitution = ({
   className,
   title,
   info,

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTAPractice } from "@/components/DTA/pages/DTAPractice";
+import { PageDTAObject } from "@/components/DTA/pages/PageDTAObject";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "DTA/01 Pages/02 Tip-In/Practice",
-  component: DTAPractice,
+  title: "DTA/01 Pages/02 Tip-In/Object",
+  component: PageDTAObject,
   parameters: {
     docs: {
       description: {
@@ -24,7 +24,7 @@ const meta = {
       table: { disable: true },
     },
   },
-} satisfies Meta<typeof DTAPractice>;
+} satisfies Meta<typeof PageDTAObject>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
