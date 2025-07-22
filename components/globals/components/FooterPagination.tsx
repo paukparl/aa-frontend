@@ -7,7 +7,10 @@ type PaginationProps = {
   className?: string;
 };
 
-const Pagination = ({ totalPages, className }: PaginationProps) => {
+export const FooterPagination = ({
+  totalPages,
+  className,
+}: PaginationProps) => {
   const [activePage, setActivePage] = useState(1);
 
   const handleClick = (page: number) => {
@@ -105,5 +108,3 @@ const Pagination = ({ totalPages, className }: PaginationProps) => {
     </nav>
   );
 };
-
-export default Pagination;

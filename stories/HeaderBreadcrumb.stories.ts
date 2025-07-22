@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import HeaderBreadcrumb from "@/components/globals/components/HeaderBreadcrumb";
+import { HeaderBreadcrumb } from "@/components/globals/components/HeaderBreadcrumb";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

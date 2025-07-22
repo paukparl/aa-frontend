@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTATablePeople from "@/components/DTA/components/DTATablePeople";
+import { DTATablePeople } from "@/components/DTA/components/DTATablePeople";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

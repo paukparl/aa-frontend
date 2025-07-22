@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTAGrid from "../components/DTA/layouts/DTAGrid";
+import { DTAGrid } from "../components/DTA/layouts/DTAGrid";
 
 const peopleItems = [
   {

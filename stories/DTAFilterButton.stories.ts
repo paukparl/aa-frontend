@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTAFilterButton from "../components/DTA/components/Filter/DTAFilterButton";
+import { DTAFilterButton } from "../components/DTA/components/Filter/DTAFilterButton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

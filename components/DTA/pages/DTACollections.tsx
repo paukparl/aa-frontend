@@ -2,11 +2,11 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { DTAFilterSingleSelect } from "@/components/DTA/components/Filter/DTAFilterSingleSelect";
 import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
-import DTAGrid from "@/components/DTA/layouts/DTAGrid";
+import { DTAGrid } from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
-import FooterPagination from "@/components/globals/components/FooterPagination";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { FooterPagination } from "@/components/globals/components/FooterPagination";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTACollectionsProps = {
   className?: string;
@@ -127,7 +127,7 @@ const mockCollectionFilters = [
   },
 ];
 
-export default ({ className }: DTACollectionsProps) => {
+export const DTACollections = ({ className }: DTACollectionsProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const setFilter = (index: number) => {
     setActiveIndex(index);

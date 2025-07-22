@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
-import CardPublication from "@/components/globals/components/CardPublication";
+import { CardPublication } from "@/components/globals/components/CardPublication";
 
 type contentType = "image" | "publication";
 type colorTheme = "people" | "institutions" | "collections" | "about";
@@ -13,7 +13,7 @@ type DTAContentDoubleColProps = {
   imgSrc?: string;
 };
 
-export default ({
+export const DTAContentDoubleCol = ({
   className,
   textContent,
   contentType,

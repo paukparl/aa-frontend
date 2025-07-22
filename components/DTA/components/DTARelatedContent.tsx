@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import DTAHeader from "@/components/DTA/components/DTAHeader";
-import DTAGrid from "@/components/DTA/layouts/DTAGrid";
+import { DTAHeader } from "@/components/DTA/components/DTAHeader";
+import { DTAGrid } from "@/components/DTA/layouts/DTAGrid";
 
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 type gridType = "people" | "practices" | "institutions" | "collections";
@@ -11,7 +11,7 @@ type DTARelatedContentProps = {
   className?: string;
 };
 
-export default ({
+export const DTARelatedContent = ({
   className,
   gridType,
   colorTheme,

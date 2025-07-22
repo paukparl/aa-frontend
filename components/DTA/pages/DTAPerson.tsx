@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTARelatedContent from "@/components/DTA/components/DTARelatedContent";
-import DTATablePeople from "@/components/DTA/components/DTATablePeople";
-import DTATipinMap from "@/components/DTA/components/DTATipinMap";
-import DTAContentDoubleCol from "@/components/DTA/layouts/DTAContentDoubleCol";
+import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
+import { DTATablePeople } from "@/components/DTA/components/DTATablePeople";
+import { DTATipinMap } from "@/components/DTA/components/DTATipinMap";
+import { DTAContentDoubleCol } from "@/components/DTA/layouts/DTAContentDoubleCol";
 import { H1 } from "@/components/Typography/H1";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAPersonProps = {
   className?: string;
@@ -29,7 +29,7 @@ const DTAPersonProps = [
   },
 ];
 
-export default ({ className }: DTAPersonProps) => {
+export const DTAPerson = ({ className }: DTAPersonProps) => {
   return (
     <div
       className={clsx(

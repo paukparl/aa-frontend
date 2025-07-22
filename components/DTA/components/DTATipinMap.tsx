@@ -1,4 +1,4 @@
-import DTAHeader from "@/components/DTA/components/DTAHeader";
+import { DTAHeader } from "@/components/DTA/components/DTAHeader";
 
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 
@@ -7,7 +7,7 @@ type DTATipinMapProps = {
   className?: string;
 };
 
-export default ({ className, colorTheme }: DTATipinMapProps) => {
+export const DTATipinMap = ({ className, colorTheme }: DTATipinMapProps) => {
   return (
     <div>
       <DTAHeader children="Map" />

@@ -2,11 +2,11 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { DTAFilterMultiSelectRow } from "@/components/DTA/components/Filter/DTAFilterMultiSelectRow";
 import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
-import DTAGrid from "@/components/DTA/layouts/DTAGrid";
+import { DTAGrid } from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
-import FooterPagination from "@/components/globals/components/FooterPagination";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { FooterPagination } from "@/components/globals/components/FooterPagination";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAInstitutionsProps = {
   className?: string;
@@ -173,7 +173,7 @@ const mockInstitutionTypeFilters = [
   "Non-Governmental Bodies",
   "Transnational Organizations",
 ];
-export default ({ className }: DTAInstitutionsProps) => {
+export const DTAInstitutions = ({ className }: DTAInstitutionsProps) => {
   const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
   const toggleFilter = (groupIndex: number, filter: string) => {
     setActiveFilters((prev) => {

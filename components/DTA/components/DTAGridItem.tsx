@@ -183,7 +183,7 @@ export const DTAGridItemPracticesTable = ({
   );
 };
 
-export default ({
+export const DTAGridItem = ({
   type,
   imgSrc,
   imgAlt,

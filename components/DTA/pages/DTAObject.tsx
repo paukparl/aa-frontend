@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTARelatedContent from "@/components/DTA/components/DTARelatedContent";
+import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
-import MediaGallery from "@/components/globals/components/MediaGallery";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { MediaGallery } from "@/components/globals/components/MediaGallery";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAObjectProps = {
   className?: string;
@@ -27,7 +27,7 @@ const DTAObjectProps = [
   },
 ];
 
-export default ({ className }: DTAObjectProps) => {
+export const DTAObject = ({ className }: DTAObjectProps) => {
   const mockSlideData = [
     {
       src: "/storybook/Globals/components/mediagallery/slide1.jpg",

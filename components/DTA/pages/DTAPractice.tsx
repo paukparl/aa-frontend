@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTARelatedContent from "@/components/DTA/components/DTARelatedContent";
-import DTATipinMap from "@/components/DTA/components/DTATipinMap";
+import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
+import { DTATipinMap } from "@/components/DTA/components/DTATipinMap";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAPracticeProps = {
   className?: string;
@@ -46,7 +46,7 @@ const DTAPracticeProps = [
   },
 ];
 
-export default ({ className }: DTAPracticeProps) => {
+export const DTAPractice = ({ className }: DTAPracticeProps) => {
   return (
     <div
       className={clsx(

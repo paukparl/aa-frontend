@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import FooterPagination from "../components/globals/components/FooterPagination";
+import { FooterPagination } from "../components/globals/components/FooterPagination";
 
 const meta = {
   title: "globals/Components/Pagination",

@@ -3,7 +3,7 @@
 // update prop definition + parsing for "items" array based on strapi
 import clsx from "clsx";
 import React from "react";
-import DTAGridItem from "@/components/DTA/components/DTAGridItem";
+import { DTAGridItem } from "@/components/DTA/components/DTAGridItem";
 
 type GridType =
   | "people"
@@ -19,7 +19,7 @@ type DTAGridProps = {
   gridItemClassName?: string;
 };
 
-export default ({
+export const DTAGrid = ({
   items,
   type,
   className,

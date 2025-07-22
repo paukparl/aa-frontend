@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTAHeader from "@/components/DTA/components/DTAHeader";
+import { DTAHeader } from "@/components/DTA/components/DTAHeader";
 import { Body } from "@/components/Typography/Body";
 
 type TableType = "education" | "career";
@@ -10,7 +10,11 @@ type DTATablePeopleProps = {
   content: Array<Record<string, any>>;
   className?: string;
 };
-export default ({ type, content, className }: DTATablePeopleProps) => {
+export const DTATablePeople = ({
+  type,
+  content,
+  className,
+}: DTATablePeopleProps) => {
   return (
     <div
       className={clsx(className, "mb-[10px] flex w-full flex-col gap-[5px]")}

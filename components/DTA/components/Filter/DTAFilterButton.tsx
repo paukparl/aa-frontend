@@ -16,7 +16,7 @@ type DTAFilterButtonProps = {
   index?: number;
 };
 
-export default ({
+export const DTAFilterButton = ({
   children,
   className,
   filterState,

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import DTAGridItem from "../components/DTA/components/DTAGridItem";
+import { DTAGridItem } from "../components/DTA/components/DTAGridItem";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

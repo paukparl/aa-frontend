@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import * as React from "react";
-import DTARelatedContent from "@/components/DTA/components/DTARelatedContent";
-import DTATipinMap from "@/components/DTA/components/DTATipinMap";
-import DTAContentDoubleCol from "@/components/DTA/layouts/DTAContentDoubleCol";
+import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
+import { DTATipinMap } from "@/components/DTA/components/DTATipinMap";
+import { DTAContentDoubleCol } from "@/components/DTA/layouts/DTAContentDoubleCol";
 import { H1 } from "@/components/Typography/H1";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAInstitutionProps = {
   className?: string;
@@ -14,7 +14,11 @@ type DTAInstitutionProps = {
   relatedCollections: Array<Record<string, any>>;
 };
 
-export default ({ className, title, info }: DTAInstitutionProps) => {
+export const DTAInstitution = ({
+  className,
+  title,
+  info,
+}: DTAInstitutionProps) => {
   return (
     <div
       className={clsx(

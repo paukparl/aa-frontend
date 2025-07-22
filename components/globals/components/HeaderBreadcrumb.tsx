@@ -16,7 +16,7 @@ type HeaderBreadcrumbProps = {
   colorTheme: colorTheme;
 };
 
-export default ({
+export const HeaderBreadcrumb = ({
   links,
   className,
   pageTitle,

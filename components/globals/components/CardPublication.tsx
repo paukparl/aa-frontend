@@ -8,7 +8,12 @@ type CardPublicationProps = {
   className?: string;
   imgSrc: string;
 };
-export default ({ title, author, className, imgSrc }: CardPublicationProps) => {
+export const CardPublication = ({
+  title,
+  author,
+  className,
+  imgSrc,
+}: CardPublicationProps) => {
   return (
     <div className="flex w-full justify-start sm:justify-center">
       <div className="w-[50%] sm:w-fit">

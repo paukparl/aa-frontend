@@ -15,7 +15,11 @@ type MediaGalleryProps = {
   className?: string;
   colorTheme: colorTheme;
 };
-export default ({ slides, className, colorTheme }: MediaGalleryProps) => {
+export const MediaGallery = ({
+  slides,
+  className,
+  colorTheme,
+}: MediaGalleryProps) => {
   const [activeInd, setActiveInd] = useState<number>(0);
 
   const handleClick = (index: number) => {

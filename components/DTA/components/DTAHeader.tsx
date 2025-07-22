@@ -8,7 +8,7 @@ type DTAHeaderProps = {
   className?: string;
 };
 
-export default ({ children, className }: DTAHeaderProps) => {
+export const DTAHeader = ({ children, className }: DTAHeaderProps) => {
   return (
     <div
       className={clsx(

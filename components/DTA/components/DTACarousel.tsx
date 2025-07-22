@@ -14,10 +14,10 @@ type DTACarouselProps = {
   className?: string;
 };
 
-export default function DTACarousel({
+export const DTACarousel = ({
   className,
   carouselSlides,
-}: DTACarouselProps) {
+}: DTACarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -101,4 +101,4 @@ export default function DTACarousel({
       </div>
     </div>
   );
-}
+};

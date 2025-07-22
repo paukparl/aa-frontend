@@ -6,7 +6,7 @@ import { DTAMapComponent } from "@/components/DTA/components/Map/DTAMapComponent
 import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
 import { H1 } from "@/components/Typography/H1";
 import { H2 } from "@/components/Typography/H2";
-import TipinHeader from "@/components/globals/layouts/TipinHeader";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAMapProps = {
   className?: string;

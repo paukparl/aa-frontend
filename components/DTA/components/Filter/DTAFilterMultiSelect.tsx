@@ -5,7 +5,7 @@ import clsx from "clsx";
 import * as React from "react";
 import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
 import { Mono } from "@/components/Typography/Mono";
-import DTAFilterButton from "./DTAFilterButton";
+import { DTAFilterButton } from "./DTAFilterButton";
 
 type multiFilterType =
   | "alphabet"

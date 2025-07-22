@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import HeaderBreadcrumb from "@/components/globals/components/HeaderBreadcrumb";
+import { HeaderBreadcrumb } from "@/components/globals/components/HeaderBreadcrumb";
 
 type colorTheme =
   | "dta-people"
@@ -16,7 +16,7 @@ type DTATipinHeaderProps = {
   breadcrumbLinks: Array<Record<string, any>>;
 };
 
-export default ({
+export const TipinHeader = ({
   className,
   pageTitle,
   breadcrumbLinks,

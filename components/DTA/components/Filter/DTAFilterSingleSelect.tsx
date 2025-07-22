@@ -4,7 +4,7 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 import clsx from "clsx";
 import React, { useState } from "react";
 import { Mono } from "@/components/Typography/Mono";
-import DTAFilterButton from "./DTAFilterButton";
+import { DTAFilterButton } from "./DTAFilterButton";
 
 type filterDataType = {
   title: string;

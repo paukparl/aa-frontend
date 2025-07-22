@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import MediaGallery from "../components/globals/components/MediaGallery";
+import { MediaGallery } from "../components/globals/components/MediaGallery";
 
 const mockSlideData = [
   {
