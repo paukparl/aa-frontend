@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx"],
   experimental: {
     reactCompiler: true,
+    viewTransition: true,
   },
 };
 
