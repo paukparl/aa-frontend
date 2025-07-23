@@ -12,8 +12,54 @@ type GridType =
   | "collections"
   | "institutions";
 
+type CollectionGridItem = {
+  title: string;
+  image: boolean;
+  imgSrc?: string;
+  imgAlt?: string;
+  uid?: string;
+  date?: string;
+  country?: string;
+};
+
+type PersonGridItem = {
+  title: string;
+  image: boolean;
+  imgSrc?: string;
+  imgAlt?: string;
+  date?: string;
+  uid?: string;
+  country?: string;
+};
+
+type InstitutionGridItem = {
+  title: string;
+  image: boolean;
+  imgSrc?: string;
+  imgAlt?: string;
+  uid?: string;
+  date?: string;
+  country?: string;
+};
+
+type PracticeGridItem = {
+  title: string;
+  country: string;
+  image: false;
+  imgSrc?: string;
+  imgAlt?: string;
+  date?: string;
+  uid?: string;
+};
+
+type GridItem =
+  | CollectionGridItem
+  | PersonGridItem
+  | InstitutionGridItem
+  | PracticeGridItem;
+
 type DTAGridProps = {
-  items: Array<Record<string, any>>; // array of items with imgSrc, imgAlt, title, etc.
+  items: GridItem[];
   type: GridType;
   className?: string;
   gridItemClassName?: string;
@@ -25,7 +71,7 @@ export const DTAGrid = ({
   className,
   gridItemClassName,
 }: DTAGridProps) => {
-  let gridTypeDict = {
+  const gridTypeDict = {
     practicesgrid: "grid-cols-2 lg:grid-cols-3 gap-5 md:gap-5 lg:gap-5",
     practicestable: "grid-cols-1",
     people:
@@ -37,21 +83,22 @@ export const DTAGrid = ({
   };
   return (
     <div className={clsx(className, gridTypeDict[type], "grid w-full")}>
-      {items.map((item: any, index: number) => (
-        <DTAGridItem
-          key={index}
-          type={type}
-          image={item.image}
-          imgSrc={item.imgSrc}
-          imgAlt={item.imgAlt}
-          title={item.title}
-          className={item.className}
-          date={item.date}
-          uid={item.uid}
-          country={item.country}
-          gridItemClassName={gridItemClassName}
-        />
-      ))}
+      {type === "people" &&
+        items.map((item: GridItem, index: number) => (
+          <DTAGridItem
+            key={index}
+            type={type}
+            image={item.image}
+            imgSrc={item.imgSrc}
+            imgAlt={item.imgAlt}
+            title={item.title}
+            className={className}
+            date={item.date}
+            uid={item.uid}
+            country={item.country}
+            gridItemClassName={gridItemClassName}
+          />
+        ))}
     </div>
   );
 };

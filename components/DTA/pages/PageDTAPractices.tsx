@@ -225,8 +225,12 @@ export const PageDTAPractices = ({ className }: DTAPracticesProps) => {
         colorTheme="dta-practices"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="Practices" />
-        <DTAContentSingleCol children="Brief sentence describing what practices means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1>Practices</H1>
+        <DTAContentSingleCol>
+          Brief sentence describing what practices means in the context of DTA.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </DTAContentSingleCol>
         <DTAFilterMultiSelectRow
           clearFilters={clearFilters}
           activeFilters={activeFilters}
@@ -237,7 +241,7 @@ export const PageDTAPractices = ({ className }: DTAPracticesProps) => {
             { filters: mockCountryFilters, multiFilterType: "country" },
           ]}
         />
-        <Mono children="All 570 records" className="mt-[10px]" />
+        <Mono className="mt-[10px]">All 570 records</Mono>
         <DTAGrid
           type="practicestable"
           items={mockPracticesSlides}

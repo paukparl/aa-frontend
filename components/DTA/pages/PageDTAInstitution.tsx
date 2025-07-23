@@ -6,12 +6,17 @@ import { DTAContentDoubleCol } from "@/components/DTA/layouts/DTAContentDoubleCo
 import { H1 } from "@/components/Typography/H1";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
+type relatedCollection = {
+  title: string;
+  image: boolean;
+  imgSrc?: string;
+};
 type DTAInstitutionProps = {
   className?: string;
   title: string;
   imgSrc: string;
   info: string;
-  relatedCollections: Array<Record<string, any>>;
+  relatedCollections: relatedCollection[];
 };
 
 export const PageDTAInstitution = ({
@@ -32,7 +37,7 @@ export const PageDTAInstitution = ({
         colorTheme="dta-institutions"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 tipIn children={title} />
+        <H1 tipIn>{title}</H1>
         <DTAContentDoubleCol
           imgSrc="/storybook/DTA/components/2colContent/jamaica-col.jpg"
           textContent={info}

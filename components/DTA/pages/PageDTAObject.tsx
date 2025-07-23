@@ -68,8 +68,12 @@ export const PageDTAObject = ({ className }: DTAObjectProps) => {
         colorTheme="dta-collections"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 tipIn children="Title, Year" />
-        <Body children="Brief sentence describing what collections means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1 tipIn>Title, Year</H1>
+        <Body>
+          Brief sentence describing what collections means in the context of
+          DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Body>
         <MediaGallery slides={mockSlideData} colorTheme="dta-collections" />
         <div className="mt-[20px] flex flex-col gap-[30px] pb-[20px] lg:gap-[50px]">
           <DTARelatedContent gridType="people" colorTheme="collections" />

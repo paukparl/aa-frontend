@@ -43,8 +43,10 @@ export const PageDTAPerson = ({ className }: DTAPersonProps) => {
         colorTheme="dta-people"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 tipIn children="Handel Kitchiner (Hal) Lawson" />
-        <H1 tipIn className="block" children="1928-1985" />
+        <H1 tipIn>Handel Kitchiner (Hal) Lawson</H1>
+        <H1 tipIn className="block">
+          1928-1985
+        </H1>
         <DTAContentDoubleCol
           colorTheme="people"
           contentType="image"

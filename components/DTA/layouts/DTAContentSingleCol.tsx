@@ -14,7 +14,7 @@ export const DTAContentSingleCol = ({
   return (
     <div className={clsx(className, "w-full")}>
       <div className="w-full sm:w-[calc(7/12)] md:w-[75%] xl:w-[50%]">
-        <Body children={children} />
+        <Body>{children}</Body>
       </div>
     </div>
   );

@@ -1,10 +1,8 @@
 "use client";
 
 import * as Collapsible from "@radix-ui/react-collapsible";
-import clsx from "clsx";
 import * as React from "react";
 import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
-import { Mono } from "@/components/Typography/Mono";
 import { DTAFilterButton } from "./DTAFilterButton";
 
 type multiFilterType =
@@ -105,10 +103,11 @@ export const DTAFilterMultiSelect = ({
           <DTAFilterButton
             filterState={filterState}
             colorTheme={colorTheme}
-            children={buttonLabel}
             clearFilters={clearFilters}
             index={index}
-          />
+          >
+            {buttonLabel}
+          </DTAFilterButton>
         </button>
       </Collapsible.Trigger>
 

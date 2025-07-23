@@ -39,9 +39,10 @@ export const DTAFilterSingleSelect = ({
                   : "applied"
             }
             colorTheme={"collections"}
-            children={"All Collections"}
             clearFilters={clearFilter}
-          />
+          >
+            All Collections
+          </DTAFilterButton>
         </button>
       </Collapsible.Trigger>
       <Collapsible.Content>
@@ -61,7 +62,7 @@ export const DTAFilterSingleSelect = ({
                   onClick={() => setFilter(index)}
                   className="cursor-pointer hover:underline hover:decoration-dotted hover:underline-offset-3"
                 >
-                  <Mono children={filter.title} />
+                  <Mono>{filter.title}</Mono>
                 </button>
               </li>
             ))}
@@ -99,15 +100,13 @@ export const DTAFilterSingleSelect = ({
                     />
                   </svg>
                 </button>
-                <Mono
-                  className="text-dta-collections-foreground ml-[10px]"
-                  children={filterData[activeIndex].title}
-                />
+                <Mono className="text-dta-collections-foreground ml-[10px]">
+                  {filterData[activeIndex].title}
+                </Mono>
               </div>
-              <Mono
-                className="text-dta-collections-foreground"
-                children={filterData[activeIndex].description}
-              />
+              <Mono className="text-dta-collections-foreground">
+                {filterData[activeIndex].description}
+              </Mono>
             </div>
             <img
               src={activeIndex !== null ? filterData[activeIndex].imgSrc : ""}

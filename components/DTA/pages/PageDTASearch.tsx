@@ -24,7 +24,7 @@ export const PageDTASearch = ({ className }: PageDTASearchProps) => {
           colorTheme="dta-search"
         />
         <DTASearchBar />
-        <H1 children="Search" />
+        <H1>Search</H1>
       </div>
       <div className="flex flex-col gap-[20px] p-[10px] sm:gap-[70px] sm:p-[30px]">
         <DTARelatedContent colorTheme="people" gridType="people" />

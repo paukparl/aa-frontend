@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback, useEffect, useState } from "react";
 import { DTACarouselSlide } from "@/components/DTA/components/DTACarouselSlide";
@@ -50,7 +49,9 @@ export const DTACarousel = ({
     };
     emblaApi.on("select", onSelect);
     onSelect(); // initialize on mount
-    return () => emblaApi.off("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
   return (

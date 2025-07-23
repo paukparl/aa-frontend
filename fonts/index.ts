@@ -54,7 +54,7 @@ const nhgText = localFont({
 });
 
 const times = localFont({
-  src: [{ path: "./TimesNewRomanBold.tt.ttf", weight: "400", style: "normal" }],
+  src: [{ path: "./TimesNewRomanBold.ttf", weight: "400", style: "normal" }],
   variable: "--font-times",
   display: "swap",
 });

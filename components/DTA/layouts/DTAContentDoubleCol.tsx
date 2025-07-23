@@ -39,10 +39,9 @@ export const DTAContentDoubleCol = ({
       {contentType === "publication" && (
         <>
           <div className="w-full xl:w-[100%]">
-            <Body
-              children={textContent}
-              className={colorThemeDict[colorTheme].text}
-            />
+            <Body className={colorThemeDict[colorTheme].text}>
+              {textContent}
+            </Body>
           </div>
           <div className="flex justify-center pt-[20px] lg:pt-0">
             <CardPublication
@@ -57,10 +56,9 @@ export const DTAContentDoubleCol = ({
         <>
           <img src={imgSrc} className="w-[100%] sm:w-[60%] lg:w-[100%]" />
           <div className="w-full pt-[20px] lg:pt-0 lg:pl-[20px]">
-            <Body
-              className={colorThemeDict[colorTheme].text}
-              children={textContent}
-            />
+            <Body className={colorThemeDict[colorTheme].text}>
+              {textContent}
+            </Body>
           </div>
         </>
       )}

@@ -57,14 +57,14 @@ export const FooterPagination = ({
       className={clsx(className)}
     >
       <ul className="m-0 flex items-center gap-[10px] p-0 sm:gap-[25px]">
-        <Mono children="Page:" />
+        <Mono>Page:</Mono>
         {pageItems.map((item, ind) =>
           item === "..." ? (
             <li
               key={`dots-${ind}`}
               style={{ padding: "0 8px", userSelect: "none" }}
             >
-              <Mono children="..." />
+              <Mono>...</Mono>
             </li>
           ) : (
             <li key={item}>
@@ -81,7 +81,7 @@ export const FooterPagination = ({
                   cursor: "pointer",
                 }}
               >
-                <Mono children={item.toString()} />
+                <Mono>{item.toString()}</Mono>
               </button>
             </li>
           ),
@@ -92,7 +92,7 @@ export const FooterPagination = ({
             className="cursor-pointer"
             onClick={() => handleClick(activePage - 1)}
           >
-            <Mono children="Prev" />
+            <Mono>Prev</Mono>
           </button>
         </li>
         <li>
@@ -101,7 +101,7 @@ export const FooterPagination = ({
             className="cursor-pointer"
             onClick={() => handleClick(activePage + 1)}
           >
-            <Mono children="Next" />
+            <Mono>Next</Mono>
           </button>
         </li>
       </ul>

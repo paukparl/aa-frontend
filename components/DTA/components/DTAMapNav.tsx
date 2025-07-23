@@ -16,7 +16,7 @@ export const DTAMapNav = ({ className }: DTAMapNavProps) => {
       )}
     >
       <div className="flex w-[100%] border-y border-dotted border-white py-[10px]">
-        <H1 children="Department of Tropical Architecture Archive" />
+        <H1>Department of Tropical Architecture Archive</H1>
       </div>
       {/* DESKTOP NAV ITEMS */}
       <div className="hidden h-[70px] w-[100%] items-center justify-between border-b border-dotted border-white sm:flex">
@@ -25,44 +25,44 @@ export const DTAMapNav = ({ className }: DTAMapNavProps) => {
             href=""
             className="decoration-dotted underline-offset-5 hover:underline"
           >
-            <Body children="Map" />
+            <Body>Map</Body>
           </Link>
           <Link
             href=""
             className="decoration-dotted underline-offset-5 hover:underline"
           >
-            <Body children="People" />
+            <Body>People</Body>
           </Link>
           <Link
             href=""
             className="decoration-dotted underline-offset-5 hover:underline"
           >
-            <Body children="Practices" />
+            <Body>Practices</Body>
           </Link>
           <Link
             href=""
             className="decoration-dotted underline-offset-5 hover:underline"
           >
-            <Body children="Institutions" />
+            <Body>Institutions</Body>
           </Link>
           <Link
             href=""
             className="decoration-dotted underline-offset-5 hover:underline"
           >
-            <Body children="Collections" />
+            <Body>Collections</Body>
           </Link>
           <Link
             href=""
             className="decoration-dotted underline-offset-5 hover:underline"
           >
-            <Body children="About" />
+            <Body>About</Body>
           </Link>
         </div>
         <img src="/icons/search.svg" />
       </div>
       {/* MOBILE DROPDOWN */}
       <div className="flex w-[100%] items-center justify-between border-b border-dotted border-white py-[7px] sm:hidden">
-        <Body children="Map" className="!text-[20px]" />
+        <Body className="!text-[20px]">Map</Body>
         <img src="/icons/dropdown.svg" />
       </div>
     </div>

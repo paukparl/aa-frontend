@@ -4,10 +4,14 @@ import { DTAHeader } from "@/components/DTA/components/DTAHeader";
 import { Body } from "@/components/Typography/Body";
 
 type TableType = "education" | "career";
+type ContentItem = {
+  info: string;
+  year: string;
+};
 
 type DTATablePeopleProps = {
   type: TableType;
-  content: Array<Record<string, any>>;
+  content: ContentItem[];
   className?: string;
 };
 export const DTATablePeople = ({
@@ -19,11 +23,14 @@ export const DTATablePeople = ({
     <div
       className={clsx(className, "mb-[10px] flex w-full flex-col gap-[5px]")}
     >
-      <DTAHeader className="capitalize" children={type} />
-      {content.map((row) => (
-        <div className="flex justify-between">
-          <Body children={row.info} />
-          <Body children={row.year} />
+      <DTAHeader className="capitalize">{type}</DTAHeader>
+      {content.map((row, index) => (
+        <div
+          className="flex justify-between"
+          key={`dta-table-people-${row.info}-${row.year}-${index}`}
+        >
+          <Body>{row.info}</Body>
+          <Body>{row.year}</Body>
         </div>
       ))}
     </div>

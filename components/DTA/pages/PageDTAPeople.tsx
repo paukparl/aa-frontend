@@ -286,8 +286,12 @@ export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
         colorTheme="dta-people"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="People" />
-        <DTAContentSingleCol children="Brief sentence describing what people means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1>People</H1>
+        <DTAContentSingleCol>
+          Brief sentence describing what people means in the context of DTA.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </DTAContentSingleCol>
         <DTAFilterMultiSelectRow
           clearFilters={clearFilters}
           activeFilters={activeFilters}
@@ -302,7 +306,7 @@ export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
             { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
           ]}
         />
-        <Mono children="All 570 records" className="mt-[10px]" />
+        <Mono className="mt-[10px]">All 570 records</Mono>
         <DTAGrid
           type="people"
           items={mockPeopleSlides}

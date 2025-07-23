@@ -208,8 +208,12 @@ export const PageDTAInstitutions = ({ className }: DTAInstitutionsProps) => {
         colorTheme="dta-institutions"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 children="Institutions" />
-        <DTAContentSingleCol children="Brief sentence describing what institutions means in the context of DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+        <H1>Institutions</H1>
+        <DTAContentSingleCol>
+          Brief sentence describing what institutions means in the context of
+          DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </DTAContentSingleCol>
         <DTAFilterMultiSelectRow
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
@@ -224,7 +228,7 @@ export const PageDTAInstitutions = ({ className }: DTAInstitutionsProps) => {
             { filters: mockCountryFilters, multiFilterType: "country" },
           ]}
         />
-        <Mono children="All 570 records" className="mt-[10px]" />
+        <Mono className="mt-[10px]">All 570 records</Mono>
         <DTAGrid
           type="institutions"
           items={mockInstitutionsSlides}

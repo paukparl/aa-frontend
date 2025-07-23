@@ -16,7 +16,7 @@ export const DTAHeader = ({ children, className }: DTAHeaderProps) => {
         "mb-[10px] w-full border-b-[1.5px] pb-[10px] md:border-b-[2px]",
       )}
     >
-      <Body children={children} />
+      <Body>{children}</Body>
     </div>
   );
 };

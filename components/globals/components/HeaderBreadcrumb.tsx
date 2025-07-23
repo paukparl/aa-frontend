@@ -9,8 +9,12 @@ type colorTheme =
   | "dta-collections"
   | "dta-about"
   | "dta-search";
+type BreadcrumbLink = {
+  title: string;
+  href?: string;
+};
 type HeaderBreadcrumbProps = {
-  links: Array<Record<string, any>>;
+  links: BreadcrumbLink[];
   pageTitle: string;
   className?: string;
   colorTheme: colorTheme;
@@ -55,16 +59,18 @@ export const HeaderBreadcrumb = ({
         "flex flex-wrap items-center gap-[15px] sm:gap-[20px]",
       )}
     >
-      {links.map((item) => (
+      {links.map((item, index) => (
         <Mono
+          key={index}
           className={clsx(
             colorThemeDict[colorTheme].bg,
             "px-[7px] py-[3px] text-white sm:px-[10px] sm:py-[5px]",
           )}
-          children={item.title}
-        />
+        >
+          {item.title}
+        </Mono>
       ))}
-      <Mono className={colorThemeDict[colorTheme].text} children={pageTitle} />
+      <Mono className={colorThemeDict[colorTheme].text}>{pageTitle}</Mono>
     </div>
   );
 };

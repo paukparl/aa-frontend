@@ -114,10 +114,7 @@ export const DTAFilterButton = ({
           />
         </svg>
       )}
-      <Mono
-        children={children}
-        className="flex w-full justify-start leading-0"
-      />
+      <Mono className="flex w-full justify-start leading-0">{children}</Mono>
     </div>
   );
 };

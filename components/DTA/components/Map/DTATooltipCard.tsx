@@ -1,10 +1,10 @@
+import clsx from "clsx";
 import * as React from "react";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
 
 type PersonItem = {
   type: "person";
-  // Add fields for a person here, e.g.:
   name: string;
   practice: string;
 };
@@ -12,7 +12,6 @@ type PersonItem = {
 type EventItem = {
   type: "event";
   person: string;
-  // Add fields for an event here, e.g.:
   eventInfo: string;
   practice: string;
 };
@@ -24,56 +23,71 @@ type DTATooltipCardProps = {
 
 export const DTATooltipCard = ({ className, items }: DTATooltipCardProps) => {
   return (
-    <>
-      <div className="h-fit w-[260px] rounded-[2px] bg-white px-[10px] pt-[7px] pb-[12px] leading-[12px]">
-        {items.map((item) => {
-          if (item.type === "person") {
-            return (
-              <div className="border-b-[1px] border-dotted pb-[20px]">
-                <Mono small children="PERSON" />
-                <br />
-                <Mono
-                  small
-                  className="underline decoration-dotted decoration-[1px] underline-offset-3"
-                  children={item.name}
-                />
-                <br />
-                <br />
-                <Mono small children="PRACTICE" />
-                <br />
-                <Mono
-                  small
-                  className="underline decoration-dotted decoration-[1px] underline-offset-3"
-                  children={item.practice}
-                />
-              </div>
-            );
-          } else if (item.type === "event") {
-            return (
-              <div className="pt-[20px]">
-                <H1 tipIn className="!text-[18px]" children={item.eventInfo} />
-                <br />
-                <Mono small children="PERSON" />
-                <br />
-                <Mono
-                  small
-                  className="underline decoration-dotted underline-offset-3"
-                  children={item.person}
-                />
-                <br />
-                <br />
-                <Mono small children="PRACTICE" />
-                <br />
-                <Mono
-                  small
-                  className="underline decoration-dotted underline-offset-3"
-                  children={item.practice}
-                />
-              </div>
-            );
-          }
-        })}
-      </div>
-    </>
+    <div
+      className={clsx(
+        className,
+        "h-fit w-[260px] rounded-[2px] bg-white px-[10px] pt-[7px] pb-[12px] leading-[12px]",
+      )}
+    >
+      {items.map((item, index) => {
+        if (item.type === "person") {
+          return (
+            <div
+              key={`${item.name}-${item.practice}-${index}`}
+              className="border-b-[1px] border-dotted pb-[20px]"
+            >
+              <Mono small>PERSON</Mono>
+              <br />
+              <Mono
+                small
+                className="underline decoration-dotted decoration-[1px] underline-offset-3"
+              >
+                {item.name}
+              </Mono>
+              <br />
+              <br />
+              <Mono small>PRACTICE</Mono>
+              <br />
+              <Mono
+                small
+                className="underline decoration-dotted decoration-[1px] underline-offset-3"
+              >
+                {item.practice}
+              </Mono>
+            </div>
+          );
+        } else if (item.type === "event") {
+          return (
+            <div
+              className="pt-[20px]"
+              key={`${item.person}-${item.eventInfo}-${index}`}
+            >
+              <H1 tipIn className="!text-[18px]">
+                {item.eventInfo}
+              </H1>
+              <br />
+              <Mono small>PERSON</Mono>
+              <br />
+              <Mono
+                small
+                className="underline decoration-dotted underline-offset-3"
+              >
+                {item.person}
+              </Mono>
+              <br />
+              <br />
+              <Mono small>PRACTICE</Mono>
+              <br />
+              <Mono
+                small
+                className="underline decoration-dotted underline-offset-3"
+              >
+                {item.practice}
+              </Mono>
+            </div>
+          );
+        }
+      })}
+    </div>
   );
 };

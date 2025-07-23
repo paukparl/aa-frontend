@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { Mono } from "@/components/Typography/Mono";
 
 type colorTheme = "dta-map";
@@ -30,7 +30,7 @@ export const ButtonWindow = ({
       )}
     >
       <Link href={link}>
-        <Mono children={displayText} className="whitespace-pre" />
+        <Mono className="whitespace-pre">{displayText}</Mono>
       </Link>
     </div>
   );

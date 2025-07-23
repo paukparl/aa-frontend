@@ -25,10 +25,11 @@ export const DTACarouselSlide = ({
   const [maxWidth, setMaxWidth] = useState("");
   function setCaptionWidths() {
     if (imgRef.current) {
-      let dimensions = imgRef.current.clientWidth / imgRef.current.clientHeight;
-      let minW = 180 * dimensions;
-      let midW = 370 * dimensions;
-      let maxW = 515 * dimensions;
+      const dimensions =
+        imgRef.current.clientWidth / imgRef.current.clientHeight;
+      const minW = 180 * dimensions;
+      const midW = 370 * dimensions;
+      const maxW = 515 * dimensions;
       setMinWidth(`${minW}px`);
       setMidWidth(`${midW}px`);
       setMaxWidth(`${maxW}px`);

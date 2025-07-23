@@ -9,11 +9,15 @@ type colorTheme =
   | "dta-collections"
   | "dta-about"
   | "dta-search";
+type BreadcrumbLink = {
+  title: string;
+  href?: string;
+};
 type DTATipinHeaderProps = {
   pageTitle: string;
   className?: string;
   colorTheme: colorTheme;
-  breadcrumbLinks: Array<Record<string, any>>;
+  breadcrumbLinks: BreadcrumbLink[];
 };
 
 export const TipinHeader = ({

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useState } from "react";
+import React from "react";
 import { Mono } from "@/components/Typography/Mono";
 
 type multiFilterType =
@@ -78,7 +78,7 @@ export const DTAFilterMultiSelectDropdown = ({
                   : "hover:underline hover:decoration-dotted hover:underline-offset-3",
               )}
             >
-              <Mono children={filter} />
+              <Mono>{filter}</Mono>
             </button>
           </li>
         ))}

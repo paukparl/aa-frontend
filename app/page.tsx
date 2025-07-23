@@ -1,7 +1,6 @@
 // import { getEvent } from "@/api/getEvent";
 // import { getEvents } from "@/api/getEvents";
-import { H2 } from "../components/Typography/H2";
-import { Mono } from "../components/Typography/Mono";
+import { H1 } from "@/components/Typography/H1";
 
 export default async function HomePage() {
   // const events = await getEvents();
@@ -9,12 +8,7 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1 className="h1">Welcome to the Home Page</h1>
-      <H2 children="heree" />
-      <Mono children="momnooooo" />
-      <p className="font-nhg-text italic">
-        This is the main entry point of the application.
-      </p>
+      <H1>Welcome to the Home Page</H1>
       <pre className="font-diatype overflow-scroll">
         {/* {JSON.stringify(events, null, 2)} */}
       </pre>

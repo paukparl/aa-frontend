@@ -52,10 +52,10 @@ export const DTAGridItemPeople = ({
       ) : (
         <div className="dta_griditem_bg mb-2 aspect-[4/5] h-auto w-full lg:mb-3"></div>
       )}
-      {title != null && <Mono children={title} />}
+      {title != null && <Mono>{title}</Mono>}
       {date != null && (
         <div className="mt-2">
-          <Mono children={date} />
+          <Mono>{date}</Mono>
         </div>
       )}
     </div>
@@ -91,7 +91,7 @@ export const DTAGridItemInstitutions = ({
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-[4/3] h-auto w-full object-cover"></div>
       )}
-      {title != null && <Mono children={title} />}
+      {title != null && <Mono>{title}</Mono>}
     </div>
   );
 };
@@ -121,7 +121,7 @@ export const DTAGridItemCollections = ({
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-square"></div>
       )}
-      {title != null && <Mono children={title} />}
+      {title != null && <Mono>{title}</Mono>}
     </div>
   );
 };
@@ -148,11 +148,11 @@ export const DTAGridItemPracticesGrid = ({
         "aspect-[3/2] border border-dashed px-3 py-2 leading-none sm:aspect-[5/2] lg:aspect-[5/2]",
       )}
     >
-      {title != null && <Mono children={title} />}
+      {title != null && <Mono>{title}</Mono>}
       {country != null && (
         <>
           <br />
-          <Mono children={country} className="block pt-[10px]" />
+          <Mono className="block pt-[10px]">{country}</Mono>
         </>
       )}
     </div>
@@ -174,10 +174,10 @@ export const DTAGridItemPracticesTable = ({
       )}
     >
       <div className="border border-dashed px-[15px] py-[11px] leading-0 md:px-[20px] md:py-[12px]">
-        <Mono children={title} />
+        <Mono>{title}</Mono>
       </div>
       <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] leading-0 md:px-[20px] md:py-[12px]">
-        <Mono children={country} className="" />
+        <Mono>{country}</Mono>
       </div>
     </div>
   );

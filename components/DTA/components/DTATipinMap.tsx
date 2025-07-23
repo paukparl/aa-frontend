@@ -8,9 +8,10 @@ type DTATipinMapProps = {
 };
 
 export const DTATipinMap = ({ className, colorTheme }: DTATipinMapProps) => {
+  console.log(colorTheme);
   return (
-    <div>
-      <DTAHeader children="Map" />
+    <div className={className}>
+      <DTAHeader>Map</DTAHeader>
       <img
         src="/storybook/DTA/components/Map/map-placeholder.jpg"
         className="mt-[20px] w-[100%] lg:mt-[30px]"

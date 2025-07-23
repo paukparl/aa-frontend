@@ -9,9 +9,12 @@ type colorTheme =
   | "dta-collections"
   | "dta-about"
   | "dta-search";
-
+type Slide = {
+  src: string;
+  caption: string;
+};
 type MediaGalleryProps = {
-  slides: Array<Record<string, any>>;
+  slides: Slide[];
   className?: string;
   colorTheme: colorTheme;
 };
@@ -59,6 +62,7 @@ export const MediaGallery = ({
         <div className="flex gap-[10px] py-[20px] pl-[5px]">
           {slides.map((thumb, index) => (
             <img
+              key={index}
               src={thumb.src}
               className={clsx(
                 activeInd === index &&
@@ -76,9 +80,10 @@ export const MediaGallery = ({
       />
       {slides[activeInd].caption.length > 0 && (
         <Caption
-          children={slides[activeInd].caption}
           className={clsx("block pt-[10px]", colorThemeDict[colorTheme].text)}
-        />
+        >
+          {slides[activeInd].caption}
+        </Caption>
       )}
     </div>
   );

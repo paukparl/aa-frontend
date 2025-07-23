@@ -131,8 +131,9 @@ export const DTARelatedContent = ({
     <div className={className}>
       <DTAHeader
         className={(clsx("capitalize"), classNameDict[colorTheme].className)}
-        children={`Related ${gridType}`}
-      />
+      >
+        {`Related ${gridType}`}
+      </DTAHeader>
       <DTAGrid
         className={clsx(
           "pt-[10px] lg:pt-[20px]",

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useState } from "react";
+import React from "react";
 import { Body } from "@/components/Typography/Body";
 
 type CardPublicationProps = {
@@ -15,14 +15,15 @@ export const CardPublication = ({
   imgSrc,
 }: CardPublicationProps) => {
   return (
-    <div className="flex w-full justify-start sm:justify-center">
+    <div
+      className={clsx(className, "flex w-full justify-start sm:justify-center")}
+    >
       <div className="w-[50%] sm:w-fit">
         <img src={imgSrc} className="max-h-[70vh] w-full object-contain" />
-        <Body
-          children={title}
-          className="text-dta-about-foreground block pt-[10px] font-bold"
-        />
-        <Body children={author} className="text-dta-about-foreground block" />
+        <Body className="text-dta-about-foreground block pt-[10px] font-bold">
+          {title}
+        </Body>
+        <Body className="text-dta-about-foreground block">{author}</Body>
       </div>
     </div>
   );
