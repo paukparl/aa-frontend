@@ -20,8 +20,8 @@ export const PageDTAMap = ({ className }: DTAMapProps) => {
         "text-dta-map-foreground bg-dta-map-background min-h-[100vh] w-[100vw]",
       )}
     >
-      <DTAMapNav />
-      <DTAMapComponent />
+      <DTAMapNav className="p-[10px] sm:p-[30px]" />
+      <DTAMapComponent className="p-[10px] sm:p-[30px]" />
       <DTAContentSingleCol
         className="p-[10px] sm:p-[30px]"
         children="The Department of Tropical Architecture Archive provides an online digital platform to make the work held by the Architectural Association (AA) Archive and the dispersed work of the graduates of the Department of Tropical Architecture (DTA) available to the next generation of researchers eager to examine the network of global relationships and challenge the orthodoxy of the DTA program."

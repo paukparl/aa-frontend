@@ -53,8 +53,15 @@ const nhgText = localFont({
   display: "swap",
 });
 
+const times = localFont({
+  src: [{ path: "./TimesNewRomanBold.tt.ttf", weight: "400", style: "normal" }],
+  variable: "--font-times",
+  display: "swap",
+});
+
 export const fonts = {
   diatype,
   nhgDisplay,
   nhgText,
+  times,
 };

@@ -37,6 +37,7 @@
   /* Reset fonts */
   --font-*: initial;
   --font-diatype: var(--font-diatype), monospace;
+  --font-times: var(--font-times), serif;
   --font-nhg-display: var(--font-nhg-display), sans-serif;
   --font-nhg-text: var(--font-nhg-text), sans-serif;
 
