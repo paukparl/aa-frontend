@@ -111,7 +111,7 @@ export const DTARelatedContent = ({
       },
     ],
   };
-  const colorThemeDict = {
+  const classNameDict = {
     people: { className: "text-dta-people-foreground", gridItemClassName: "" },
     practices: {
       className: "text-dta-practices-foreground",
@@ -130,15 +130,15 @@ export const DTARelatedContent = ({
   return (
     <div className={className}>
       <DTAHeader
-        className={(clsx("capitalize"), colorThemeDict[colorTheme].className)}
+        className={(clsx("capitalize"), classNameDict[colorTheme].className)}
         children={`Related ${gridType}`}
       />
       <DTAGrid
         className={clsx(
           "pt-[10px] lg:pt-[20px]",
-          colorThemeDict[colorTheme].className,
+          classNameDict[colorTheme].className,
         )}
-        gridItemClassName={colorThemeDict[colorTheme].gridItemClassName}
+        gridItemClassName={classNameDict[colorTheme].gridItemClassName}
         items={mockGridItems[gridType]}
         type={gridType === "practices" ? "practicesgrid" : gridType}
       />
