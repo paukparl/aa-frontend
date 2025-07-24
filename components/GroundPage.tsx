@@ -1,17 +1,19 @@
 import { notFound } from "next/navigation";
-import { DtaPersonPage } from "@/components/dta/DtaPersonPage";
+import { DtaPage } from "@/components/dta/DtaPage";
+import { HookeParkPage } from "@/components/hooke-park/HookeParkPage";
 import PublicPage from "@/components/public/PublicPage";
+import { RoamPage } from "@/components/roam/RoamPage";
 import SchoolPage from "@/components/school/SchoolPage";
 import { SearchParams } from "@/lib/types";
 
-export default async function Tipin2Page({
+export default async function Ground({
   params,
-  searchParams,
+  searchParams: _,
 }: {
-  params: Promise<{ ground: string; tipin1: string; tipin2: string }>;
+  params: Promise<{ ground: string }>;
   searchParams: SearchParams;
 }) {
-  const { ground, tipin1, tipin2 } = await params;
+  const { ground } = await params;
 
   if (ground === "school") {
     return <SchoolPage />;
@@ -20,15 +22,13 @@ export default async function Tipin2Page({
     return <PublicPage />;
   }
   if (ground === "hooke-park") {
-    return null;
-    // return <HookeParkPage />;
+    return <HookeParkPage />;
   }
   if (ground === "dta") {
-    return <DtaPersonPage searchParams={searchParams} slug={tipin2} />;
+    return <DtaPage />;
   }
   if (ground === "roam") {
-    return null;
-    // return <RoamPage />;
+    return <RoamPage />;
   }
 
   notFound();

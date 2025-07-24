@@ -3,10 +3,21 @@ import clientEnv from "@/lib/clientEnv";
 
 export const document = z.object({
   // There seem to be multiple ids per documentId.
-  // Use documentId for consistency.
+  // Use documentId to fetch the document.
   id: z.number(),
   documentId: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  publishedAt: z.string().nullable(),
 });
+
+export const documentFields = [
+  "id",
+  "documentId",
+  "createdAt",
+  "updatedAt",
+  "publishedAt",
+] as const satisfies (keyof z.infer<typeof document>)[];
 
 const mediaBase = document.extend({
   url: z
@@ -43,10 +54,10 @@ export const image = mediaBase.extend({
   height: z.number(),
   formats: z
     .object({
-      small: imageFormat,
-      medium: imageFormat,
-      large: imageFormat,
-      thumbnail: imageFormat,
+      thumbnail: imageFormat.optional(),
+      small: imageFormat.optional(),
+      medium: imageFormat.optional(),
+      large: imageFormat.optional(),
     })
     .nullable(),
 });
@@ -54,14 +65,11 @@ export const image = mediaBase.extend({
 export const media = z.union([image, video, file]);
 
 export const getOneRes = <T extends z.ZodType>(schema: T) =>
-  z.object({
-    data: document.and(schema),
-    // meta: z.object({ }),
-  });
+  z.object({ data: schema.nullable() });
 
 export const getManyRes = <T extends z.ZodType>(schema: T) =>
   z.object({
-    data: z.array(document.and(schema)),
+    data: z.array(schema),
     meta: z.object({
       pagination: z.object({
         page: z.number(),

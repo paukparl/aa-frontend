@@ -1,53 +1,36 @@
 import { notFound } from "next/navigation";
-import TempLink from "@/components/TempLink";
-import ViewTransitionTipinPage, {
-  Ancestors,
-} from "@/components/ViewTransitionTipinPage";
-import { cn } from "@/lib/cn";
-import { RouteParsed, routes } from "@/lib/routes";
+import { DtaPeoplePage } from "@/components/dta/DtaPeoplePage";
+import { SearchParams } from "@/lib/types";
 
 export default async function Tipin1Page({
-  routeParsed,
+  params,
+  searchParams,
 }: {
-  routeParsed: Exclude<RouteParsed["tipin1"], null>;
+  params: Promise<{ ground: string; tipin1: string }>;
+  searchParams: SearchParams;
 }) {
-  if (routeParsed.panel === "school") {
-    if (routeParsed.subpanel === "programmes") {
-      if (routeParsed.tipin1 === "programme-1") {
-        // TODO: fetch data
-        const title = "Title";
-        const ancestors = [
-          {
-            title: "Parent",
-            href: routes.panel(routeParsed.panel, routeParsed.subpanel),
-          },
-        ] satisfies Ancestors<"1">;
-        return (
-          <ViewTransitionTipinPage
-            type="1"
-            tipinBg="#fff"
-            className={cn(
-              "flex flex-col items-start gap-4 pt-[calc(var(--padding)*2)]",
-            )}
-            title={title}
-            ancestors={ancestors}
-          >
-            <TempLink
-              href={routes.tipin2(
-                routeParsed.panel,
-                routeParsed.subpanel,
-                routeParsed.tipin1,
-                "unit-1",
-              )}
-            >
-              Unit 1
-            </TempLink>
-            <div className={cn("h-dvh")} />
-          </ViewTransitionTipinPage>
-        );
-      }
+  const { ground, tipin1 } = await params;
+  // if (ground === "school") {
+  //   return <SchoolPage />;
+  // }
+  // if (ground === "public") {
+  //   return <PublicPage />;
+  // }
+  // if (ground === "hooke-park") {
+  //   return null;
+  //   // return <HookeParkPage />;
+  // }
+  if (ground === "dta") {
+    if (tipin1 === "people") {
+      return <DtaPeoplePage searchParams={searchParams} />;
     }
   }
+  // if (ground === "roam") {
+  //   return null;
+  //   // return <RoamPage />;
+  // }
 
   notFound();
+
+  return null;
 }

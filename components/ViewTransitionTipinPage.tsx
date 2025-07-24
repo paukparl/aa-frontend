@@ -99,15 +99,32 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
     <ViewTransition
       update="none"
       default={
+        // type === "1"
+        //   ? !prevTipin1PagePath
+        //     ? "first-tipin"
+        //     : "first-tipin-with-delay"
+        //   : prevTipin1PagePath === tipin1PagePath && !prevTipin2PagePath
+        //     ? "second-tipin"
+        //     : "second-tipin-with-delay"
         type === "1"
           ? !prevTipin1PagePath
             ? "first-tipin"
-            : "first-tipin-with-delay"
+            : prevTipin1PagePath === tipin1PagePath
+              ? "none" // prevent initially open tipin from reopening at tipin2 close
+              : "first-tipin"
           : prevTipin1PagePath === tipin1PagePath && !prevTipin2PagePath
             ? "second-tipin"
             : "second-tipin-with-delay"
       }
+      exit={
+        type === "1"
+          ? prevTipin1PagePath === tipin1PagePath
+            ? "none" // prevent initially open tipin from reopening at tipin2 close
+            : "first-tipin"
+          : "second-tipin"
+      }
       onEnter={(tran) => {
+        console.log("ENTERING");
         const anim = tran.new.getAnimations()[0] as Animation | undefined;
         if (anim) {
           pushAnimation(anim);
@@ -117,6 +134,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         }
       }}
       onExit={(tran) => {
+        console.log("EXITING");
         const anim = tran.old.getAnimations()[0] as Animation | undefined;
         if (anim) {
           pushAnimation(anim);

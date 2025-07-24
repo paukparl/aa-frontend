@@ -10,7 +10,7 @@ export default function ViewTransitionPanelPage({
   panel,
   microsite,
   children,
-  className,
+  className: _,
 }: {
   panel: "home" | "school" | "public";
   microsite?: "hooke-park" | "dta" | "roam";
@@ -25,7 +25,7 @@ export default function ViewTransitionPanelPage({
 
   return (
     <ViewTransition
-      name={`${panel}${microsite ? `-${microsite}` : ""}`}
+      key={`${panel}${microsite ? `-${microsite}` : ""}`}
       enter={
         prevPanel != panel
           ? `${panel}-page-enter-from-${prevPanel}`
@@ -47,6 +47,7 @@ export default function ViewTransitionPanelPage({
               ? "pb-(--header-h) pl-(--header-h)"
               : // public
                 "pt-(--header-h)",
+          microsite === "dta" && "text-white",
         )}
       >
         {panel === "home" && <PageHeader className={cn("from-transparent")} />}
@@ -69,10 +70,7 @@ export default function ViewTransitionPanelPage({
             }
           />
         )}
-
-        <div className={cn("relative px-(--padding)", className)}>
-          {children}
-        </div>
+        {children}
       </div>
     </ViewTransition>
   );

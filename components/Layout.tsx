@@ -142,7 +142,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {/* School nav button */}
         <ViewTransitionNavButton type="school" headerHidden={headerHidden}>
-          <LoadingLink href={routes.panel("school")}>
+          <LoadingLink href={routes.ground("school")}>
             School
             <CollapsingText.Root
               initialCollapsed={initialCollapsed}
@@ -172,7 +172,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {/* Public nav button */}
         <ViewTransitionNavButton type="public" headerHidden={headerHidden}>
-          <LoadingLink href={routes.panel("public")}>
+          <LoadingLink href={routes.ground("public")}>
             <CollapsingText.Root
               initialCollapsed={initialCollapsed}
               methodsRef={publicMethodsRef}
