@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTAMapFooter } from "@/components/DTA/components/DTAMapFooter";
 import { DTAMapNav } from "@/components/DTA/components/DTAMapNav";
 import { DTAMapComponent } from "@/components/DTA/components/Map/DTAMapComponent";
 import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
+import { Footer } from "@/components/globals/components/Footer";
 
 type DTAMapProps = {
   className?: string;
@@ -27,7 +27,7 @@ export const PageDTAMap = ({ className }: DTAMapProps) => {
         researchers eager to examine the network of global relationships and
         challenge the orthodoxy of the DTA program.
       </DTAContentSingleCol>
-      <DTAMapFooter />
+      <Footer colorTheme="dta-map" className="p-[10px] sm:p-[30px]" />
     </div>
   );
 };

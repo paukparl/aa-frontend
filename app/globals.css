@@ -2,12 +2,6 @@
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-animate";
 @layer base {
-  :root {
-    /* CSS variables come here  */
-  }
-  body {
-    /* color: rgb(var(--foreground-rgb)); */
-  }
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -34,24 +28,25 @@
   }
 }
 @theme inline {
-  /* Reset fonts */
+  /* ----- RESET FONTS ----- */
   --font-*: initial;
   --font-diatype: var(--font-diatype), monospace;
   --font-times: var(--font-times), serif;
   --font-nhg-display: var(--font-nhg-display), sans-serif;
   --font-nhg-text: var(--font-nhg-text), sans-serif;
-
-  /* Colors */
+  /* ----- COLORS ----- */
+  /* Main */
   --color-*: initial;
   --color-black: #000;
   --color-white: #fff;
   --color-main-public: #e9e5db;
   --color-main-public-tint: #fffdf7;
-  --color-main-school: #cbcbc8;
-  --color-main-school-tint: #e1e1df;
+  --color-school-background: #cbcbc8;
+  --color-school-tint: #e1e1df;
   --color-main-white: #fff;
   --color-main-black: #000;
   --color-main-seasonal: #91ff8b;
+  /* DTA */
   --color-dta-map-background: #1d453f;
   --color-dta-map-foreground: #ffffff;
   --color-dta-map-highlight: #7c6d5a;
@@ -61,6 +56,14 @@
   --color-dta-collections-foreground: #531111;
   --color-dta-about-foreground: #1d453f;
   --color-dta-search-foreground: #1d453f;
+  /* School / Programmes */
+  --color-programmes-main-background: #dfc784;
+  --color-programmes-foundation-accent: #dfc784;
+  --color-programmes-intermediate-accent: #ffd4e0;
+  --color-programmes-diploma-accent: #d3e1ee;
+  /* --color-programmes-profpractice-accent: #dbe6c8; */
+  --color-programmes-postgrad-accent: #d3c2da;
+  --color-programmes-visiting-accent: #fffdc8;
 }
 @layer utilities {
   .h1 {

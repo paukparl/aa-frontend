@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Mono } from "@/components/Typography/Mono";
 
-type colorTheme = "dta-map";
+type colorTheme = "dta-map" | "school";
 type ButtonWindowProps = {
   displayText: string;
   link: string;
@@ -20,6 +20,7 @@ export const ButtonWindow = ({
   const colorThemeDict = {
     "dta-map":
       "border-white hover:bg-white text-white hover:text-dta-map-background",
+    school: "border-black hover:bg-white text-black",
   };
   return (
     <div
