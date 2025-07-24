@@ -1,10 +1,9 @@
-// Add children as object instead of string
-// depending on output from Strapi
 import clsx from "clsx";
 import React from "react";
+import type { ReactNode } from "react";
 
 type CaptionProps = {
-  children: string;
+  children: ReactNode;
   className?: string;
 };
 

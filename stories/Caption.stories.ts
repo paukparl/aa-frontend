@@ -11,12 +11,16 @@ const meta = {
         component: " ",
       },
     },
+    layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     children: { control: "text" },
+    className: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof Caption>;
 
@@ -27,5 +31,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: "Caption Lorem Ipsum",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };

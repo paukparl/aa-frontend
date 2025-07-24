@@ -11,6 +11,7 @@ const meta = {
         component: " ",
       },
     },
+    layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
@@ -21,6 +22,9 @@ const meta = {
       table: {
         disable: true,
       },
+    },
+    className: {
+      table: { disable: true },
     },
   },
 } satisfies Meta<typeof H1>;
@@ -34,11 +38,17 @@ export const Default: Story = {
     children: "Practices",
     tipIn: false,
   },
+  globals: {
+    backgrounds: { value: "light" },
+  },
 };
 
 export const TipIn: Story = {
   args: {
     children: "Ministry of Work",
     tipIn: true,
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };
