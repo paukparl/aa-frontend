@@ -1,16 +1,33 @@
+import { CSSProperties, ReactNode } from "react";
+import Layout from "@/components/Layout";
+import { PrevRouteProvider } from "@/contexts/PrevRouteContext";
 import { fonts } from "@/fonts";
+import { cn } from "@/lib/cn";
 import "./globals.css";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
+  // TODO: fetch data
+  const homeColor = "#91ff8b";
   return (
     <html
-      className={`${fonts.diatype.variable} ${fonts.nhgDisplay.variable} ${fonts.nhgText.variable}`}
+      lang="en"
+      className={cn(
+        fonts.diatype.variable,
+        fonts.nhgDisplay.variable,
+        fonts.nhgText.variable,
+        "text-black antialiased",
+      )}
+      style={{ "--color-home": homeColor } as CSSProperties}
     >
-      <body>{children}</body>
+      <body>
+        <PrevRouteProvider>
+          <Layout>{children}</Layout>
+        </PrevRouteProvider>
+      </body>
     </html>
   );
 }

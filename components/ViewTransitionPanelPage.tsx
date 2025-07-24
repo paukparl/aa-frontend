@@ -1,0 +1,79 @@
+"use client";
+
+import { ReactNode, unstable_ViewTransition as ViewTransition } from "react";
+import PageHeader from "@/components/PageHeader";
+import { usePrevRoute } from "@/contexts/PrevRouteContext";
+import { cn } from "@/lib/cn";
+import { parseMicrosite, parsePanel } from "@/lib/layoutUtils";
+
+export default function ViewTransitionPanelPage({
+  panel,
+  microsite,
+  children,
+  className,
+}: {
+  panel: "home" | "school" | "public";
+  microsite?: "hooke-park" | "dta" | "roam";
+  children?: ReactNode;
+  className?: string;
+}) {
+  const prev = usePrevRoute();
+  const prevPanel = prev.pathname ? parsePanel(prev.pathname) : undefined;
+  const prevMicrosite = prev.pathname
+    ? parseMicrosite(prev.pathname)
+    : undefined;
+
+  return (
+    <ViewTransition
+      name={`${panel}${microsite ? `-${microsite}` : ""}`}
+      enter={
+        prevPanel != panel
+          ? `${panel}-page-enter-from-${prevPanel}`
+          : prevMicrosite != microsite
+            ? "page-enter"
+            : "none"
+      }
+      update="none"
+      share="none"
+      exit="page-exit"
+    >
+      <div
+        className={cn(
+          "relative z-10",
+          // "h-full overflow-auto",
+          panel === "home"
+            ? "pr-(--header-h) pb-(--header-h)"
+            : panel === "school"
+              ? "pb-(--header-h) pl-(--header-h)"
+              : // public
+                "pt-(--header-h)",
+        )}
+      >
+        {panel === "home" && <PageHeader className={cn("from-transparent")} />}
+        {panel === "school" && (
+          <PageHeader
+            className={
+              cn()
+              // "from-school",
+              // microsite === "hooke-park" && "from-white",
+            }
+          />
+        )}
+        {panel === "public" && (
+          <PageHeader
+            className={
+              cn()
+              // "from-public",
+              // microsite === "dta" && "from-[#1d453f]",
+              // microsite === "roam" && "from-[#fdfff0]",
+            }
+          />
+        )}
+
+        <div className={cn("relative px-(--padding)", className)}>
+          {children}
+        </div>
+      </div>
+    </ViewTransition>
+  );
+}
