@@ -12,51 +12,14 @@ type GridType =
   | "collections"
   | "institutions";
 
-type CollectionGridItem = {
+export type GridItem = {
   title: string;
-  image: boolean;
   imgSrc?: string;
   imgAlt?: string;
   uid?: string;
   date?: string;
   country?: string;
 };
-
-type PersonGridItem = {
-  title: string;
-  image: boolean;
-  imgSrc?: string;
-  imgAlt?: string;
-  date?: string;
-  uid?: string;
-  country?: string;
-};
-
-type InstitutionGridItem = {
-  title: string;
-  image: boolean;
-  imgSrc?: string;
-  imgAlt?: string;
-  uid?: string;
-  date?: string;
-  country?: string;
-};
-
-type PracticeGridItem = {
-  title: string;
-  country: string;
-  image: false;
-  imgSrc?: string;
-  imgAlt?: string;
-  date?: string;
-  uid?: string;
-};
-
-type GridItem =
-  | CollectionGridItem
-  | PersonGridItem
-  | InstitutionGridItem
-  | PracticeGridItem;
 
 type DTAGridProps = {
   items: GridItem[];
@@ -88,7 +51,6 @@ export const DTAGrid = ({
           <DTAGridItem
             key={index}
             type={type}
-            image={item.image}
             imgSrc={item.imgSrc}
             imgAlt={item.imgAlt}
             title={item.title}

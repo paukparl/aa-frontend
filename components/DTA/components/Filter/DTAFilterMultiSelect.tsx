@@ -13,7 +13,8 @@ type multiFilterType =
   | "year"
   | "yearOfStudy";
 
-type DTAFilterMultiProps = {
+type DTAFilterMultiSelectProps = {
+  className?: string;
   activeFilters: string[][];
   index: number;
   activeIndex: number | null;
@@ -35,7 +36,8 @@ export const DTAFilterMultiSelect = ({
   activeFilters,
   toggleFilter,
   clearFilters,
-}: DTAFilterMultiProps) => {
+  className,
+}: DTAFilterMultiSelectProps) => {
   const open = activeIndex === index;
 
   const filterTypeDict = {
@@ -94,35 +96,37 @@ export const DTAFilterMultiSelect = ({
         : `${filterTypeDict[multiFilterType].filterLabel}${activeFilters[index].length} selected`;
 
   return (
-    <Collapsible.Root
-      open={open}
-      onOpenChange={(o) => setActiveIndex(o ? index : null)}
-    >
-      <Collapsible.Trigger asChild>
-        <button aria-expanded={open} type="button" className="w-full">
-          <DTAFilterButton
-            filterState={filterState}
-            colorTheme={colorTheme}
-            clearFilters={clearFilters}
-            index={index}
-          >
-            {buttonLabel}
-          </DTAFilterButton>
-        </button>
-      </Collapsible.Trigger>
+    <div className={className}>
+      <Collapsible.Root
+        open={open}
+        onOpenChange={(o) => setActiveIndex(o ? index : null)}
+      >
+        <Collapsible.Trigger asChild>
+          <button aria-expanded={open} type="button" className="w-full">
+            <DTAFilterButton
+              filterState={filterState}
+              colorTheme={colorTheme}
+              clearFilters={clearFilters}
+              index={index}
+            >
+              {buttonLabel}
+            </DTAFilterButton>
+          </button>
+        </Collapsible.Trigger>
 
-      {/* Dropdowns under each button */}
-      {/* Only visible on mobile, full-width desktop dropdowns are in the parent row component */}
-      <Collapsible.Content>
-        <DTAFilterMultiSelectDropdown
-          groupIndex={index}
-          multiFilterType={multiFilterType}
-          filters={filters}
-          className="sm:hidden"
-          activeFilters={activeFilters}
-          toggleFilter={toggleFilter}
-        />
-      </Collapsible.Content>
-    </Collapsible.Root>
+        {/* Dropdowns under each button */}
+        {/* Only visible on mobile, full-width desktop dropdowns are in the parent row component */}
+        <Collapsible.Content>
+          <DTAFilterMultiSelectDropdown
+            groupIndex={index}
+            multiFilterType={multiFilterType}
+            filters={filters}
+            className="sm:hidden"
+            activeFilters={activeFilters}
+            toggleFilter={toggleFilter}
+          />
+        </Collapsible.Content>
+      </Collapsible.Root>
+    </div>
   );
 };

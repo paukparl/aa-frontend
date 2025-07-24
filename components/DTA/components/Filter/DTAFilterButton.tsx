@@ -12,7 +12,8 @@ type DTAFilterButtonProps = {
   filterState: filterState;
   colorTheme: colorTheme;
   className?: string;
-  clearFilters: (groupIndex: number | undefined) => void;
+  clearFilters?: (groupIndex: number) => void;
+  clearFilter?: () => void;
   index?: number;
 };
 
@@ -21,6 +22,7 @@ export const DTAFilterButton = ({
   className,
   filterState,
   colorTheme,
+  clearFilter,
   clearFilters,
   index,
   singleSelect,
@@ -95,7 +97,9 @@ export const DTAFilterButton = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           onClick={() =>
-            singleSelect ? clearFilters(undefined) : clearFilters(index)
+            singleSelect && clearFilter
+              ? clearFilter()
+              : clearFilters && index && clearFilters(index)
           }
         >
           <path

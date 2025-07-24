@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTAFilterMulti } from "@/components/DTA/components/Filter/DTAFilterMultiSelect";
+import { DTAFilterMultiSelect } from "@/components/DTA/components/Filter/DTAFilterMultiSelect";
 
 const mockAlphabetFilters = [
   "A",
@@ -304,7 +304,7 @@ const mockYearOfStudyFilters = [
 
 const meta = {
   title: "DTA/03 Components/Filter/Multi-Select Filter",
-  component: DTAFilterMulti,
+  component: DTAFilterMultiSelect,
   parameters: {
     docs: {
       description: {
@@ -323,7 +323,7 @@ const meta = {
       table: { disable: true },
     },
   },
-} satisfies Meta<typeof DTAFilterMulti>;
+} satisfies Meta<typeof DTAFilterMultiSelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -334,6 +334,12 @@ export const Alphabet: Story = {
     className: "px-[40px] pt-[30vh] w-[90vw]",
     multiFilterType: "alphabet",
     filters: mockAlphabetFilters,
+    activeIndex: 0,
+    index: 0,
+    activeFilters: [],
+    toggleFilter: () => {},
+    clearFilters: () => {},
+    setActiveIndex: () => {},
   },
   argTypes: {
     colorTheme: {
@@ -352,6 +358,12 @@ export const BirthPlace: Story = {
     className: "px-[40px] pt-[30vh] w-[90vw]",
     multiFilterType: "birthPlace",
     filters: mockBirthPlaceFilters,
+    activeIndex: 0,
+    index: 0,
+    activeFilters: [],
+    toggleFilter: () => {},
+    clearFilters: () => {},
+    setActiveIndex: () => {},
   },
   argTypes: {
     colorTheme: {
@@ -369,6 +381,12 @@ export const Country: Story = {
     className: "px-[40px] pt-[30vh]",
     multiFilterType: "country",
     filters: mockCountryFilters,
+    activeIndex: 0,
+    index: 0,
+    activeFilters: [],
+    toggleFilter: () => {},
+    clearFilters: () => {},
+    setActiveIndex: () => {},
   },
   argTypes: {
     colorTheme: {
@@ -387,6 +405,12 @@ export const InstitutionType: Story = {
     className: "px-[40px] pt-[30vh]",
     multiFilterType: "institutionType",
     filters: mockInstitutionTypeFilters,
+    activeIndex: 0,
+    index: 0,
+    activeFilters: [[]],
+    toggleFilter: () => {},
+    clearFilters: () => {},
+    setActiveIndex: () => {},
   },
   argTypes: {
     colorTheme: {
@@ -404,6 +428,12 @@ export const Year: Story = {
     className: "px-[40px] pt-[30vh]",
     multiFilterType: "year",
     filters: mockYearFilters,
+    activeIndex: 0,
+    index: 0,
+    activeFilters: [[]],
+    toggleFilter: () => {},
+    clearFilters: () => {},
+    setActiveIndex: () => {},
   },
   argTypes: {
     colorTheme: {
@@ -422,6 +452,12 @@ export const YearOfStudy: Story = {
     className: "px-[40px] pt-[30vh]",
     multiFilterType: "yearOfStudy",
     filters: mockYearOfStudyFilters,
+    activeIndex: 0,
+    index: 0,
+    activeFilters: [[]],
+    toggleFilter: () => {},
+    clearFilters: () => {},
+    setActiveIndex: () => {},
   },
   argTypes: {
     colorTheme: {
