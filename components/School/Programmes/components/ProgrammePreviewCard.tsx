@@ -28,6 +28,7 @@ export const ProgrammePreviewCard = ({
   fullTime,
   durationStart,
 }: ProgrammePreviewCardProps) => {
+  const durationBarW = `${durationFrac * 100}%`;
   return (
     <div className={clsx(className, "pb-[50px] md:pr-[30px]")}>
       <H1 className="block md:h-[90px]">{title}</H1>
@@ -38,8 +39,17 @@ export const ProgrammePreviewCard = ({
           </Mono>
         )}
         <div className="p-[15px]">
-          <Mono className="block md:h-[90px]">{duration}</Mono>
-          <div className="bg-school-tint mt-[10px] h-[10px] w-[100%]"></div>
+          <Mono className="block md:min-h-[90px]">{duration}</Mono>
+          <div className="bg-school-tint mt-[10px] h-[10px] w-[100%]">
+            <div
+              style={{ width: durationBarW }}
+              className={clsx(
+                !durationStart && "float-end",
+                fullTime ? "bg-black" : "bg-dotted-line",
+                "h-[10px]",
+              )}
+            ></div>
+          </div>
         </div>
       </div>
       <Body className="mt-[15px] line-clamp-10 whitespace-pre-line">

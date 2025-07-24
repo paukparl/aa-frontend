@@ -26,6 +26,29 @@
   .sb-show-main.sb-main-padded {
     padding: 0px !important;
   }
+  .bg-dotted-line {
+    background-image: linear-gradient(
+      to right,
+      black,
+      black calc((1 / 9) * 100%),
+      transparent calc((1 / 9) * 100%),
+      transparent calc((2 / 9) * 100%),
+      black calc((2 / 9) * 100%),
+      black calc((3 / 9) * 100%),
+      transparent calc((3 / 9) * 100%),
+      transparent calc((4 / 9) * 100%),
+      black calc((4 / 9) * 100%),
+      black calc((5 / 9) * 100%),
+      transparent calc((5 / 9) * 100%),
+      transparent calc((6 / 9) * 100%),
+      black calc((6 / 9) * 100%),
+      black calc((7 / 9) * 100%),
+      transparent calc((7 / 9) * 100%),
+      transparent calc((8 / 9) * 100%),
+      black calc((8 / 9) * 100%),
+      black
+    );
+  }
 }
 @theme inline {
   /* ----- RESET FONTS ----- */
