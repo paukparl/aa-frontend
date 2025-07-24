@@ -1,0 +1,320 @@
+@layer base {
+  /*
+   * VARIABLES
+   */
+
+  :root {
+    --school-btn-w: calc(var(--nav-btn-font-size) * 3.09 + var(--padding) * 2);
+    --home-panel-x-at-home: calc(var(--header-h) * -1);
+    --home-panel-y-at-home: calc(var(--header-h) * -1);
+    --home-panel-x-at-school: calc(-100dvw + var(--header-h));
+    --home-panel-y-at-school: calc(var(--header-h) * -1);
+    --home-panel-x-at-public: calc(var(--school-btn-w) * -1);
+    --home-panel-y-at-public: calc(-100dvh + var(--header-h));
+
+    --school-panel-x-at-home: calc(100dvw - var(--header-h));
+    --school-panel-y-at-home: calc(var(--header-h) * -1);
+    --school-panel-x-at-school: calc(var(--header-h));
+    --school-panel-y-at-school: calc(var(--header-h) * -1);
+    --school-panel-x-at-public: calc(100dvw - var(--school-btn-w));
+    --school-panel-y-at-public: calc(-100dvh + var(--header-h));
+
+    --public-panel-x-at-home: calc(0dvw);
+    --public-panel-y-at-home: calc(100dvh - var(--header-h));
+    --public-panel-x-at-school: calc(0dvw);
+    --public-panel-y-at-school: calc(100dvh - var(--header-h));
+    --public-panel-x-at-public: calc(0dvw);
+    --public-panel-y-at-public: calc(var(--header-h));
+
+    /* --fade-in-duration: 0.2s;
+    --fade-out-duration: 0.2s; */
+
+    /* fade-in-duration and fade-in-delay should add up to transition-duration */
+    --fade-in-duration: 0.3s;
+    --fade-in-delay: 0.5s;
+    --fade-out-duration: 0s;
+    --transition-duration: 0.8s;
+    --slide-duration: 0.8s;
+    --slide-out-duration: 0.5s;
+    --slide-delay: 0.1s;
+
+    --fade-in-easing: ease-out;
+    --fade-out-easing: ease-out;
+    --transition-easing: cubic-bezier(0.25, 0.3, 0.1, 1);
+    --slide-out-easing: cubic-bezier(0.11, 0, 0.5, 0);
+  }
+
+  /*
+   * VIEW TRANSITIONS
+   */
+
+  /* animation: duration | easing-function | delay | fill-mode | name */
+
+  /* Panel */
+
+  /* Using longhand because these are "updates" without predefined animations */
+  ::view-transition-group(.panel-update-from-other-to-this) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 0;
+  }
+  ::view-transition-group(.panel-update-from-this-to-other) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 11;
+  }
+  ::view-transition-group(.panel-update-from-other-to-other) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 20;
+  }
+  ::view-transition-group(.panel-update-from-this-to-this) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 0;
+  }
+
+  /*  Nav Buttons */
+
+  /* Using longhand because these are "updates" without predefined animations */
+  ::view-transition-group(.menu-nav-btn) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    z-index: 30;
+  }
+  ::view-transition-group(.home-nav-btn) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 30;
+  }
+  ::view-transition-group(.school-nav-btn) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 30;
+  }
+  ::view-transition-group(.public-nav-btn) {
+    animation-delay: var(--fade-out-duration);
+    animation-duration: var(--transition-duration);
+    animation-timing-function: var(--transition-easing);
+    animation-fill-mode: both;
+    z-index: 30;
+  }
+
+  /* Tipins & Menu */
+
+  ::view-transition-group(.first-tipin) {
+    z-index: 40;
+  }
+  ::view-transition-new(.first-tipin) {
+    animation: var(--slide-duration) var(--transition-easing) backwards slide-in;
+  }
+  ::view-transition-old(.first-tipin) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both slide-out;
+  }
+  ::view-transition-group(.first-tipin-with-delay) {
+    z-index: 40;
+  }
+  ::view-transition-new(.first-tipin-with-delay) {
+    animation: var(--slide-duration) var(--transition-easing) var(--slide-delay)
+      both slide-in;
+  }
+  ::view-transition-old(.first-tipin-with-delay) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both slide-out;
+  }
+  ::view-transition-group(.second-tipin) {
+    z-index: 50;
+  }
+  ::view-transition-new(.second-tipin) {
+    animation: var(--slide-duration) var(--transition-easing) backwards slide-in;
+  }
+  ::view-transition-old(.second-tipin) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both slide-out;
+  }
+  ::view-transition-group(.second-tipin-with-delay) {
+    z-index: 50;
+  }
+  ::view-transition-new(.second-tipin-with-delay) {
+    animation: var(--slide-duration) var(--transition-easing) var(--slide-delay)
+      both slide-in;
+  }
+  ::view-transition-old(.second-tipin-with-delay) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both slide-out;
+  }
+  ::view-transition-group(.menu) {
+    z-index: 60;
+  }
+  ::view-transition-new(.menu) {
+    animation: var(--slide-duration) var(--transition-easing) backwards slide-in;
+  }
+  ::view-transition-old(.menu) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both slide-out;
+  }
+
+  /* Panel Exit (to overlay exiting page) */
+  ::view-transition-group(.panel-exit) {
+    z-index: 30;
+  }
+  ::view-transition-old(.panel-exit) {
+    animation: 0s var(--fade-out-duration) both fade-out;
+  }
+
+  /* Page  */
+  ::view-transition-group(.page-enter) {
+    z-index: 10;
+  }
+  ::view-transition-new(.page-enter) {
+    animation: var(--fade-in-duration) ease-in var(--fade-in-delay) both fade-in;
+  }
+
+  ::view-transition-group(.page-exit) {
+    z-index: 12;
+  }
+  ::view-transition-old(.page-exit) {
+    animation: var(--fade-out-duration) ease-out 0s forwards fade-out;
+  }
+
+  ::view-transition-group(.home-page-enter-from-school) {
+    z-index: 10;
+  }
+  ::view-transition-new(.home-page-enter-from-school) {
+    animation:
+      var(--fade-in-duration) ease-in fade-in,
+      var(--transition-duration) var(--transition-easing)
+        var(--fade-out-duration) backwards home-page-slide-in;
+  }
+  ::view-transition-group(.home-page-enter-from-public) {
+    z-index: 10;
+  }
+  ::view-transition-new(.home-page-enter-from-public) {
+    animation:
+      var(--fade-in-duration) ease-in fade-in,
+      var(--transition-duration) var(--transition-easing)
+        var(--fade-out-duration) backwards home-page-slide-in;
+  }
+
+  ::view-transition-group(.school-page-enter-from-home) {
+    z-index: 10;
+  }
+  ::view-transition-new(.school-page-enter-from-home) {
+    animation:
+      var(--fade-in-duration) ease-in fade-in,
+      var(--transition-duration) var(--transition-easing)
+        var(--fade-out-duration) backwards school-page-slide-in-from-home;
+  }
+  ::view-transition-group(.school-page-enter-from-public) {
+    z-index: 10;
+  }
+  ::view-transition-new(.school-page-enter-from-public) {
+    animation:
+      var(--fade-in-duration) ease-in fade-in,
+      var(--transition-duration) var(--transition-easing)
+        var(--fade-out-duration) backwards school-page-slide-in-from-public;
+  }
+
+  ::view-transition-group(.public-page-enter-from-home) {
+    z-index: 21;
+  }
+  ::view-transition-new(.public-page-enter-from-home) {
+    animation:
+      var(--fade-in-duration) ease-in fade-in,
+      var(--transition-duration) var(--transition-easing)
+        var(--fade-out-duration) backwards public-page-slide-in;
+  }
+  ::view-transition-group(.public-page-enter-from-school) {
+    z-index: 21;
+  }
+  ::view-transition-new(.public-page-enter-from-school) {
+    animation:
+      var(--fade-in-duration) ease-in fade-in,
+      var(--transition-duration) var(--transition-easing)
+        var(--fade-out-duration) backwards public-page-slide-in;
+  }
+
+  /* 
+   * KEYFRAMES 
+   */
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes home-page-slide-in {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes school-page-slide-in-from-home {
+    from {
+      transform: translate(var(--school-panel-x-at-home), 0);
+    }
+    to {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes school-page-slide-in-from-public {
+    from {
+      transform: translate(var(--school-panel-x-at-public), 0);
+    }
+    to {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes public-page-slide-in {
+    from {
+      transform: translate(0, var(--public-panel-y-at-home));
+    }
+    to {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translate(-100%, 0);
+    }
+    to {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(-100%, 0);
+    }
+  }
+}

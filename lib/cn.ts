@@ -1,4 +1,4 @@
-import { extendTailwindMerge } from "tailwind-merge";
+import { extendTailwindMerge, validators } from "tailwind-merge";
 
 // Validators:
 // https://github.com/dcastil/tailwind-merge/blob/v3.3.1/src/lib/validators.ts
@@ -6,7 +6,10 @@ import { extendTailwindMerge } from "tailwind-merge";
 const twMerge = extendTailwindMerge({
   extend: {
     classGroups: {
-      // Custom class groups go here
+      "font-size": [{ text: [validators.isNumber] }],
+      leading: [{ leading: [validators.isNumber] }],
+      "font-weight": [{ font: [validators.isNumber] }],
+      "max-w": [{ "max-w": [{ screen: [validators.isNumber] }] }],
     },
     conflictingClassGroupModifiers: {
       // Any standalone leading preceding a font-size class with a line-height modifier should be removed
