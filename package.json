@@ -12,10 +12,12 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@radix-ui/react-collapsible": "^1.1.11",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@types/fuzzy-search": "^2.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.6.0",
     "fuzzy-search": "^3.2.1",
     "lodash": "^4.17.21",
     "mini-svg-data-uri": "^1.4.4",

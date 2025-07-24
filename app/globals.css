@@ -24,8 +24,31 @@
       --menu-svg-font-size: calc(var(--spacing) * 36);
     }
   }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --default-transition-duration: 0.1s;
+    --default-transition-timing-function: linear;
+  }
+  .dta_griditem_bg {
+    background-size: 20px 20px;
+    background-color: var(--color-dta-map-highlight);
+    background-image:
+      linear-gradient(
+        to right,
+        var(--color-dta-map-background) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        var(--color-dta-map-background) 1px,
+        transparent 1px
+      );
+  }
+  .sb-show-main.sb-main-padded {
+    padding: 0px !important;
+  }
 }
-
 @theme inline {
   --spacing: 0.0625rem; /* Convert spacing unit to visual 1px */
 
@@ -60,9 +83,10 @@
 
   /* Font Families */
   --font-*: initial;
-  --font-diatype: var(--font-diatype-src), monospace;
-  --font-nhg-display: var(--font-nhg-display-src), sans-serif;
-  --font-nhg-text: var(--font-nhg-text-src), sans-serif;
+  --font-diatype: var(--font-diatype), monospace;
+  --font-times: var(--font-times), serif;
+  --font-nhg-display: var(--font-nhg-display), sans-serif;
+  --font-nhg-text: var(--font-nhg-text), sans-serif;
 
   /* Colors */
   --color-*: initial;
@@ -76,61 +100,36 @@
   --color-main-white: #fff;
   --color-main-black: #000;
   --color-main-seasonal: #91ff8b;
-  --color-record-news: #eef7ff;
-  --color-record-exhibitions: #e9e3ff;
-  --color-record-events: #fff2e1;
-  --color-record-facilities: #f8ffdd;
-  --color-programmes-foundation: #dfc784;
-  --color-programmes-intermediate: #ffd4e0;
-  --color-programmes-diploma: #d3e1ee;
-  --color-programmes-profpractice: #dbe6c8;
-  --color-programmes-postgrad: #d3c2da;
-  --color-programmes-shortcourses: #fffdc8;
-  --color-roam-light: #fdfff0;
-  --color-roam-dark: #000000;
-  --color-hooke-base: #ffffff;
-  --color-hooke-middle: #000000;
-  --color-hooke-top: #caf16c;
-  --color-dta-brown: #7c6d5a;
-  --color-dta-green: #1d453f;
-  --color-dta-blue: #150d50;
-  --color-dta-maroon: #732e5b;
-  --color-dta-red: #531111;
-
-  /* Uncomment color vars below once dev starts on other pages
-  rename colors to match design system */
-  /* --color-main-public: #E9E5DB;
-  --color-main-public-tint: #FFFDF7;
-  --color-main-school: #CBCBC8;
-  --color-main-school-tint: #E1E1DF;
-  --color-main-white: #fff;
-  --color-main-black: #000;
-  --color-main-seasonal: #91FF8B;
-  --color-record-news: #EEF7FF;
-  --color-record-exhibitions: #E9E3FF;
-  --color-record-events: #FFF2E1;
-  --color-record-facilities: #F8FFDD;
-  --color-programmes-foundation: #DFC784;
-  --color-programmes-intermediate: #FFD4E0;
-  --color-programmes-diploma: #D3E1EE;
-  --color-programmes-profpractice: #DBE6C8;
-  --color-programmes-postgrad: #D3C2DA;
-  --color-programmes-shortcourses: #FFFDC8;
-  --color-roam-light: #FDFFF0;
-  --color-roam-dark: #000000;
-  --color-hooke-base: #FFFFFF;
-  --color-hooke-middle: #000000;
-  --color-hooke-top: #CAF16C; */
-  --color-dta-map-background-color: #1d453f;
-  --color-dta-map-foreground-color: #ffffff;
-  --color-dta-map-highlight-color: #7c6d5a;
-  --color-dta-people-foreground-color: #1d453f;
-  --color-dta-institutions-foreground-color: #150d50;
-  --color-dta-practices-foreground-color: #732e5b;
-  --color-dta-collections-foreground-color: #531111;
-  --color-dta-about-foreground-color: #1d453f;
-  --color-dta-search-foreground-color: #1d453f;
+  --color-dta-map-background: #1d453f;
+  --color-dta-map-foreground: #ffffff;
+  --color-dta-map-highlight: #7c6d5a;
+  --color-dta-people-foreground: #1d453f;
+  --color-dta-institutions-foreground: #150d50;
+  --color-dta-practices-foreground: #732e5b;
+  --color-dta-collections-foreground: #531111;
+  --color-dta-about-foreground: #1d453f;
+  --color-dta-search-foreground: #1d453f;
 }
+<<<<<<< HEAD
+@layer utilities {
+  .h1 {
+    @apply font-nhg-display text-2xl font-medium sm:text-5xl;
+  }
+  .h1-tipin {
+    @apply font-diatype text-2xl sm:text-5xl;
+  }
+  .h2 {
+    @apply font-nhg-display text-2xl font-medium sm:text-4xl xl:text-5xl;
+  }
+  .body {
+    @apply font-nhg-text text-base sm:text-xl;
+  }
+  .mono {
+    @apply font-diatype text-sm sm:text-lg;
+  }
+  .caption {
+    @apply font-nhg-text text-xs font-medium sm:text-base sm:font-bold;
+=======
 
 @utility h1 {
   /* @apply font-nhg-display text-2xl font-medium sm:text-5xl; */
@@ -185,5 +184,17 @@
   @media (min-width: 640px) {
     font-size: var(--text-base);
     font-weight: var(--font-weight-bold);
+>>>>>>> origin/main
   }
+}
+/* EMBLA CAROUSEL  */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 fit-content;
+  min-width: 0;
 }

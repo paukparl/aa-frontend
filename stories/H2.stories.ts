@@ -11,12 +11,16 @@ const meta = {
         component: " ",
       },
     },
+    layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     children: { control: "text" },
+    className: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof H2>;
 
@@ -26,6 +30,9 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    children: "Who Are Goodwin and Hopwood?",
+    children: "Who Are Godwin and Hopwood?",
+  },
+  globals: {
+    backgrounds: { value: "light" },
   },
 };
