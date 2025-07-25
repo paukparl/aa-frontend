@@ -1,4 +1,4 @@
-import { DTAHeader } from "@/components/DTA/components/DTAHeader";
+import { DTAHeader } from "@/components/dta/components/DTAHeader";
 
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 
@@ -13,7 +13,7 @@ export const DTATipinMap = ({ className, colorTheme }: DTATipinMapProps) => {
     <div className={className}>
       <DTAHeader>Map</DTAHeader>
       <img
-        src="/storybook/DTA/components/Map/map-placeholder.jpg"
+        src="/storybook/dta/components/Map/map-placeholder.jpg"
         className="mt-[20px] w-[100%] lg:mt-[30px]"
       />
     </div>

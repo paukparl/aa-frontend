@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTAHeader } from "@/components/DTA/components/DTAHeader";
 import { Body } from "@/components/Typography/Body";
+import { DTAHeader } from "@/components/dta/components/DTAHeader";
 
 type TableType = "education" | "career";
 type ContentItem = {

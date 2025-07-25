@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
+import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
@@ -13,17 +13,17 @@ const DTAObjectProps = [
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
 ];
 

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Popover } from "radix-ui";
 import React, { useState } from "react";
-import { DTATooltipCard } from "@/components/DTA/components/Map/DTATooltipCard";
+import { DTATooltipCard } from "@/components/dta/components/Map/DTATooltipCard";
 
 type DTATooltipProps = {
   className?: string;

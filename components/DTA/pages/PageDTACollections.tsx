@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React, { useState } from "react";
-import { DTAFilterSingleSelect } from "@/components/DTA/components/Filter/DTAFilterSingleSelect";
-import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
-import { DTAGrid } from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
+import { DTAFilterSingleSelect } from "@/components/dta/components/Filter/DTAFilterSingleSelect";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { DTAGrid } from "@/components/dta/layouts/DTAGrid";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
@@ -16,78 +16,78 @@ const mockCollectionsData = [
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
   },
 ];
 const mockCollectionFilters = [
   {
     title: "Otto Koenigsberger Collection",
-    imgSrc: "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+    imgSrc: "/storybook/dta/components/SingleFilter/singlefilter.jpg",
     imgAlt:
       "A black and white exterior shot of a building designed by Otto Koenigsberger, with two trees framing the image.",
     description:
@@ -95,7 +95,7 @@ const mockCollectionFilters = [
   },
   {
     title: "Student Work",
-    imgSrc: "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+    imgSrc: "/storybook/dta/components/SingleFilter/singlefilter.jpg",
     imgAlt:
       "A black and white exterior shot of a building designed by Otto Koenigsberger, with two trees framing the image.",
     description:
@@ -103,7 +103,7 @@ const mockCollectionFilters = [
   },
   {
     title: "Slide Library",
-    imgSrc: "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+    imgSrc: "/storybook/dta/components/SingleFilter/singlefilter.jpg",
     imgAlt:
       "A black and white exterior shot of a building designed by Otto Koenigsberger, with two trees framing the image.",
     description:
@@ -111,7 +111,7 @@ const mockCollectionFilters = [
   },
   {
     title: "DTA Publications and Documents",
-    imgSrc: "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+    imgSrc: "/storybook/dta/components/SingleFilter/singlefilter.jpg",
     imgAlt:
       "A black and white exterior shot of a building designed by Otto Koenigsberger, with two trees framing the image.",
     description:
@@ -119,7 +119,7 @@ const mockCollectionFilters = [
   },
   {
     title: "External Collections",
-    imgSrc: "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+    imgSrc: "/storybook/dta/components/SingleFilter/singlefilter.jpg",
     imgAlt:
       "A black and white exterior shot of a building designed by Otto Koenigsberger, with two trees framing the image.",
     description:

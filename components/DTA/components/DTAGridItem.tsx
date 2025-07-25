@@ -7,15 +7,14 @@ import React from "react";
 import { Mono } from "@/components/Typography/Mono";
 
 type DTAGridItemProps = {
-  image: boolean;
-  imgSrc?: string;
-  imgAlt?: string;
+  imgSrc?: string | undefined;
+  imgAlt?: string | undefined;
   className?: string;
   title: string;
   type: string;
   uid?: string;
-  date?: string;
-  country?: string;
+  date?: string | undefined;
+  country?: string | undefined;
   gridItemClassName?: string;
 };
 
@@ -23,7 +22,6 @@ type DTAGridItemProps = {
 
 type DTAGridItemPeopleProps = {
   title: string;
-  image: boolean;
   imgSrc?: string;
   imgAlt?: string;
   className?: string;
@@ -33,7 +31,6 @@ type DTAGridItemPeopleProps = {
 };
 
 export const DTAGridItemPeople = ({
-  image,
   imgSrc,
   imgAlt,
   title,
@@ -43,10 +40,10 @@ export const DTAGridItemPeople = ({
 }: DTAGridItemPeopleProps) => {
   return (
     <div className={clsx(className, gridItemClassName, "leading-[0px]")}>
-      {image ? (
+      {imgSrc ? (
         <img
           src={imgSrc}
-          alt={imgAlt}
+          alt={imgAlt ?? ""}
           className="mb-2 aspect-[4/5] h-auto w-full object-cover lg:mb-3"
         />
       ) : (
@@ -64,7 +61,6 @@ export const DTAGridItemPeople = ({
 
 type DTAGridItemInstitutionsProps = {
   title: string;
-  image: boolean;
   imgSrc?: string;
   imgAlt?: string;
   className?: string;
@@ -73,7 +69,6 @@ type DTAGridItemInstitutionsProps = {
 };
 
 export const DTAGridItemInstitutions = ({
-  image,
   imgSrc,
   imgAlt,
   title,
@@ -82,10 +77,10 @@ export const DTAGridItemInstitutions = ({
 }: DTAGridItemInstitutionsProps) => {
   return (
     <div className={clsx(className, gridItemClassName, "")}>
-      {image ? (
+      {imgSrc ? (
         <img
           src={imgSrc}
-          alt={imgAlt}
+          alt={imgAlt ?? ""}
           className="mb-1 aspect-[4/3] h-auto w-full object-cover"
         />
       ) : (
@@ -98,7 +93,6 @@ export const DTAGridItemInstitutions = ({
 
 type DTAGridItemCollectionsProps = {
   title: string;
-  image: boolean;
   imgSrc?: string;
   imgAlt?: string;
   className?: string;
@@ -107,7 +101,6 @@ type DTAGridItemCollectionsProps = {
 };
 
 export const DTAGridItemCollections = ({
-  image,
   imgSrc,
   imgAlt,
   title,
@@ -116,8 +109,8 @@ export const DTAGridItemCollections = ({
 }: DTAGridItemCollectionsProps) => {
   return (
     <div className={clsx(className, gridItemClassName)}>
-      {image ? (
-        <img src={imgSrc} alt={imgAlt} className="mb-1 h-auto" />
+      {imgSrc ? (
+        <img src={imgSrc} alt={imgAlt ?? ""} className="mb-1 h-auto" />
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-square"></div>
       )}
@@ -129,7 +122,7 @@ export const DTAGridItemCollections = ({
 type DTAGridItemPracticesProps = {
   title: string;
   className?: string;
-  country: string;
+  country: string | undefined;
   uid?: string;
   gridItemClassName?: string;
 };
@@ -192,13 +185,11 @@ export const DTAGridItem = ({
   date,
   uid,
   country,
-  image,
   gridItemClassName,
 }: DTAGridItemProps) => {
   switch (type) {
     case "people":
       return DTAGridItemPeople({
-        image,
         imgSrc,
         imgAlt,
         title,
@@ -214,8 +205,6 @@ export const DTAGridItem = ({
         title,
         className,
         uid,
-        country,
-        image,
       });
       break;
     case "collections":
@@ -225,7 +214,6 @@ export const DTAGridItem = ({
         title,
         className,
         uid,
-        image,
       });
       break;
     case "practicesgrid":

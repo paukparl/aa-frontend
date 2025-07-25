@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import { DTAHeader } from "@/components/DTA/components/DTAHeader";
-import { DTAGrid } from "@/components/DTA/layouts/DTAGrid";
+import { DTAHeader } from "@/components/dta/components/DTAHeader";
+import { DTAGrid } from "@/components/dta/layouts/DTAGrid";
+import type { GridItem } from "@/components/dta/layouts/DTAGrid";
 
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 type gridType = "people" | "practices" | "institutions" | "collections";
@@ -16,29 +17,25 @@ export const DTARelatedContent = ({
   gridType,
   colorTheme,
 }: DTARelatedContentProps) => {
-  const mockGridItems = {
+  const mockGridItems: Record<gridType, GridItem[]> = {
     collections: [
       {
         title: "Name of Object",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
       },
       {
         title: "Name of Object",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
       },
       {
         title: "Name of Object",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
       },
     ],
     people: [
       {
         title: "John Owusu Addo",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_7.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_people_7.jpg",
         date: "8 Aug 1985",
       },
       {
@@ -47,41 +44,35 @@ export const DTARelatedContent = ({
       },
       {
         title: "Kenneth Brian Frampton",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_3.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_people_3.jpg",
         date: "18 Feb 1959",
       },
       {
         title: "Besim Selim Hakim",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_4.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_people_4.jpg",
         date: "7 Jul 1970",
       },
       {
         title: "Sepala Wimaladharma Molligoda",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_5.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_people_5.jpg",
         date: "3 Jan 1897",
       },
     ],
     institutions: [
       {
         title: "Name of Institution",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
       },
       {
         title: "Lorem Ipsum",
       },
       {
         title: "Lorem Ipsum",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
       },
       {
         title: "Lorem Ipsum",
-        image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
       },
     ],
     practices: [
