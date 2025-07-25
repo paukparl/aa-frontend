@@ -64,14 +64,14 @@ export const DTAFilterButton = ({
           <path
             className={colorThemeDict[colorTheme].stroke}
             d="M0.0263672 10.5263L20.0264 10.5263"
-            stroke-width="5"
-            stroke-linejoin="round"
+            strokeWidth="5"
+            strokeLinejoin="round"
           />
           <path
             className={colorThemeDict[colorTheme].stroke}
             d="M10 0.526306L10 20.5263"
-            stroke-width="5"
-            stroke-linejoin="round"
+            strokeWidth="5"
+            strokeLinejoin="round"
           />
         </svg>
       )}
@@ -85,8 +85,8 @@ export const DTAFilterButton = ({
           <path
             className="stroke-white"
             d="M0 2.5H20"
-            stroke-width="5"
-            stroke-linejoin="round"
+            strokeWidth="5"
+            strokeLinejoin="round"
           />
         </svg>
       )}

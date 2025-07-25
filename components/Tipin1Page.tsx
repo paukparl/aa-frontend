@@ -1,5 +1,9 @@
 import { notFound } from "next/navigation";
-import { DtaPeoplePage } from "@/components/dta/DtaPeoplePage";
+import { DTACollectionsPage } from "@/components/dta/pages/DTACollectionsPage";
+import { DTAGenericPage } from "@/components/dta/pages/DTAGenericPage";
+import { DTAInstitutionsPage } from "@/components/dta/pages/DTAInstitutionsPage";
+import { DTAPeoplePage } from "@/components/dta/pages/DTAPeoplePage";
+import { DTAPracticesPage } from "@/components/dta/pages/DTAPracticesPage";
 import { SearchParams } from "@/lib/types";
 
 export default async function Tipin1Page({
@@ -22,8 +26,18 @@ export default async function Tipin1Page({
   // }
   if (ground === "dta") {
     if (tipin1 === "people") {
-      return <DtaPeoplePage searchParams={searchParams} />;
+      return <DTAPeoplePage searchParams={searchParams} />;
     }
+    if (tipin1 === "practices") {
+      return <DTAPracticesPage searchParams={searchParams} />;
+    }
+    if (tipin1 === "institutions") {
+      return <DTAInstitutionsPage searchParams={searchParams} />;
+    }
+    if (tipin1 === "collections") {
+      return <DTACollectionsPage searchParams={searchParams} />;
+    }
+    return <DTAGenericPage slug={tipin1} />;
   }
   // if (ground === "roam") {
   //   return null;
@@ -31,6 +45,4 @@ export default async function Tipin1Page({
   // }
 
   notFound();
-
-  return null;
 }

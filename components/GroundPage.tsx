@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { DtaPage } from "@/components/dta/DtaPage";
+import { DTAMapPage } from "@/components/dta/pages/DTAMapPage";
 import { HookeParkPage } from "@/components/hooke-park/HookeParkPage";
 import PublicPage from "@/components/public/PublicPage";
 import { RoamPage } from "@/components/roam/RoamPage";
@@ -25,7 +25,7 @@ export default async function Ground({
     return <HookeParkPage />;
   }
   if (ground === "dta") {
-    return <DtaPage />;
+    return <DTAMapPage />;
   }
   if (ground === "roam") {
     return <RoamPage />;

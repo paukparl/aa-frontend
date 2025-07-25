@@ -29,14 +29,17 @@ export default function ViewTransitionPanel({
       </ViewTransition> */}
 
       <ViewTransition
+        default="none"
         update={
-          panel !== prevPanel
-            ? type === panel
-              ? `panel-update-from-other-to-this`
-              : type === prevPanel
-                ? `panel-update-from-this-to-other`
-                : `panel-update-from-other-to-other`
-            : `panel-update-from-this-to-this`
+          prevPanel
+            ? panel !== prevPanel
+              ? type === panel
+                ? `panel-update-from-other-to-this`
+                : type === prevPanel
+                  ? `panel-update-from-this-to-other`
+                  : `panel-update-from-other-to-other`
+              : `panel-update-from-this-to-this`
+            : "none"
         }
       >
         <Panel

@@ -19,6 +19,7 @@ export default async function RootLayout({
         fonts.diatype.variable,
         fonts.nhgDisplay.variable,
         fonts.nhgText.variable,
+        fonts.times.variable,
         "text-black antialiased",
       )}
       style={{ "--color-home": homeColor } as CSSProperties}
