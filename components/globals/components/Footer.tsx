@@ -22,9 +22,9 @@ export const Footer = ({ className, colorTheme }: FooterProps) => {
       <div className="flex w-[100%] flex-col justify-between gap-[10px] sm:flex-row-reverse sm:items-end sm:gap-[30px]">
         <ButtonWindow
           className="shrink-0"
+          context="footer"
           colorTheme={colorTheme}
-          link=""
-          displayText={`Become\na Member`}
+          links={[{ displayText: `Become\na Member`, link: "" }]}
         />
         <H1 className="whitespace-pre sm:whitespace-normal md:whitespace-pre">{`Architectural Association\nSchool of Architecture`}</H1>
       </div>

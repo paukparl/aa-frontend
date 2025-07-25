@@ -38,7 +38,15 @@ export const PageFoundationCourse = ({
       <ProgrammeTextCol
         col2content={
           <div className="flex justify-center">
-            <ButtonWindow link="/" displayText="Apply" colorTheme="school" />
+            <ButtonWindow
+              links={[
+                { link: "/", displayText: "Apply" },
+                { link: "/", displayText: "Enquire to study" },
+                { link: "/", displayText: "Programme Guides" },
+              ]}
+              colorTheme="school"
+              context="school"
+            />
           </div>
         }
       >
@@ -85,6 +93,11 @@ export const PageFoundationCourse = ({
           Velasco Pérez
         </Body>
       </ProgrammeTextCol>
+      <span>IMAGE CAROUSEL HERE</span>
+      <ProgrammeTextCol>
+        <H1 tipIn>Course Components</H1>
+      </ProgrammeTextCol>
+      <span>DROPDOWN HERE</span>
     </div>
   );
 };

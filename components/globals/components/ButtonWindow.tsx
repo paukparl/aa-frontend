@@ -4,35 +4,66 @@ import React from "react";
 import { Mono } from "@/components/Typography/Mono";
 
 type colorTheme = "dta-map" | "school";
+type ButtonWindowLink = { displayText: React.ReactNode; link: string };
+type ButtonWindowContext = "footer" | "school";
 type ButtonWindowProps = {
-  displayText: string;
-  link: string;
+  context: ButtonWindowContext;
+  links: ButtonWindowLink[];
   colorTheme: colorTheme;
   className?: string;
 };
 
 export const ButtonWindow = ({
-  displayText,
-  link,
+  links,
   colorTheme,
   className,
+  context,
 }: ButtonWindowProps) => {
   const colorThemeDict = {
     "dta-map":
       "border-white hover:bg-white text-white hover:text-dta-map-background",
     school: "border-black hover:bg-white text-black",
   };
+  const contextDict = {
+    school: {
+      top: "w-[250px] h-[240px] sm:w-[300px] sm:h-[280px] sm:pt-[80px]",
+      btm: "h-fit w-[250px] sm:w-[300px]",
+    },
+    footer: {
+      top: "sm:h-[240px] sm:w-[220px] h-[150px] w-[140px] sm:pt-[50px]",
+      btm: "",
+    },
+  };
   return (
-    <div
-      className={clsx(
-        className,
-        colorThemeDict[colorTheme],
-        "flex h-[150px] w-[140px] cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid sm:h-[240px] sm:w-[220px] sm:p-[30px] sm:pt-[50px]",
-      )}
-    >
-      <Link href={link}>
-        <Mono className="whitespace-pre">{displayText}</Mono>
-      </Link>
+    <div className={className}>
+      <div
+        className={clsx(
+          colorThemeDict[colorTheme],
+          contextDict[context].top,
+          "flex cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid sm:p-[30px]",
+        )}
+      >
+        <Link href={links[0].link}>
+          <Mono className="whitespace-pre">{links[0].displayText}</Mono>
+        </Link>
+      </div>
+      {links.length > 1 &&
+        links.map(
+          (item, index) =>
+            index !== 0 && (
+              <div
+                className={clsx(
+                  colorThemeDict[colorTheme],
+                  contextDict[context].btm,
+                  "mt-[-1px] flex cursor-pointer items-center justify-center border-[1px] border-dotted p-[15px] text-center transition-all hover:border-solid sm:p-[15px]",
+                )}
+              >
+                <Link href={item.link}>
+                  <Mono className="whitespace-pre">{item.displayText}</Mono>
+                </Link>
+              </div>
+            ),
+        )}
     </div>
   );
 };
