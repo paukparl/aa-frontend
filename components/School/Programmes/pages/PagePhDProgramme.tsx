@@ -102,14 +102,14 @@ export const PagePhDProgramme = ({ className }: PagePhDProgrammeProps) => {
         />
         <ProgrammeTextCol>
           <H1 tipIn>Programme Structure</H1>
-          <Body className="block pb-[50px]">
+          <Body className="block pb-[30px] sm:pb-[50px]">
             The PhD Programme comprises a set of activities that run in parallel
             to encourage and stimulate collective discussion among participants.
             These take the form of tutorials, seminars, guest seminars, end of
             term presentations and symposia.
           </Body>
           <H1 tipIn>Tutorials</H1>
-          <Body className="block pb-[50px]">
+          <Body className="block pb-[30px] sm:pb-[50px]">
             Directors of studies are available every week for tutorials and
             discussion about candidates' in progress. Candidates are encouraged
             remain in constant contact with their director of studies to ensure
