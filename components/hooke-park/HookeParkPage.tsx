@@ -1,11 +1,11 @@
 import TempLink from "@/components/TempLink";
-import ViewTransitionPanelPage from "@/components/ViewTransitionPanelPage";
+import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function HookeParkPage() {
   return (
-    <ViewTransitionPanelPage panel="public" microsite="hooke-park">
+    <ViewTransitionGroundPage panel="public" microsite="hooke-park">
       <div className={cn("flex flex-col items-start gap-2")}>
         <h1>Hooke Park</h1>
         <TempLink href={routes.ground("hooke-park")} scroll={false}>
@@ -18,6 +18,6 @@ export async function HookeParkPage() {
           ROAM
         </TempLink>
       </div>
-    </ViewTransitionPanelPage>
+    </ViewTransitionGroundPage>
   );
 }

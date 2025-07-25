@@ -6,7 +6,7 @@ import { usePrevRoute } from "@/contexts/PrevRouteContext";
 import { cn } from "@/lib/cn";
 import { parseMicrosite, parsePanel } from "@/lib/layoutUtils";
 
-export default function ViewTransitionPanelPage({
+export default function ViewTransitionGroundPage({
   panel,
   microsite,
   children,

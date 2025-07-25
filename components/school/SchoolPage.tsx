@@ -1,11 +1,11 @@
 import TempLink from "@/components/TempLink";
-import ViewTransitionPanelPage from "@/components/ViewTransitionPanelPage";
+import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export default function SchoolPage() {
   return (
-    <ViewTransitionPanelPage panel="school">
+    <ViewTransitionGroundPage panel="school">
       <div className={cn("flex flex-col items-start gap-2")}>
         <TempLink href={routes.ground("hooke-park")} scroll={false}>
           Hooke Park
@@ -17,6 +17,6 @@ export default function SchoolPage() {
           Roam
         </TempLink>
       </div>
-    </ViewTransitionPanelPage>
+    </ViewTransitionGroundPage>
   );
 }

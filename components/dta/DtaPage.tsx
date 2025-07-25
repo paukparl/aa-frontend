@@ -1,12 +1,12 @@
 import TempLink from "@/components/TempLink";
-import ViewTransitionPanelPage from "@/components/ViewTransitionPanelPage";
+import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { DtaLayout } from "@/components/dta/DtaLayout";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DtaPage() {
   return (
-    <ViewTransitionPanelPage panel="public" microsite="dta">
+    <ViewTransitionGroundPage panel="public" microsite="dta">
       <DtaLayout>
         <div className={cn("flex items-center gap-8")}>
           <TempLink href={routes.ground("dta")} scroll={false}>
@@ -33,6 +33,6 @@ export async function DtaPage() {
         </div>
         <div className={cn("h-svh")} />
       </DtaLayout>
-    </ViewTransitionPanelPage>
+    </ViewTransitionGroundPage>
   );
 }
