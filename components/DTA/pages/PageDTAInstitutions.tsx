@@ -199,7 +199,7 @@ export const PageDTAInstitutions = ({ className }: DTAInstitutionsProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-institutions-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
+        "text-dta-institutions-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px]",
       )}
     >
       <TipinHeader

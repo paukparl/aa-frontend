@@ -2,14 +2,15 @@ import clsx from "clsx";
 import React from "react";
 import { Mono } from "@/components/Typography/Mono";
 
-type colorTheme =
+export type BreadcrumbColorTheme =
   | "dta-people"
   | "dta-practices"
   | "dta-institutions"
   | "dta-collections"
   | "dta-about"
-  | "dta-search";
-type BreadcrumbLink = {
+  | "dta-search"
+  | "school-programmes";
+export type BreadcrumbLink = {
   title: string;
   href?: string;
 };
@@ -50,6 +51,10 @@ export const HeaderBreadcrumb = ({
     "dta-search": {
       bg: "bg-dta-search-foreground",
       text: "text-dta-search-foreground",
+    },
+    "school-programmes": {
+      bg: "bg-black",
+      text: "text-black",
     },
   };
   return (

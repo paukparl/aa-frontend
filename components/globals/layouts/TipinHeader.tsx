@@ -1,22 +1,13 @@
 import clsx from "clsx";
 import React from "react";
 import { HeaderBreadcrumb } from "@/components/globals/components/HeaderBreadcrumb";
+import type { BreadcrumbColorTheme } from "@/components/globals/components/HeaderBreadcrumb";
+import type { BreadcrumbLink } from "@/components/globals/components/HeaderBreadcrumb";
 
-type colorTheme =
-  | "dta-people"
-  | "dta-practices"
-  | "dta-institutions"
-  | "dta-collections"
-  | "dta-about"
-  | "dta-search";
-type BreadcrumbLink = {
-  title: string;
-  href?: string;
-};
 type DTATipinHeaderProps = {
   pageTitle: string;
   className?: string;
-  colorTheme: colorTheme;
+  colorTheme: BreadcrumbColorTheme;
   breadcrumbLinks: BreadcrumbLink[];
 };
 
@@ -44,6 +35,9 @@ export const TipinHeader = ({
     },
     "dta-search": {
       fill: "fill-dta-search-foreground",
+    },
+    "school-programmes": {
+      fill: "fill-black",
     },
   };
   return (
