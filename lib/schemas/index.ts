@@ -1,18 +1,24 @@
 import { z } from "zod/v4";
-import { dtaPersonDetail, dtaPersonPreview } from "@/lib/schemas/dta";
 import {
-  eventDetail,
-  eventPreview,
-  getEventRes,
-  getEventsRes,
-} from "@/lib/schemas/events";
+  dtaInstitutionDetail,
+  dtaInstitutionPreview,
+  dtaLocationPreview,
+  dtaObjectDetail,
+  dtaObjectPreview,
+  dtaPage,
+  dtaPersonDetail,
+  dtaPersonPreview,
+  dtaPracticeDetail,
+  dtaPracticePreview,
+} from "@/lib/schemas/dta";
 import {
   document,
   file,
   getManyRes,
   getOneRes,
-  image,
+  img,
   media,
+  pagination,
   seo,
   video,
 } from "@/lib/schemas/shared";
@@ -23,17 +29,22 @@ export const schemas = {
   document,
   video,
   file,
-  image,
+  img,
   media,
   seo,
-  eventPreview,
-  eventDetail,
-  getEventsRes,
-  getEventRes,
+  pagination,
   getOneRes,
   getManyRes,
   dtaPersonPreview,
   dtaPersonDetail,
+  dtaPracticePreview,
+  dtaPracticeDetail,
+  dtaInstitutionPreview,
+  dtaInstitutionDetail,
+  dtaObjectPreview,
+  dtaObjectDetail,
+  dtaLocationPreview,
+  dtaPage,
 };
 
 export type Schema<

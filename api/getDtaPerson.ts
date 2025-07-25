@@ -1,26 +1,11 @@
 import { fetchOne } from "@/lib/fetchData";
+import { dtaPersonDetailFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
 
-export async function getDtaPerson(slug: string) {
-  return schemas.getOneRes(schemas.dtaPersonPreview).parse(
+export async function getDTAPerson(slug: string) {
+  return schemas.getOneRes(schemas.dtaPersonDetail).parse(
     await fetchOne(`/dta-people/${slug}`, {
-      fields: [
-        "id",
-        "documentId",
-        "createdAt",
-        "updatedAt",
-        "publishedAt",
-        "slug",
-        "firstName",
-        "lastName",
-        "displayStudyYear",
-        "bio",
-        "studyYear",
-        "dateBirth",
-        "dateDeath",
-        "placeOfBirth",
-      ],
-      populate: ["headshot"],
+      ...dtaPersonDetailFetchOptions,
     }),
   ).data;
 }

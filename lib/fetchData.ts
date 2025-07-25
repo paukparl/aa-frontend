@@ -56,6 +56,12 @@ type StrapiFetchOptions = {
   [key: string]: unknown;
 };
 
+export function createFetchOptions<
+  T extends Pick<StrapiFetchOptions, "fields" | "populate">,
+>(fieldsAndPopulate: T): T {
+  return fieldsAndPopulate;
+}
+
 export type StrapiFetchManyOptions = StrapiFetchOptions;
 export type StrapiFetchOneOptions = Pick<
   StrapiFetchOptions,

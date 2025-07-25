@@ -17,7 +17,7 @@ export const documentFields = [
   "createdAt",
   "updatedAt",
   "publishedAt",
-] as const satisfies (keyof z.infer<typeof document>)[];
+];
 
 const mediaBase = document.extend({
   url: z
@@ -38,7 +38,7 @@ export const video = mediaBase;
 
 export const file = mediaBase;
 
-const imageFormat = z.object({
+const imgFormat = z.object({
   url: z
     .string()
     .transform((val) =>
@@ -49,20 +49,27 @@ const imageFormat = z.object({
   mime: z.string(),
 });
 
-export const image = mediaBase.extend({
+export const img = mediaBase.extend({
   width: z.number(),
   height: z.number(),
   formats: z
     .object({
-      thumbnail: imageFormat.optional(),
-      small: imageFormat.optional(),
-      medium: imageFormat.optional(),
-      large: imageFormat.optional(),
+      thumbnail: imgFormat.optional(),
+      small: imgFormat.optional(),
+      medium: imgFormat.optional(),
+      large: imgFormat.optional(),
     })
     .nullable(),
 });
 
-export const media = z.union([image, video, file]);
+export const media = z.union([img, video, file]);
+
+export const pagination = z.object({
+  page: z.number(),
+  pageSize: z.number(),
+  pageCount: z.number(),
+  total: z.number(),
+});
 
 export const getOneRes = <T extends z.ZodType>(schema: T) =>
   z.object({ data: schema.nullable() });
@@ -71,12 +78,7 @@ export const getManyRes = <T extends z.ZodType>(schema: T) =>
   z.object({
     data: z.array(schema),
     meta: z.object({
-      pagination: z.object({
-        page: z.number(),
-        pageSize: z.number(),
-        pageCount: z.number(),
-        total: z.number(),
-      }),
+      pagination,
     }),
   });
 
