@@ -2,7 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback, useEffect, useState } from "react";
-import { DTACarouselSlide } from "@/components/DTA/components/DTACarouselSlide";
+import { DTACarouselSlide } from "@/components/dta/components/DTACarouselSlide";
 
 type DTACarouselProps = {
   carouselSlides: Array<{

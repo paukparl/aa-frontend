@@ -2,7 +2,7 @@
 
 import * as Collapsible from "@radix-ui/react-collapsible";
 import * as React from "react";
-import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
+import { DTAFilterMultiSelectDropdown } from "@/components/dta/components/Filter/DTAFilterMultiSelectDropdown";
 import { DTAFilterButton } from "./DTAFilterButton";
 
 type multiFilterType =

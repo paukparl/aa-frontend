@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTACarousel } from "@/components/DTA/components/DTACarousel";
-import { DTAContentDoubleCol } from "@/components/DTA/layouts/DTAContentDoubleCol";
-import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
 import { H1 } from "@/components/Typography/H1";
 import { H2 } from "@/components/Typography/H2";
+import { DTACarousel } from "@/components/dta/components/DTACarousel";
+import { DTAContentDoubleCol } from "@/components/dta/layouts/DTAContentDoubleCol";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAAboutProps = {
@@ -13,35 +13,35 @@ type DTAAboutProps = {
 
 const mockCarouselSlides = [
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_1.png",
     imgAlt: "Image of a person",
     caption:
       "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem m Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_2.png",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_2.png",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor ",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_3.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_3.jpg",
     imgAlt: "Image of a person",
     caption:
       "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_4.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_4.jpg",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_5.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_5.jpg",
     imgAlt: "Image of a person",
     caption:
       "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_6.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_6.jpg",
     imgAlt: "Image of a person",
     caption:
       "Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor Caption Lorem Ipsum Dolor",

@@ -2,8 +2,8 @@
 
 import clsx from "clsx";
 import React, { useState } from "react";
-import { DTAFilterMultiSelect } from "@/components/DTA/components/Filter/DTAFilterMultiSelect";
-import { DTAFilterMultiSelectDropdown } from "@/components/DTA/components/Filter/DTAFilterMultiSelectDropdown";
+import { DTAFilterMultiSelect } from "@/components/dta/components/Filter/DTAFilterMultiSelect";
+import { DTAFilterMultiSelectDropdown } from "@/components/dta/components/Filter/DTAFilterMultiSelectDropdown";
 
 type multiFilterType =
   | "alphabet"

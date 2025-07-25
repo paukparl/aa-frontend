@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTAFilterMultiSelect } from "@/components/DTA/components/Filter/DTAFilterMultiSelect";
+import { DTAFilterMultiSelect } from "@/components/dta/components/Filter/DTAFilterMultiSelect";
 
 const mockAlphabetFilters = [
   "A",

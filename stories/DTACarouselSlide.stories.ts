@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTACarouselSlide } from "../components/DTA/components/DTACarouselSlide";
+import { DTACarouselSlide } from "../components/dta/components/DTACarouselSlide";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_1.png",
     imgAlt: "",
     className: "",
     caption: "Caption Lorem Ipsum",
