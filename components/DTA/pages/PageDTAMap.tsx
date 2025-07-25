@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTAMapFooter } from "@/components/dta/components/DTAMapFooter";
 import { DTAMapNav } from "@/components/dta/components/DTAMapNav";
 import { DTAMapComponent } from "@/components/dta/components/Map/DTAMapComponent";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { Footer } from "@/components/globals/components/Footer";
 
 type DTAMapProps = {
   className?: string;
