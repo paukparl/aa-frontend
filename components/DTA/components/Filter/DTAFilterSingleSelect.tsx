@@ -39,7 +39,7 @@ export const DTAFilterSingleSelect = ({
                   : "applied"
             }
             colorTheme={"collections"}
-            clearFilters={clearFilter}
+            clearFilter={clearFilter}
           >
             All Collections
           </DTAFilterButton>

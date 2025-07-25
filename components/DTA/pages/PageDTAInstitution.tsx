@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
-import { DTATipinMap } from "@/components/DTA/components/DTATipinMap";
-import { DTAContentDoubleCol } from "@/components/DTA/layouts/DTAContentDoubleCol";
 import { H1 } from "@/components/Typography/H1";
+import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
+import { DTATipinMap } from "@/components/dta/components/DTATipinMap";
+import { DTAContentDoubleCol } from "@/components/dta/layouts/DTAContentDoubleCol";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type relatedCollection = {
@@ -39,7 +39,7 @@ export const PageDTAInstitution = ({
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
         <H1 tipIn>{title}</H1>
         <DTAContentDoubleCol
-          imgSrc="/storybook/DTA/components/2colContent/jamaica-col.jpg"
+          imgSrc="/storybook/dta/components/2colContent/jamaica-col.jpg"
           textContent={info}
           colorTheme="institutions"
           contentType="image"
