@@ -47,7 +47,7 @@ export const DTAContentDoubleCol = ({
             <CardPublication
               title="Who are Godwin and Hopwood?"
               author="Ben Tosland"
-              imgSrc="/storybook/DTA/components/2colContent/pub.png"
+              imgSrc="/storybook/dta/components/2colContent/pub.png"
             />
           </div>
         </>

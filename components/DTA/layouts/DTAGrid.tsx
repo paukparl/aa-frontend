@@ -3,7 +3,7 @@
 // update prop definition + parsing for "items" array based on strapi
 import clsx from "clsx";
 import React from "react";
-import { DTAGridItem } from "@/components/DTA/components/DTAGridItem";
+import { DTAGridItem } from "@/components/dta/components/DTAGridItem";
 
 type GridType =
   | "people"
