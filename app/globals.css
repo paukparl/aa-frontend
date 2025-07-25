@@ -13,7 +13,7 @@
     @media (min-width: 700px) {
       & {
         --header-h: calc(var(--spacing) * 64);
-        --padding: calc(var(--spacing) * 20);
+        --padding: calc(var(--spacing) * 24);
         --nav-btn-font-size: calc(var(--spacing) * 36);
         --menu-svg-font-size: calc(var(--spacing) * 27);
       }
@@ -30,7 +30,7 @@
     --default-transition-duration: 0.1s;
     --default-transition-timing-function: linear;
   }
-  .dta_griditem_bg {
+  .dta-griditem-bg {
     background-size: 20px 20px;
     background-color: var(--color-dta-map-highlight);
     background-image:
@@ -109,6 +109,9 @@
   --color-dta-collections-foreground: #531111;
   --color-dta-about-foreground: #1d453f;
   --color-dta-search-foreground: #1d453f;
+  --color-dta-tipin-1-background: #e9edec;
+  --color-dta-tipin-2-background: #fff;
+  --color-dta-green: #1d453f;
 }
 
 @utility h1 {
@@ -176,4 +179,20 @@
 .embla__slide {
   flex: 0 0 fit-content;
   min-width: 0;
+}
+
+@utility dta-griditem-bg {
+  background-size: 20px 20px;
+  background-color: var(--color-dta-map-highlight);
+  background-image:
+    linear-gradient(
+      to right,
+      var(--color-dta-map-background) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--color-dta-map-background) 1px,
+      transparent 1px
+    );
 }

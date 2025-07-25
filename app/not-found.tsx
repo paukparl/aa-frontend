@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import ViewTransitionPanelPage from "@/components/ViewTransitionPanelPage";
+import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { cn } from "@/lib/cn";
 import { parsePanel } from "@/lib/layoutUtils";
 
@@ -10,9 +10,9 @@ export default function NotFoundPage() {
   const panel = parsePanel(pathname);
 
   return (
-    <ViewTransitionPanelPage panel={panel}>
+    <ViewTransitionGroundPage panel={panel}>
       <NotFoundPageContent />
-    </ViewTransitionPanelPage>
+    </ViewTransitionGroundPage>
   );
 }
 

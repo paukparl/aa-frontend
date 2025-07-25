@@ -1,25 +1,43 @@
-import { routeParsers } from "@/lib/routes";
+import {
+  dtaGroundSlugs,
+  hookeParkGroundSlugs,
+  parseRoute,
+  publicGroundSlugs,
+  roamGroundSlugs,
+  schoolGroundSlugs,
+} from "@/lib/routes";
+
+const schoolGroundSlugsAsStrings: readonly string[] = schoolGroundSlugs;
+const publicGroundSlugsAsStrings: readonly string[] = publicGroundSlugs;
+const hookeParkGroundSlugsAsStrings: readonly string[] = hookeParkGroundSlugs;
+const dtaGroundSlugsAsStrings: readonly string[] = dtaGroundSlugs;
+const roamGroundSlugsAsStrings: readonly string[] = roamGroundSlugs;
 
 export function parsePanel(pathname: string) {
-  const panelRouteParsed = routeParsers.panel(pathname);
-  if (panelRouteParsed) return panelRouteParsed.panel;
-  const tipin1RouteParsed = routeParsers.tipin1(pathname);
-  if (tipin1RouteParsed) return tipin1RouteParsed.panel;
-  const tipin2RouteParsed = routeParsers.tipin2(pathname);
-  if (tipin2RouteParsed) return tipin2RouteParsed.panel;
+  const routeParsed = parseRoute(pathname);
+  const ground = routeParsed?.ground;
+  if (!ground) return "home";
+  if (
+    schoolGroundSlugsAsStrings.includes(ground) ||
+    hookeParkGroundSlugsAsStrings.includes(ground)
+  )
+    return "school";
+  if (
+    publicGroundSlugsAsStrings.includes(ground) ||
+    dtaGroundSlugsAsStrings.includes(ground) ||
+    roamGroundSlugsAsStrings.includes(ground)
+  )
+    return "public";
   return "home";
 }
 
 export function parseMicrosite(pathname: string) {
-  const panelRouteParsed = routeParsers.panel(pathname);
-  if (panelRouteParsed && "microsite" in panelRouteParsed)
-    return panelRouteParsed.microsite ?? null;
-  const tipin1RouteParsed = routeParsers.tipin1(pathname);
-  if (tipin1RouteParsed && "microsite" in tipin1RouteParsed)
-    return tipin1RouteParsed.microsite ?? null;
-  const tipin2RouteParsed = routeParsers.tipin2(pathname);
-  if (tipin2RouteParsed && "microsite" in tipin2RouteParsed)
-    return tipin2RouteParsed.microsite ?? null;
+  const routeParsed = parseRoute(pathname);
+  const ground = routeParsed?.ground;
+  if (!ground) return null;
+  if (hookeParkGroundSlugsAsStrings.includes(ground)) return "hooke-park";
+  if (dtaGroundSlugsAsStrings.includes(ground)) return "dta";
+  if (roamGroundSlugsAsStrings.includes(ground)) return "roam";
   return null;
 }
 
@@ -28,38 +46,19 @@ export function parseMenuOpen(searchParams: URLSearchParams) {
 }
 
 export function parsePanelPagePath(pathname: string) {
-  const panelPathnames = [
-    pathname.split("/").slice(0, 3).join("/"),
-    pathname.split("/").slice(0, 4).join("/"),
-  ];
-  for (const panelPathname of panelPathnames) {
-    const panelRouteParsed = routeParsers.panel(panelPathname);
-    if (panelRouteParsed) return panelPathname;
-  }
-  return null;
+  const segments = pathname.split("/").slice(0, 2);
+  if (segments.length < 2) return null;
+  return segments.join("/");
 }
 
 export function parseTipin1PagePath(pathname: string) {
-  const tipin1Pathnames = [
-    pathname.split("/").slice(0, 3).join("/"),
-    pathname.split("/").slice(0, 4).join("/"),
-    pathname.split("/").slice(0, 5).join("/"),
-  ];
-  for (const tipin1Pathname of tipin1Pathnames) {
-    const tipin1RouteParsed = routeParsers.tipin1(tipin1Pathname);
-    if (tipin1RouteParsed) return tipin1Pathname;
-  }
-  return null;
+  const segments = pathname.split("/").slice(0, 3);
+  if (segments.length < 3) return null;
+  return segments.join("/");
 }
 
 export function parseTipin2PagePath(pathname: string) {
-  const tipin2Pathnames = [
-    pathname.split("/").slice(0, 4).join("/"),
-    pathname.split("/").slice(0, 5).join("/"),
-  ];
-  for (const tipin2Pathname of tipin2Pathnames) {
-    const tipin2RouteParsed = routeParsers.tipin2(tipin2Pathname);
-    if (tipin2RouteParsed) return tipin2Pathname;
-  }
-  return null;
+  const segments = pathname.split("/").slice(0, 4);
+  if (segments.length < 4) return null;
+  return segments.join("/");
 }

@@ -87,16 +87,16 @@ export const DTAFilterSingleSelect = ({
                     <path
                       className="stroke-dta-collections-foreground"
                       d="M4.05273 3.55276L18.9999 18.5"
-                      stroke-width="5"
-                      stroke-linecap="square"
-                      stroke-linejoin="round"
+                      strokeWidth="5"
+                      strokeLinecap="square"
+                      strokeLinejoin="round"
                     />
                     <path
                       className="stroke-dta-collections-foreground"
                       d="M19 3.55276L4.05279 18.5"
-                      stroke-width="5"
-                      stroke-linecap="square"
-                      stroke-linejoin="round"
+                      strokeWidth="5"
+                      strokeLinecap="square"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </button>

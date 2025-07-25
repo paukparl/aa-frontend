@@ -45,17 +45,15 @@ const closeFadeDelay = 0.4; // in seconds
 export default function ViewTransitionTipinPage<T extends TipinType>({
   type,
   children,
-  className,
-  tipinBg,
-  textIsWhite,
+  bg,
+  fg,
   title,
   ancestors,
 }: {
   type: T;
   children?: React.ReactNode;
-  className?: string;
-  tipinBg: string;
-  textIsWhite?: boolean;
+  bg: string;
+  fg: string;
   title: React.ReactNode;
   ancestors: Ancestors<T>;
 }) {
@@ -107,6 +105,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
             ? "second-tipin"
             : "second-tipin-with-delay"
       }
+      exit={type === "1" ? "first-tipin" : "second-tipin"}
       onEnter={(tran) => {
         const anim = tran.new.getAnimations()[0] as Animation | undefined;
         if (anim) {
@@ -117,6 +116,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         }
       }}
       onExit={(tran) => {
+        console.log("exiting");
         const anim = tran.old.getAnimations()[0] as Animation | undefined;
         if (anim) {
           pushAnimation(anim);
@@ -138,12 +138,12 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         <Dialog.Overlay
           ref={overlayRef}
           className={cn(
-            "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto",
+            "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto text-(--tipin-fg)",
           )}
           style={
             {
-              "--tipin-bg": tipinBg,
-              color: textIsWhite ? "#fff" : "#000",
+              "--tipin-bg": bg,
+              "--tipin-fg": fg,
             } as React.CSSProperties
           }
         >
@@ -201,9 +201,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                       href={ancestor.href}
                       className={cn(
                         "font-diatype text-15/1.2 inline-flex h-28 items-center px-8",
-                        textIsWhite
-                          ? "bg-white text-black hover:bg-white/60"
-                          : "bg-black text-white hover:bg-black/60",
+                        "bg-(--tipin-fg) text-(--tipin-bg) hover:bg-(--tipin-fg)/60",
                       )}
                       scroll={false}
                     >
@@ -230,8 +228,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                   </Button>
                 </motion.div>
               </PageHeader>
-
-              <div className={cn("px-(--padding)", className)}>{children}</div>
+              {children}
             </div>
           </Dialog.Content>
         </Dialog.Overlay>

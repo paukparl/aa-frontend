@@ -1,11 +1,27 @@
 import { z } from "zod/v4";
 import {
-  eventDetail,
-  eventPreview,
-  getEventData,
-  getEventsData,
-} from "@/lib/schemas/events";
-import { document, file, image, media, seo, video } from "@/lib/schemas/shared";
+  dtaInstitutionDetail,
+  dtaInstitutionPreview,
+  dtaLocationPreview,
+  dtaObjectDetail,
+  dtaObjectPreview,
+  dtaPage,
+  dtaPersonDetail,
+  dtaPersonPreview,
+  dtaPracticeDetail,
+  dtaPracticePreview,
+} from "@/lib/schemas/dta";
+import {
+  document,
+  file,
+  getManyRes,
+  getOneRes,
+  img,
+  media,
+  pagination,
+  seo,
+  video,
+} from "@/lib/schemas/shared";
 
 // When importing files, use named imports for treeshaking
 
@@ -13,15 +29,24 @@ export const schemas = {
   document,
   video,
   file,
-  image,
+  img,
   media,
   seo,
-  eventPreview,
-  eventDetail,
-  getEventsData,
-  getEventData,
+  pagination,
+  getOneRes,
+  getManyRes,
+  dtaPersonPreview,
+  dtaPersonDetail,
+  dtaPracticePreview,
+  dtaPracticeDetail,
+  dtaInstitutionPreview,
+  dtaInstitutionDetail,
+  dtaObjectPreview,
+  dtaObjectDetail,
+  dtaLocationPreview,
+  dtaPage,
 };
 
-export type Schema<Key extends keyof typeof schemas> = z.infer<
-  (typeof schemas)[Key]
->;
+export type Schema<
+  Key extends Exclude<keyof typeof schemas, "getOneRes" | "getManyRes">,
+> = z.infer<(typeof schemas)[Key]>;
