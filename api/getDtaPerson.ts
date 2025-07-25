@@ -1,4 +1,3 @@
-import "server-only";
 import { fetchOne } from "@/lib/fetchData";
 import { schemas } from "@/lib/schemas";
 

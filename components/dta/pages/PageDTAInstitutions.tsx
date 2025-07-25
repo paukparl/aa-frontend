@@ -1,61 +1,38 @@
 import clsx from "clsx";
 import React, { useState } from "react";
-import { DTAFilterMultiSelectRow } from "@/components/DTA/components/Filter/DTAFilterMultiSelectRow";
-import { DTAContentSingleCol } from "@/components/DTA/layouts/DTAContentSingleCol";
-import { DTAGrid } from "@/components/DTA/layouts/DTAGrid";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
+import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { DTAGrid } from "@/components/dta/layouts/DTAGrid";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
-type DTAPracticesProps = {
+type DTAInstitutionsProps = {
   className?: string;
 };
 
-const mockPracticesSlides = [
+const mockInstitutionsSlides = [
   {
-    title: "Ministry of Works",
-    country: "Sierra Leone",
+    title: "Name of Institution",
+    image: true,
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
   },
   {
-    title: "Federal Ministry of Works and Housing, Headquarters",
-    country: "Lagos",
+    title: "Lorem Ipsum",
   },
   {
-    title: "Associated Design Forum, Aspen, Colorado",
-    country: "USA",
+    title: "Institute XYZ",
   },
   {
-    title: "Norman Cherner, New York",
-    country: "USA",
+    title: "Lorem Ipsum",
+    image: true,
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
   },
   {
-    title: "Durham County Council, Durham",
-    country: "United Kingdom",
-  },
-  {
-    title: "Architects Co-Partnership, Tema, Ghana",
-    country: "USA",
-  },
-  {
-    title: "Lyles, Bissett, Carlyle and Wolff",
-    country: "USA",
-  },
-  {
-    title: "Public Works Department",
-    country: "Malaysia",
-  },
-  {
-    title: "Ghana Architectural and Civil Engineering Company",
-    country: "Ghana",
-  },
-  {
-    title: "Quine and Newberry, London",
-    country: "United Kingdom",
-  },
-  {
-    title: "Chartered surveyors",
-    country: "United Kingdom",
+    title: "Lorem Ipsum",
+    image: true,
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
   },
 ];
 const mockAlphabetFilters = [
@@ -190,8 +167,14 @@ const mockCountryFilters = [
   "Zambia",
   "Zimbabwe",
 ];
-export const PageDTAPractices = ({ className }: DTAPracticesProps) => {
-  const [activeFilters, setActiveFilters] = useState<string[][]>([[], []]);
+const mockInstitutionTypeFilters = [
+  "Universities",
+  "Governmental Bodies",
+  "Non-Governmental Bodies",
+  "Transnational Organizations",
+];
+export const PageDTAInstitutions = ({ className }: DTAInstitutionsProps) => {
+  const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
   const toggleFilter = (groupIndex: number, filter: string) => {
     setActiveFilters((prev) => {
       const updated = [...prev];
@@ -216,40 +199,44 @@ export const PageDTAPractices = ({ className }: DTAPracticesProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
+        "text-dta-institutions-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
       )}
     >
       <TipinHeader
-        pageTitle="Practices"
+        pageTitle="Institutions"
         breadcrumbLinks={[{ title: "DTA Archive" }]}
-        colorTheme="dta-practices"
+        colorTheme="dta-institutions"
       />
       <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1>Practices</H1>
+        <H1>Institutions</H1>
         <DTAContentSingleCol>
-          Brief sentence describing what practices means in the context of DTA.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          Brief sentence describing what institutions means in the context of
+          DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </DTAContentSingleCol>
         <DTAFilterMultiSelectRow
-          clearFilters={clearFilters}
           activeFilters={activeFilters}
           toggleFilter={toggleFilter}
-          colorTheme="practices"
+          clearFilters={clearFilters}
+          colorTheme="institutions"
           filtersInfo={[
             { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
+            {
+              filters: mockInstitutionTypeFilters,
+              multiFilterType: "institutionType",
+            },
             { filters: mockCountryFilters, multiFilterType: "country" },
           ]}
         />
         <Mono className="mt-[10px]">All 570 records</Mono>
         <DTAGrid
-          type="practicestable"
-          items={mockPracticesSlides}
-          className="text-dta-practices-foreground"
+          type="institutions"
+          items={mockInstitutionsSlides}
+          className="text-dta-institutions-foreground"
         />
         <FooterPagination
-          totalPages={2}
-          className="text-dta-practices-foreground"
+          totalPages={13}
+          className="text-dta-institutions-foreground"
         />
       </div>
     </div>

@@ -1,36 +1,36 @@
 // TODO
 // prop validation that all items passed into items have the same type
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTACarousel } from "../components/DTA/components/DTACarousel";
+import { DTACarousel } from "../components/dta/components/DTACarousel";
 
 const mockCarouselSlides = [
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_1.png",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_1.png",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_2.png",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_2.png",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_3.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_3.jpg",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_4.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_4.jpg",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_5.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_5.jpg",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor",
   },
   {
-    imgSrc: "/storybook/DTA/components/Carousel/dta_carousel_6.jpg",
+    imgSrc: "/storybook/dta/components/Carousel/dta_carousel_6.jpg",
     imgAlt: "Image of a person",
     caption: "Caption Lorem Ipsum Dolor",
   },

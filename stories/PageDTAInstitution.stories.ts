@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { PageDTAInstitution } from "@/components/DTA/pages/PageDTAInstitution";
+import { PageDTAInstitution } from "@/components/dta/pages/PageDTAInstitution";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -51,17 +51,17 @@ export const Default: Story = {
       {
         title: "Name of Collection",
         image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
       },
       {
         title: "Name of Collection",
         image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
       },
       {
         title: "Name of Collection",
         image: true,
-        imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+        imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
       },
     ],
   },

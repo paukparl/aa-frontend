@@ -1,8 +1,8 @@
 @import "tailwindcss";
+@import "./view-transition.css";
+
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-animate";
-
-@import "./view-transition.css";
 
 @layer base {
   :root {
@@ -110,26 +110,6 @@
   --color-dta-about-foreground: #1d453f;
   --color-dta-search-foreground: #1d453f;
 }
-<<<<<<< HEAD
-@layer utilities {
-  .h1 {
-    @apply font-nhg-display text-2xl font-medium sm:text-5xl;
-  }
-  .h1-tipin {
-    @apply font-diatype text-2xl sm:text-5xl;
-  }
-  .h2 {
-    @apply font-nhg-display text-2xl font-medium sm:text-4xl xl:text-5xl;
-  }
-  .body {
-    @apply font-nhg-text text-base sm:text-xl;
-  }
-  .mono {
-    @apply font-diatype text-sm sm:text-lg;
-  }
-  .caption {
-    @apply font-nhg-text text-xs font-medium sm:text-base sm:font-bold;
-=======
 
 @utility h1 {
   /* @apply font-nhg-display text-2xl font-medium sm:text-5xl; */
@@ -184,7 +164,6 @@
   @media (min-width: 640px) {
     font-size: var(--text-base);
     font-weight: var(--font-weight-bold);
->>>>>>> origin/main
   }
 }
 /* EMBLA CAROUSEL  */

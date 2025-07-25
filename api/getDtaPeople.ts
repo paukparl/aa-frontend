@@ -1,4 +1,3 @@
-import "server-only";
 import { fetchMany } from "@/lib/fetchData";
 import { StrapiFetchManyOptions } from "@/lib/fetchData";
 import { schemas } from "@/lib/schemas";
