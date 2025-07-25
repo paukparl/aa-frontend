@@ -8,7 +8,8 @@ type colorTheme =
   | "dta-institutions"
   | "dta-collections"
   | "dta-about"
-  | "dta-search";
+  | "dta-search"
+  | "school-programmes";
 type Slide = {
   src: string;
   caption: string;
@@ -54,6 +55,10 @@ export const MediaGallery = ({
     "dta-search": {
       text: "text-dta-search-foreground",
       outline: "outline-dta-search-foreground",
+    },
+    "school-programmes": {
+      text: "text-black",
+      outline: "outline-black",
     },
   };
   return (

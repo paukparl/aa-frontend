@@ -14,7 +14,7 @@ export const ProgrammeTextCol = ({
   className,
 }: ProgrammeTextColProps) => {
   return (
-    <div className={clsx(className, "pb-[50px] md:pr-[30px]")}>
+    <div className={className}>
       <div className="grid grid-cols-1 gap-[20px] md:grid-cols-[2fr_1fr] md:gap-[30px]">
         <Body>{children}</Body>
         <div>{col2content}</div>
