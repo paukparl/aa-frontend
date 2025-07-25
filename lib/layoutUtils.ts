@@ -46,16 +46,19 @@ export function parseMenuOpen(searchParams: URLSearchParams) {
 }
 
 export function parsePanelPagePath(pathname: string) {
-  const panelPathname = pathname.split("/").slice(0, 2).join("/");
-  return panelPathname;
+  const segments = pathname.split("/").slice(0, 2);
+  if (segments.length < 2) return null;
+  return segments.join("/");
 }
 
 export function parseTipin1PagePath(pathname: string) {
-  const tipin1Pathname = pathname.split("/").slice(0, 3).join("/");
-  return tipin1Pathname;
+  const segments = pathname.split("/").slice(0, 3);
+  if (segments.length < 3) return null;
+  return segments.join("/");
 }
 
 export function parseTipin2PagePath(pathname: string) {
-  const tipin2Pathname = pathname.split("/").slice(0, 4).join("/");
-  return tipin2Pathname;
+  const segments = pathname.split("/").slice(0, 4);
+  if (segments.length < 4) return null;
+  return segments.join("/");
 }
