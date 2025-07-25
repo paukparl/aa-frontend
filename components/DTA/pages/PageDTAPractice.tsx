@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
-import { DTATipinMap } from "@/components/DTA/components/DTATipinMap";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
+import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
+import { DTATipinMap } from "@/components/dta/components/DTATipinMap";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type DTAPracticeProps = {
@@ -14,17 +14,17 @@ const DTAPracticeProps = [
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_2.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_2.jpg",
   },
   {
     title: "Name of Object",
     image: true,
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_3.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_3.jpg",
   },
 ];
 

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import * as React from "react";
-import { DTARelatedContent } from "@/components/DTA/components/DTARelatedContent";
-import { DTASearchBar } from "@/components/DTA/components/DTASearchBar";
 import { H1 } from "@/components/Typography/H1";
+import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
+import { DTASearchBar } from "@/components/dta/components/DTASearchBar";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type PageDTASearchProps = {

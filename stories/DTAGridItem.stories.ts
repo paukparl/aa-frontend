@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTAGridItem } from "../components/DTA/components/DTAGridItem";
+import { DTAGridItem } from "../components/dta/components/DTAGridItem";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -65,7 +65,7 @@ type Story = StoryObj<typeof meta>;
 export const People: Story = {
   args: {
     className: "w-[150px] sm:w-[200px] text-dta-people-foreground",
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_people_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_people_1.jpg",
     imgAlt: "A portrait of hal lawson, blakc and white",
     title: "Handel Kitchiner (Hal) Lawson",
     type: "people",
@@ -78,7 +78,7 @@ export const People: Story = {
 export const Institutions: Story = {
   args: {
     className: "w-[230px] sm:w-[420px] text-dta-institutions-foreground",
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_institutions_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_institutions_1.jpg",
     imgAlt: "An image of a college building",
     title: "College TKTK",
     type: "institutions",
@@ -113,7 +113,7 @@ export const PracticesTable: Story = {
 export const Collections: Story = {
   args: {
     className: "w-[200px] sm:w-[250px] text-dta-collections-foreground",
-    imgSrc: "/storybook/DTA/components/Grid/dta_grid_collections_1.jpg",
+    imgSrc: "/storybook/dta/components/Grid/dta_grid_collections_1.jpg",
     imgAlt: "Collection: Otto Koenigsberger Collection",
     title: "Name of Object",
     type: "collections",

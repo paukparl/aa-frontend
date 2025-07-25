@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { DTATipinMap } from "../components/DTA/components/DTATipinMap";
+import { DTATipinMap } from "../components/dta/components/DTATipinMap";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
