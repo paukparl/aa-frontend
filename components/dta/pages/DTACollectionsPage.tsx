@@ -32,7 +32,7 @@ export async function DTACollectionsPage({
       type="1"
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-collections-foreground)"
-      title="People"
+      title="Collections"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
       <DTACollectionsPageContent objects={objects} pagination={pagination} />

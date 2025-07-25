@@ -14,7 +14,7 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
       type="1"
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-green)"
-      title="People"
+      title={page.pageTitle ?? ""}
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
       <DTAGenericPageContent page={page} />

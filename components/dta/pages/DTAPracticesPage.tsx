@@ -32,7 +32,7 @@ export async function DTAPracticesPage({
       type="1"
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-practices-foreground)"
-      title="People"
+      title="Practices"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
       <DTAPracticesPageContent practices={practices} pagination={pagination} />

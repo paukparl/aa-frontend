@@ -29,7 +29,7 @@ export async function DTAObjectPage({
       type="2"
       bg="var(--color-dta-tipin-2-background)"
       fg="var(--color-dta-collections-foreground)"
-      title="Object"
+      title={object.title}
       ancestors={[
         { title: "DTA Archive", href: routes.ground("dta") },
         { title: "Collections", href: routes.tipin1("dta", "collections") },
