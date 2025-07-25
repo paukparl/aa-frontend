@@ -1,5 +1,5 @@
 import { z } from "zod/v4";
-import { getDtaPeople } from "@/api/getDtaPeople";
+import { getDtaPeople } from "@/api";
 import MountTest from "@/components/MountTest";
 import TempLink from "@/components/TempLink";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";

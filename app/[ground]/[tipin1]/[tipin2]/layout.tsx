@@ -3,7 +3,7 @@ export default async function Tipin2SegmentLayout({
   page,
 }: {
   children?: React.ReactNode;
-  page?: React.ReactNode;
+  page: React.ReactNode;
 }) {
   return (
     <>

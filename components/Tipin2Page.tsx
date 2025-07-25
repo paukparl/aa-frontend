@@ -11,7 +11,7 @@ export default async function Tipin2Page({
   params: Promise<{ ground: string; tipin1: string; tipin2: string }>;
   searchParams: SearchParams;
 }) {
-  const { ground, tipin1, tipin2 } = await params;
+  const { ground, tipin1: _, tipin2 } = await params;
 
   if (ground === "school") {
     return <SchoolPage />;

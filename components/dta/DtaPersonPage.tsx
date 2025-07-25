@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { z } from "zod/v4";
-import { getDtaPerson } from "@/api/getDtaPerson";
+import { getDtaPerson } from "@/api";
 import MountTest from "@/components/MountTest";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { cn } from "@/lib/cn";
@@ -16,7 +16,7 @@ export async function DtaPersonPage({
   slug: string;
 }) {
   const urlSearchParams = parseUrlSearchParams(await searchParams);
-  const page =
+  const _page =
     z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
       .data ?? 1;
 

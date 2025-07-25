@@ -1,2 +1,2 @@
-export * from "@/api/getEvent";
-export * from "@/api/getEvents";
+export * from "@/api/getDtaPerson";
+export * from "@/api/getDtaPeople";
