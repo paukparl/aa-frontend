@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import * as React from "react";
+import { ProgrammeTableVisitingSchool } from "@/components/School/Programmes/components/ProgrammeTableVisitingSchool";
 import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
+import { Mono } from "@/components/Typography/Mono";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
@@ -37,6 +39,72 @@ export const PageVisitingSchool = ({ className }: PageVisitingSchoolProps) => {
       src: "/storybook/Globals/components/mediagallery/slide5.jpg",
       caption:
         "Miller J Frampton K, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+  ];
+  const mockVisitingSchoolTableData = [
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
+    },
+    {
+      thumbnailImgSrc:
+        "/storybook/DTA/components/SingleFilter/singlefilter.jpg",
+      title: "Metropolitan Landscapes",
+      dates: "13 March - 17 March 2025",
+      location: "Online / Latin America",
+      programme: "Urban and Landscape Ecologies",
     },
   ];
   return (
@@ -88,7 +156,16 @@ export const PageVisitingSchool = ({ className }: PageVisitingSchoolProps) => {
           slides={mockCarouselSlides}
           colorTheme="school-programmes"
         />
-        <div>VISITING SCHOOL TABLE HERE</div>
+        <div>
+          <Mono className="mb-[20px] block">
+            Join one of our Visiting School short courses happening around the
+            world.
+          </Mono>
+          <ProgrammeTableVisitingSchool
+            colorTheme="visiting"
+            units={mockVisitingSchoolTableData}
+          />
+        </div>
       </div>
     </div>
   );
