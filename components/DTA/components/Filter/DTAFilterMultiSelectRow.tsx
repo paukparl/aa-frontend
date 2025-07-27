@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import React, {  } from "react";
+import React, { setState } from "react";
 import { DTAFilterMultiSelect } from "@/components/dta/components/Filter/DTAFilterMultiSelect";
 import { DTAFilterMultiSelectDropdown } from "@/components/dta/components/Filter/DTAFilterMultiSelectDropdown";
 
@@ -33,7 +33,7 @@ export const DTAFilterMultiSelectRow = ({
   toggleFilter,
   clearFilters,
 }: DTAFilterMultiRowProps) => {
-  const [activeIndex, setActiveIndex] = <number | null>(null);
+  const [activeIndex, setActiveIndex] = setState<number | null>(null);
   return (
     <div className="w-full">
       {/* Filter buttons in a row */}
