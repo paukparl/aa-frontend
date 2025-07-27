@@ -1,11 +1,13 @@
 import clsx from "clsx";
 import * as React from "react";
 import { ProgrammeTableInfo } from "@/components/School/Programmes/components/ProgrammeTableInfo";
+import { ProgrammeTableTerm } from "@/components/School/Programmes/components/ProgrammeTableTerm";
 import { ProgrammeTableUnits } from "@/components/School/Programmes/components/ProgrammeTableUnits";
 import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
+import { Collapsible } from "@/components/globals/components/Collapsible";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
@@ -110,6 +112,190 @@ export const PageIntermediateProgramme = ({
       tutors: "Nick Almond, Torange Khonsari, Mehrdad Seyf",
     },
   ];
+  const mockTermTableCreditsData = [
+    {
+      title: "Diploma Design Unit",
+      termYears: [1, 2],
+      core: false,
+      choose: "1 of 21 units",
+      credits: 70,
+    },
+    {
+      title: "History and Theory Studies",
+      termYears: [2],
+      core: false,
+      choose: "1 of 21 units",
+      credits: 60,
+    },
+    {
+      title: "Diploma Design Unit",
+      termYears: [1],
+      core: false,
+      choose: "1 of 9 courses",
+      credits: 30,
+    },
+    {
+      title: "Diploma Design Unit",
+      termYears: [1, 2],
+      core: true,
+      choose: "1 of 13 units",
+      credits: 10,
+    },
+    {
+      title: "Diploma Design Unit",
+      termYears: [1, 2],
+      core: true,
+
+      credits: 10,
+    },
+    {
+      title: "Diploma Design Unit",
+      termYears: [2],
+      core: true,
+      choose: "1 of 3 courses",
+      credits: 40,
+    },
+  ];
+  const mockTermTableLecturersData = [
+    {
+      title: "Diploma Design Unit",
+      lecturers: "Doreen Bernath",
+      termYears: [1],
+    },
+    {
+      title: "The Oceanic Feeling",
+      lecturers: "Doreen Bernath",
+      termYears: [1, 2],
+    },
+    {
+      title: "Diploma Design Unit",
+      lecturers: "Doreen Bernath",
+      termYears: [2],
+    },
+    {
+      title: "The Oceanic Feeling",
+      lecturers: "Doreen Bernath",
+      termYears: [1],
+    },
+  ];
+  const mockCollapsibleItems = [
+    {
+      header: "History and Theory Studies",
+      content: (
+        <div>
+          <ProgrammeTextCol>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum.
+          </ProgrammeTextCol>
+          <ProgrammeTableTerm
+            className="mt-[20px]"
+            colorTheme="diploma"
+            type="lecturers"
+            units={mockTermTableLecturersData}
+          />
+        </div>
+      ),
+    },
+    {
+      header: "Environmental and Technical Studies",
+      content: (
+        <div>
+          <ProgrammeTextCol>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum.
+          </ProgrammeTextCol>
+          <ProgrammeTableTerm
+            className="mt-[20px]"
+            colorTheme="diploma"
+            type="lecturers"
+            units={mockTermTableLecturersData}
+          />
+        </div>
+      ),
+    },
+    {
+      header: "Architectural Professional Practice",
+      content: (
+        <div>
+          <ProgrammeTextCol>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum.
+          </ProgrammeTextCol>
+          <ProgrammeTableTerm
+            className="mt-[20px]"
+            colorTheme="diploma"
+            type="lecturers"
+            units={mockTermTableLecturersData}
+          />
+        </div>
+      ),
+    },
+    {
+      header: "Diploma Electives",
+      content: (
+        <div>
+          <ProgrammeTextCol>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum.
+          </ProgrammeTextCol>
+          <ProgrammeTableTerm
+            className="mt-[20px]"
+            colorTheme="intermediate"
+            type="lecturers"
+            units={mockTermTableLecturersData}
+          />
+        </div>
+      ),
+    },
+  ];
   return (
     <div
       className={clsx(
@@ -196,33 +382,22 @@ export const PageIntermediateProgramme = ({
             of Arts in Architecture (ARB/RIBA Part 1).
           </Body>
         </ProgrammeTextCol>
-        <span>TERM BY TERM TABLE</span>
+        <ProgrammeTableTerm
+          colorTheme="intermediate"
+          type="credits"
+          units={mockTermTableCreditsData}
+        />
         <MediaGallery
           slides={mockCarouselSlides}
           colorTheme="school-programmes"
         />
         <ProgrammeTableUnits units={mockUnits} colorTheme="intermediate" />
-        <ProgrammeTextCol>
-          <H1 tipIn>Tutorials</H1>
-          <Body className="block pb-[30px] sm:pb-[50px]">
-            Directors of studies are available every week for tutorials and
-            discussion about candidates' in progress. Candidates are encouraged
-            remain in constant contact with their director of studies to ensure
-            the continual development of their thesis.
-          </Body>
-          <H1 tipIn>Seminars</H1>
-          <Body>
-            In Terms 1 and 2, the directors of studies hold seminars that
-            connect the PhD Programme with other postgraduate programmes.
-            Alongside these, the programme co-ordinator runs an open seminar on
-            Rethinking Doctoral Research, providing candidates with a shared
-            platform to discuss methodological issues, as well as continuing the
-            multi-year trajectory of the Forms of Care working group - a project
-            on the relationship between environmental and social crises,
-            connecting candidates' interests with the AA's Climate Matters
-            initiative.
-          </Body>
-        </ProgrammeTextCol>
+        <div>
+          <H1 tipIn className="mb-[20px] block">
+            Core Studies
+          </H1>
+          <Collapsible items={mockCollapsibleItems} />
+        </div>
       </div>
     </div>
   );
