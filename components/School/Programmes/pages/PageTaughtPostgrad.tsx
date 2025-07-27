@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
 import { ProgrammeTableInfo } from "@/components/School/Programmes/components/ProgrammeTableInfo";
+import { ProgrammeTableProgrammes } from "@/components/School/Programmes/components/ProgrammeTableProgrammes";
 import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
@@ -42,6 +43,23 @@ export const PageTaughtPostgrad = ({ className }: PageTaughtPostgradProps) => {
       src: "/storybook/Globals/components/mediagallery/slide5.jpg",
       caption:
         "Miller J Frampton K, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
+    },
+  ];
+  const mockProgrammeTableData = [
+    { title: "Architecture and Urbanism (DRL)", degree: "MArch" },
+    { title: "Conservation and Reuse", degree: "MA/PGDip" },
+    { title: "Design and Make", degree: "MSc/MArch" },
+    { title: "Emergent Technologies and Design (EmTech)", degree: "MSc/MArch" },
+    { title: "History and Critical Thinking in Architecture", degree: "MA" },
+    { title: "Housing and Urbanism", degree: "MA/MArch" },
+    { title: "Landscape Urbanism", degree: "MSc/MArch" },
+    { title: "PhD Programme", degree: "PhD" },
+    { title: "Spatial Performance and Design (AAIS)", degree: "MA/MFA" },
+    { title: "Sustainable Environmental Design", degree: "MSc/MArch" },
+    {
+      title:
+        "Taught MPhil in Architecture and Urban Design (Projective Cities)",
+      degree: "Taught MPhil",
     },
   ];
   return (
@@ -134,8 +152,8 @@ export const PageTaughtPostgrad = ({ className }: PageTaughtPostgradProps) => {
           slides={mockCarouselSlides}
           colorTheme="school-programmes"
         />
+        <H1 tipIn>AA Masters to PhD Pathway</H1>
         <ProgrammeTextCol>
-          <H1 tipIn>AA Masters to PhD Pathway</H1>
           <Body className="block pb-[30px] sm:pb-[50px]">
             Studio Angius, the studio of AA Design Reseach Laboratory (DRL)
             tutor Pierandrea Angius, have collaborated with Meltio for Project
@@ -155,7 +173,10 @@ export const PageTaughtPostgrad = ({ className }: PageTaughtPostgradProps) => {
             hulls.
           </Body>
         </ProgrammeTextCol>
-        <span>PROGRAMMES TABLE, link to lvl 2 tip ins</span>
+        <ProgrammeTableProgrammes
+          colorTheme="postgrad"
+          programmes={mockProgrammeTableData}
+        />
       </div>
     </div>
   );
