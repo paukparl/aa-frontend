@@ -59,7 +59,7 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
           />
         </div>
         <div>
-          <DTAHeader className="capitalize">Education</DTAHeader>
+          <DTAHeader className="capitalize">Career</DTAHeader>
           <DTATablePeople
             type="career"
             content={person.Career.map((row) => ({

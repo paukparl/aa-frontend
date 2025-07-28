@@ -2,14 +2,12 @@ import clsx from "clsx";
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
 
-type TableType = "education" | "career";
 type ContentItem = {
   info: string;
   year: string;
 };
 
 type DTATablePeopleProps = {
-  type: TableType;
   content: ContentItem[];
   className?: string;
 };
