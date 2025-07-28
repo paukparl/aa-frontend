@@ -144,6 +144,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           ref={overlayRef}
           className={cn(
             "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto text-(--tipin-fg)",
+            "flex",
           )}
           style={
             {
@@ -152,30 +153,6 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
             } as React.CSSProperties
           }
         >
-          {/* Backdrop for panel */}
-          {panelPagePath && (
-            <div
-              className={cn(
-                "700:block 700:w-1/12 absolute top-0 right-0 hidden h-full",
-              )}
-              onClick={() => {
-                removeScrollBar();
-                router.push(panelPagePath, { scroll: false });
-              }}
-            />
-          )}
-          {/* Backdrop for tipin1 */}
-          {tipin1PagePath && (
-            <div
-              className={cn(
-                "700:block 700:w-2/12 absolute top-0 right-1/12 hidden h-full",
-              )}
-              onClick={() => {
-                removeScrollBar();
-                router.push(tipin1PagePath!, { scroll: false });
-              }}
-            />
-          )}
           <Dialog.Content
             className={cn(
               "w-full outline-none",
@@ -238,6 +215,27 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
               {children}
             </div>
           </Dialog.Content>
+
+          {/* Backdrop for tipin1 */}
+          {type === "2" && tipin1PagePath && (
+            <div
+              className={cn("700:block 700:w-2/12 sticky top-0 hidden h-full")}
+              onClick={() => {
+                removeScrollBar();
+                router.push(tipin1PagePath!, { scroll: false });
+              }}
+            />
+          )}
+          {/* Backdrop for panel */}
+          {(type === "1" || type === "2") && panelPagePath && (
+            <div
+              className={cn("700:block 700:w-1/12 sticky top-0 hidden h-full")}
+              onClick={() => {
+                removeScrollBar();
+                router.push(panelPagePath, { scroll: false });
+              }}
+            />
+          )}
         </Dialog.Overlay>
       </Dialog.Root>
     </ViewTransition>
