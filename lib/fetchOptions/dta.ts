@@ -1,6 +1,10 @@
 import { createFetchOptions } from "@/lib/fetchData";
 import { documentFields, imgFetchOptions } from "@/lib/fetchOptions/shared";
 
+export const dtaLocationPreviewFetchOptions = createFetchOptions({
+  fields: [...documentFields, "longitude", "latitude", "city", "country"],
+});
+
 export const dtaPersonPreviewFetchOptions = createFetchOptions({
   fields: [
     ...documentFields,
@@ -12,31 +16,6 @@ export const dtaPersonPreviewFetchOptions = createFetchOptions({
   populate: {
     headshot: imgFetchOptions,
   },
-});
-
-export const dtaPersonDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...dtaPersonPreviewFetchOptions.fields,
-    "bio",
-    "studyYear",
-    "dateBirth",
-    "dateDeath",
-    "placeOfBirth",
-  ],
-  populate: {
-    ...dtaPersonPreviewFetchOptions.populate,
-    // Typo
-    Eduction: {
-      fields: ["id", "institution", "country", "dateRange", "courseName"],
-    },
-    Career: {
-      fields: ["id", "institution", "country", "dateRange", "jobRole"],
-    },
-  },
-});
-
-export const dtaLocationPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "longitude", "latitude", "city", "country"],
 });
 
 export const dtaPracticePreviewFetchOptions = createFetchOptions({
@@ -60,19 +39,37 @@ export const dtaObjectPreviewFetchOptions = createFetchOptions({
   },
 });
 
+export const dtaPersonDetailFetchOptions = createFetchOptions({
+  fields: [
+    ...dtaPersonPreviewFetchOptions.fields,
+    "bio",
+    "studyYear",
+    "dateBirth",
+    "dateDeath",
+    "placeOfBirth",
+  ],
+  populate: {
+    ...dtaPersonPreviewFetchOptions.populate,
+    // Typo
+    Eduction: {
+      fields: ["id", "institution", "country", "dateRange", "courseName"],
+    },
+    Career: {
+      fields: ["id", "institution", "country", "dateRange", "jobRole"],
+    },
+    dta_practicesNew: dtaPracticePreviewFetchOptions,
+    dtaInstitutionsNew: dtaInstitutionPreviewFetchOptions,
+    dta_objects: dtaObjectPreviewFetchOptions,
+  },
+});
+
 export const dtaPracticeDetailFetchOptions = createFetchOptions({
   fields: [...dtaPracticePreviewFetchOptions.fields, "description"],
   populate: {
     ...dtaPracticePreviewFetchOptions.populate,
-    dta_peopleNew: {
-      ...dtaPersonPreviewFetchOptions,
-    },
-    dta_institutionsNew: {
-      ...dtaInstitutionPreviewFetchOptions,
-    },
-    dta_objects: {
-      ...dtaObjectPreviewFetchOptions,
-    },
+    dta_peopleNew: dtaPersonPreviewFetchOptions,
+    dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
+    dta_objects: dtaObjectPreviewFetchOptions,
   },
 });
 
@@ -80,15 +77,9 @@ export const dtaInstitutionDetailFetchOptions = createFetchOptions({
   fields: [...dtaInstitutionPreviewFetchOptions.fields, "Description"], // Wrong casing in Strapi
   populate: {
     ...dtaInstitutionPreviewFetchOptions.populate,
-    dtaPeople: {
-      ...dtaPersonPreviewFetchOptions,
-    },
-    dta_practices: {
-      ...dtaPracticePreviewFetchOptions,
-    },
-    dta_objects: {
-      ...dtaObjectPreviewFetchOptions,
-    },
+    dtaPeople: dtaPersonPreviewFetchOptions,
+    dta_practices: dtaPracticePreviewFetchOptions,
+    dta_objects: dtaObjectPreviewFetchOptions,
   },
 });
 
@@ -96,15 +87,9 @@ export const dtaObjectDetailFetchOptions = createFetchOptions({
   fields: [...dtaObjectPreviewFetchOptions.fields, "additionalDescription"],
   populate: {
     ...dtaObjectPreviewFetchOptions.populate,
-    dta_peopleNew: {
-      ...dtaPersonPreviewFetchOptions,
-    },
-    dta_institutionsNew: {
-      ...dtaInstitutionPreviewFetchOptions,
-    },
-    dta_practicesNew: {
-      ...dtaPracticePreviewFetchOptions,
-    },
+    dta_peopleNew: dtaPersonPreviewFetchOptions,
+    dta_practicesNew: dtaPracticePreviewFetchOptions,
+    dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
   },
 });
 

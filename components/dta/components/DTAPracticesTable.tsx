@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 
-type DTAPeopleGridProps = {
+type DTAPracticesTableProps = {
   className?: string;
   children: React.ReactNode;
 };
@@ -13,19 +13,19 @@ type DTAPeopleGridProps = {
 export const DTAPracticesTable = ({
   className,
   children,
-}: DTAPeopleGridProps) => {
+}: DTAPracticesTableProps) => {
   return <div className={clsx("w-full", className)}>{children}</div>;
 };
 
-type DTAPeopleGridItemProps = {
+type DTAPracticesTableItemProps = {
   practice: Schema<"dtaPracticePreview">;
   className?: string;
 };
 
-export const DTAPeopleTableRow = ({
+export const DTAPracticesTableRow = ({
   practice,
   className,
-}: DTAPeopleGridItemProps) => {
+}: DTAPracticesTableItemProps) => {
   const href = routes.tipin2("dta", "practices", practice.documentId); // TODO: slug
   return (
     <div className={cn(className)}>

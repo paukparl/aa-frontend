@@ -3,6 +3,20 @@
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
+import { DTAHeader } from "@/components/dta/components/DTAHeader";
+import {
+  DTAInstitutionsGrid,
+  DTAInstitutionsGridItem,
+} from "@/components/dta/components/DTAInstitutionsGrid";
+import {
+  DTAPeopleGrid,
+  DTAPeopleGridItem,
+} from "@/components/dta/components/DTAPeopleGrid";
+import {
+  DTAPracticesGrid,
+  DTAPracticesGridItem,
+} from "@/components/dta/components/DTAPracticesGrid";
+import { Map } from "@/components/dta/components/Map";
 import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
 import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
@@ -20,11 +34,44 @@ export const DTAObjectPageContent = ({ object }: DTAObjectPageContentProps) => {
         imgs={object.image}
         className={cn("text-dta-collections-foreground")}
       />
-      {/* <div className="mt-[20px] flex flex-col gap-[30px] pb-[20px] lg:gap-[50px]">
-        <DTARelatedContent gridType="people" colorTheme="collections" />
-        <DTARelatedContent gridType="institutions" colorTheme="collections" />
-        <DTARelatedContent gridType="practices" colorTheme="collections" />
-      </div> */}
+      <div>
+        <DTAHeader className="capitalize">Map</DTAHeader>
+        <Map
+          className={cn("aspect-2/1 w-full")}
+          gridStroke="var(--color-dta-map-background)"
+          landFill="var(--color-dta-map-highlight)"
+        />
+      </div>
+      <div>
+        <DTAHeader className="capitalize">Related People</DTAHeader>
+        <DTAPeopleGrid>
+          {object.dta_peopleNew.map((person) => (
+            <DTAPeopleGridItem key={person.documentId} person={person} />
+          ))}
+        </DTAPeopleGrid>
+      </div>
+      <div>
+        <DTAHeader className="capitalize">Related Practices</DTAHeader>
+        <DTAPracticesGrid>
+          {object.dta_practicesNew.map((practice) => (
+            <DTAPracticesGridItem
+              key={practice.documentId}
+              practice={practice}
+            />
+          ))}
+        </DTAPracticesGrid>
+      </div>
+      <div>
+        <DTAHeader className="capitalize">Related Institutions</DTAHeader>
+        <DTAInstitutionsGrid>
+          {object.dta_institutionsNew.map((institution) => (
+            <DTAInstitutionsGridItem
+              key={institution.documentId}
+              institution={institution}
+            />
+          ))}
+        </DTAInstitutionsGrid>
+      </div>
     </div>
   );
 };

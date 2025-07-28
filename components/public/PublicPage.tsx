@@ -6,7 +6,7 @@ import { routes } from "@/lib/routes";
 export default function PublicPage() {
   return (
     <ViewTransitionGroundPage panel="public">
-      <div className={cn("flex flex-col items-start gap-2")}>
+      <div className={cn("flex flex-col items-start gap-2 px-24")}>
         <TempLink href={routes.ground("hooke-park")} scroll={false}>
           Hooke Park
         </TempLink>

@@ -59,6 +59,9 @@ export const dtaPersonDetail = dtaPersonPreview.extend({
       jobRole: z.string().nullable(),
     }),
   ),
+  dta_practicesNew: z.array(dtaPracticePreview),
+  dtaInstitutionsNew: z.array(dtaInstitutionPreview),
+  dta_objects: z.array(dtaObjectPreview),
 });
 
 export const dtaPracticeDetail = dtaPracticePreview.extend({
