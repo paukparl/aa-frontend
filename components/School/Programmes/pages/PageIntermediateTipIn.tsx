@@ -1,12 +1,13 @@
 import clsx from "clsx";
 import * as React from "react";
 import { ProgrammeDoubleTextCol } from "@/components/School/Programmes/components/ProgrammeDoubleTextCol";
+import { ProgrammeGridStudentWork } from "@/components/School/Programmes/components/ProgrammeGridStudentWork";
 import { ProgrammeTableInfoTipIn } from "@/components/School/Programmes/components/ProgrammeTableInfoTipIn";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
-import { UL } from "@/components/Typography/UL";
 import { ButtonCTA } from "@/components/globals/components/ButtonCTA";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
+import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
 type PageIntermediateTipInProps = {
   className?: string;
@@ -19,18 +20,31 @@ export const PageIntermediateTipIn = ({
     <div
       className={clsx(
         className,
-        "bg-programmes-intermediate-accent flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[75%]",
+        "bg-programmes-intermediate-accent padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[100px] backdrop-blur-lg lg:w-[75%]",
       )}
     >
-      <H1 tipIn className="mb-[20px] block leading-[1.1]">
+      <TipinHeader
+        colorTheme="school-programmes"
+        breadcrumbLinks={[
+          { title: "Programmes" },
+          { title: "Intermediate Programme" },
+        ]}
+        pageTitle="The Right Model City"
+        className="padding-default-x"
+      />
+      <H1
+        tipIn
+        className="padding-default-x mt-[20px] mb-[20px] block leading-[1.1]"
+      >
         Diploma Design Unit 1:
         <br />
         The Right Model City
       </H1>
       <MediaGallery
+        className="padding-default-x"
         slides={[
           {
-            src: "/storybook/Globals/components/mediagallery/slide1.jpg",
+            src: "/storybook/Programmes/programmes-intermediate1.jpg",
             caption:
               "Miller J Frampton K, Health Centre Iraq, 1955, Otto Koenigsberger Collection",
           },
@@ -38,16 +52,18 @@ export const PageIntermediateTipIn = ({
         colorTheme="school-programmes"
       />
       <ProgrammeTableInfoTipIn
+        className="padding-default-x mt-[20px]"
         items={[
           { type: "Course Tutors", content: "Miraj Ahmed, Martin Jameson" },
           { type: "Status", content: "Choose 1 of 21 units" },
           { type: "Terms", content: "1,2,3" },
         ]}
       />
-      <H1 tipIn className="mb-[10px]">
+      <H1 tipIn className="padding-default-x mb-[10px]">
         Brief
       </H1>
       <ProgrammeDoubleTextCol
+        className="padding-default-x"
         col1Content={
           <Body>
             DIP2 is interested in the political role of the architect 'from the
@@ -92,27 +108,36 @@ export const PageIntermediateTipIn = ({
           </Body>
         }
       />
-      <ButtonCTA link="/" label="Download extended brief ↗" />
-      <UL
+      <ButtonCTA
+        className="my-[50px]"
+        link="/"
+        label="Download extended brief ↗"
+      />
+      <ProgrammeGridStudentWork
+        className="padding-default-x"
         items={[
-          <Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Body>,
-          <Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Body>,
-          <Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Body>,
-          <Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Body>,
+          {
+            title: "The Scarred Landscape",
+            artist: "Solveig Jappy",
+            imgSrc: "/storybook/Programmes/programmes-student1.jpg",
+          },
+          {
+            title: "The Scarred Landscape",
+            artist: "Solveig Jappy",
+            imgSrc: "/storybook/Programmes/programmes-student2.jpg",
+          },
+          {
+            title: "The Scarred Landscape",
+            artist: "Solveig Jappy",
+            imgSrc: "/storybook/Programmes/programmes-student3.jpg",
+          },
+          {
+            title: "The Scarred Landscape",
+            artist: "Solveig Jappy",
+            imgSrc: "/storybook/Programmes/programmes-student4.jpg",
+          },
         ]}
-      ></UL>
+      />
     </div>
   );
 };

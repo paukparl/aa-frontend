@@ -3,7 +3,7 @@ import { PageIntermediateTipIn } from "@/components/School/Programmes/pages/Page
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "School/Programmes/01 Pages/02 Tip-In/Intermediate Postgraduate",
+  title: "School/Programmes/01 Pages/02 Tip-In/Intermediate Programme",
   component: PageIntermediateTipIn,
   parameters: {
     docs: {

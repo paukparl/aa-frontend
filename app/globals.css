@@ -71,6 +71,28 @@
       black
     );
   }
+  .padding-default {
+    padding: 10px;
+    @media (min-width: 640px) {
+      padding: 30px;
+    }
+  }
+  .padding-default-y {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @media (min-width: 640px) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  .padding-default-x {
+    padding-left: 10px;
+    padding-right: 10px;
+    @media (min-width: 640px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
 }
 @theme inline {
   --spacing: 0.0625rem; /* Convert spacing unit to visual 1px */

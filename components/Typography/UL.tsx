@@ -3,15 +3,15 @@ import React from "react";
 import type { ReactNode } from "react";
 
 type ULProps = {
-  items: ReactNode[];
+  children: ReactNode[];
   className?: string;
   liClassName?: string;
 };
 
-export const UL = ({ items, className, liClassName }: ULProps) => {
+export const UL = ({ children, className, liClassName }: ULProps) => {
   return (
     <ul className={clsx("ul", className)}>
-      {items.map((item) => (
+      {children.map((item) => (
         <div className="grid grid-cols-[50px_1fr]">
           <div className="mt-[5px] h-[20px] w-[20px] rounded-full border border-dotted"></div>
           <li className={clsx("pb-[6px] sm:pb-[12px]", liClassName)}>{item}</li>
