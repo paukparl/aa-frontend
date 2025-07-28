@@ -2,6 +2,18 @@ import Image from "next/image";
 import * as React from "react";
 import { H1 } from "@/components/Typography/H1";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
+import {
+  DTAInstitutionsGrid,
+  DTAInstitutionsGridItem,
+} from "@/components/dta/components/DTAInstitutionsGrid";
+import {
+  DTAObjectsGrid,
+  DTAObjectsGridItem,
+} from "@/components/dta/components/DTAObjectsGrid";
+import {
+  DTAPracticesGrid,
+  DTAPracticesGridItem,
+} from "@/components/dta/components/DTAPracticesGrid";
 import { DTATablePeople } from "@/components/dta/components/DTATablePeople";
 import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
@@ -61,12 +73,33 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
       </div>
       <div>
         <DTAHeader className="capitalize">Related Practices</DTAHeader>
+        <DTAPracticesGrid>
+          {person.dta_practicesNew.map((practice) => (
+            <DTAPracticesGridItem
+              key={practice.documentId}
+              practice={practice}
+            />
+          ))}
+        </DTAPracticesGrid>
       </div>
       <div>
         <DTAHeader className="capitalize">Related Institutions</DTAHeader>
+        <DTAInstitutionsGrid>
+          {person.dtaInstitutionsNew.map((institution) => (
+            <DTAInstitutionsGridItem
+              key={institution.documentId}
+              institution={institution}
+            />
+          ))}
+        </DTAInstitutionsGrid>
       </div>
       <div>
         <DTAHeader className="capitalize">Related Collections</DTAHeader>
+        <DTAObjectsGrid>
+          {person.dta_objects.map((object) => (
+            <DTAObjectsGridItem key={object.documentId} object={object} />
+          ))}
+        </DTAObjectsGrid>
       </div>
     </div>
   );

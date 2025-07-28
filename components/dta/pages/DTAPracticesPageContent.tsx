@@ -4,8 +4,8 @@ import React from "react";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
 import {
-  DTAPeopleTableRow,
   DTAPracticesTable,
+  DTAPracticesTableRow,
 } from "@/components/dta/components/DTAPracticesTable";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { cn } from "@/lib/cn";
@@ -31,7 +31,7 @@ export const DTAPracticesPageContent = ({
       <Mono className="mt-[10px]">All {pagination.total} records</Mono>
       <DTAPracticesTable>
         {practices.map((practice) => (
-          <DTAPeopleTableRow key={practice.documentId} practice={practice} />
+          <DTAPracticesTableRow key={practice.documentId} practice={practice} />
         ))}
       </DTAPracticesTable>
     </div>
