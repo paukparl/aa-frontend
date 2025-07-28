@@ -93,6 +93,10 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
 
   const parentHref = ancestors[ancestors.length - 1].href;
 
+  const removeScrollBar = () => {
+    overlayRef.current?.style.setProperty("overflow", "hidden");
+  };
+
   return (
     <ViewTransition
       update="none"
@@ -117,6 +121,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
       }}
       onExit={(tran) => {
         console.log("exiting");
+        // overlayRef.current?.style.setProperty("overflow", "hidden");
         const anim = tran.old.getAnimations()[0] as Animation | undefined;
         if (anim) {
           pushAnimation(anim);
@@ -130,7 +135,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         open
         onOpenChange={(open) => {
           if (!open && getAnimations().length === 0) {
-            overlayRef.current?.style.setProperty("overflow", "hidden");
+            removeScrollBar();
             router.push(parentHref, { scroll: false });
           }
         }}
@@ -151,9 +156,10 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           {panelPagePath && (
             <div
               className={cn(
-                "700:block 700:w-1/12 fixed top-0 right-0 hidden h-full",
+                "700:block 700:w-1/12 absolute top-0 right-0 hidden h-full",
               )}
               onClick={() => {
+                removeScrollBar();
                 router.push(panelPagePath, { scroll: false });
               }}
             />
@@ -162,9 +168,10 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           {tipin1PagePath && (
             <div
               className={cn(
-                "700:block 700:w-2/12 fixed top-0 right-1/12 hidden h-full",
+                "700:block 700:w-2/12 absolute top-0 right-1/12 hidden h-full",
               )}
               onClick={() => {
+                removeScrollBar();
                 router.push(tipin1PagePath!, { scroll: false });
               }}
             />
