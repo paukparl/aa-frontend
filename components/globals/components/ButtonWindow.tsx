@@ -22,7 +22,7 @@ export const ButtonWindow = ({
   const colorThemeDict = {
     "dta-map":
       "border-white hover:bg-white text-white hover:text-dta-map-background",
-    school: "border-black hover:bg-white text-black",
+    school: "border-black text-black",
   };
   const contextDict = {
     school: {

@@ -79,10 +79,7 @@ export const MediaGallery = ({
           ))}
         </div>
       )}
-      <img
-        src={slides[activeInd].src}
-        className="h-[auto] max-h-[80vh] w-[100%] object-contain"
-      />
+      <img src={slides[activeInd].src} className="h-[auto] w-[100%]" />
       {slides[activeInd].caption.length > 0 && (
         <Caption
           className={clsx("block pt-[10px]", colorThemeDict[colorTheme].text)}

@@ -18,10 +18,22 @@ export const ProgrammeTableUnits = ({
   units,
 }: ProgrammeTableUnitsProps) => {
   const colorThemeDict = {
-    intermediate: "bg-programmes-intermediate-accent",
-    diploma: "bg-programmes-diploma-accent",
-    postgrad: "bg-programmes-postgrad-accent",
-    visiting: "bg-programmes-visiting-accent",
+    intermediate: {
+      header: "bg-programmes-intermediate-accent",
+      row: "hover:bg-programmes-intermediate-accent",
+    },
+    diploma: {
+      header: "bg-programmes-diploma-accent",
+      row: "hover:bg-programmes-diploma-accent",
+    },
+    postgrad: {
+      header: "bg-programmes-postgrad-accent",
+      row: "hover:bg-programmes-postgrad-accent",
+    },
+    visiting: {
+      header: "bg-programmes-visiting-accent",
+      row: "hover:bg-programmes-visiting-accent",
+    },
   };
   return (
     <div className={clsx(className)}>
@@ -32,7 +44,7 @@ export const ProgrammeTableUnits = ({
         <div
           className={clsx(
             "grid grid-cols-[100px_1fr] md:grid-cols-[100px_1fr_1fr]",
-            colorThemeDict[colorTheme],
+            colorThemeDict[colorTheme].header,
           )}
         >
           <Mono className="block flex justify-center border-r border-dotted p-[15px]">
@@ -46,7 +58,12 @@ export const ProgrammeTableUnits = ({
           </Mono>
         </div>
         {units.map((unit, index) => (
-          <div className="mb-[-1px] grid grid-cols-[100px_1fr] sm:min-h-[86px] md:grid-cols-[100px_1fr_1fr]">
+          <div
+            className={clsx(
+              colorThemeDict[colorTheme].row,
+              "mb-[-1px] grid cursor-pointer grid-cols-[100px_1fr] transition-[.1s] sm:min-h-[86px] md:grid-cols-[100px_1fr_1fr]",
+            )}
+          >
             <Body className="block flex justify-center border-y border-r border-dotted p-[15px]">
               {`${index}`}
             </Body>

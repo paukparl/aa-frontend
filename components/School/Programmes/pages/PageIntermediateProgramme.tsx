@@ -201,7 +201,7 @@ export const PageIntermediateProgramme = ({
           </ProgrammeTextCol>
           <ProgrammeTableTerm
             className="mt-[20px]"
-            colorTheme="diploma"
+            colorTheme="intermediate"
             type="lecturers"
             units={mockTermTableLecturersData}
           />
@@ -230,7 +230,7 @@ export const PageIntermediateProgramme = ({
           </ProgrammeTextCol>
           <ProgrammeTableTerm
             className="mt-[20px]"
-            colorTheme="diploma"
+            colorTheme="intermediate"
             type="lecturers"
             units={mockTermTableLecturersData}
           />
@@ -259,7 +259,7 @@ export const PageIntermediateProgramme = ({
           </ProgrammeTextCol>
           <ProgrammeTableTerm
             className="mt-[20px]"
-            colorTheme="diploma"
+            colorTheme="intermediate"
             type="lecturers"
             units={mockTermTableLecturersData}
           />

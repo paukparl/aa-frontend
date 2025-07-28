@@ -151,7 +151,10 @@ export const PageVisitingSchool = ({ className }: PageVisitingSchoolProps) => {
             apply.
           </Body>
         </ProgrammeTextCol>
-        <div>MAP HERE</div>
+        <img
+          className="h-auto w-[100%]"
+          src="/storybook/Programmes/visiting-map.jpg"
+        />
         <MediaGallery
           slides={mockCarouselSlides}
           colorTheme="school-programmes"

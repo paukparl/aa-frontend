@@ -28,8 +28,14 @@ export const ProgrammeTableTerm = ({
 }: ProgrammeTableTermProps) => {
   const uniqueId = useId();
   const colorThemeDict = {
-    intermediate: "bg-programmes-intermediate-accent",
-    diploma: "bg-programmes-diploma-accent",
+    intermediate: {
+      header: "bg-programmes-intermediate-accent",
+      row: "hover:bg-programmes-intermediate-accent",
+    },
+    diploma: {
+      header: "bg-programmes-diploma-accent",
+      row: "hover:bg-programmes-diploma-accent",
+    },
   };
   const filters = Array.from(
     new Set(units.map((unit) => unit.termYears).flat()),
@@ -44,7 +50,9 @@ export const ProgrammeTableTerm = ({
   const [activeFilter, setActiveFilter] = useState(filterDict[filters[0] - 1]);
   return (
     <div className={clsx(className)}>
-      <Body className="mb-[20px] block !font-bold">Term by term</Body>
+      {type === "credits" && (
+        <Body className="mb-[20px] block !font-bold">Term by term</Body>
+      )}
       <RadioGroup.Root
         name={`term-radio-${uniqueId}`}
         className="mb-[20px] flex gap-[20px]"
@@ -82,7 +90,7 @@ export const ProgrammeTableTerm = ({
           <div
             className={clsx(
               "grid grid-cols-[1fr_80px] md:grid-cols-[2fr_100px_1fr_1fr]",
-              colorThemeDict[colorTheme],
+              colorThemeDict[colorTheme].header,
             )}
           >
             <Mono className="flex justify-center border-r border-dotted p-[15px]">
@@ -103,7 +111,10 @@ export const ProgrammeTableTerm = ({
               unit.termYears.includes(filterDict.indexOf(activeFilter) + 1) && (
                 <div
                   key={`${uniqueId}-${index}`}
-                  className="mb-[-1px] grid grid-cols-[1fr_80px] md:grid-cols-[2fr_100px_1fr_1fr]"
+                  className={clsx(
+                    colorThemeDict[colorTheme].row,
+                    "mb-[-1px] grid cursor-pointer grid-cols-[1fr_80px] transition-[.1s] md:grid-cols-[2fr_100px_1fr_1fr]",
+                  )}
                 >
                   <Body className="flex h-[70px] items-center border-y border-r border-dotted px-[15px] sm:min-h-[86px] md:px-[20px]">
                     <div>
@@ -119,7 +130,7 @@ export const ProgrammeTableTerm = ({
                   <Body className="hidden h-[70px] items-center border-y border-r border-dotted px-[15px] sm:min-h-[86px] md:flex md:px-[20px]">
                     {unit.choose}
                   </Body>
-                  <Body className="hidden h-[70px] items-center border-y border-r border-dotted px-[15px] sm:min-h-[86px] md:flex md:px-[20px]">
+                  <Body className="hidden h-[70px] items-center border-y border-dotted px-[15px] sm:min-h-[86px] md:flex md:px-[20px]">
                     {unit.credits}
                   </Body>
                 </div>
@@ -136,7 +147,7 @@ export const ProgrammeTableTerm = ({
           <div
             className={clsx(
               "grid grid-cols-[2fr_1fr] md:grid-cols-[3fr_1fr]",
-              colorThemeDict[colorTheme],
+              colorThemeDict[colorTheme].header,
             )}
           >
             <Mono className="flex justify-center border-r border-dotted p-[15px]">
@@ -149,7 +160,10 @@ export const ProgrammeTableTerm = ({
               unit.termYears.includes(filterDict.indexOf(activeFilter) + 1) && (
                 <div
                   key={`${uniqueId}-${index}`}
-                  className="mb-[-1px] grid grid-cols-[2fr_1fr] md:grid-cols-[3fr_1fr]"
+                  className={clsx(
+                    colorThemeDict[colorTheme].row,
+                    "mb-[-1px] grid cursor-pointer grid-cols-[2fr_1fr] transition-[.1s] md:grid-cols-[3fr_1fr]",
+                  )}
                 >
                   <Body className="flex h-[70px] items-center border-y border-r border-dotted px-[15px] sm:min-h-[86px] md:px-[20px]">
                     <div>
@@ -159,7 +173,7 @@ export const ProgrammeTableTerm = ({
                       {unit.title}
                     </div>
                   </Body>
-                  <Body className="flex h-[70px] items-center border-y border-r border-dotted px-[15px] sm:min-h-[86px] md:px-[20px]">
+                  <Body className="flex h-[70px] items-center border-y border-dotted px-[15px] sm:min-h-[86px] md:px-[20px]">
                     {unit.lecturers}
                   </Body>
                 </div>

@@ -26,7 +26,7 @@ export const PageDiplomaTipIn = ({ className }: PageDiplomaTipInProps) => {
         colorTheme="school-programmes"
         breadcrumbLinks={[
           { title: "Programmes" },
-          { title: "Intermediate Programme" },
+          { title: "Diploma Programme" },
         ]}
         pageTitle="The Right Model City"
         className="padding-default-x"
