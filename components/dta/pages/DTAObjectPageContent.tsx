@@ -16,6 +16,7 @@ import {
   DTAPracticesGrid,
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
+import { Map } from "@/components/dta/components/Map";
 import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
 import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
@@ -35,6 +36,11 @@ export const DTAObjectPageContent = ({ object }: DTAObjectPageContentProps) => {
       />
       <div>
         <DTAHeader className="capitalize">Map</DTAHeader>
+        <Map
+          className={cn("aspect-2/1 w-full")}
+          gridStroke="var(--color-dta-map-background)"
+          landFill="var(--color-dta-map-highlight)"
+        />
       </div>
       <div>
         <DTAHeader className="capitalize">Related People</DTAHeader>

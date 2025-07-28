@@ -6,7 +6,7 @@ import { routes } from "@/lib/routes";
 export async function RoamPage() {
   return (
     <ViewTransitionGroundPage panel="public" microsite="roam">
-      <div className={cn("flex flex-col items-start gap-2")}>
+      <div className={cn("flex flex-col items-start gap-2 px-24")}>
         <h1>ROAM</h1>
         <TempLink href={routes.ground("hooke-park")} scroll={false}>
           Hooke Park

@@ -14,6 +14,8 @@ import {
   DTAPeopleGrid,
   DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
+import { Map } from "@/components/dta/components/Map";
+import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
 
 type DTAPracticeProps = {
@@ -27,6 +29,11 @@ export const DTAPracticePageContent = ({ practice }: DTAPracticeProps) => {
       {practice.description && <Body>{practice.description}</Body>}
       <div>
         <DTAHeader className="capitalize">Map</DTAHeader>
+        <Map
+          className={cn("aspect-2/1 w-full")}
+          gridStroke="var(--color-dta-map-background)"
+          landFill="var(--color-dta-map-highlight)"
+        />
       </div>
       <div>
         <DTAHeader className="capitalize">Related People</DTAHeader>
