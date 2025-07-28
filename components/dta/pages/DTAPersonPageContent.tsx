@@ -51,7 +51,6 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
         <div>
           <DTAHeader className="capitalize">Education</DTAHeader>
           <DTATablePeople
-            type="education"
             content={person.Eduction.map((row) => ({
               info: `${row.courseName ? `${row.courseName}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
               year: row.dateRange ?? "",
@@ -61,7 +60,6 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
         <div>
           <DTAHeader className="capitalize">Career</DTAHeader>
           <DTATablePeople
-            type="career"
             content={person.Career.map((row) => ({
               info: `${row.jobRole ? `${row.jobRole}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
               year: row.dateRange ?? "",
