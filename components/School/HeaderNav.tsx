@@ -30,62 +30,6 @@ export const HeaderNav = ({ className, activeRoute }: HeaderNavProps) => {
     "governance",
     "documents",
   ];
-  const routeDict = [
-    {
-      programmes: {
-        desktopAltLabel: null,
-        active: activeRoute === "programmes",
-      },
-    },
-    {
-      apply: {
-        desktopAltLabel: null,
-        active: activeRoute === "apply",
-      },
-    },
-    {
-      facilities: {
-        desktopAltLabel: null,
-        active: activeRoute === "facilities",
-      },
-    },
-    {
-      calendar: {
-        desktopAltLabel: "Academic Calendar",
-        active: activeRoute === "calendar",
-      },
-    },
-    {
-      locations: {
-        desktopAltLabel: null,
-        active: activeRoute === "locations",
-      },
-    },
-    {
-      people: {
-        desktopAltLabel: null,
-        active: activeRoute === "people",
-      },
-    },
-    {
-      about: {
-        desktopAltLabel: null,
-        active: activeRoute === "about",
-      },
-    },
-    {
-      governance: {
-        desktopAltLabel: null,
-        active: activeRoute === "governance",
-      },
-    },
-    {
-      documents: {
-        desktopAltLabel: null,
-        active: activeRoute === "documents",
-      },
-    },
-  ];
   return (
     <div
       className={clsx(

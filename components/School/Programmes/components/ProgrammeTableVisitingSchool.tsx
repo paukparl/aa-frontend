@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
-import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
 
 type ProgrammeColorTheme = "intermediate" | "diploma" | "postgrad" | "visiting";
@@ -63,8 +62,9 @@ export const ProgrammeTableVisitingSchool = ({
             Programme
           </Mono>
         </div>
-        {units.map((unit, index) => (
+        {units.map((unit) => (
           <div
+            key={unit.title}
             className={clsx(
               colorThemeDict[colorTheme].row,
               "mb-[-1px] grid cursor-pointer grid-cols-[1fr_1fr] transition-[.1s] sm:min-h-[86px] md:grid-cols-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr]",

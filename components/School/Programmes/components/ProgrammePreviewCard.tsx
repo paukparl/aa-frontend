@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import Link from "next/link";
 import * as React from "react";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
@@ -8,7 +7,6 @@ import { Mono } from "@/components/Typography/Mono";
 type ProgrammePreviewCardProps = {
   className?: string;
   title: string;
-  uid: string;
   description: string;
   degreeType: string | null;
   duration: string;
@@ -20,7 +18,6 @@ type ProgrammePreviewCardProps = {
 export const ProgrammePreviewCard = ({
   className,
   title,
-  uid,
   description,
   degreeType,
   duration,

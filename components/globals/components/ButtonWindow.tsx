@@ -52,6 +52,7 @@ export const ButtonWindow = ({
           (item, index) =>
             index !== 0 && (
               <div
+                key={index}
                 className={clsx(
                   colorThemeDict[colorTheme],
                   contextDict[context].btm,

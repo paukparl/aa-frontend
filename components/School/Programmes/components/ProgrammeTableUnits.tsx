@@ -59,6 +59,7 @@ export const ProgrammeTableUnits = ({
         </div>
         {units.map((unit, index) => (
           <div
+            key={index}
             className={clsx(
               colorThemeDict[colorTheme].row,
               "mb-[-1px] grid cursor-pointer grid-cols-[100px_1fr] transition-[.1s] sm:min-h-[86px] md:grid-cols-[100px_1fr_1fr]",

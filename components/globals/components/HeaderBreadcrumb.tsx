@@ -18,7 +18,7 @@ type HeaderBreadcrumbProps = {
   links: BreadcrumbLink[];
   pageTitle: string;
   className?: string;
-  colorTheme: colorTheme;
+  colorTheme: BreadcrumbColorTheme;
 };
 
 export const HeaderBreadcrumb = ({

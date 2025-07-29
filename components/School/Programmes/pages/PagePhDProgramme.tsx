@@ -110,22 +110,22 @@ export const PagePhDProgramme = ({ className }: PagePhDProgrammeProps) => {
           </Body>
           <H1 tipIn>Tutorials</H1>
           <Body className="block pb-[30px] sm:pb-[50px]">
-            Directors of studies are available every week for tutorials and
+            {`Directors of studies are available every week for tutorials and
             discussion about candidates' in progress. Candidates are encouraged
             remain in constant contact with their director of studies to ensure
-            the continual development of their thesis.
+            the continual development of their thesis.`}
           </Body>
           <H1 tipIn>Seminars</H1>
           <Body>
-            In Terms 1 and 2, the directors of studies hold seminars that
+            {`In Terms 1 and 2, the directors of studies hold seminars that
             connect the PhD Programme with other postgraduate programmes.
             Alongside these, the programme co-ordinator runs an open seminar on
             Rethinking Doctoral Research, providing candidates with a shared
             platform to discuss methodological issues, as well as continuing the
             multi-year trajectory of the Forms of Care working group - a project
             on the relationship between environmental and social crises,
-            connecting candidates' interests with the AA's Climate Matters
-            initiative.
+            connecting candidates&apos; interests with the AA's Climate Matters
+            initiative.`}
           </Body>
         </ProgrammeTextCol>
       </div>

@@ -42,8 +42,11 @@ export const ProgrammeTableProgrammes = ({
             Degree
           </Mono>
         </div>
-        {programmes.map((programme, index) => (
-          <div className="mb-[-1px] grid grid-cols-[2fr_1fr] md:grid-cols-[3fr_1fr]">
+        {programmes.map((programme) => (
+          <div
+            key={programme.title}
+            className="mb-[-1px] grid grid-cols-[2fr_1fr] md:grid-cols-[3fr_1fr]"
+          >
             <Body className="block border-y border-dotted p-[15px] md:border-r">
               {programme.title}
             </Body>

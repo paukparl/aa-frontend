@@ -24,4 +24,3 @@ export const ProgrammeDoubleTextCol = ({
     </div>
   );
 };
-0;

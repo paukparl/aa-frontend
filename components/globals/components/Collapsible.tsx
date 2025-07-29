@@ -19,6 +19,7 @@ export const Collapsible = ({ items, className }: CollapsibleProps) => {
     >
       {items.map((item, index) => (
         <Accordion.Item
+          key={index}
           value={`item-${index + 1}`}
           className="mt-[-1px] border-y border-dotted border-black py-[20px]"
         >

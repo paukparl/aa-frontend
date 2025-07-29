@@ -368,30 +368,31 @@ export const PageDiplomaProgramme = ({
             (ARB/RIBA Part 2) and the AA Diploma. Fourth- and Fifth-Year
             students join one Design Unit and remain in that Unit for one year.
             Not all Design Units are offered each year. The programme is
-            structured so that a minimum of 50% of the students' time is focused
-            on design activity through the Unit. The study of architecture and
-            design is supported by Core Studies comprising History and Theory,
-            Environmental and Technical Studies and Professional Practice. In
-            Fourth Year, students undertake a one year-long Design Unit. In
-            addition, all students undertake a compulsory History and Theory
-            Studies course and two compulsory Environmental and Technical
-            Studies courses and one elective. Elective courses extend the range
-            of Core Studies into broader domains of creative and radical
-            practices in the arts, sciences, social politics, philosophy, and
-            new technology. These courses deepen students' understanding of
-            interdisciplinary processes and provide a mechanism for integrating
-            self-selected knowledge into their individual development in
-            architecture. In Fifth Year, students undertake a one year-long
-            Design Unit; students may choose the same Design Unit in two
-            consecutive years. In addition, all students undertake one
-            compulsory History and Theory course, one compulsory Environmental
-            and Technical Studies Design Thesis course with a choice of two
-            submission dates, and one compulsory Professional Practice Studies
-            course: Architectural Professional Practice - four courses in total.
-            Students must pass all units and courses to progress into the next
-            year. Only students who achieve a pass in the design units and in
-            all compulsory courses in Fifth Year are awarded the Master of
-            Architecture (ARB/RIBA Part 2) and the AA Diploma.
+            structured so that a minimum of 50% of the students&apos; time is
+            focused on design activity through the Unit. The study of
+            architecture and design is supported by Core Studies comprising
+            History and Theory, Environmental and Technical Studies and
+            Professional Practice. In Fourth Year, students undertake a one
+            year-long Design Unit. In addition, all students undertake a
+            compulsory History and Theory Studies course and two compulsory
+            Environmental and Technical Studies courses and one elective.
+            Elective courses extend the range of Core Studies into broader
+            domains of creative and radical practices in the arts, sciences,
+            social politics, philosophy, and new technology. These courses
+            deepen students&apos; understanding of interdisciplinary processes
+            and provide a mechanism for integrating self-selected knowledge into
+            their individual development in architecture. In Fifth Year,
+            students undertake a one year-long Design Unit; students may choose
+            the same Design Unit in two consecutive years. In addition, all
+            students undertake one compulsory History and Theory course, one
+            compulsory Environmental and Technical Studies Design Thesis course
+            with a choice of two submission dates, and one compulsory
+            Professional Practice Studies course: Architectural Professional
+            Practice - four courses in total. Students must pass all units and
+            courses to progress into the next year. Only students who achieve a
+            pass in the design units and in all compulsory courses in Fifth Year
+            are awarded the Master of Architecture (ARB/RIBA Part 2) and the AA
+            Diploma.
           </Body>
         </ProgrammeTextCol>
         <ProgrammeTableTerm

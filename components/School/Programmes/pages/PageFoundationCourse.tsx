@@ -100,17 +100,17 @@ export const PageFoundationCourse = ({
           <Body>
             Term 1 of the Foundation Course focuses on observation, conversation
             and developing key skills. We will begin by crafting portraits of
-            'mother Earth', our hometown and ourselves, and will discuss our
-            influence upon and duties towards our local environment in light of
-            the climate crisis. This will prepare us for active participation in
-            the school-wide conversations that take place during Climate Matters
-            Week in Term 1. On a study trip to Venice, we will investigate how
-            the city has been designed to harvest fresh water and to endure the
-            salinity of its surroundings, through surveying and rebuilding
-            elements of the Venetian urban fabric at a range of scales. We will
-            explore complex junctions, interconnecting volumes, sections and
-            thresholds, and we will question how materials can be used
-            responsibly in design by investigating their origins and
+            &apos;mother Earth&apos;, our hometown and ourselves, and will
+            discuss our influence upon and duties towards our local environment
+            in light of the climate crisis. This will prepare us for active
+            participation in the school-wide conversations that take place
+            during Climate Matters Week in Term 1. On a study trip to Venice, we
+            will investigate how the city has been designed to harvest fresh
+            water and to endure the salinity of its surroundings, through
+            surveying and rebuilding elements of the Venetian urban fabric at a
+            range of scales. We will explore complex junctions, interconnecting
+            volumes, sections and thresholds, and we will question how materials
+            can be used responsibly in design by investigating their origins and
             relationships to climatic stressors. In parallel with studio
             practice, students will identify and compile a series of contextual
             references and apply critical thinking to their own self-initiated
@@ -120,10 +120,10 @@ export const PageFoundationCourse = ({
             in individual tutorials, group presentations and juries.
             <br />
             <br />
-            Term 2 focuses on work that clarifies students' own individual areas
-            of interest. After a series of writing exercises, each student will
-            create a short experimental film. Our focus will then shift to the
-            human body, creating small architectural proposals in response;
+            Term 2 focuses on work that clarifies students&apos; own individual
+            areas of interest. After a series of writing exercises, each student
+            will create a short experimental film. Our focus will then shift to
+            the human body, creating small architectural proposals in response;
             these proposals will evolve through practical testing,
             thinking-through-making and experimentation.
             <br />

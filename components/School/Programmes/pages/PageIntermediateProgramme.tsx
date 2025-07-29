@@ -351,7 +351,7 @@ export const PageIntermediateProgramme = ({
             and Technical Studies course, and two Media Studies courses.
             <br />
             <br />
-            Second- and Third-Year students join one design unit and remain in
+            {`Second- and Third-Year students join one design unit and remain in
             that Unit for one year. Not all Design Units are offered each year.
             The programme is structured so that a minimum of 50% of the
             students' time is focussed on design activity through the Unit,
@@ -359,7 +359,7 @@ export const PageIntermediateProgramme = ({
             Subject Benchmark Statement. The study of architecture and design is
             supported by Core Studies comprising History and Theory, Media
             Studies, Environmental and Technical Studies, and Professional
-            Practice.
+            Practice.`}
             <br />
             <br />
             In Second Year, students undertake a compulsory one year-long Design

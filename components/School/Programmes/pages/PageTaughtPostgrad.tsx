@@ -144,8 +144,8 @@ export const PageTaughtPostgrad = ({ className }: PageTaughtPostgradProps) => {
             <br />
             <br />A limited number of courses across the Taught Postgraduate
             programmes are open for all Postgraduate students to attend through
-            'auditing', in which they can attend and engage without coursework
-            being a requirement.
+            &apos;auditing&apos;, in which they can attend and engage without
+            coursework being a requirement.
           </Body>
         </ProgrammeTextCol>
         <MediaGallery

@@ -66,7 +66,7 @@ export const PageIntermediateTipIn = ({
         className="padding-default-x"
         col1Content={
           <Body>
-            DIP2 is interested in the political role of the architect 'from the
+            {`DIP2 is interested in the political role of the architect 'from the
             ground up.' We take the neighbourhood as the nexus of political
             action and decision-making, rather than conventional arenas of
             centralised and hierarchical political systems such as the
@@ -75,17 +75,17 @@ export const PageIntermediateTipIn = ({
             political bodies that should have agency to effect this power shift.
             The unit develops methods that mobilise and collectivise
             communities, design organisations and systems, and create social
-            engagement as a new form of architectural craft.
+            engagement as a new form of architectural craft.`}
             <br />
             <br />
-            Movements and discourses of the Commons are already engaged in
+            {`Movements and discourses of the Commons are already engaged in
             different disciplines globally to implement this alternative
             political position. The unit will develop projects framed as
             Distributive New Commons as part of this wider global impetus. To
             explore an economically independent form of architectural practice,
             we use the model of the DAO (decentralised autonomous organisation)
             blockchain governance system: a global democratic organisational
-            model aligned with the New Commons.
+            model aligned with the New Commons.`}
             <br />
           </Body>
         }

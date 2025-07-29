@@ -61,7 +61,7 @@ export const PageVisitingTipIn = ({ className }: PageVisitingTipInProps) => {
         className="padding-default-x"
         col1Content={
           <Body>
-            Supported by the Financial Times' Visual Investigations Team, the
+            {`Supported by the Financial Times' Visual Investigations Team, the
             London Mining Network and Tec de Monterrey, the Metropolitan
             Landscapes programme at the Architectural Association looks
             critically at the intricate interdependent relationships between
@@ -78,13 +78,13 @@ export const PageVisitingTipIn = ({ className }: PageVisitingTipInProps) => {
             journalism, and to transform the governance and management of
             metropolitan regions into a creative, accountable and visionary
             practice that can deliver sustainable and resilient urbanisation
-            models.
+            models.`}
             <br />
           </Body>
         }
         col2Content={
           <Body>
-            Metropolitan Landscapes is a response to today's demand for a
+            {`Metropolitan Landscapes is a response to today's demand for a
             metropolitan discipline conscious of its past, present and future
             and the extractive damage they impose on hinterlands and other
             landscapes. By making visible and accountable the works of large
@@ -96,7 +96,7 @@ export const PageVisitingTipIn = ({ className }: PageVisitingTipInProps) => {
             parts of a fully interdependent process that requires the
             accountability of big powerful stakeholders and the support of
             alternative communities and struggles that arise in planetary
-            urbanisation processes.
+            urbanisation processes.`}
           </Body>
         }
       />
@@ -190,7 +190,7 @@ export const PageVisitingTipIn = ({ className }: PageVisitingTipInProps) => {
             alfredo@aaschool.ac.uk
             <br />
             <br />
-            Jose Alfredo Ramirez is an architect, director of Architectural
+            {`Jose Alfredo Ramirez is an architect, director of Architectural
             Association's (AA) Ground Lab, Programme Head of the Landscape
             Urbanism MArch/MSc Programme and Director of the Mexico Visiting
             School at the AA. As a co-director of the Ground Lab. He is
@@ -204,7 +204,7 @@ export const PageVisitingTipIn = ({ className }: PageVisitingTipInProps) => {
             corridor. José Alfredo lectures and publish the work of AA Landscape
             Urbanism and Ground Lab, such as the edition of the issue on Green
             New Deal Landscapes of the AD Journal (Architectural Design) in
-            2022.
+            2022.`}
             <br />
             <br />
             Clara Oloriz

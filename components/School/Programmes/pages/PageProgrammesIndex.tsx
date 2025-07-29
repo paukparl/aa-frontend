@@ -102,7 +102,6 @@ export const PageProgrammesIndex = ({
           <ProgrammePreviewCard
             key={index}
             title={programme.title}
-            uid={programme.uid}
             degreeType={programme.degreeType}
             duration={programme.duration}
             durationFrac={programme.durationFrac}

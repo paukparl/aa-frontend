@@ -6,7 +6,6 @@ import { ProgrammeTableInfoTipIn } from "@/components/School/Programmes/componen
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { UL } from "@/components/Typography/UL";
-import { ButtonCTA } from "@/components/globals/components/ButtonCTA";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 
@@ -64,10 +63,10 @@ export const PageDiplomaTipIn = ({ className }: PageDiplomaTipInProps) => {
         className="padding-default-x"
         col1Content={
           <Body>
-            DIP2 is interested in the political role of the architect 'from the
-            ground up.' We take the neighbourhood as the nexus of political
-            action and decision-making, rather than conventional arenas of
-            centralised and hierarchical political systems such as the
+            DIP2 is interested in the political role of the architect &apos;from
+            the ground up.&apos; We take the neighbourhood as the nexus of
+            political action and decision-making, rather than conventional
+            arenas of centralised and hierarchical political systems such as the
             parliament. Here, architectural practice is the creative project to
             be redesigned, and residents in neighbourhoods are the real
             political bodies that should have agency to effect this power shift.
@@ -113,10 +112,10 @@ export const PageDiplomaTipIn = ({ className }: PageDiplomaTipInProps) => {
         className="padding-default-x"
         col1Content={
           <Body>
-            DIP2 is interested in the political role of the architect 'from the
-            ground up.' We take the neighbourhood as the nexus of political
-            action and decision-making, rather than conventional arenas of
-            centralised and hierarchical political systems such as the
+            DIP2 is interested in the political role of the architect &apos;from
+            the ground up.&apos; We take the neighbourhood as the nexus of
+            political action and decision-making, rather than conventional
+            arenas of centralised and hierarchical political systems such as the
             parliament. Here, architectural practice is the creative project to
             be redesigned, and residents in neighbourhoods are the real
             political bodies that should have agency to effect this power shift.
