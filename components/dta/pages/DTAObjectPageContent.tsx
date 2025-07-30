@@ -8,7 +8,7 @@ import {
 } from "@/components/dta/components/DTAInstitutionsGrid";
 import {
   DTAPeopleGrid,
-  DTAPeopleGridItem,
+  DTAPersonGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import {
   DTAPracticesGrid,
@@ -44,7 +44,7 @@ export const DTAObjectPageContent = ({ object }: DTAObjectPageContentProps) => {
         <DTAHeader className="capitalize">Related People</DTAHeader>
         <DTAPeopleGrid>
           {object.dta_peopleNew.map((person) => (
-            <DTAPeopleGridItem key={person.documentId} person={person} />
+            <DTAPersonGridItem key={person.documentId} person={person} />
           ))}
         </DTAPeopleGrid>
       </div>

@@ -3,7 +3,7 @@ import { getDTAPeople } from "@/api";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import {
   DTAPeopleGrid,
-  DTAPeopleGridItem,
+  DTAPersonGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { cn } from "@/lib/cn";
@@ -30,6 +30,7 @@ export async function DTAPeoplePage({
       pageSize: 30,
     },
   });
+  console.log(people);
 
   return (
     <ViewTransitionTipinPage
@@ -50,10 +51,10 @@ export async function DTAPeoplePage({
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </DTAContentSingleCol>
-        <span className="mono mt-[10px]">All 570 records</span>
+        <span className="mono mt-[10px]">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
         <DTAPeopleGrid>
           {people.map((person) => (
-            <DTAPeopleGridItem key={person.documentId} person={person} />
+            <DTAPersonGridItem key={person.documentId} person={person} />
           ))}
         </DTAPeopleGrid>
       </div>

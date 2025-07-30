@@ -10,7 +10,7 @@ import {
 } from "@/components/dta/components/DTAObjectsGrid";
 import {
   DTAPeopleGrid,
-  DTAPeopleGridItem,
+  DTAPersonGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import { Map } from "@/components/dta/components/Map";
 import { cn } from "@/lib/cn";
@@ -39,7 +39,7 @@ export const DTAPracticePageContent = ({ practice }: DTAPracticeProps) => {
         <DTAHeader className="capitalize">Related People</DTAHeader>
         <DTAPeopleGrid>
           {practice.dta_peopleNew.map((person) => (
-            <DTAPeopleGridItem key={person.documentId} person={person} />
+            <DTAPersonGridItem key={person.documentId} person={person} />
           ))}
         </DTAPeopleGrid>
       </div>

@@ -40,7 +40,7 @@ export const DTACarouselSlide = ({
         ref={imgRef}
         src={imgSrc}
         alt={imgAlt}
-        className="700:h-[370px] mb-1 h-[180px] w-auto xl:h-[515px]"
+        className="700:h-[370px] 1500:h-[515px] mb-1 h-[180px] w-auto"
         onLoad={setCaptionWidths}
       />
       {caption && minWidth !== "" && (
@@ -57,7 +57,7 @@ export const DTACarouselSlide = ({
           </div>
           <div
             style={{ width: midWidth }}
-            className="700:block hidden xl:hidden"
+            className="700:block 1500:hidden hidden"
           >
             <span
               className={cn(
@@ -68,7 +68,7 @@ export const DTACarouselSlide = ({
               {caption}
             </span>
           </div>
-          <div style={{ width: maxWidth }} className="hidden xl:block">
+          <div style={{ width: maxWidth }} className="1500:block hidden">
             <span
               className={cn(
                 "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",

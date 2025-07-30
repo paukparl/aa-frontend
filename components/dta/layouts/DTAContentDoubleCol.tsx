@@ -40,7 +40,7 @@ export const DTAContentDoubleCol = ({
           <div
             className={cn(
               colorThemeDict[colorTheme].text,
-              "body w-full xl:w-[100%]",
+              "body 1500:w-[100%] w-full",
             )}
           >
             {textContent}
