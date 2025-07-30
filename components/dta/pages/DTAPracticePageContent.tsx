@@ -1,6 +1,4 @@
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
-import { H1 } from "@/components/Typography/H1";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
 import {
   DTAInstitutionsGrid,
@@ -24,9 +22,11 @@ type DTAPracticeProps = {
 
 export const DTAPracticePageContent = ({ practice }: DTAPracticeProps) => {
   return (
-    <div className="flex flex-col gap-20 p-24 sm:gap-30">
-      <H1 tipIn>{practice.name}</H1>
-      {practice.description && <Body>{practice.description}</Body>}
+    <div className="700:gap-30 flex flex-col gap-20 p-24">
+      <h1 className="tipin">{practice.name}</h1>
+      {practice.description && (
+        <span className="body">{practice.description}</span>
+      )}
       <div>
         <DTAHeader className="capitalize">Map</DTAHeader>
         <Map

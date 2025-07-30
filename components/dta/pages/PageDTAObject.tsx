@@ -1,7 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
-import { H1 } from "@/components/Typography/H1";
 import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
@@ -59,7 +57,7 @@ export const PageDTAObject = ({ className }: DTAObjectProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-collections-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[75%]",
+        "text-dta-collections-foreground 700:p-[30px] 1280:w-[75%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg",
       )}
     >
       <TipinHeader
@@ -67,15 +65,15 @@ export const PageDTAObject = ({ className }: DTAObjectProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Collections" }]}
         colorTheme="dta-collections"
       />
-      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 tipIn>Title, Year</H1>
-        <Body>
+      <div className="700:gap-[30px] flex flex-col gap-[20px]">
+        <h1 className="tipin">Title, Year</h1>
+        <span className="body">
           Brief sentence describing what collections means in the context of
           DTA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Body>
+        </span>
         <MediaGallery slides={mockSlideData} colorTheme="dta-collections" />
-        <div className="mt-[20px] flex flex-col gap-[30px] pb-[20px] lg:gap-[50px]">
+        <div className="1280:gap-[50px] mt-[20px] flex flex-col gap-[30px] pb-[20px]">
           <DTARelatedContent gridType="people" colorTheme="collections" />
           <DTARelatedContent gridType="institutions" colorTheme="collections" />
           <DTARelatedContent gridType="practices" colorTheme="collections" />

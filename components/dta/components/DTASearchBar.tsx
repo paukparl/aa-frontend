@@ -13,11 +13,11 @@ export const DTASearchBar = ({ className }: DTASearchBarProps) => {
         id="name"
         name="name"
         placeholder="Type keyword here"
-        className="text-dta-about-foreground focus:border-dta-search-foreground border-dta-about-foreground w-[100%] border-[2px] border-dotted px-[15px] py-[10px] text-[20px] placeholder:opacity-70 focus:ring-0 focus:outline-none sm:px-[20px] sm:py-[15px] sm:text-[26px]"
+        className="text-dta-about-foreground focus:border-dta-search-foreground border-dta-about-foreground 700:px-[20px] 700:py-[15px] 700:text-26 text-20 w-[100%] border-[2px] border-dotted px-[15px] py-[10px] placeholder:opacity-70 focus:ring-0 focus:outline-none"
         required
       />
       <img
-        className="height-[auto] absolute top-[33%] right-[15px] w-[20px] sm:right-[20px] sm:w-[25px]"
+        className="height-[auto] 700:right-[20px] 700:w-[25px] absolute top-[33%] right-[15px] w-[20px]"
         src="/icons/search-dta-green.svg"
       />
     </div>

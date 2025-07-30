@@ -17,7 +17,7 @@ export const DTAPracticesGrid = ({
   return (
     <div
       className={clsx(
-        "grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-3 md:gap-x-5 md:gap-y-10 lg:gap-x-5 lg:gap-y-20",
+        "1024:grid-cols-3 1024:gap-x-5 1024:gap-y-10 1280:gap-x-5 1280:gap-y-20 grid grid-cols-2 gap-x-5 gap-y-8",
         className,
       )}
     >
@@ -39,7 +39,7 @@ export const DTAPracticesGridItem = ({
   return (
     <Link
       className={cn(
-        "text-18 block aspect-2/1 border border-dashed px-15 py-11 md:px-20 md:py-12",
+        "text-18 1024:px-20 1024:py-12 block aspect-2/1 border border-dashed px-15 py-11",
         className,
       )}
       href={href}

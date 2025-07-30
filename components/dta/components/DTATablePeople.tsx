@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
 
 type TableType = "education" | "career";
@@ -29,8 +28,8 @@ export const DTATablePeople = ({
           className="flex justify-between"
           key={`dta-table-people-${row.info}-${row.year}-${index}`}
         >
-          <Body>{row.info}</Body>
-          <Body>{row.year}</Body>
+          <span className="body">{row.info}</span>
+          <span className="body">{row.year}</span>
         </div>
       ))}
     </div>

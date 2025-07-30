@@ -35,14 +35,14 @@ export const DTAGrid = ({
   gridItemClassName,
 }: DTAGridProps) => {
   const gridTypeDict = {
-    practicesgrid: "grid-cols-2 lg:grid-cols-3 gap-5 md:gap-5 lg:gap-5",
+    practicesgrid: "grid-cols-2 1280:grid-cols-3 gap-5 1024:gap-5 1280:gap-5",
     practicestable: "grid-cols-1",
     people:
-      "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-[35px] md:gap-y-10 md:gap-x-5 lg:gap-y-20 lg:gap-x-5",
+      "grid-cols-2 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-[35px] 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
     collections:
-      "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-8 md:gap-y-10 md:gap-x-5 lg:gap-y-20 lg:gap-x-5",
+      "grid-cols-2 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-8 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
     institutions:
-      "grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-8 md:gap-y-10 md:gap-x-5 lg:gap-y-20 lg:gap-x-5",
+      "grid-cols-2 1024:grid-cols-3 gap-x-5 gap-y-8 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
   };
   return (
     <div className={clsx(className, gridTypeDict[type], "grid w-full")}>

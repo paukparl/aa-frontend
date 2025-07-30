@@ -34,10 +34,10 @@ export const DTAPracticesTableRow = ({
         href={href}
         scroll={false}
       >
-        <div className="mono border border-dashed px-[15px] py-[11px] md:px-[20px] md:py-[12px]">
+        <div className="mono 1024:px-[20px] 1024:py-[12px] border border-dashed px-[15px] py-[11px]">
           {practice.name}
         </div>
-        <div className="mono ml-[-1px] border border-dashed px-[15px] py-[11px] md:px-[20px] md:py-[12px]">
+        <div className="mono 1024:px-[20px] 1024:py-[12px] ml-[-1px] border border-dashed px-[15px] py-[11px]">
           {practice.dta_locationNew?.country}
         </div>
       </Link>

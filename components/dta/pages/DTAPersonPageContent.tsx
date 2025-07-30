@@ -1,6 +1,5 @@
 import Image from "next/image";
 import * as React from "react";
-import { H1 } from "@/components/Typography/H1";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
 import {
   DTAInstitutionsGrid,
@@ -25,12 +24,12 @@ type DTAPersonPageContentProps = {
 
 export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
   return (
-    <div className={cn("flex flex-col gap-20 p-24 sm:gap-72")}>
-      <H1 tipIn>
+    <div className={cn("700:gap-72 flex flex-col gap-20 p-24")}>
+      <h1 className="tipin">
         Handel Kitchiner (Hal) Lawson
         <br />
         1928-1985
-      </H1>
+      </h1>
       <div className={cn("grid grid-cols-2 gap-24")}>
         <div className={cn("")}>
           {person.headshot && (
@@ -47,7 +46,7 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
         </div>
         <div className={cn("body")}>{person.bio}</div>
       </div>
-      <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2">
+      <div className="1024:grid-cols-2 grid grid-cols-1 gap-[30px]">
         <div>
           <DTAHeader className="capitalize">Education</DTAHeader>
           <DTAPeopleTable

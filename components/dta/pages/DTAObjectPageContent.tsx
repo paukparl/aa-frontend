@@ -1,8 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
-import { H1 } from "@/components/Typography/H1";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
 import {
   DTAInstitutionsGrid,
@@ -27,9 +25,9 @@ type DTAObjectPageContentProps = {
 
 export const DTAObjectPageContent = ({ object }: DTAObjectPageContentProps) => {
   return (
-    <div className="flex flex-col gap-[20px] p-24 sm:gap-[30px]">
-      <H1 tipIn>{object.title}</H1>
-      <Body>{object.additionalDescription}</Body>
+    <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+      <h1 className="tipin">{object.title}</h1>
+      <span className="body">{object.additionalDescription}</span>
       <MediaGallery
         imgs={object.image}
         className={cn("text-dta-collections-foreground")}

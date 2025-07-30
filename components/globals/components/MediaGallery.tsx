@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React, { useState } from "react";
-import { Caption } from "@/components/Typography/Caption";
 
 type colorTheme =
   | "dta-people"
@@ -67,7 +66,7 @@ export const MediaGallery = ({
               className={clsx(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
-                "h-[65px] w-[65px] cursor-pointer object-cover p-[3px] sm:h-[75px] sm:w-[75px] sm:p-[5px]",
+                "700:h-[75px] 700:w-[75px] 700:p-[5px] h-[65px] w-[65px] cursor-pointer object-cover p-[3px]",
               )}
               onClick={() => handleClick(index)}
             />
@@ -79,11 +78,14 @@ export const MediaGallery = ({
         className="h-[auto] max-h-[80vh] w-[100%] object-contain"
       />
       {slides[activeInd].caption.length > 0 && (
-        <Caption
-          className={clsx("block pt-[10px]", colorThemeDict[colorTheme].text)}
+        <span
+          className={clsx(
+            "caption block pt-[10px]",
+            colorThemeDict[colorTheme].text,
+          )}
         >
           {slides[activeInd].caption}
-        </Caption>
+        </span>
       )}
     </div>
   );

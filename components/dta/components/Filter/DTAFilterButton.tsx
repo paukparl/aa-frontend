@@ -1,8 +1,5 @@
-// TODO
-// add width cutoff for caption
 import clsx from "clsx";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
 
 type filterState = "minimized" | "expanded" | "applied";
 type colorTheme = "people" | "practices" | "institutions" | "collections";
@@ -51,12 +48,12 @@ export const DTAFilterButton = ({
         className,
         (filterState === "expanded" || filterState === "applied") &&
           `${colorThemeDict[colorTheme].bg} text-white`,
-        "grid h-[45px] w-[100%] cursor-pointer grid-cols-[35px_1fr] items-center border border-dashed px-[20px] sm:h-[50px] sm:h-[55px] sm:grid-cols-[40px_1fr] sm:px-[25px]",
+        "700:h-[50px] 700:h-[55px] 700:grid-cols-[40px_1fr] 700:px-[25px] grid h-[45px] w-[100%] cursor-pointer grid-cols-[35px_1fr] items-center border border-dashed px-[20px]",
       )}
     >
       {filterState === "minimized" && (
         <svg
-          className="h-[15px] w-[15px] sm:h-[18px] sm:w-[18px]"
+          className="700:h-[18px] 700:w-[18px] h-[15px] w-[15px]"
           viewBox="0 0 21 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +74,7 @@ export const DTAFilterButton = ({
       )}
       {filterState === "expanded" && (
         <svg
-          className="h-[auto] w-[14px] sm:w-[17px]"
+          className="700:w-[17px] h-[auto] w-[14px]"
           viewBox="0 0 20 5"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +89,7 @@ export const DTAFilterButton = ({
       )}
       {filterState === "applied" && (
         <svg
-          className="h-[15px] w-[15px] sm:h-[18px] sm:w-[18px]"
+          className="700:h-[18px] 700:w-[18px] h-[15px] w-[15px]"
           viewBox="0 0 23 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +115,9 @@ export const DTAFilterButton = ({
           />
         </svg>
       )}
-      <Mono className="flex w-full justify-start leading-0">{children}</Mono>
+      <span className="mono flex w-full justify-start leading-0">
+        {children}
+      </span>
     </div>
   );
 };

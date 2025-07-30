@@ -1,7 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { H1 } from "@/components/Typography/H1";
-import { Mono } from "@/components/Typography/Mono";
 
 type PersonItem = {
   type: "person";
@@ -36,24 +34,18 @@ export const DTATooltipCard = ({ className, items }: DTATooltipCardProps) => {
               key={`${item.name}-${item.practice}-${index}`}
               className="border-b-[1px] border-dotted pb-[20px]"
             >
-              <Mono small>PERSON</Mono>
+              <span className="mono small">PERSON</span>
               <br />
-              <Mono
-                small
-                className="underline decoration-dotted decoration-[1px] underline-offset-3"
-              >
+              <span className="mono small underline decoration-dotted decoration-[1px] underline-offset-3">
                 {item.name}
-              </Mono>
+              </span>
               <br />
               <br />
-              <Mono small>PRACTICE</Mono>
+              <span className="small mono">PRACTICE</span>
               <br />
-              <Mono
-                small
-                className="underline decoration-dotted decoration-[1px] underline-offset-3"
-              >
+              <span className="mono small underline decoration-dotted decoration-[1px] underline-offset-3">
                 {item.practice}
-              </Mono>
+              </span>
             </div>
           );
         } else if (item.type === "event") {
@@ -62,28 +54,20 @@ export const DTATooltipCard = ({ className, items }: DTATooltipCardProps) => {
               className="pt-[20px]"
               key={`${item.person}-${item.eventInfo}-${index}`}
             >
-              <H1 tipIn className="!text-[18px]">
-                {item.eventInfo}
-              </H1>
+              <h1 className="tipin !text-18">{item.eventInfo}</h1>
               <br />
-              <Mono small>PERSON</Mono>
+              <span className="small mono">PERSON</span>
               <br />
-              <Mono
-                small
-                className="underline decoration-dotted underline-offset-3"
-              >
+              <span className="mono small underline decoration-dotted underline-offset-3">
                 {item.person}
-              </Mono>
+              </span>
               <br />
               <br />
-              <Mono small>PRACTICE</Mono>
+              <span className="small mono">PRACTICE</span>
               <br />
-              <Mono
-                small
-                className="underline decoration-dotted underline-offset-3"
-              >
+              <span className="mono small underline decoration-dotted underline-offset-3">
                 {item.practice}
-              </Mono>
+              </span>
             </div>
           );
         }

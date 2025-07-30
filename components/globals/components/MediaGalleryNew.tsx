@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
 import React, { useState } from "react";
-import { Caption } from "@/components/Typography/Caption";
 import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
 
@@ -26,7 +25,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
             <div
               key={thumb.documentId}
               className={cn(
-                "size-65 cursor-pointer p-3 sm:size-75 sm:p-5",
+                "700:size-75 700:p-5 size-65 cursor-pointer p-3",
                 activeInd === index && "outline outline-current",
               )}
             >
@@ -58,9 +57,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
         />
       </div>
       {activeImg.caption && (
-        <Caption className={clsx("block pt-[10px]")}>
-          {activeImg.caption}
-        </Caption>
+        <span className="caption block pt-[10px]">{activeImg.caption}</span>
       )}
     </div>
   );

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
 
 type ContentItem = {
   info: string;
@@ -21,8 +20,8 @@ export const DTAPeopleTable = ({ content, className }: DTAPeopleTableProps) => {
           className="flex justify-between"
           key={`dta-table-people-${row.info}-${row.year}-${index}`}
         >
-          <Body>{row.info}</Body>
-          <Body>{row.year}</Body>
+          <span className="body">{row.info}</span>
+          <span className="body">{row.year}</span>
         </div>
       ))}
     </div>

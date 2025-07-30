@@ -1,10 +1,5 @@
-// TODO :
-// add the h-[--px] and x-[--px] utilitity classes used to Tailwind safelist to display individual grid items on storybook
-// remove "image" bool prop and use imgsrc to validate if image should be displayed
-// add "see more" buttons (from figma component tab, not main mockup)
 import clsx from "clsx";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
 
 type DTAGridItemProps = {
   imgSrc?: string | undefined;
@@ -44,17 +39,13 @@ export const DTAGridItemPeople = ({
         <img
           src={imgSrc}
           alt={imgAlt ?? ""}
-          className="mb-2 aspect-[4/5] h-auto w-full object-cover lg:mb-3"
+          className="1280:mb-3 mb-2 aspect-[4/5] h-auto w-full object-cover"
         />
       ) : (
-        <div className="dta_griditem_bg mb-2 aspect-[4/5] h-auto w-full lg:mb-3"></div>
+        <div className="dta_griditem_bg 1280:mb-3 mb-2 aspect-[4/5] h-auto w-full"></div>
       )}
-      {title != null && <Mono>{title}</Mono>}
-      {date != null && (
-        <div className="mt-2">
-          <Mono>{date}</Mono>
-        </div>
-      )}
+      {title != null && <span className="mono">{title}</span>}
+      {date != null && <div className="mono mt-2">{date}</div>}
     </div>
   );
 };
@@ -86,7 +77,7 @@ export const DTAGridItemInstitutions = ({
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-[4/3] h-auto w-full object-cover"></div>
       )}
-      {title != null && <Mono>{title}</Mono>}
+      {title != null && <span className="mono">{title}</span>}
     </div>
   );
 };
@@ -114,7 +105,7 @@ export const DTAGridItemCollections = ({
       ) : (
         <div className="dta_griditem_bg mb-1 aspect-square"></div>
       )}
-      {title != null && <Mono>{title}</Mono>}
+      {title != null && <span className="mono">{title}</span>}
     </div>
   );
 };
@@ -138,14 +129,14 @@ export const DTAGridItemPracticesGrid = ({
       className={clsx(
         className,
         gridItemClassName,
-        "aspect-[3/2] border border-dashed px-3 py-2 leading-none sm:aspect-[5/2] lg:aspect-[5/2]",
+        "700:aspect-[5/2] 1280:aspect-[5/2] aspect-[3/2] border border-dashed px-3 py-2 leading-none",
       )}
     >
-      {title != null && <Mono>{title}</Mono>}
+      {title != null && <span className="mono">{title}</span>}
       {country != null && (
         <>
           <br />
-          <Mono className="block pt-[10px]">{country}</Mono>
+          <span className="mono block pt-[10px]">{country}</span>
         </>
       )}
     </div>
@@ -166,11 +157,11 @@ export const DTAGridItemPracticesTable = ({
         "mb-[-1px] grid grid-cols-[75%_25%]",
       )}
     >
-      <div className="border border-dashed px-[15px] py-[11px] leading-0 md:px-[20px] md:py-[12px]">
-        <Mono>{title}</Mono>
+      <div className="1024:px-[20px] 1024:py-[12px] border border-dashed px-[15px] py-[11px] leading-0">
+        <span className="mono">{title}</span>
       </div>
-      <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] leading-0 md:px-[20px] md:py-[12px]">
-        <Mono>{country}</Mono>
+      <div className="1024:px-[20px] 1024:py-[12px] ml-[-1px] border border-dashed px-[15px] py-[11px] leading-0">
+        <span className="mono">{country}</span>
       </div>
     </div>
   );

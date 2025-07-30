@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import React, { useRef, useState } from "react";
-import { Caption } from "@/components/Typography/Caption";
 
 type DTACarouselSlideProps = {
   imgSrc: string;
@@ -41,43 +40,43 @@ export const DTACarouselSlide = ({
         ref={imgRef}
         src={imgSrc}
         alt={imgAlt}
-        className="mb-1 h-[180px] w-auto sm:h-[370px] xl:h-[515px]"
+        className="700:h-[370px] mb-1 h-[180px] w-auto xl:h-[515px]"
         onLoad={setCaptionWidths}
       />
       {caption && minWidth !== "" && (
         <>
-          <div style={{ width: minWidth }} className="block sm:hidden">
-            <Caption
+          <div style={{ width: minWidth }} className="700:hidden block">
+            <span
               className={clsx(
-                "text-color-dta-about-foreground transition-opacity duration-300 ease-in-out",
+                "caption text-color-dta-about-foreground transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
             >
               {caption}
-            </Caption>
+            </span>
           </div>
           <div
             style={{ width: midWidth }}
-            className="hidden sm:block xl:hidden"
+            className="700:block hidden xl:hidden"
           >
-            <Caption
+            <span
               className={clsx(
-                "text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
+                "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
             >
               {caption}
-            </Caption>
+            </span>
           </div>
           <div style={{ width: maxWidth }} className="hidden xl:block">
-            <Caption
+            <span
               className={clsx(
-                "text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
+                "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
             >
               {caption}
-            </Caption>
+            </span>
           </div>
         </>
       )}

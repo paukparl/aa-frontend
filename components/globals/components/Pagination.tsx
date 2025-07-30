@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
 
 type PaginationProps = {
   totalPages: number;
@@ -17,8 +16,6 @@ export const Pagination = ({
   page,
   onPageChange,
 }: PaginationProps) => {
-  // const [activePage, setActivePage] = useState(1);
-
   const handleClick = (page: number) => {
     if (page < 1 || page > totalPages || page === page) return;
     onPageChange(page);
@@ -59,18 +56,18 @@ export const Pagination = ({
 
   return (
     <nav
-      aria-label="Pagination Navigation pt-[20px] sm:pt-[30px]"
+      aria-label="Pagination Navigation pt-[20px] 700:pt-[30px]"
       className={clsx(className)}
     >
-      <ul className="m-0 flex items-center gap-[10px] p-0 sm:gap-[25px]">
-        <Mono>Page:</Mono>
+      <ul className="700:gap-[25px] m-0 flex items-center gap-[10px] p-0">
+        <span className="mono">Page:</span>
         {pageItems.map((item, ind) =>
           item === "..." ? (
             <li
               key={`dots-${ind}`}
               style={{ padding: "0 8px", userSelect: "none" }}
             >
-              <Mono>...</Mono>
+              <span className="mono">...</span>
             </li>
           ) : (
             <li key={item}>
@@ -87,7 +84,7 @@ export const Pagination = ({
                   cursor: "pointer",
                 }}
               >
-                <Mono>{item.toString()}</Mono>
+                <span className="mono">{item.toString()}</span>
               </button>
             </li>
           ),
@@ -98,7 +95,7 @@ export const Pagination = ({
             className="cursor-pointer"
             onClick={() => handleClick(page - 1)}
           >
-            <Mono>Prev</Mono>
+            <span className="mono">Prev</span>
           </button>
         </li>
         <li>
@@ -107,7 +104,7 @@ export const Pagination = ({
             className="cursor-pointer"
             onClick={() => handleClick(page + 1)}
           >
-            <Mono>Next</Mono>
+            <span className="mono">Next</span>
           </button>
         </li>
       </ul>

@@ -3,7 +3,6 @@
 import * as Collapsible from "@radix-ui/react-collapsible";
 import clsx from "clsx";
 import React, { useState } from "react";
-import { Mono } from "@/components/Typography/Mono";
 import { DTAFilterButton } from "./DTAFilterButton";
 
 type filterDataType = {
@@ -49,11 +48,11 @@ export const DTAFilterSingleSelect = ({
         <div
           className={clsx(
             activeIndex === null
-              ? "mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px] sm:mt-[20px] sm:p-[15px]"
+              ? "700:mt-[20px] 700:p-[15px] mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px]"
               : "hidden",
           )}
         >
-          <ul role="listbox" className={clsx("gap-[10px] sm:gap-[15px]")}>
+          <ul role="listbox" className={clsx("700:gap-[15px] gap-[10px]")}>
             {filterData.map((filter, index) => (
               <li key={filter.title}>
                 <button
@@ -62,16 +61,16 @@ export const DTAFilterSingleSelect = ({
                   onClick={() => setFilter(index)}
                   className="cursor-pointer hover:underline hover:decoration-dotted hover:underline-offset-3"
                 >
-                  <Mono>{filter.title}</Mono>
+                  <span className="mono">{filter.title}</span>
                 </button>
               </li>
             ))}
           </ul>
         </div>
         {activeIndex !== null && (
-          <div className="mt-[10px] grid w-full grid-cols-1 gap-[20px] border border-dashed bg-white px-[15px] py-[10px] sm:mt-[20px] sm:p-[15px] lg:grid-cols-[3fr_2fr] xl:grid-cols-[1fr_1fr]">
+          <div className="700:mt-[20px] 700:p-[15px] 1280:grid-cols-[3fr_2fr] mt-[10px] grid w-full grid-cols-1 gap-[20px] border border-dashed bg-white px-[15px] py-[10px] xl:grid-cols-[1fr_1fr]">
             <div>
-              <div className="mb-[10px] flex sm:mb-[20px]">
+              <div className="700:mb-[20px] mb-[10px] flex">
                 <button
                   onClick={() => {
                     clearFilter();
@@ -79,7 +78,7 @@ export const DTAFilterSingleSelect = ({
                   }}
                 >
                   <svg
-                    className="h-[15px] w-[15px] sm:h-[18px] sm:w-[18px]"
+                    className="700:h-[18px] 700:w-[18px] h-[15px] w-[15px]"
                     viewBox="0 0 23 23"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,13 +99,13 @@ export const DTAFilterSingleSelect = ({
                     />
                   </svg>
                 </button>
-                <Mono className="text-dta-collections-foreground ml-[10px]">
+                <span className="mono text-dta-collections-foreground ml-[10px]">
                   {filterData[activeIndex].title}
-                </Mono>
+                </span>
               </div>
-              <Mono className="text-dta-collections-foreground">
+              <span className="mono text-dta-collections-foreground">
                 {filterData[activeIndex].description}
-              </Mono>
+              </span>
             </div>
             <img
               src={activeIndex !== null ? filterData[activeIndex].imgSrc : ""}

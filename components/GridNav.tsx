@@ -24,7 +24,7 @@ export function GridNavRoot({
     <GridNavContext value={{ theme }}>
       <div
         className={cn(
-          "font-diatype 1000:grid-cols-3 grid w-full grid-cols-2",
+          "font-diatype 1024:grid-cols-3 grid w-full grid-cols-2",
           className,
         )}
         {...props}
@@ -50,7 +50,7 @@ export function GridNavLink({
     <Comp
       className={cn(
         "text-18/1.2 700:h-64 700:text-24/1.2 flex h-40 items-center justify-start truncate p-(--padding) delay-[10ms] hover:bg-white",
-        "max-1000:not-nth-[2n+1]:-ml-px max-1000:nth-[n+3]:-mt-px 1000:not-nth-[3n+1]:-ml-px 1000:nth-[n+4]:-mt-px",
+        "max-1024:not-nth-[2n+1]:-ml-px max-1024:nth-[n+3]:-mt-px 1024:not-nth-[3n+1]:-ml-px 1024:nth-[n+4]:-mt-px",
         theme === "page" && "border border-white",
         theme === "menu" && "border border-dotted border-black",
         pathname.startsWith(`${props.href}`) && "bg-white",

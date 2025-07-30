@@ -39,8 +39,8 @@ export const DTAFilterMultiSelectRow = ({
       {/* Filter buttons in a row */}
       <div
         className={clsx(
-          "grid w-full gap-[10px] lg:gap-[20px]",
-          colorTheme === "practices" ? "lg:grid-cols-2" : "lg:grid-cols-3",
+          "1280:gap-[20px] grid w-full gap-[10px]",
+          colorTheme === "practices" ? "1280:grid-cols-2" : "1280:grid-cols-3",
         )}
       >
         {filtersInfo.map((item, i) => (
@@ -61,7 +61,7 @@ export const DTAFilterMultiSelectRow = ({
 
       {/* Dropdowns in a stacked block that spans full width */}
       {/* Only visible on desktop, mobile dropdowns are in each multi select component */}
-      <div className="mt-[10px] hidden sm:block">
+      <div className="700:block mt-[10px] hidden">
         {filtersInfo.map((item, i) => (
           <div key={i} className={activeIndex === i ? "block" : "hidden"}>
             <DTAFilterMultiSelectDropdown

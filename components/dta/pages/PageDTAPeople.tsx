@@ -1,7 +1,5 @@
 import clsx from "clsx";
 import React, { useState } from "react";
-import { H1 } from "@/components/Typography/H1";
-import { Mono } from "@/components/Typography/Mono";
 import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { DTAGrid } from "@/components/dta/layouts/DTAGrid";
@@ -277,7 +275,7 @@ export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-people-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[90%]",
+        "text-dta-people-foreground 700:p-[30px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg",
       )}
     >
       <TipinHeader
@@ -285,8 +283,8 @@ export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }]}
         colorTheme="dta-people"
       />
-      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1>People</H1>
+      <div className="700:gap-[30px] flex flex-col gap-[20px]">
+        <h1>People</h1>
         <DTAContentSingleCol>
           Brief sentence describing what people means in the context of DTA.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -306,7 +304,7 @@ export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
             { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
           ]}
         />
-        <Mono className="mt-[10px]">All 570 records</Mono>
+        <span className="mono mt-[10px]">All 570 records</span>
         <DTAGrid
           type="people"
           items={mockPeopleSlides}

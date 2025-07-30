@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
 import { CardPublication } from "@/components/globals/components/CardPublication";
 
 type contentType = "image" | "publication";
@@ -35,15 +34,18 @@ export const DTAContentDoubleCol = ({
     },
   };
   return (
-    <div className={clsx(className, "grid grid-cols-1 lg:grid-cols-2")}>
+    <div className={clsx(className, "1280:grid-cols-2 grid grid-cols-1")}>
       {contentType === "publication" && (
         <>
-          <div className="w-full xl:w-[100%]">
-            <Body className={colorThemeDict[colorTheme].text}>
-              {textContent}
-            </Body>
+          <div
+            className={clsx(
+              colorThemeDict[colorTheme].text,
+              "body w-full xl:w-[100%]",
+            )}
+          >
+            {textContent}
           </div>
-          <div className="flex justify-center pt-[20px] lg:pt-0">
+          <div className="1280:pt-0 flex justify-center pt-[20px]">
             <CardPublication
               title="Who are Godwin and Hopwood?"
               author="Ben Tosland"
@@ -54,11 +56,14 @@ export const DTAContentDoubleCol = ({
       )}
       {contentType === "image" && (
         <>
-          <img src={imgSrc} className="w-[100%] sm:w-[60%] lg:w-[100%]" />
-          <div className="w-full pt-[20px] lg:pt-0 lg:pl-[20px]">
-            <Body className={colorThemeDict[colorTheme].text}>
-              {textContent}
-            </Body>
+          <img src={imgSrc} className="700:w-[60%] 1280:w-[100%] w-[100%]" />
+          <div
+            className={clsx(
+              colorThemeDict[colorTheme].text,
+              "body 1280:pt-0 1280:pl-[20px] w-full pt-[20px]",
+            )}
+          >
+            {textContent}
           </div>
         </>
       )}

@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import { H1 } from "@/components/Typography/H1";
-import { Mono } from "@/components/Typography/Mono";
 import {
   DTAPracticesTable,
   DTAPracticesTableRow,
@@ -21,14 +19,14 @@ export const DTAPracticesPageContent = ({
   pagination,
 }: DTAPracticesPageContentProps) => {
   return (
-    <div className={cn("flex flex-col gap-20 p-24 sm:gap-30")}>
-      <H1>Practices</H1>
+    <div className={cn("700:gap-30 flex flex-col gap-20 p-24")}>
+      <h1>Practices</h1>
       <DTAContentSingleCol>
         Brief sentence describing what practices means in the context of DTA.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </DTAContentSingleCol>
-      <Mono className="mt-[10px]">All {pagination.total} records</Mono>
+      <span className="mono mt-[10px]">All {pagination.total} records</span>
       <DTAPracticesTable>
         {practices.map((practice) => (
           <DTAPracticesTableRow key={practice.documentId} practice={practice} />

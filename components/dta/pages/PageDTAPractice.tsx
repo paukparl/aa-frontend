@@ -1,7 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
-import { H1 } from "@/components/Typography/H1";
 import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { DTATipinMap } from "@/components/dta/components/DTATipinMap";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
@@ -33,7 +31,7 @@ export const PageDTAPractice = ({ className }: DTAPracticeProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-practices-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg sm:p-[30px] lg:w-[75%]",
+        "text-dta-practices-foreground 700:p-[30px] 1280:w-[75%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg",
       )}
     >
       <TipinHeader
@@ -41,10 +39,10 @@ export const PageDTAPractice = ({ className }: DTAPracticeProps) => {
         breadcrumbLinks={[{ title: "DTA Archive" }, { title: "Practices" }]}
         colorTheme="dta-practices"
       />
-      <div className="flex flex-col gap-[20px] sm:gap-[30px]">
-        <H1 tipIn>Ministry of Works</H1>
-        <Body>Abell House, John Islip Street, London, UK</Body>
-        <div className="flex flex-col gap-[30px] pb-[20px] lg:gap-[50px]">
+      <div className="700:gap-[30px] flex flex-col gap-[20px]">
+        <h1 className="tipin">Ministry of Works</h1>
+        <span className="body">Abell House, John Islip Street, London, UK</span>
+        <div className="1280:gap-[50px] flex flex-col gap-[30px] pb-[20px]">
           <DTATipinMap colorTheme="practices" />
           <DTARelatedContent gridType="people" colorTheme="practices" />
           <DTARelatedContent gridType="collections" colorTheme="practices" />

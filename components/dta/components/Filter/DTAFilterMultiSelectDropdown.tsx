@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
 
 type multiFilterType =
   | "alphabet"
@@ -29,15 +28,15 @@ export const DTAFilterMultiSelectDropdown = ({
   console.log(activeFilters);
   const filterTypeDict = {
     alphabet: {
-      className: "grid grid-cols-5 sm:flex flex-wrap",
+      className: "grid grid-cols-5 700:flex flex-wrap",
     },
     country: {
       className:
-        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+        "grid grid-cols-1 700:grid-cols-2 1024:grid-cols-3 1280:grid-cols-4",
     },
     birthPlace: {
       className:
-        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+        "grid grid-cols-1 700:grid-cols-2 1024:grid-cols-3 1280:grid-cols-4",
     },
     institutionType: {
       className: "grid",
@@ -54,13 +53,13 @@ export const DTAFilterMultiSelectDropdown = ({
     <div
       className={clsx(
         className,
-        "mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px] sm:mt-[20px] sm:p-[15px]",
+        "700:mt-[20px] 700:p-[15px] mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px]",
       )}
     >
       <ul
         role="listbox"
         className={clsx(
-          "gap-[10px] sm:gap-[15px]",
+          "700:gap-[15px] gap-[10px]",
           filterTypeDict[multiFilterType].className,
         )}
       >
@@ -78,7 +77,7 @@ export const DTAFilterMultiSelectDropdown = ({
                   : "hover:underline hover:decoration-dotted hover:underline-offset-3",
               )}
             >
-              <Mono>{filter}</Mono>
+              <span className="mono">{filter}</span>
             </button>
           </li>
         ))}

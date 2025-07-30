@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import * as React from "react";
-import { H1 } from "@/components/Typography/H1";
 import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { DTASearchBar } from "@/components/dta/components/DTASearchBar";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
@@ -14,19 +13,19 @@ export const PageDTASearch = ({ className }: PageDTASearchProps) => {
     <div
       className={clsx(
         className,
-        "text-dta-about-foreground flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg sm:pb-[75px] lg:w-[90%]",
+        "text-dta-about-foreground 700:pb-[75px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg",
       )}
     >
-      <div className="flex flex-col p-[10px] sm:p-[30px]">
+      <div className="700:p-[30px] flex flex-col p-[10px]">
         <TipinHeader
           pageTitle="Search"
           breadcrumbLinks={[{ title: "DTA Archive" }]}
           colorTheme="dta-search"
         />
         <DTASearchBar />
-        <H1>Search</H1>
+        <h1>Search</h1>
       </div>
-      <div className="flex flex-col gap-[20px] p-[10px] sm:gap-[70px] sm:p-[30px]">
+      <div className="700:gap-[70px] 700:p-[30px] flex flex-col gap-[20px] p-[10px]">
         <DTARelatedContent colorTheme="people" gridType="people" />
         <DTARelatedContent colorTheme="people" gridType="practices" />
         <DTARelatedContent colorTheme="people" gridType="institutions" />

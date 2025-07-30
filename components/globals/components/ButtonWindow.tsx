@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
 
 type colorTheme = "dta-map";
 type ButtonWindowProps = {
@@ -26,11 +25,11 @@ export const ButtonWindow = ({
       className={clsx(
         className,
         colorThemeDict[colorTheme],
-        "flex h-[150px] w-[140px] cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid sm:h-[240px] sm:w-[220px] sm:p-[30px] sm:pt-[50px]",
+        "700:h-[240px] 700:w-[220px] 700:p-[30px] 700:pt-[50px] flex h-[150px] w-[140px] cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid",
       )}
     >
       <Link href={link}>
-        <Mono className="whitespace-pre">{displayText}</Mono>
+        <span className="mono whitespace-pre">{displayText}</span>
       </Link>
     </div>
   );

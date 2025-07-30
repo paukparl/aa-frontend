@@ -127,7 +127,7 @@ export const DTARelatedContent = ({
       </DTAHeader>
       <DTAGrid
         className={clsx(
-          "pt-[10px] lg:pt-[20px]",
+          "1280:pt-[20px] pt-[10px]",
           classNameDict[colorTheme].className,
         )}
         gridItemClassName={classNameDict[colorTheme].gridItemClassName}

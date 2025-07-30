@@ -1,7 +1,6 @@
 // TODO
 import clsx from "clsx";
 import React from "react";
-import { Body } from "@/components/Typography/Body";
 
 type DTAHeaderProps = {
   children: string;
@@ -13,10 +12,10 @@ export const DTAHeader = ({ children, className }: DTAHeaderProps) => {
     <div
       className={clsx(
         className,
-        "mb-[10px] w-full border-b-[1.5px] pb-[10px] md:border-b-[2px]",
+        "1024:border-b-[2px] mb-[10px] w-full border-b-[1.5px] pb-[10px]",
       )}
     >
-      <Body>{children}</Body>
+      <span className="body">{children}</span>
     </div>
   );
 };

@@ -14,7 +14,7 @@ export const DTATipinMap = ({ className, colorTheme }: DTATipinMapProps) => {
       <DTAHeader>Map</DTAHeader>
       <img
         src="/storybook/dta/components/Map/map-placeholder.jpg"
-        className="mt-[20px] w-[100%] lg:mt-[30px]"
+        className="1280:mt-[30px] mt-[20px] w-[100%]"
       />
     </div>
   );

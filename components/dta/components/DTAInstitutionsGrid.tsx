@@ -18,7 +18,7 @@ export const DTAInstitutionsGrid = ({
   return (
     <div
       className={clsx(
-        "grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-3 md:gap-x-5 md:gap-y-10 lg:gap-x-5 lg:gap-y-20",
+        "1024:grid-cols-3 1024:gap-x-5 1024:gap-y-10 1280:gap-x-5 1280:gap-y-20 grid grid-cols-2 gap-x-5 gap-y-8",
         className,
       )}
     >
@@ -41,7 +41,7 @@ export const DTAInstitutionsGridItem = ({
     <div className={cn(className)}>
       <Link
         className={cn(
-          "dta-griditem-bg relative mb-2 block aspect-[4/3] lg:mb-3",
+          "dta-griditem-bg 1280:mb-3 relative mb-2 block aspect-[4/3]",
         )}
         tabIndex={-1}
         href={href}

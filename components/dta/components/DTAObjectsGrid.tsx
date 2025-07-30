@@ -18,7 +18,7 @@ export const DTAObjectsGrid = ({
   return (
     <div
       className={clsx(
-        "grid w-full grid-cols-2 gap-x-5 gap-y-[35px] sm:grid-cols-3 md:grid-cols-4 md:gap-x-5 md:gap-y-10 lg:grid-cols-5 lg:gap-x-5 lg:gap-y-20 xl:grid-cols-6",
+        "700:grid-cols-3 1024:grid-cols-4 1024:gap-x-5 1024:gap-y-10 1280:grid-cols-5 1280:gap-x-5 1280:gap-y-20 grid w-full grid-cols-2 gap-x-5 gap-y-[35px] xl:grid-cols-6",
         className,
       )}
     >
@@ -41,7 +41,7 @@ export const DTAObjectsGridItem = ({
     <div className={cn(className)}>
       <Link
         className={cn(
-          "dta-griditem-bg relative mb-2 block aspect-[4/5] lg:mb-3",
+          "dta-griditem-bg 1280:mb-3 relative mb-2 block aspect-[4/5]",
         )}
         tabIndex={-1}
         href={href}

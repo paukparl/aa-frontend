@@ -45,21 +45,21 @@ export const DTAFilterMultiSelect = ({
       emptyLabel: "Filter by alphabet",
       filterLabel: "Filters: ",
       maxFilters: 4,
-      className: "grid grid-cols-5 sm:flex flex-wrap",
+      className: "grid grid-cols-5 700:flex flex-wrap",
     },
     country: {
       emptyLabel: "Country",
       filterLabel: "Country: ",
       maxFilters: 1,
       className:
-        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+        "grid grid-cols-1 700:grid-cols-2 1024:grid-cols-3 1280:grid-cols-4",
     },
     birthPlace: {
       emptyLabel: "Birth Place",
       filterLabel: "Birth Place: ",
       maxFilters: 1,
       className:
-        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+        "grid grid-cols-1 700:grid-cols-2 1024:grid-cols-3 1280:grid-cols-4",
     },
     institutionType: {
       emptyLabel: "Type",
@@ -121,7 +121,7 @@ export const DTAFilterMultiSelect = ({
             groupIndex={index}
             multiFilterType={multiFilterType}
             filters={filters}
-            className="sm:hidden"
+            className="700:hidden"
             activeFilters={activeFilters}
             toggleFilter={toggleFilter}
           />
