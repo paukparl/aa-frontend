@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type DTASearchBarProps = {
   className?: string;
@@ -7,7 +7,7 @@ type DTASearchBarProps = {
 
 export const DTASearchBar = ({ className }: DTASearchBarProps) => {
   return (
-    <div className={clsx(className, "relative mb-[20px] w-[100%]")}>
+    <div className={cn(className, "relative mb-[20px] w-[100%]")}>
       <input
         type="text"
         id="name"

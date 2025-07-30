@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -17,7 +16,7 @@ export const DTAInstitutionsGrid = ({
 }: DTAPeopleGridProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         "1024:grid-cols-3 1024:gap-x-5 1024:gap-y-10 1280:gap-x-5 1280:gap-y-20 grid grid-cols-2 gap-x-5 gap-y-8",
         className,
       )}

@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type filterState = "minimized" | "expanded" | "applied";
 type colorTheme = "people" | "practices" | "institutions" | "collections";
@@ -44,7 +44,7 @@ export const DTAFilterButton = ({
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         (filterState === "expanded" || filterState === "applied") &&
           `${colorThemeDict[colorTheme].bg} text-white`,

@@ -1,10 +1,10 @@
-import clsx from "clsx";
 import React, { useState } from "react";
 import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { DTAGrid } from "@/components/dta/layouts/DTAGrid";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { cn } from "@/lib/cn";
 
 type DTAPeopleProps = {
   className?: string;
@@ -273,7 +273,7 @@ export const PageDTAPeople = ({ className }: DTAPeopleProps) => {
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "text-dta-people-foreground 700:p-[30px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg",
       )}

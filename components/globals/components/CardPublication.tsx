@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type CardPublicationProps = {
   title: string;
@@ -15,10 +15,7 @@ export const CardPublication = ({
 }: CardPublicationProps) => {
   return (
     <div
-      className={clsx(
-        className,
-        "700:justify-center flex w-full justify-start",
-      )}
+      className={cn(className, "700:justify-center flex w-full justify-start")}
     >
       <div className="700:w-fit w-[50%]">
         <img src={imgSrc} className="max-h-[70vh] w-full object-contain" />

@@ -1,7 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import React, { useRef, useState } from "react";
+import { cn } from "@/lib/cn";
 
 type DTACarouselSlideProps = {
   imgSrc: string;
@@ -35,7 +35,7 @@ export const DTACarouselSlide = ({
     }
   }
   return (
-    <div className={clsx(className, "w-fit")}>
+    <div className={cn(className, "w-fit")}>
       <img
         ref={imgRef}
         src={imgSrc}
@@ -47,7 +47,7 @@ export const DTACarouselSlide = ({
         <>
           <div style={{ width: minWidth }} className="700:hidden block">
             <span
-              className={clsx(
+              className={cn(
                 "caption text-color-dta-about-foreground transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
@@ -60,7 +60,7 @@ export const DTACarouselSlide = ({
             className="700:block hidden xl:hidden"
           >
             <span
-              className={clsx(
+              className={cn(
                 "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
@@ -70,7 +70,7 @@ export const DTACarouselSlide = ({
           </div>
           <div style={{ width: maxWidth }} className="hidden xl:block">
             <span
-              className={clsx(
+              className={cn(
                 "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}

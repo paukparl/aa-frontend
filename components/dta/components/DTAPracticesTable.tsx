@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 import { cn } from "@/lib/cn";
@@ -14,7 +13,7 @@ export const DTAPracticesTable = ({
   className,
   children,
 }: DTAPracticesTableProps) => {
-  return <div className={clsx("w-full", className)}>{children}</div>;
+  return <div className={cn("w-full", className)}>{children}</div>;
 };
 
 type DTAPracticesTableItemProps = {

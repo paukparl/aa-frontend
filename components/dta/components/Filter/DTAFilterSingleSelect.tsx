@@ -1,8 +1,8 @@
 "use client";
 
 import * as Collapsible from "@radix-ui/react-collapsible";
-import clsx from "clsx";
 import React, { useState } from "react";
+import { cn } from "@/lib/cn";
 import { DTAFilterButton } from "./DTAFilterButton";
 
 type filterDataType = {
@@ -46,13 +46,13 @@ export const DTAFilterSingleSelect = ({
       </Collapsible.Trigger>
       <Collapsible.Content>
         <div
-          className={clsx(
+          className={cn(
             activeIndex === null
               ? "700:mt-[20px] 700:p-[15px] mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px]"
               : "hidden",
           )}
         >
-          <ul role="listbox" className={clsx("700:gap-[15px] gap-[10px]")}>
+          <ul role="listbox" className={cn("700:gap-[15px] gap-[10px]")}>
             {filterData.map((filter, index) => (
               <li key={filter.title}>
                 <button

@@ -1,6 +1,6 @@
 // TODO
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type DTAHeaderProps = {
   children: string;
@@ -10,7 +10,7 @@ type DTAHeaderProps = {
 export const DTAHeader = ({ children, className }: DTAHeaderProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "1024:border-b-[2px] mb-[10px] w-full border-b-[1.5px] pb-[10px]",
       )}

@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type DTAGridItemProps = {
   imgSrc?: string | undefined;
@@ -34,7 +34,7 @@ export const DTAGridItemPeople = ({
   gridItemClassName,
 }: DTAGridItemPeopleProps) => {
   return (
-    <div className={clsx(className, gridItemClassName, "leading-[0px]")}>
+    <div className={cn(className, gridItemClassName, "leading-[0px]")}>
       {imgSrc ? (
         <img
           src={imgSrc}
@@ -67,7 +67,7 @@ export const DTAGridItemInstitutions = ({
   gridItemClassName,
 }: DTAGridItemInstitutionsProps) => {
   return (
-    <div className={clsx(className, gridItemClassName, "")}>
+    <div className={cn(className, gridItemClassName, "")}>
       {imgSrc ? (
         <img
           src={imgSrc}
@@ -99,7 +99,7 @@ export const DTAGridItemCollections = ({
   gridItemClassName,
 }: DTAGridItemCollectionsProps) => {
   return (
-    <div className={clsx(className, gridItemClassName)}>
+    <div className={cn(className, gridItemClassName)}>
       {imgSrc ? (
         <img src={imgSrc} alt={imgAlt ?? ""} className="mb-1 h-auto" />
       ) : (
@@ -126,7 +126,7 @@ export const DTAGridItemPracticesGrid = ({
 }: DTAGridItemPracticesProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         gridItemClassName,
         "700:aspect-[5/2] 1280:aspect-[5/2] aspect-[3/2] border border-dashed px-3 py-2 leading-none",
@@ -151,7 +151,7 @@ export const DTAGridItemPracticesTable = ({
 }: DTAGridItemPracticesProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         gridItemClassName,
         "mb-[-1px] grid grid-cols-[75%_25%]",

@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React, { useState } from "react";
+import { cn } from "@/lib/cn";
 
 type colorTheme =
   | "dta-people"
@@ -56,14 +56,14 @@ export const MediaGallery = ({
     },
   };
   return (
-    <div className={clsx("w-100%", className)}>
+    <div className={cn("w-100%", className)}>
       {slides.length > 1 && (
         <div className="flex gap-[10px] py-[20px] pl-[5px]">
           {slides.map((thumb, index) => (
             <img
               key={index}
               src={thumb.src}
-              className={clsx(
+              className={cn(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
                 "700:h-[75px] 700:w-[75px] 700:p-[5px] h-[65px] w-[65px] cursor-pointer object-cover p-[3px]",
@@ -79,7 +79,7 @@ export const MediaGallery = ({
       />
       {slides[activeInd].caption.length > 0 && (
         <span
-          className={clsx(
+          className={cn(
             "caption block pt-[10px]",
             colorThemeDict[colorTheme].text,
           )}

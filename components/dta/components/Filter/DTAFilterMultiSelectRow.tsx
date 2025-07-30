@@ -1,9 +1,9 @@
 "use client";
 
-import clsx from "clsx";
 import React, { useState } from "react";
 import { DTAFilterMultiSelect } from "@/components/dta/components/Filter/DTAFilterMultiSelect";
 import { DTAFilterMultiSelectDropdown } from "@/components/dta/components/Filter/DTAFilterMultiSelectDropdown";
+import { cn } from "@/lib/cn";
 
 type multiFilterType =
   | "alphabet"
@@ -38,7 +38,7 @@ export const DTAFilterMultiSelectRow = ({
     <div className="w-full">
       {/* Filter buttons in a row */}
       <div
-        className={clsx(
+        className={cn(
           "1280:gap-[20px] grid w-full gap-[10px]",
           colorTheme === "practices" ? "1280:grid-cols-2" : "1280:grid-cols-3",
         )}

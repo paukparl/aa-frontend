@@ -1,9 +1,9 @@
-import clsx from "clsx";
 import * as React from "react";
 import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { DTATipinMap } from "@/components/dta/components/DTATipinMap";
 import { DTAContentDoubleCol } from "@/components/dta/layouts/DTAContentDoubleCol";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { cn } from "@/lib/cn";
 
 type relatedCollection = {
   title: string;
@@ -25,7 +25,7 @@ export const PageDTAInstitution = ({
 }: DTAInstitutionProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "text-dta-institutions-foreground g:w-[75%] 700:p-[30px] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.95)] p-[10px] backdrop-blur-lg",
       )}

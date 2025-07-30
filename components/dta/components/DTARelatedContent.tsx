@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
 import { DTAGrid } from "@/components/dta/layouts/DTAGrid";
 import type { GridItem } from "@/components/dta/layouts/DTAGrid";
+import { cn } from "@/lib/cn";
 
 type colorTheme = "people" | "practices" | "institutions" | "collections";
 type gridType = "people" | "practices" | "institutions" | "collections";
@@ -121,12 +121,12 @@ export const DTARelatedContent = ({
   return (
     <div className={className}>
       <DTAHeader
-        className={(clsx("capitalize"), classNameDict[colorTheme].className)}
+        className={(cn("capitalize"), classNameDict[colorTheme].className)}
       >
         {`Related ${gridType}`}
       </DTAHeader>
       <DTAGrid
-        className={clsx(
+        className={cn(
           "1280:pt-[20px] pt-[10px]",
           classNameDict[colorTheme].className,
         )}

@@ -1,9 +1,9 @@
-import clsx from "clsx";
 import * as React from "react";
 import { DTACarousel } from "@/components/dta/components/DTACarousel";
 import { DTAContentDoubleCol } from "@/components/dta/layouts/DTAContentDoubleCol";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { cn } from "@/lib/cn";
 
 type DTAAboutProps = {
   className?: string;
@@ -49,7 +49,7 @@ const mockCarouselSlides = [
 export const PageDTAAbout = ({ className }: DTAAboutProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "text-dta-about-foreground 700:pb-[75px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg",
       )}

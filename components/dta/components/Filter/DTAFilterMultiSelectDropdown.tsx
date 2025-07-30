@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type multiFilterType =
   | "alphabet"
@@ -51,14 +51,14 @@ export const DTAFilterMultiSelectDropdown = ({
 
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "700:mt-[20px] 700:p-[15px] mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px]",
       )}
     >
       <ul
         role="listbox"
-        className={clsx(
+        className={cn(
           "700:gap-[15px] gap-[10px]",
           filterTypeDict[multiFilterType].className,
         )}
@@ -70,7 +70,7 @@ export const DTAFilterMultiSelectDropdown = ({
               role="option"
               aria-selected={activeFilters[groupIndex].includes(filter)}
               onClick={() => toggleFilter(groupIndex, filter)}
-              className={clsx(
+              className={cn(
                 "cursor-pointer",
                 activeFilters[groupIndex].includes(filter)
                   ? "underline decoration-dotted underline-offset-3"
