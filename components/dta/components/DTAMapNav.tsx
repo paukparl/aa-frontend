@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 type DTAMapNavProps = {
@@ -8,7 +8,7 @@ type DTAMapNavProps = {
 
 export const DTAMapNav = ({ className }: DTAMapNavProps) => {
   return (
-    <div className={clsx(className)}>
+    <div className={cn(className)}>
       <div className="flex w-[100%] border-y border-dotted border-white py-[10px]">
         <h1>Department of Tropical Architecture Archivee</h1>
       </div>

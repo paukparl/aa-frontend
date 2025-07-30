@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import * as React from "react";
+import { cn } from "@/lib/cn";
 
 type ContentItem = {
   info: string;
@@ -12,9 +12,7 @@ type DTAPeopleTableProps = {
 };
 export const DTAPeopleTable = ({ content, className }: DTAPeopleTableProps) => {
   return (
-    <div
-      className={clsx(className, "mb-[10px] flex w-full flex-col gap-[5px]")}
-    >
+    <div className={cn(className, "mb-[10px] flex w-full flex-col gap-[5px]")}>
       {content.map((row, index) => (
         <div
           className="flex justify-between"

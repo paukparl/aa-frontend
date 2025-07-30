@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type colorTheme =
   | "dta-people"
@@ -53,7 +53,7 @@ export const HeaderBreadcrumb = ({
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "700:gap-[20px] flex flex-wrap items-center gap-[15px]",
       )}
@@ -61,7 +61,7 @@ export const HeaderBreadcrumb = ({
       {links.map((item, index) => (
         <span
           key={index}
-          className={clsx(
+          className={cn(
             colorThemeDict[colorTheme].bg,
             "mono 700:px-[10px] 700:py-[5px] px-[7px] py-[3px] text-white",
           )}
@@ -69,7 +69,7 @@ export const HeaderBreadcrumb = ({
           {item.title}
         </span>
       ))}
-      <span className={clsx("mono", colorThemeDict[colorTheme].text)}>
+      <span className={cn("mono", colorThemeDict[colorTheme].text)}>
         {pageTitle}
       </span>
     </div>

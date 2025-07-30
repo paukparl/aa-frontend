@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/cn";
@@ -18,7 +17,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
   };
   const activeImg = imgs[activeInd];
   return (
-    <div className={clsx("w-100% text-black", className)}>
+    <div className={cn("w-100% text-black", className)}>
       {imgs.length > 1 && (
         <div className="flex gap-[10px] py-[20px] pl-[5px]">
           {imgs.map((thumb, index) => (
@@ -35,7 +34,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
                   key={thumb.documentId}
                   src={thumb.url}
                   alt={thumb.alternativeText ?? ""}
-                  className={clsx("object-contain")}
+                  className={cn("object-contain")}
                   onClick={() => handleClick(index)}
                 />
               </div>

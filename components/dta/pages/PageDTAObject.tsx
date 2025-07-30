@@ -1,8 +1,8 @@
-import clsx from "clsx";
 import * as React from "react";
 import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { cn } from "@/lib/cn";
 
 type DTAObjectProps = {
   className?: string;
@@ -55,7 +55,7 @@ export const PageDTAObject = ({ className }: DTAObjectProps) => {
   ];
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "text-dta-collections-foreground 700:p-[30px] 1280:w-[75%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg",
       )}

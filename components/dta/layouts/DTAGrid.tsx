@@ -1,9 +1,9 @@
 // TODO :
 // update padding / gap classes to custom spacing utilities that are consistent across site
 // update prop definition + parsing for "items" array based on strapi
-import clsx from "clsx";
 import React from "react";
 import { DTAGridItem } from "@/components/dta/components/DTAGridItem";
+import { cn } from "@/lib/cn";
 
 type GridType =
   | "people"
@@ -45,7 +45,7 @@ export const DTAGrid = ({
       "grid-cols-2 1024:grid-cols-3 gap-x-5 gap-y-8 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
   };
   return (
-    <div className={clsx(className, gridTypeDict[type], "grid w-full")}>
+    <div className={cn(className, gridTypeDict[type], "grid w-full")}>
       {type === "people" &&
         items.map((item: GridItem, index: number) => (
           <DTAGridItem

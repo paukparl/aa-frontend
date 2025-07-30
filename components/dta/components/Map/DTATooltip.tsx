@@ -1,9 +1,9 @@
 "use client";
 
-import clsx from "clsx";
 import { Popover } from "radix-ui";
 import React, { useState } from "react";
 import { DTATooltipCard } from "@/components/dta/components/Map/DTATooltipCard";
+import { cn } from "@/lib/cn";
 
 type DTATooltipProps = {
   className?: string;
@@ -16,7 +16,7 @@ export const DTATooltip = ({ className }: DTATooltipProps) => {
       <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
         <Popover.Trigger asChild>
           <button
-            className={clsx(
+            className={cn(
               isOpen && "size-[20px]",
               "transition-size block size-[10px] cursor-pointer rounded-full bg-white duration-300 outline-none hover:size-[20px] focus:size-[20px]",
             )}

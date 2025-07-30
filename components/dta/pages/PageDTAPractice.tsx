@@ -1,8 +1,8 @@
-import clsx from "clsx";
 import * as React from "react";
 import { DTARelatedContent } from "@/components/dta/components/DTARelatedContent";
 import { DTATipinMap } from "@/components/dta/components/DTATipinMap";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { cn } from "@/lib/cn";
 
 type DTAPracticeProps = {
   className?: string;
@@ -29,7 +29,7 @@ const DTAPracticeProps = [
 export const PageDTAPractice = ({ className }: DTAPracticeProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "text-dta-practices-foreground 700:p-[30px] 1280:w-[75%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] p-[10px] backdrop-blur-lg",
       )}

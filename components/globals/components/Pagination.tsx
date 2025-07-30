@@ -1,7 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type PaginationProps = {
   totalPages: number;
@@ -57,7 +57,7 @@ export const Pagination = ({
   return (
     <nav
       aria-label="Pagination Navigation pt-[20px] 700:pt-[30px]"
-      className={clsx(className)}
+      className={cn(className)}
     >
       <ul className="700:gap-[25px] m-0 flex items-center gap-[10px] p-0">
         <span className="mono">Page:</span>
@@ -72,7 +72,7 @@ export const Pagination = ({
           ) : (
             <li key={item}>
               <button
-                className={clsx(
+                className={cn(
                   "cursor-pointer",
                   page === item &&
                     "underline decoration-dotted underline-offset-[3px]",

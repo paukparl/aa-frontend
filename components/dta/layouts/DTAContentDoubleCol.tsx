@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import * as React from "react";
 import { CardPublication } from "@/components/globals/components/CardPublication";
+import { cn } from "@/lib/cn";
 
 type contentType = "image" | "publication";
 type colorTheme = "people" | "institutions" | "collections" | "about";
@@ -34,11 +34,11 @@ export const DTAContentDoubleCol = ({
     },
   };
   return (
-    <div className={clsx(className, "1280:grid-cols-2 grid grid-cols-1")}>
+    <div className={cn(className, "1280:grid-cols-2 grid grid-cols-1")}>
       {contentType === "publication" && (
         <>
           <div
-            className={clsx(
+            className={cn(
               colorThemeDict[colorTheme].text,
               "body w-full xl:w-[100%]",
             )}
@@ -58,7 +58,7 @@ export const DTAContentDoubleCol = ({
         <>
           <img src={imgSrc} className="700:w-[60%] 1280:w-[100%] w-[100%]" />
           <div
-            className={clsx(
+            className={cn(
               colorThemeDict[colorTheme].text,
               "body 1280:pt-0 1280:pl-[20px] w-full pt-[20px]",
             )}

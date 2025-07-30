@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import React from "react";
 import { HeaderBreadcrumb } from "@/components/globals/components/HeaderBreadcrumb";
+import { cn } from "@/lib/cn";
 
 type colorTheme =
   | "dta-people"
@@ -48,7 +48,7 @@ export const TipinHeader = ({
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         "700:mb-[40px] mb-[20px] flex h-fit items-start justify-between",
       )}

@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
+import { cn } from "@/lib/cn";
 
 type colorTheme = "dta-map";
 type ButtonWindowProps = {
@@ -22,7 +22,7 @@ export const ButtonWindow = ({
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
         colorThemeDict[colorTheme],
         "700:h-[240px] 700:w-[220px] 700:p-[30px] 700:pt-[50px] flex h-[150px] w-[140px] cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid",

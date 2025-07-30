@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import * as React from "react";
+import { cn } from "@/lib/cn";
 
 type DTAContentSingleColProps = {
   className?: string;
@@ -11,7 +11,7 @@ export const DTAContentSingleCol = ({
   children,
 }: DTAContentSingleColProps) => {
   return (
-    <div className={clsx(className, "w-full")}>
+    <div className={cn(className, "w-full")}>
       <div className="body 700:w-[calc(7/12)] 1024:w-[75%] w-full xl:w-[50%]">
         {children}
       </div>
