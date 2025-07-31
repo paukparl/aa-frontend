@@ -1,6 +1,7 @@
 import * as React from "react";
 import { z } from "zod/v4";
 import { getDTAObjects } from "@/api/getDTAObjects";
+import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTACollectionsPageContent } from "@/components/dta/pages/DTACollectionsPageContent";
 import { routes } from "@/lib/routes";
@@ -17,15 +18,18 @@ export async function DTACollectionsPage({
     z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
       .data ?? 1;
 
-  const {
-    data: objects,
-    meta: { pagination },
-  } = await getDTAObjects({
-    pagination: {
-      page,
-      pageSize: 30,
+  const [
+    {
+      data: objects,
+      meta: { pagination },
     },
-  });
+    { data: snippets },
+  ] = await Promise.all([
+    getDTAObjects({
+      pagination: { page, pageSize: 30 },
+    }),
+    getDTASnippets(),
+  ]);
 
   return (
     <ViewTransitionTipinPage
@@ -35,7 +39,11 @@ export async function DTACollectionsPage({
       title="Collections"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
-      <DTACollectionsPageContent objects={objects} pagination={pagination} />
+      <DTACollectionsPageContent
+        objects={objects}
+        pagination={pagination}
+        description={snippets?.collectionsLandingDescription}
+      />
     </ViewTransitionTipinPage>
   );
 }

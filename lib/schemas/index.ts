@@ -10,6 +10,7 @@ import {
   dtaPersonPreview,
   dtaPracticeDetail,
   dtaPracticePreview,
+  dtaSnippets,
 } from "@/lib/schemas/dta";
 import {
   document,
@@ -45,6 +46,7 @@ export const schemas = {
   dtaObjectDetail,
   dtaLocationPreview,
   dtaPage,
+  dtaSnippets,
 };
 
 export type Schema<

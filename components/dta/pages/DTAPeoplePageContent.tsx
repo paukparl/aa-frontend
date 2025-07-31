@@ -12,11 +12,13 @@ import { Schema } from "@/lib/schemas";
 type DTAPeoplePageContentProps = {
   people: Schema<"dtaPersonPreview">[];
   pagination: Schema<"pagination">;
+  description?: Schema<"dtaSnippets">["peopleLandingDescription"];
 };
 
 export const DTAPeoplePageContent = ({
   people,
   pagination: _,
+  description,
 }: DTAPeoplePageContentProps) => {
   return (
     <div
@@ -25,11 +27,7 @@ export const DTAPeoplePageContent = ({
       )}
     >
       <h1>People</h1>
-      <DTAContentSingleCol>
-        Brief sentence describing what people means in the context of DTA. Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua.
-      </DTAContentSingleCol>
+      {description && <DTAContentSingleCol>{description}</DTAContentSingleCol>}
       <span className="mono mt-[10px]">All 570 records</span>
       <DTAPeopleGrid>
         {people.map((person) => (

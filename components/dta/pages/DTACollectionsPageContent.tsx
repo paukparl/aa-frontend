@@ -11,20 +11,18 @@ import { Schema } from "@/lib/schemas";
 type DTACollectionsPageContentProps = {
   objects: Schema<"dtaObjectPreview">[];
   pagination: Schema<"pagination">;
+  description?: Schema<"dtaSnippets">["collectionsLandingDescription"];
 };
 
 export const DTACollectionsPageContent = ({
   objects,
   pagination: _,
+  description,
 }: DTACollectionsPageContentProps) => {
   return (
     <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
       <h1>Collections</h1>
-      <DTAContentSingleCol>
-        Brief sentence describing what collections means in the context of DTA.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </DTAContentSingleCol>
+      {description && <DTAContentSingleCol>{description}</DTAContentSingleCol>}
       <span className="mono mt-[10px]">All 570 records</span>
       <DTAObjectsGrid>
         {objects.map((object) => (
