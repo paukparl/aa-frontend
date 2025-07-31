@@ -18,17 +18,6 @@ export async function DTAPracticesPage({
     z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
       .data ?? 1;
 
-  // const {
-  //   data: practices,
-  //   meta: { pagination },
-  // } = await getDTAPractices({
-  //   pagination: {
-  //     page,
-  //     pageSize: 30,
-  //   },
-  // });
-
-  // const { data: snippets } = await getDTASnippets();
   const [
     {
       data: practices,
