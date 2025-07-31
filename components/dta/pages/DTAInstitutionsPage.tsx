@@ -1,6 +1,7 @@
 import * as React from "react";
 import { z } from "zod/v4";
 import { getDTAInstitutions } from "@/api/getDTAInstitutions";
+import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTAInstitutionsPageContent } from "@/components/dta/pages/DTAInstitutionsPageContent";
 import { routes } from "@/lib/routes";
@@ -17,15 +18,18 @@ export async function DTAInstitutionsPage({
     z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
       .data ?? 1;
 
-  const {
-    data: institutions,
-    meta: { pagination },
-  } = await getDTAInstitutions({
-    pagination: {
-      page,
-      pageSize: 30,
+  const [
+    {
+      data: institutions,
+      meta: { pagination },
     },
-  });
+    { data: snippets },
+  ] = await Promise.all([
+    getDTAInstitutions({
+      pagination: { page, pageSize: 30 },
+    }),
+    getDTASnippets(),
+  ]);
 
   return (
     <ViewTransitionTipinPage
@@ -38,6 +42,7 @@ export async function DTAInstitutionsPage({
       <DTAInstitutionsPageContent
         institutions={institutions}
         pagination={pagination}
+        description={snippets?.institutionsLandingDescription}
       />
     </ViewTransitionTipinPage>
   );

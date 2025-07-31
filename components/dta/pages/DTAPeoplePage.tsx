@@ -1,5 +1,6 @@
 import { z } from "zod/v4";
 import { getDTAPeople } from "@/api";
+import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTAPeoplePageContent } from "@/components/dta/pages/DTAPeoplePageContent";
 import { routes } from "@/lib/routes";
@@ -16,15 +17,18 @@ export async function DTAPeoplePage({
     z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
       .data ?? 1;
 
-  const {
-    data: people,
-    meta: { pagination },
-  } = await getDTAPeople({
-    pagination: {
-      page,
-      pageSize: 30,
+  const [
+    {
+      data: people,
+      meta: { pagination },
     },
-  });
+    { data: snippets },
+  ] = await Promise.all([
+    getDTAPeople({
+      pagination: { page, pageSize: 30 },
+    }),
+    getDTASnippets(),
+  ]);
 
   return (
     <ViewTransitionTipinPage
@@ -34,7 +38,11 @@ export async function DTAPeoplePage({
       title="People"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
-      <DTAPeoplePageContent people={people} pagination={pagination} />
+      <DTAPeoplePageContent
+        people={people}
+        pagination={pagination}
+        description={snippets?.peopleLandingDescription}
+      />
     </ViewTransitionTipinPage>
   );
 }
