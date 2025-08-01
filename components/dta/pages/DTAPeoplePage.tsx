@@ -29,29 +29,6 @@ export async function DTAPeoplePage({
       data: people,
       meta: { pagination },
     },
-  });
-  // copied logic from unused and deleted people page below for filters
-  // const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
-  // const toggleFilter = (groupIndex: number, filter: string) => {
-  //   setActiveFilters((prev) => {
-  //     const updated = [...prev];
-  //     const group = new Set(updated[groupIndex] ?? []);
-  //     if (group.has(filter)) {
-  //       group.delete(filter);
-  //     } else {
-  //       group.add(filter);
-  //     }
-  //     updated[groupIndex] = Array.from(group);
-  //     return updated;
-  //   });
-  // };
-  // const clearFilters = (groupIndex: number) => {
-  //   setActiveFilters((prev) => {
-  //     const updated = [...prev];
-  //     updated[groupIndex] = [];
-  //     return updated;
-  //   });
-  // };
     { data: snippets },
   ] = await Promise.all([
     getDTAPeople({
@@ -59,6 +36,8 @@ export async function DTAPeoplePage({
     }),
     getDTASnippets(),
   ]);
+
+  console.log(snippets);
 
   return (
     <ViewTransitionTipinPage
@@ -75,9 +54,7 @@ export async function DTAPeoplePage({
       >
         <h1>People</h1>
         <DTAContentSingleCol>
-          Brief sentence describing what people means in the context of DTA.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          {snippets?.peopleLandingDescription ?? ``}
         </DTAContentSingleCol>
         {/* <DTAFilterMultiSelectRow
           clearFilters={clearFilters}
@@ -109,3 +86,26 @@ export async function DTAPeoplePage({
     </ViewTransitionTipinPage>
   );
 }
+
+// copied logic from unused and deleted people page below for filters
+// const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
+// const toggleFilter = (groupIndex: number, filter: string) => {
+//   setActiveFilters((prev) => {
+//     const updated = [...prev];
+//     const group = new Set(updated[groupIndex] ?? []);
+//     if (group.has(filter)) {
+//       group.delete(filter);
+//     } else {
+//       group.add(filter);
+//     }
+//     updated[groupIndex] = Array.from(group);
+//     return updated;
+//   });
+// };
+// const clearFilters = (groupIndex: number) => {
+//   setActiveFilters((prev) => {
+//     const updated = [...prev];
+//     updated[groupIndex] = [];
+//     return updated;
+//   });
+// };
