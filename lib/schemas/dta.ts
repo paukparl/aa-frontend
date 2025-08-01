@@ -90,3 +90,11 @@ export const dtaPage = document.extend({
   slug: z.string().nullable(),
   pageTitle: z.string().nullable(),
 });
+
+export const dtaSnippets = document.extend({
+  peopleLandingDescription: z.string().nullable(),
+  practicesLandingDescription: z.string().nullable(),
+  institutionsLandingDescription: z.string().nullable(),
+  collectionsLandingDescription: z.string().nullable(),
+  dtaHomepageDescription: z.string().nullable(),
+});

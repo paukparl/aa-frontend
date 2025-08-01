@@ -1,5 +1,6 @@
 import { z } from "zod/v4";
 import { getDTAPeople } from "@/api";
+import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import {
   DTAPeopleGrid,
@@ -23,13 +24,10 @@ export async function DTAPeoplePage({
     z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
       .data ?? 1;
 
-  const {
-    data: people,
-    meta: { pagination },
-  } = await getDTAPeople({
-    pagination: {
-      page,
-      pageSize: 30,
+  const [
+    {
+      data: people,
+      meta: { pagination },
     },
   });
   // copied logic from unused and deleted people page below for filters
@@ -54,6 +52,14 @@ export async function DTAPeoplePage({
   //     return updated;
   //   });
   // };
+    { data: snippets },
+  ] = await Promise.all([
+    getDTAPeople({
+      pagination: { page, pageSize: 30 },
+    }),
+    getDTASnippets(),
+  ]);
+
   return (
     <ViewTransitionTipinPage
       type="1"

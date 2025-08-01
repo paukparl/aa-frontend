@@ -96,3 +96,14 @@ export const dtaObjectDetailFetchOptions = createFetchOptions({
 export const dtaPageFetchOptions = createFetchOptions({
   fields: [...documentFields, "slug", "pageTitle"],
 });
+
+export const dtaSnippetsFetchOptions = createFetchOptions({
+  fields: [
+    ...documentFields,
+    "peopleLandingDescription",
+    "practicesLandingDescription",
+    "institutionsLandingDescription",
+    "collectionsLandingDescription",
+    "dtaHomepageDescription",
+  ],
+});
