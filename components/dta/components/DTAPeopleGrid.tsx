@@ -35,29 +35,27 @@ export const DTAPersonGridItem = ({
   const href = routes.tipin2("dta", "people", person.documentId); // TODO: slug
   return (
     <Link
-      className={cn(
-        className,
-        "dta-griditem-bg 1280:mb-3 relative mb-2 block aspect-[4/5]",
-      )}
+      className={cn(className, "block")}
       tabIndex={-1}
       href={href}
       scroll={false}
     >
-      {person.headshot && (
-        <Image
-          src={person.headshot.url}
-          fill
-          sizes="20vw"
-          alt={person.headshot.alternativeText ?? ""}
-          className="object-cover"
-        />
-      )}
-      <div className={cn("font-diatype text-18/1.3")}>
+      <div className="dta-griditem-bg 1280:mb-10 relative mb-5 aspect-[4/5] w-full">
+        {person.headshot && (
+          <Image
+            src={person.headshot.url}
+            alt={person.headshot.alternativeText ?? ""}
+            fill
+            className="object-cover object-center"
+          />
+        )}
+      </div>
+      <div className="mono">
         {person.firstName} {person.lastName}
         {person.displayStudyYear && (
           <>
             <br />
-            {person.displayStudyYear}
+            <div className="1280:mt-10 mt-5">{person.displayStudyYear}</div>
           </>
         )}
       </div>

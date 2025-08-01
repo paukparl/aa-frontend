@@ -10,7 +10,7 @@ export const DTAMapNav = ({ className }: DTAMapNavProps) => {
   return (
     <div className={cn(className)}>
       <div className="flex w-[100%] border-y border-dotted border-white py-[10px]">
-        <h1>Department of Tropical Architecture Archivee</h1>
+        <h1>Department of Tropical Architecture Archive</h1>
       </div>
       {/* DESKTOP NAV ITEMS */}
       <div className="700:flex hidden h-[70px] w-[100%] items-center justify-between border-b border-dotted border-white">

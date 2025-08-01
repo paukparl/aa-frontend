@@ -158,6 +158,7 @@ h2 {
 @utility mono {
   font-family: var(--font-diatype);
   font-size: var(--text-15);
+  line-height: 1.2;
   @media (min-width: 700px) {
     font-size: var(--text-18);
   }
