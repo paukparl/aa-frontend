@@ -21,7 +21,7 @@ export const dtaPersonPreviewFetchOptions = createFetchOptions({
 export const dtaPracticePreviewFetchOptions = createFetchOptions({
   fields: [...documentFields, "slug", "name"],
   populate: {
-    dta_location_news: dtaLocationPreviewFetchOptions,
+    dta_locationNew: dtaLocationPreviewFetchOptions,
   },
 });
 
@@ -95,35 +95,6 @@ export const dtaObjectDetailFetchOptions = createFetchOptions({
 
 export const dtaPageFetchOptions = createFetchOptions({
   fields: [...documentFields, "slug", "pageTitle"],
-  populate: {
-    dynamicZone: {
-      on: {
-        "dynamic-zone.subhead-module": {
-          fields: ["subhead"],
-        },
-        "dynamic-zone.text-module": {
-          fields: ["text"],
-        },
-        "dynamic-zone.image-carousel-module": {
-          populate: {
-            carouselImages: imgFetchOptions,
-          },
-        },
-        "dynamic-zone.text-image-module": {
-          fields: [
-            "text",
-            "imageCaptionOverride",
-            "ctaText",
-            "ctaLink",
-            "ctaSide",
-          ],
-          populate: {
-            image: imgFetchOptions,
-          },
-        },
-      },
-    },
-  },
 });
 
 export const dtaSnippetsFetchOptions = createFetchOptions({
