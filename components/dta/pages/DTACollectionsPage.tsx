@@ -3,7 +3,12 @@ import { z } from "zod/v4";
 import { getDTAObjects } from "@/api/getDTAObjects";
 import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
-import { DTACollectionsPageContent } from "@/components/dta/pages/DTACollectionsPageContent";
+import {
+  DTAObjectsGrid,
+  DTAObjectsGridItem,
+} from "@/components/dta/components/DTAObjectsGrid";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { FooterPagination } from "@/components/globals/components/FooterPagination";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -20,7 +25,7 @@ export async function DTACollectionsPage({
 
   const [
     {
-      data: objects,
+      data: collections,
       meta: { pagination },
     },
     { data: snippets },
@@ -30,7 +35,7 @@ export async function DTACollectionsPage({
     }),
     getDTASnippets(),
   ]);
-
+  console.log(pagination);
   return (
     <ViewTransitionTipinPage
       type="1"
@@ -39,11 +44,24 @@ export async function DTACollectionsPage({
       title="Collections"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
-      <DTACollectionsPageContent
-        objects={objects}
-        pagination={pagination}
-        description={snippets?.collectionsLandingDescription}
-      />
+      <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+        <h1>Collections</h1>
+        <DTAContentSingleCol>
+          {snippets?.collectionsLandingDescription ?? ``}
+        </DTAContentSingleCol>
+        <span className="mono mt-[10px]">{`All ${collections.length} record${collections.length > 1 ? `s` : ``}`}</span>
+        <DTAObjectsGrid>
+          {collections.map((object) => (
+            <DTAObjectsGridItem key={object.documentId} object={object} />
+          ))}
+        </DTAObjectsGrid>
+        {pagination.pageCount > 1 && (
+          <FooterPagination
+            totalPages={pagination.pageCount}
+            className="text-dta-collections-foreground"
+          />
+        )}
+      </div>
     </ViewTransitionTipinPage>
   );
 }

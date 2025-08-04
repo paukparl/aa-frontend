@@ -6,10 +6,10 @@ import {
   DTAPeopleGrid,
   DTAPersonGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
-import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
+// import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
 import { FooterPagination } from "@/components/globals/components/FooterPagination";
-import { cn } from "@/lib/cn";
+// import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -47,11 +47,7 @@ export async function DTAPeoplePage({
       title="People"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
-      <div
-        className={cn(
-          "text-dta-people-foreground 700:gap-[30px] flex flex-col gap-[20px] p-24",
-        )}
-      >
+      <div className="text-dta-people-foreground 700:gap-[30px] flex flex-col gap-[20px] p-24">
         <h1>People</h1>
         <DTAContentSingleCol>
           {snippets?.peopleLandingDescription ?? ``}
@@ -78,10 +74,12 @@ export async function DTAPeoplePage({
         </DTAPeopleGrid>
         {/* update pagination component:
         pass in current page, total page, and setnewpage function */}
-        <FooterPagination
-          totalPages={32}
-          className="text-dta-people-foreground"
-        />
+        {pagination.pageCount > 1 && (
+          <FooterPagination
+            totalPages={pagination.pageCount}
+            className="text-dta-people-foreground"
+          />
+        )}
       </div>
     </ViewTransitionTipinPage>
   );
