@@ -19,7 +19,7 @@ export const dtaLocationPreview = document.extend({
 export const dtaPracticePreview = document.extend({
   slug: z.string().nullable(),
   name: z.string().nullable(),
-  dta_locationNew: dtaLocationPreview.nullable(),
+  dta_location_news: z.array(dtaLocationPreview),
 });
 
 export const dtaInstitutionPreview = document.extend({
@@ -66,7 +66,6 @@ export const dtaPersonDetail = dtaPersonPreview.extend({
 
 export const dtaPracticeDetail = dtaPracticePreview.extend({
   description: z.string().nullable(),
-  dta_locationNew: dtaLocationPreview.nullable(),
   dta_peopleNew: z.array(dtaPersonPreview),
   dta_institutionsNew: z.array(dtaInstitutionPreview),
   dta_objects: z.array(dtaObjectPreview),
@@ -86,10 +85,41 @@ export const dtaObjectDetail = dtaObjectPreview.extend({
   dta_practicesNew: z.array(dtaPracticePreview),
 });
 
-export const dtaPage = document.extend({
-  slug: z.string().nullable(),
-  pageTitle: z.string().nullable(),
-});
+export const dtaPage = document
+  .extend({
+    slug: z.string().nullable(),
+    pageTitle: z.string().nullable(),
+    dynamicZone: z.array(
+      z.union([
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.subhead-module"),
+          subhead: z.string().nullable(),
+        }),
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.text-module"),
+          // text: z.string().nullable(),
+        }),
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.image-carousel-module"),
+          carouselImages: z.array(img).nullable(),
+        }),
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.text-image-module"),
+          // text: z.string().nullable(),
+          image: img.nullable(),
+          // imageCaptionOverride: z.string().nullable(),
+          ctaText: z.string().nullable(),
+          ctaLink: z.string().nullable(),
+          ctaSide: z.string().nullable(),
+        }),
+      ]),
+    ),
+  })
+  .loose();
 
 export const dtaSnippets = document.extend({
   peopleLandingDescription: z.string().nullable(),
