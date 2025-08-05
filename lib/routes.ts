@@ -1,4 +1,15 @@
-export const schoolGroundSlugs = ["school", "school-programmes"] as const;
+export const schoolGroundSlugs = [
+  "school",
+  "school-programmes",
+  "school-apply",
+  "school-facilities",
+  "school-calendar",
+  "school-locations",
+  "school-people",
+  "school-about",
+  "school-governance",
+  "school-documents",
+] as const;
 export const publicGroundSlugs = ["public", "public-whats-on"] as const;
 export const hookeParkGroundSlugs = ["hooke-park"] as const;
 export const dtaGroundSlugs = ["dta"] as const;

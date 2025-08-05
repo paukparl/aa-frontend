@@ -13,6 +13,12 @@ import {
   dtaSnippets,
 } from "@/lib/schemas/dta";
 import {
+  schoolEventPreview,
+  schoolFacilityPreview,
+  schoolProgrammePreview,
+  schoolVisitingSchoolPreview,
+} from "@/lib/schemas/school";
+import {
   document,
   file,
   getManyRes,
@@ -47,6 +53,10 @@ export const schemas = {
   dtaLocationPreview,
   dtaPage,
   dtaSnippets,
+  schoolEventPreview,
+  schoolFacilityPreview,
+  schoolProgrammePreview,
+  schoolVisitingSchoolPreview,
 };
 
 export type Schema<
