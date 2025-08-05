@@ -111,7 +111,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
             "fixed inset-0 top-0 left-0 z-60 size-full overflow-auto",
           )}
         >
-          <Dialog.Content className={cn("min-h-full bg-menu outline-none")}>
+          <Dialog.Content className={cn("bg-menu min-h-full outline-none")}>
             <Dialog.Title className={cn("sr-only")} />
             <Dialog.Description className={cn("sr-only")} />
 
@@ -131,7 +131,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
               </Button>
               <div
                 className={cn(
-                  "pt-[0.075em] font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500",
+                  "font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 pt-[0.075em]",
                 )}
               >
                 Architectural Association
@@ -142,7 +142,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
               <LoadingLink
                 href="/public"
                 className={cn(
-                  "mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 outline outline-black outline-dotted hover:bg-white",
+                  "font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] outline outline-black outline-dotted hover:bg-white",
                 )}
               >
                 Public
@@ -172,7 +172,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
               <LoadingLink
                 href="/school"
                 className={cn(
-                  "mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 outline outline-black outline-dotted hover:bg-white",
+                  "font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] outline outline-black outline-dotted hover:bg-white",
                 )}
               >
                 School

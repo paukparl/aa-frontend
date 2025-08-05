@@ -7,13 +7,13 @@
 @layer base {
   :root {
     --header-h: calc(var(--spacing) * 40);
-    --padding: calc(var(--spacing) * 12);
+    --padding: calc(var(--spacing) * 10);
     --nav-btn-font-size: calc(var(--spacing) * 24);
     --menu-svg-font-size: calc(var(--spacing) * 18);
     @media (min-width: 700px) {
       & {
         --header-h: calc(var(--spacing) * 64);
-        --padding: calc(var(--spacing) * 24);
+        --padding: calc(var(--spacing) * 30);
         --nav-btn-font-size: calc(var(--spacing) * 36);
         --menu-svg-font-size: calc(var(--spacing) * 27);
       }
