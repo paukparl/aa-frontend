@@ -3,7 +3,12 @@ import { z } from "zod/v4";
 import { getDTAInstitutions } from "@/api/getDTAInstitutions";
 import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
-import { DTAInstitutionsPageContent } from "@/components/dta/pages/DTAInstitutionsPageContent";
+import {
+  DTAInstitutionsGrid,
+  DTAInstitutionsGridItem,
+} from "@/components/dta/components/DTAInstitutionsGrid";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { Pagination } from "@/components/globals/components/Pagination";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -39,11 +44,24 @@ export async function DTAInstitutionsPage({
       title="Institutions"
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <DTAInstitutionsPageContent
-        institutions={institutions}
-        pagination={pagination}
-        description={snippets?.institutionsLandingDescription}
-      />
+      <div className="flex flex-col gap-20 p-24 700:gap-30">
+        <h1>Institutions</h1>
+        <DTAContentSingleCol>
+          {snippets?.institutionsLandingDescription ?? ``}
+        </DTAContentSingleCol>
+        <span className="mt-[10px] mono">{`All ${institutions.length} record${institutions.length > 1 ? `s` : ``}`}</span>
+        <DTAInstitutionsGrid>
+          {institutions.map((institution) => (
+            <DTAInstitutionsGridItem
+              key={institution.documentId}
+              institution={institution}
+            />
+          ))}
+        </DTAInstitutionsGrid>
+        {pagination.pageCount > 1 && (
+          <Pagination pagination={pagination} searchParamKey="1_page" />
+        )}
+      </div>
     </ViewTransitionTipinPage>
   );
 }

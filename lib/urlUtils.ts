@@ -158,7 +158,6 @@ export function filterParamsByPrefix(
 ) {
   const urlSearchParams = new URLSearchParams();
   for (const [key, value] of base.entries()) {
-    console.log("-------", key);
     if (prefix.some((p) => key.startsWith(`${p}_`))) {
       urlSearchParams.append(key, value);
     }

@@ -42,6 +42,7 @@
   --breakpoint-700: 700px;
   --breakpoint-1024: 1024px;
   --breakpoint-1280: 1280px;
+  --breakpoint-1500: 1500px;
 
   /* Font Sizes */
   /* --text-*: initial; */
@@ -141,6 +142,7 @@ h2 {
 @utility mono {
   font-family: var(--font-diatype);
   font-size: var(--text-15);
+  line-height: 1.2;
   @media (min-width: 700px) {
     font-size: var(--text-18);
   }

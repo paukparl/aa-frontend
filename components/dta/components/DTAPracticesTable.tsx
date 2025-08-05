@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React from "react";
@@ -43,7 +45,7 @@ export const DTAPracticesTableRow = ({
           {practice.name}
         </div>
         <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] mono 1024:px-[20px] 1024:py-[12px]">
-          {practice.dta_locationNew?.country}
+          {practice.dta_location_news[0]?.country}
         </div>
       </Link>
     </div>

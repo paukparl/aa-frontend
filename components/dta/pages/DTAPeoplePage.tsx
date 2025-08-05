@@ -1,7 +1,14 @@
 import { getDTAPeople } from "@/api";
 import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
-import { DTAPeoplePageContent } from "@/components/dta/pages/DTAPeoplePageContent";
+import {
+  DTAPeopleGrid,
+  DTAPeopleGridItem,
+} from "@/components/dta/components/DTAPeopleGrid";
+// import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { Pagination } from "@/components/globals/components/Pagination";
+// import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parsePageParam, parseUrlSearchParams } from "@/lib/urlUtils";
@@ -35,11 +42,37 @@ export async function DTAPeoplePage({
       title="People"
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <DTAPeoplePageContent
-        people={people}
-        pagination={pagination}
-        description={snippets?.peopleLandingDescription}
-      />
+      <div className="flex flex-col gap-[20px] p-24 text-dta-people-foreground 700:gap-[30px]">
+        <h1>People</h1>
+        <DTAContentSingleCol>
+          {snippets?.peopleLandingDescription ?? ``}
+        </DTAContentSingleCol>
+        {/* <DTAFilterMultiSelectRow
+          clearFilters={clearFilters}
+          activeFilters={activeFilters}
+          toggleFilter={toggleFilter}
+          colorTheme="people"
+          filtersInfo={[
+            { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
+            {
+              filters: mockBirthPlaceFilters,
+              multiFilterType: "birthPlace",
+            },
+            { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
+          ]}
+        /> */}
+        <span className="mt-[10px] mono">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
+        <DTAPeopleGrid>
+          {people.map((person) => (
+            <DTAPeopleGridItem key={person.documentId} person={person} />
+          ))}
+        </DTAPeopleGrid>
+        {/* update pagination component:
+        pass in current page, total page, and setnewpage function */}
+        {pagination.pageCount > 1 && (
+          <Pagination pagination={pagination} searchParamKey="1_page" />
+        )}
+      </div>
     </ViewTransitionTipinPage>
   );
 }
