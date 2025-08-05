@@ -41,7 +41,7 @@ export const DTATooltipCard = ({ className, items }: DTATooltipCardProps) => {
               </span>
               <br />
               <br />
-              <span className="small mono">PRACTICE</span>
+              <span className="mono small">PRACTICE</span>
               <br />
               <span className="mono small underline decoration-dotted decoration-[1px] underline-offset-3">
                 {item.practice}
@@ -56,14 +56,14 @@ export const DTATooltipCard = ({ className, items }: DTATooltipCardProps) => {
             >
               <h1 className="tipin !text-18">{item.eventInfo}</h1>
               <br />
-              <span className="small mono">PERSON</span>
+              <span className="mono small">PERSON</span>
               <br />
               <span className="mono small underline decoration-dotted underline-offset-3">
                 {item.person}
               </span>
               <br />
               <br />
-              <span className="small mono">PRACTICE</span>
+              <span className="mono small">PRACTICE</span>
               <br />
               <span className="mono small underline decoration-dotted underline-offset-3">
                 {item.practice}

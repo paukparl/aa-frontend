@@ -39,13 +39,13 @@ export const DTAGridItemPeople = ({
         <img
           src={imgSrc}
           alt={imgAlt ?? ""}
-          className="1280:mb-3 mb-2 aspect-[4/5] h-auto w-full object-cover"
+          className="mb-2 aspect-[4/5] h-auto w-full object-cover 1280:mb-3"
         />
       ) : (
-        <div className="dta_griditem_bg 1280:mb-3 mb-2 aspect-[4/5] h-auto w-full"></div>
+        <div className="dta_griditem_bg mb-2 aspect-[4/5] h-auto w-full 1280:mb-3"></div>
       )}
       {title != null && <span className="mono">{title}</span>}
-      {date != null && <div className="mono mt-2">{date}</div>}
+      {date != null && <div className="mt-2 mono">{date}</div>}
     </div>
   );
 };
@@ -129,14 +129,14 @@ export const DTAGridItemPracticesGrid = ({
       className={cn(
         className,
         gridItemClassName,
-        "700:aspect-[5/2] 1280:aspect-[5/2] aspect-[3/2] border border-dashed px-3 py-2 leading-none",
+        "aspect-[3/2] border border-dashed px-3 py-2 leading-none 700:aspect-[5/2] 1280:aspect-[5/2]",
       )}
     >
       {title != null && <span className="mono">{title}</span>}
       {country != null && (
         <>
           <br />
-          <span className="mono block pt-[10px]">{country}</span>
+          <span className="block pt-[10px] mono">{country}</span>
         </>
       )}
     </div>
@@ -157,10 +157,10 @@ export const DTAGridItemPracticesTable = ({
         "mb-[-1px] grid grid-cols-[75%_25%]",
       )}
     >
-      <div className="1024:px-[20px] 1024:py-[12px] border border-dashed px-[15px] py-[11px] leading-0">
+      <div className="border border-dashed px-[15px] py-[11px] leading-0 1024:px-[20px] 1024:py-[12px]">
         <span className="mono">{title}</span>
       </div>
-      <div className="1024:px-[20px] 1024:py-[12px] ml-[-1px] border border-dashed px-[15px] py-[11px] leading-0">
+      <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] leading-0 1024:px-[20px] 1024:py-[12px]">
         <span className="mono">{country}</span>
       </div>
     </div>

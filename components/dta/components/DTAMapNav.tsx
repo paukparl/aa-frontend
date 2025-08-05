@@ -13,7 +13,7 @@ export const DTAMapNav = ({ className }: DTAMapNavProps) => {
         <h1>Department of Tropical Architecture Archive</h1>
       </div>
       {/* DESKTOP NAV ITEMS */}
-      <div className="700:flex hidden h-[70px] w-[100%] items-center justify-between border-b border-dotted border-white">
+      <div className="hidden h-[70px] w-[100%] items-center justify-between border-b border-dotted border-white 700:flex">
         <div className="flex gap-[50px]">
           <Link
             href={routes.ground("dta")}
@@ -61,7 +61,7 @@ export const DTAMapNav = ({ className }: DTAMapNavProps) => {
         <img src="/icons/search.svg" />
       </div>
       {/* MOBILE DROPDOWN */}
-      <div className="700:hidden flex w-[100%] items-center justify-between border-b border-dotted border-white py-[7px]">
+      <div className="flex w-[100%] items-center justify-between border-b border-dotted border-white py-[7px] 700:hidden">
         <span className="body !text-20">Map</span>
         <img src="/icons/dropdown.svg" />
       </div>

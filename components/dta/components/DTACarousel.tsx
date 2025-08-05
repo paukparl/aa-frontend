@@ -63,7 +63,7 @@ export const DTACarousel = ({
         <div className="embla__container w-full">
           {carouselSlides.map((slide, index) => (
             <div
-              className="embla__slide 700:pl-[30px] shrink-0 pl-[10px]"
+              className="embla__slide shrink-0 pl-[10px] 700:pl-[30px]"
               key={index}
             >
               <DTACarouselSlide
@@ -78,23 +78,23 @@ export const DTACarousel = ({
         </div>
       </div>
 
-      <div className="700:pr-[30px] mt-[0px] flex justify-end gap-[20px] pr-[10px]">
-        <div className="700:w-[25px] h-auto min-h-[10px] w-[20px]">
+      <div className="mt-[0px] flex justify-end gap-[20px] pr-[10px] 700:pr-[30px]">
+        <div className="h-auto min-h-[10px] w-[20px] 700:w-[25px]">
           {!prevButDisabled && (
             <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
               <img
                 src="/icons/arrow-left-large.svg"
-                className="700:w-[25px] h-auto w-[20px]"
+                className="h-auto w-[20px] 700:w-[25px]"
               />
             </button>
           )}
         </div>
-        <div className="700:w-[25px] h-auto min-h-[10px] w-[20px]">
+        <div className="h-auto min-h-[10px] w-[20px] 700:w-[25px]">
           {!nextButDisabled && (
             <button className="embla__next cursor-pointer" onClick={scrollNext}>
               <img
                 src="/icons/arrow-right-large.svg"
-                className="700:w-[25px] h-auto w-[20px]"
+                className="h-auto w-[20px] 700:w-[25px]"
               />
             </button>
           )}

@@ -55,7 +55,7 @@ export const HeaderBreadcrumb = ({
     <div
       className={cn(
         className,
-        "700:gap-[20px] flex flex-wrap items-center gap-[15px]",
+        "flex flex-wrap items-center gap-[15px] 700:gap-[20px]",
       )}
     >
       {links.map((item, index) => (
@@ -63,7 +63,7 @@ export const HeaderBreadcrumb = ({
           key={index}
           className={cn(
             colorThemeDict[colorTheme].bg,
-            "mono 700:px-[10px] 700:py-[5px] px-[7px] py-[3px] text-white",
+            "px-[7px] py-[3px] mono text-white 700:px-[10px] 700:py-[5px]",
           )}
         >
           {item.title}

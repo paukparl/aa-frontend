@@ -34,18 +34,18 @@ export const DTAContentDoubleCol = ({
     },
   };
   return (
-    <div className={cn(className, "1280:grid-cols-2 grid grid-cols-1")}>
+    <div className={cn(className, "grid grid-cols-1 1280:grid-cols-2")}>
       {contentType === "publication" && (
         <>
           <div
             className={cn(
               colorThemeDict[colorTheme].text,
-              "body 1500:w-[100%] w-full",
+              "w-full body 1500:w-[100%]",
             )}
           >
             {textContent}
           </div>
-          <div className="1280:pt-0 flex justify-center pt-[20px]">
+          <div className="flex justify-center pt-[20px] 1280:pt-0">
             <CardPublication
               title="Who are Godwin and Hopwood?"
               author="Ben Tosland"
@@ -56,11 +56,11 @@ export const DTAContentDoubleCol = ({
       )}
       {contentType === "image" && (
         <>
-          <img src={imgSrc} className="700:w-[60%] 1280:w-[100%] w-[100%]" />
+          <img src={imgSrc} className="w-[100%] 700:w-[60%] 1280:w-[100%]" />
           <div
             className={cn(
               colorThemeDict[colorTheme].text,
-              "body 1280:pt-0 1280:pl-[20px] w-full pt-[20px]",
+              "w-full pt-[20px] body 1280:pt-0 1280:pl-[20px]",
             )}
           >
             {textContent}

@@ -50,12 +50,12 @@ export const TipinHeader = ({
     <div
       className={cn(
         className,
-        "700:mb-[40px] mb-[20px] flex h-fit items-start justify-between",
+        "mb-[20px] flex h-fit items-start justify-between 700:mb-[40px]",
       )}
     >
       <div className="flex items-start gap-[20px]">
         <svg
-          className="700:mt-[3px] 700:h-[30px] 700:w-[30px] mt-[2px] h-[20px] w-[20px] shrink-0"
+          className="mt-[2px] h-[20px] w-[20px] shrink-0 700:mt-[3px] 700:h-[30px] 700:w-[30px]"
           viewBox="0 0 34 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ export const TipinHeader = ({
       </div>
       <div>
         <svg
-          className="700:mt-[6px] 700:h-[26px] 700:w-[26px] mt-[3px] h-[18px] w-[18px]"
+          className="mt-[3px] h-[18px] w-[18px] 700:mt-[6px] 700:h-[26px] 700:w-[26px]"
           viewBox="0 0 34 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

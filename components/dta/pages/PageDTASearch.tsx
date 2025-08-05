@@ -13,10 +13,10 @@ export const PageDTASearch = ({ className }: PageDTASearchProps) => {
     <div
       className={cn(
         className,
-        "text-dta-about-foreground 700:pb-[75px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg",
+        "flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] text-dta-about-foreground backdrop-blur-lg 700:pb-[75px] 1280:w-[90%]",
       )}
     >
-      <div className="700:p-[30px] flex flex-col p-[10px]">
+      <div className="flex flex-col p-[10px] 700:p-[30px]">
         <TipinHeader
           pageTitle="Search"
           breadcrumbLinks={[{ title: "DTA Archive" }]}
@@ -25,7 +25,7 @@ export const PageDTASearch = ({ className }: PageDTASearchProps) => {
         <DTASearchBar />
         <h1>Search</h1>
       </div>
-      <div className="700:gap-[70px] 700:p-[30px] flex flex-col gap-[20px] p-[10px]">
+      <div className="flex flex-col gap-[20px] p-[10px] 700:gap-[70px] 700:p-[30px]">
         <DTARelatedContent colorTheme="people" gridType="people" />
         <DTARelatedContent colorTheme="people" gridType="practices" />
         <DTARelatedContent colorTheme="people" gridType="institutions" />

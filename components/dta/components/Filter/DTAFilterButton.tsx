@@ -48,12 +48,12 @@ export const DTAFilterButton = ({
         className,
         (filterState === "expanded" || filterState === "applied") &&
           `${colorThemeDict[colorTheme].bg} text-white`,
-        "700:h-[50px] 700:h-[55px] 700:grid-cols-[40px_1fr] 700:px-[25px] grid h-[45px] w-[100%] cursor-pointer grid-cols-[35px_1fr] items-center border border-dashed px-[20px]",
+        "grid h-[45px] w-[100%] cursor-pointer grid-cols-[35px_1fr] items-center border border-dashed px-[20px] 700:h-[50px] 700:h-[55px] 700:grid-cols-[40px_1fr] 700:px-[25px]",
       )}
     >
       {filterState === "minimized" && (
         <svg
-          className="700:h-[18px] 700:w-[18px] h-[15px] w-[15px]"
+          className="h-[15px] w-[15px] 700:h-[18px] 700:w-[18px]"
           viewBox="0 0 21 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export const DTAFilterButton = ({
       )}
       {filterState === "expanded" && (
         <svg
-          className="700:w-[17px] h-[auto] w-[14px]"
+          className="h-[auto] w-[14px] 700:w-[17px]"
           viewBox="0 0 20 5"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ export const DTAFilterButton = ({
       )}
       {filterState === "applied" && (
         <svg
-          className="700:h-[18px] 700:w-[18px] h-[15px] w-[15px]"
+          className="h-[15px] w-[15px] 700:h-[18px] 700:w-[18px]"
           viewBox="0 0 23 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ export const DTAFilterButton = ({
           />
         </svg>
       )}
-      <span className="mono flex w-full justify-start leading-0">
+      <span className="flex w-full justify-start mono leading-0">
         {children}
       </span>
     </div>

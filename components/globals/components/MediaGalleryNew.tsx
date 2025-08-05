@@ -26,7 +26,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
             <div
               key={thumb.documentId}
               className={cn(
-                "700:size-75 700:p-5 size-65 cursor-pointer p-3",
+                "size-65 cursor-pointer p-3 700:size-75 700:p-5",
                 activeInd === index && "outline outline-current",
               )}
             >
@@ -58,7 +58,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
         />
       </div>
       {activeImg.caption && (
-        <span className="caption block pt-[10px]">{activeImg.caption}</span>
+        <span className="block pt-[10px] caption">{activeImg.caption}</span>
       )}
     </div>
   );
