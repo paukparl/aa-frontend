@@ -23,16 +23,16 @@ import {
 import { cn } from "@/lib/cn";
 import {
   parseMenuOpen,
-  parsePanelPagePath,
   parseTipin1PagePath,
   parseTipin2PagePath,
 } from "@/lib/layoutUtils";
+import { composeUrl, filterParamsByPrefix } from "@/lib/urlUtils";
 
 type TipinType = "1" | "2";
 
 type Ancestor = {
   title: string;
-  href: string;
+  path: string;
 };
 
 export type Ancestors<T extends TipinType> = T extends "1"
@@ -63,7 +63,6 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
   const pathname = usePathname();
   const prev = usePrevRoute();
   const isMenuOpen = parseMenuOpen(searchParams);
-  const panelPagePath = parsePanelPagePath(pathname);
   const tipin1PagePath = parseTipin1PagePath(pathname);
   const tipin2PagePath = parseTipin2PagePath(pathname);
   const prevTipin1PagePath = prev.pathname
@@ -91,7 +90,8 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
     });
   }, [closeBtnOpacity, closeBtnOpacityMV]);
 
-  const parentHref = ancestors[ancestors.length - 1].href;
+  const parent = ancestors[ancestors.length - 1];
+  const grandparent = ancestors[ancestors.length - 2] as Ancestor | undefined;
 
   const removeScrollBar = () => {
     overlayRef.current?.style.setProperty("overflow", "hidden");
@@ -120,8 +120,6 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         }
       }}
       onExit={(tran) => {
-        console.log("exiting");
-        // overlayRef.current?.style.setProperty("overflow", "hidden");
         const anim = tran.old.getAnimations()[0] as Animation | undefined;
         if (anim) {
           pushAnimation(anim);
@@ -136,7 +134,16 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         onOpenChange={(open) => {
           if (!open && getAnimations().length === 0) {
             removeScrollBar();
-            router.push(parentHref, { scroll: false });
+            router.push(
+              composeUrl({
+                path: parent.path,
+                params:
+                  type === "1"
+                    ? filterParamsByPrefix(searchParams, ["0"])
+                    : filterParamsByPrefix(searchParams, ["0", "1"]),
+              }),
+              { scroll: false },
+            );
           }
         }}
       >
@@ -182,9 +189,15 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                   {ancestors.map((ancestor, idx) => (
                     <LoadingLink
                       key={idx}
-                      href={ancestor.href}
+                      href={composeUrl({
+                        path: ancestor.path,
+                        params:
+                          idx === 0
+                            ? filterParamsByPrefix(searchParams, ["0"])
+                            : filterParamsByPrefix(searchParams, ["0", "1"]),
+                      })}
                       className={cn(
-                        "font-diatype text-15/1.2 inline-flex h-28 items-center px-8",
+                        "inline-flex h-28 items-center px-8 font-diatype text-15/1.2",
                         "bg-(--tipin-fg) text-(--tipin-bg) hover:bg-(--tipin-fg)/60",
                       )}
                       scroll={false}
@@ -193,7 +206,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                     </LoadingLink>
                   ))}
                 </div>
-                <div className={cn("text-12/1.2 700:text-15/1.2 font-diatype")}>
+                <div className={cn("font-diatype text-12/1.2 700:text-15/1.2")}>
                   {title}
                 </div>
 
@@ -206,7 +219,16 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                     className={cn("text-(length:--menu-svg-font-size)")}
                     asChild
                   >
-                    <LoadingLink href={parentHref} scroll={false}>
+                    <LoadingLink
+                      href={composeUrl({
+                        path: parent.path,
+                        params:
+                          type === "1"
+                            ? filterParamsByPrefix(searchParams, ["0"])
+                            : filterParamsByPrefix(searchParams, ["0", "1"]),
+                      })}
+                      scroll={false}
+                    >
                       <MenuSvg mode="close" />
                     </LoadingLink>
                   </Button>
@@ -217,25 +239,35 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           </Dialog.Content>
 
           {/* Backdrop for tipin1 */}
-          {type === "2" && tipin1PagePath && (
+          {type === "2" && (
             <div
-              className={cn("700:block 700:w-2/12 sticky top-0 hidden h-full")}
+              className={cn("sticky top-0 hidden h-full 700:block 700:w-2/12")}
               onClick={() => {
                 removeScrollBar();
-                router.push(tipin1PagePath!, { scroll: false });
+                router.push(
+                  composeUrl({
+                    path: parent.path,
+                    params: filterParamsByPrefix(searchParams, ["0", "1"]),
+                  }),
+                  { scroll: false },
+                );
               }}
             />
           )}
           {/* Backdrop for panel */}
-          {(type === "1" || type === "2") && panelPagePath && (
-            <div
-              className={cn("700:block 700:w-1/12 sticky top-0 hidden h-full")}
-              onClick={() => {
-                removeScrollBar();
-                router.push(panelPagePath, { scroll: false });
-              }}
-            />
-          )}
+          <div
+            className={cn("sticky top-0 hidden h-full 700:block 700:w-1/12")}
+            onClick={() => {
+              removeScrollBar();
+              router.push(
+                composeUrl({
+                  path: grandparent?.path ?? parent.path,
+                  params: filterParamsByPrefix(searchParams, ["0"]),
+                }),
+                { scroll: false },
+              );
+            }}
+          />
         </Dialog.Overlay>
       </Dialog.Root>
     </ViewTransition>

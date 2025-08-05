@@ -35,9 +35,9 @@ export default function ViewTransitionNavButton({
     >
       <div
         className={cn(
-          "font-500 font-nhg-display",
+          "font-nhg-display font-500",
           type !== "menu" &&
-            "text-(length:--nav-btn-font-size)/1.1 pt-[0.075em]",
+            "pt-[0.075em] text-(length:--nav-btn-font-size)/1.1",
           microsite === "dta" ? "text-white" : "text-black",
           // Menu
           type === "menu"

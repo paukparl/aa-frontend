@@ -57,7 +57,7 @@ export const FooterPagination = ({
       aria-label="Pagination Navigation pt-[20px] 700:pt-[30px]"
       className={cn(className)}
     >
-      <ul className="700:gap-[25px] m-0 flex items-center gap-[10px] p-0">
+      <ul className="m-0 flex items-center gap-[10px] p-0 700:gap-[25px]">
         <span className="mono">Page:</span>
         {pageItems.map((item, ind) =>
           item === "..." ? (

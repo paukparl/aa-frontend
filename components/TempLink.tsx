@@ -13,7 +13,7 @@ export default function TempLink({
     <Button theme="minimal" asChild>
       <LoadingLink
         className={cn(
-          "text-24 font-diatype font-400 inline-block underline",
+          "inline-block font-diatype text-24 font-400 underline",
           className,
         )}
         {...props}

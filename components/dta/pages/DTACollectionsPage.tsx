@@ -8,7 +8,7 @@ import {
   DTAObjectsGridItem,
 } from "@/components/dta/components/DTAObjectsGrid";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
-import { FooterPagination } from "@/components/globals/components/FooterPagination";
+import { Pagination } from "@/components/globals/components/Pagination";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -41,24 +41,21 @@ export async function DTACollectionsPage({
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-collections-foreground)"
       title="Collections"
-      ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+      <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
         <h1>Collections</h1>
         <DTAContentSingleCol>
           {snippets?.collectionsLandingDescription ?? ``}
         </DTAContentSingleCol>
-        <span className="mono mt-[10px]">{`All ${collections.length} record${collections.length > 1 ? `s` : ``}`}</span>
+        <span className="mt-[10px] mono">{`All ${collections.length} record${collections.length > 1 ? `s` : ``}`}</span>
         <DTAObjectsGrid>
           {collections.map((object) => (
             <DTAObjectsGridItem key={object.documentId} object={object} />
           ))}
         </DTAObjectsGrid>
         {pagination.pageCount > 1 && (
-          <FooterPagination
-            totalPages={pagination.pageCount}
-            className="text-dta-collections-foreground"
-          />
+          <Pagination pagination={pagination} searchParamKey="1_page" />
         )}
       </div>
     </ViewTransitionTipinPage>

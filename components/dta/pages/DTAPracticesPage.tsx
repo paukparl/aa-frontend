@@ -42,14 +42,14 @@ export async function DTAPracticesPage({
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-practices-foreground)"
       title="Practices"
-      ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className={cn("700:gap-30 flex flex-col gap-20 p-24")}>
+      <div className={cn("flex flex-col gap-20 p-24 700:gap-30")}>
         <h1>Practices</h1>
         <DTAContentSingleCol>
           {snippets?.practicesLandingDescription ?? ``}
         </DTAContentSingleCol>
-        <span className="mono mt-[10px]">All {pagination.total} records</span>
+        <span className="mt-[10px] mono">All {pagination.total} records</span>
         <DTAPracticesTable>
           {practices.map((practice) => (
             <DTAPracticesTableRow

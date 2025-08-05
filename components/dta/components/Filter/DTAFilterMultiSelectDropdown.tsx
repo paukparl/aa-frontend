@@ -25,7 +25,6 @@ export const DTAFilterMultiSelectDropdown = ({
   activeFilters,
   groupIndex,
 }: DTAFilterMultiSelectDropdownProps) => {
-  console.log(activeFilters);
   const filterTypeDict = {
     alphabet: {
       className: "grid grid-cols-5 700:flex flex-wrap",
@@ -53,13 +52,13 @@ export const DTAFilterMultiSelectDropdown = ({
     <div
       className={cn(
         className,
-        "700:mt-[20px] 700:p-[15px] mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px]",
+        "mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px] 700:mt-[20px] 700:p-[15px]",
       )}
     >
       <ul
         role="listbox"
         className={cn(
-          "700:gap-[15px] gap-[10px]",
+          "gap-[10px] 700:gap-[15px]",
           filterTypeDict[multiFilterType].className,
         )}
       >

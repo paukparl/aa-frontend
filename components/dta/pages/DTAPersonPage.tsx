@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import * as React from "react";
-import { z } from "zod/v4";
 import { getDTAPerson } from "@/api";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
@@ -21,21 +19,8 @@ import {
 import { Map } from "@/components/dta/components/Map";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
-import { SearchParams } from "@/lib/types";
-import { parseUrlSearchParams } from "@/lib/urlUtils";
 
-export async function DTAPersonPage({
-  searchParams,
-  slug,
-}: {
-  searchParams: SearchParams;
-  slug: string;
-}) {
-  const urlSearchParams = parseUrlSearchParams(await searchParams);
-  const _page =
-    z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
-      .data ?? 1;
-
+export async function DTAPersonPage({ slug }: { slug: string }) {
   const person = await getDTAPerson(slug);
 
   if (!person) notFound();
@@ -47,15 +32,15 @@ export async function DTAPersonPage({
       fg="var(--color-dta-green)"
       title={`${person.firstName} ${person.lastName}`}
       ancestors={[
-        { title: "DTA Archive", href: routes.ground("dta") },
-        { title: "People", href: routes.tipin1("dta", "people") },
+        { title: "DTA Archive", path: routes.ground("dta") },
+        { title: "People", path: routes.tipin1("dta", "people") },
       ]}
     >
-      <div className={cn("700:gap-72 flex flex-col gap-20 p-24")}>
+      <div className={cn("flex flex-col gap-20 p-24 700:gap-72")}>
         <h1 className="tipin">
-          Handel Kitchiner (Hal) Lawson
+          {person.firstName} {person.lastName}
           <br />
-          1928-1985
+          {person.displayStudyYear}
         </h1>
         <div className={cn("grid grid-cols-2 gap-24")}>
           <div className={cn("")}>
@@ -73,7 +58,7 @@ export async function DTAPersonPage({
           </div>
           <div className={cn("body")}>{person.bio}</div>
         </div>
-        <div className="1024:grid-cols-2 grid grid-cols-1 gap-[30px]">
+        <div className="grid grid-cols-1 gap-[30px] 1024:grid-cols-2">
           <div>
             <DTAHeader className="capitalize">Education</DTAHeader>
             <DTAPeopleTable
@@ -97,8 +82,8 @@ export async function DTAPersonPage({
           <DTAHeader className="capitalize">Map</DTAHeader>
           <Map
             className={cn("aspect-2/1 w-full")}
-            gridStroke="var(--color-dta-map-background)"
-            landFill="var(--color-dta-map-highlight)"
+            gridStroke="var(--color-dta-people-foreground)"
+            landFill="var(--color-dta-map-land)"
           />
         </div>
         <div>

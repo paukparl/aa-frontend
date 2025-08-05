@@ -8,7 +8,7 @@ import {
   DTAInstitutionsGridItem,
 } from "@/components/dta/components/DTAInstitutionsGrid";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
-import { FooterPagination } from "@/components/globals/components/FooterPagination";
+import { Pagination } from "@/components/globals/components/Pagination";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -42,14 +42,14 @@ export async function DTAInstitutionsPage({
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-institutions-foreground)"
       title="Institutions"
-      ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className="700:gap-30 flex flex-col gap-20 p-24">
+      <div className="flex flex-col gap-20 p-24 700:gap-30">
         <h1>Institutions</h1>
         <DTAContentSingleCol>
           {snippets?.institutionsLandingDescription ?? ``}
         </DTAContentSingleCol>
-        <span className="mono mt-[10px]">{`All ${institutions.length} record${institutions.length > 1 ? `s` : ``}`}</span>
+        <span className="mt-[10px] mono">{`All ${institutions.length} record${institutions.length > 1 ? `s` : ``}`}</span>
         <DTAInstitutionsGrid>
           {institutions.map((institution) => (
             <DTAInstitutionsGridItem
@@ -59,10 +59,7 @@ export async function DTAInstitutionsPage({
           ))}
         </DTAInstitutionsGrid>
         {pagination.pageCount > 1 && (
-          <FooterPagination
-            totalPages={pagination.pageCount}
-            className="text-dta-institutions-foreground"
-          />
+          <Pagination pagination={pagination} searchParamKey="1_page" />
         )}
       </div>
     </ViewTransitionTipinPage>

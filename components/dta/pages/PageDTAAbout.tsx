@@ -51,10 +51,10 @@ export const PageDTAAbout = ({ className }: DTAAboutProps) => {
     <div
       className={cn(
         className,
-        "text-dta-about-foreground 700:pb-[75px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg",
+        "flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] text-dta-about-foreground backdrop-blur-lg 700:pb-[75px] 1280:w-[90%]",
       )}
     >
-      <div className="700:gap-[30px] 700:p-[30px] flex flex-col gap-[20px] p-[10px]">
+      <div className="flex flex-col gap-[20px] p-[10px] 700:gap-[30px] 700:p-[30px]">
         <TipinHeader
           pageTitle="About the Archive"
           breadcrumbLinks={[{ title: "DTA Archive" }]}
@@ -73,7 +73,7 @@ export const PageDTAAbout = ({ className }: DTAAboutProps) => {
         </DTAContentSingleCol>
       </div>
       <DTACarousel carouselSlides={mockCarouselSlides} />
-      <div className="700:gap-[30px] 700:p-[30px] flex flex-col gap-[20px] p-[10px]">
+      <div className="flex flex-col gap-[20px] p-[10px] 700:gap-[30px] 700:p-[30px]">
         <DTAContentSingleCol>
           The first embodiment of this work is the Entangled Archive, a Graham
           Foundation-funded project to digitise material from the AA Department

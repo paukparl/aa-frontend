@@ -40,15 +40,15 @@ export const DTACarouselSlide = ({
         ref={imgRef}
         src={imgSrc}
         alt={imgAlt}
-        className="700:h-[370px] 1500:h-[515px] mb-1 h-[180px] w-auto"
+        className="mb-1 h-[180px] w-auto 700:h-[370px] 1500:h-[515px]"
         onLoad={setCaptionWidths}
       />
       {caption && minWidth !== "" && (
         <>
-          <div style={{ width: minWidth }} className="700:hidden block">
+          <div style={{ width: minWidth }} className="block 700:hidden">
             <span
               className={cn(
-                "caption text-color-dta-about-foreground transition-opacity duration-300 ease-in-out",
+                "text-color-dta-about-foreground caption transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
             >
@@ -57,21 +57,21 @@ export const DTACarouselSlide = ({
           </div>
           <div
             style={{ width: midWidth }}
-            className="700:block 1500:hidden hidden"
+            className="hidden 700:block 1500:hidden"
           >
             <span
               className={cn(
-                "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
+                "text-color-dta-about-foreground caption leading-tight transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
             >
               {caption}
             </span>
           </div>
-          <div style={{ width: maxWidth }} className="1500:block hidden">
+          <div style={{ width: maxWidth }} className="hidden 1500:block">
             <span
               className={cn(
-                "caption text-color-dta-about-foreground leading-tight transition-opacity duration-300 ease-in-out",
+                "text-color-dta-about-foreground caption leading-tight transition-opacity duration-300 ease-in-out",
                 isActive ? "opacity-100" : "opacity-0",
               )}
             >

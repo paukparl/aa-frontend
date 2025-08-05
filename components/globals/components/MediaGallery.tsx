@@ -66,7 +66,7 @@ export const MediaGallery = ({
               className={cn(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
-                "700:h-[75px] 700:w-[75px] 700:p-[5px] h-[65px] w-[65px] cursor-pointer object-cover p-[3px]",
+                "h-[65px] w-[65px] cursor-pointer object-cover p-[3px] 700:h-[75px] 700:w-[75px] 700:p-[5px]",
               )}
               onClick={() => handleClick(index)}
             />
@@ -80,7 +80,7 @@ export const MediaGallery = ({
       {slides[activeInd].caption.length > 0 && (
         <span
           className={cn(
-            "caption block pt-[10px]",
+            "block pt-[10px] caption",
             colorThemeDict[colorTheme].text,
           )}
         >

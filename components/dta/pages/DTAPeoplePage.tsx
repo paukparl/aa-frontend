@@ -1,18 +1,17 @@
-import { z } from "zod/v4";
 import { getDTAPeople } from "@/api";
 import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import {
   DTAPeopleGrid,
-  DTAPersonGridItem,
+  DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 // import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
-import { FooterPagination } from "@/components/globals/components/FooterPagination";
+import { Pagination } from "@/components/globals/components/Pagination";
 // import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
-import { parseUrlSearchParams } from "@/lib/urlUtils";
+import { parsePageParam, parseUrlSearchParams } from "@/lib/urlUtils";
 
 export async function DTAPeoplePage({
   searchParams,
@@ -20,9 +19,7 @@ export async function DTAPeoplePage({
   searchParams: SearchParams;
 }) {
   const urlSearchParams = parseUrlSearchParams(await searchParams);
-  const page =
-    z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
-      .data ?? 1;
+  const page = parsePageParam({ urlSearchParams, searchParamKey: "1_page" });
 
   const [
     {
@@ -37,16 +34,15 @@ export async function DTAPeoplePage({
     getDTASnippets(),
   ]);
 
-
   return (
     <ViewTransitionTipinPage
       type="1"
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-green)"
       title="People"
-      ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className="text-dta-people-foreground 700:gap-[30px] flex flex-col gap-[20px] p-24">
+      <div className="flex flex-col gap-[20px] p-24 text-dta-people-foreground 700:gap-[30px]">
         <h1>People</h1>
         <DTAContentSingleCol>
           {snippets?.peopleLandingDescription ?? ``}
@@ -65,44 +61,18 @@ export async function DTAPeoplePage({
             { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
           ]}
         /> */}
-        <span className="mono mt-[10px]">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
+        <span className="mt-[10px] mono">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
         <DTAPeopleGrid>
           {people.map((person) => (
-            <DTAPersonGridItem key={person.documentId} person={person} />
+            <DTAPeopleGridItem key={person.documentId} person={person} />
           ))}
         </DTAPeopleGrid>
         {/* update pagination component:
         pass in current page, total page, and setnewpage function */}
         {pagination.pageCount > 1 && (
-          <FooterPagination
-            totalPages={pagination.pageCount}
-            className="text-dta-people-foreground"
-          />
+          <Pagination pagination={pagination} searchParamKey="1_page" />
         )}
       </div>
     </ViewTransitionTipinPage>
   );
 }
-
-// copied logic from unused and deleted people page below for filters
-// const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
-// const toggleFilter = (groupIndex: number, filter: string) => {
-//   setActiveFilters((prev) => {
-//     const updated = [...prev];
-//     const group = new Set(updated[groupIndex] ?? []);
-//     if (group.has(filter)) {
-//       group.delete(filter);
-//     } else {
-//       group.add(filter);
-//     }
-//     updated[groupIndex] = Array.from(group);
-//     return updated;
-//   });
-// };
-// const clearFilters = (groupIndex: number) => {
-//   setActiveFilters((prev) => {
-//     const updated = [...prev];
-//     updated[groupIndex] = [];
-//     return updated;
-//   });
-// };

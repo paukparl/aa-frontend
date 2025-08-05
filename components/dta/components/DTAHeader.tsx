@@ -12,7 +12,7 @@ export const DTAHeader = ({ children, className }: DTAHeaderProps) => {
     <div
       className={cn(
         className,
-        "1024:border-b-[2px] mb-[10px] w-full border-b-[1.5px] pb-[10px]",
+        "mb-[10px] w-full border-b-[1.5px] pb-[10px] 1024:border-b-[2px]",
       )}
     >
       <span className="body">{children}</span>

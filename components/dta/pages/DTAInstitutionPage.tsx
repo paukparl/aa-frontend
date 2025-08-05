@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import * as React from "react";
-import { z } from "zod/v4";
 import { getDTAInstitution } from "@/api/getDTAInstitution";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
@@ -11,7 +9,7 @@ import {
 } from "@/components/dta/components/DTAObjectsGrid";
 import {
   DTAPeopleGrid,
-  DTAPersonGridItem,
+  DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import {
   DTAPracticesGrid,
@@ -20,21 +18,8 @@ import {
 import { Map } from "@/components/dta/components/Map";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
-import { SearchParams } from "@/lib/types";
-import { parseUrlSearchParams } from "@/lib/urlUtils";
 
-export async function DTAInstitutionPage({
-  searchParams,
-  slug,
-}: {
-  searchParams: SearchParams;
-  slug: string;
-}) {
-  const urlSearchParams = parseUrlSearchParams(await searchParams);
-  const _page =
-    z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
-      .data ?? 1;
-
+export async function DTAInstitutionPage({ slug }: { slug: string }) {
   const institution = await getDTAInstitution(slug);
 
   if (!institution) notFound();
@@ -46,11 +31,11 @@ export async function DTAInstitutionPage({
       fg="var(--color-dta-institutions-foreground)"
       title={institution.Name}
       ancestors={[
-        { title: "DTA Archive", href: routes.ground("dta") },
-        { title: "Institutions", href: routes.tipin1("dta", "institutions") },
+        { title: "DTA Archive", path: routes.ground("dta") },
+        { title: "Institutions", path: routes.tipin1("dta", "institutions") },
       ]}
     >
-      <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+      <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
         <h1 className="tipin">{institution.Name}</h1>
         <div className={cn("grid grid-cols-2 gap-24")}>
           <div className={cn("relative")}>
@@ -77,15 +62,15 @@ export async function DTAInstitutionPage({
           <DTAHeader className="capitalize">Map</DTAHeader>
           <Map
             className={cn("aspect-2/1 w-full")}
-            gridStroke="var(--color-dta-map-background)"
-            landFill="var(--color-dta-map-highlight)"
+            gridStroke="var(--color-dta-institutions-foreground)"
+            landFill="var(--color-dta-map-land)"
           />
         </div>
         <div>
           <DTAHeader className="capitalize">Related People</DTAHeader>
           <DTAPeopleGrid>
             {institution.dtaPeople.map((person) => (
-              <DTAPersonGridItem key={person.documentId} person={person} />
+              <DTAPeopleGridItem key={person.documentId} person={person} />
             ))}
           </DTAPeopleGrid>
         </div>

@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import * as React from "react";
-import { z } from "zod/v4";
 import { getDTAObject } from "@/api/getDTAObject";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTAHeader } from "@/components/dta/components/DTAHeader";
@@ -10,7 +9,7 @@ import {
 } from "@/components/dta/components/DTAInstitutionsGrid";
 import {
   DTAPeopleGrid,
-  DTAPersonGridItem,
+  DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import {
   DTAPracticesGrid,
@@ -20,21 +19,8 @@ import { Map } from "@/components/dta/components/Map";
 import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
-import { SearchParams } from "@/lib/types";
-import { parseUrlSearchParams } from "@/lib/urlUtils";
 
-export async function DTAObjectPage({
-  searchParams,
-  slug,
-}: {
-  searchParams: SearchParams;
-  slug: string;
-}) {
-  const urlSearchParams = parseUrlSearchParams(await searchParams);
-  const _page =
-    z.coerce.number().int().min(1).safeParse(urlSearchParams.get("1_page"))
-      .data ?? 1;
-
+export async function DTAObjectPage({ slug }: { slug: string }) {
   const object = await getDTAObject(slug);
 
   if (!object) notFound();
@@ -46,11 +32,11 @@ export async function DTAObjectPage({
       fg="var(--color-dta-collections-foreground)"
       title={object.title}
       ancestors={[
-        { title: "DTA Archive", href: routes.ground("dta") },
-        { title: "Collections", href: routes.tipin1("dta", "collections") },
+        { title: "DTA Archive", path: routes.ground("dta") },
+        { title: "Collections", path: routes.tipin1("dta", "collections") },
       ]}
     >
-      <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+      <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
         <h1 className="tipin">{object.title}</h1>
         <span className="body">{object.additionalDescription}</span>
         <MediaGallery
@@ -69,7 +55,7 @@ export async function DTAObjectPage({
           <DTAHeader className="capitalize">Related People</DTAHeader>
           <DTAPeopleGrid>
             {object.dta_peopleNew.map((person) => (
-              <DTAPersonGridItem key={person.documentId} person={person} />
+              <DTAPeopleGridItem key={person.documentId} person={person} />
             ))}
           </DTAPeopleGrid>
         </div>

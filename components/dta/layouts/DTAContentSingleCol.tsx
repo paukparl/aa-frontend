@@ -12,7 +12,7 @@ export const DTAContentSingleCol = ({
 }: DTAContentSingleColProps) => {
   return (
     <div className={cn(className, "w-full")}>
-      <div className="body 700:w-[calc(7/12)] 1024:w-[75%] 1500:w-[50%] w-full">
+      <div className="w-full body 700:w-[calc(7/12)] 1024:w-[75%] 1500:w-[50%]">
         {children}
       </div>
     </div>

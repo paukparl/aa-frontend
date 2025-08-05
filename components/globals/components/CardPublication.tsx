@@ -15,14 +15,14 @@ export const CardPublication = ({
 }: CardPublicationProps) => {
   return (
     <div
-      className={cn(className, "700:justify-center flex w-full justify-start")}
+      className={cn(className, "flex w-full justify-start 700:justify-center")}
     >
-      <div className="700:w-fit w-[50%]">
+      <div className="w-[50%] 700:w-fit">
         <img src={imgSrc} className="max-h-[70vh] w-full object-contain" />
-        <span className="body text-dta-about-foreground font-700 block pt-[10px]">
+        <span className="block pt-[10px] body font-700 text-dta-about-foreground">
           {title}
         </span>
-        <span className="body text-dta-about-foreground block">{author}</span>
+        <span className="block body text-dta-about-foreground">{author}</span>
       </div>
     </div>
   );
