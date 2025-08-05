@@ -3,8 +3,6 @@ import { DTAInstitutionPage } from "@/components/dta/pages/DTAInstitutionPage";
 import { DTAObjectPage } from "@/components/dta/pages/DTAObjectPage";
 import { DTAPersonPage } from "@/components/dta/pages/DTAPersonPage";
 import { DTAPracticePage } from "@/components/dta/pages/DTAPracticePage";
-import PublicPage from "@/components/public/PublicPage";
-import SchoolPage from "@/components/school/SchoolPage";
 
 export default async function Tipin2Page({
   params,
@@ -13,12 +11,6 @@ export default async function Tipin2Page({
 }) {
   const { ground, tipin1, tipin2 } = await params;
 
-  if (ground === "school") {
-    return <SchoolPage />;
-  }
-  if (ground === "public") {
-    return <PublicPage />;
-  }
   if (ground === "hooke-park") {
     return null;
     // return <HookeParkPage />;
