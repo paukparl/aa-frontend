@@ -7,7 +7,7 @@ export default function PageHeader({
   return (
     <div
       className={cn(
-        "sticky top-0 left-0 z-10 flex h-(--header-h) w-full items-center bg-gradient-to-b from-50% to-transparent to-100% px-(--padding)",
+        "sticky top-0 left-0 z-10 flex h-fit w-full items-start bg-gradient-to-b from-50% to-transparent to-100% p-(--padding)",
         className,
       )}
       {...props}

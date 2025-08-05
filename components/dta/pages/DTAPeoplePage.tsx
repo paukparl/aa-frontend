@@ -42,7 +42,7 @@ export async function DTAPeoplePage({
       title="People"
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className="flex flex-col gap-[20px] p-24 text-dta-people-foreground 700:gap-[30px]">
+      <div className="text-dta-people-foreground flex flex-col gap-(--padding) p-(--padding)">
         <h1>People</h1>
         <DTAContentSingleCol>
           {snippets?.peopleLandingDescription ?? ``}
@@ -61,7 +61,7 @@ export async function DTAPeoplePage({
             { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
           ]}
         /> */}
-        <span className="mt-[10px] mono">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
+        <span className="mono mt-[10px]">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
         <DTAPeopleGrid>
           {people.map((person) => (
             <DTAPeopleGridItem key={person.documentId} person={person} />

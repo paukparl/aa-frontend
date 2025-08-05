@@ -44,12 +44,12 @@ export async function DTAInstitutionsPage({
       title="Institutions"
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className="flex flex-col gap-20 p-24 700:gap-30">
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1>Institutions</h1>
         <DTAContentSingleCol>
           {snippets?.institutionsLandingDescription ?? ``}
         </DTAContentSingleCol>
-        <span className="mt-[10px] mono">{`All ${institutions.length} record${institutions.length > 1 ? `s` : ``}`}</span>
+        <span className="mono mt-[10px]">{`All ${institutions.length} record${institutions.length > 1 ? `s` : ``}`}</span>
         <DTAInstitutionsGrid>
           {institutions.map((institution) => (
             <DTAInstitutionsGridItem

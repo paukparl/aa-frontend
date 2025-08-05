@@ -15,9 +15,8 @@ import {
   DTAPracticesGrid,
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
-import { Map } from "@/components/dta/components/Map";
+// import { Map } from "@/components/dta/components/Map";
 import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
-import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DTAObjectPage({ slug }: { slug: string }) {
@@ -36,21 +35,13 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
         { title: "Collections", path: routes.tipin1("dta", "collections") },
       ]}
     >
-      <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="tipin">{object.title}</h1>
         <span className="body">{object.additionalDescription}</span>
         <MediaGallery
           imgs={object.image}
-          className={cn("text-dta-collections-foreground")}
+          className="text-dta-collections-foreground"
         />
-        <div>
-          <DTAHeader className="capitalize">Map</DTAHeader>
-          <Map
-            className={cn("aspect-2/1 w-full")}
-            gridStroke="var(--color-dta-map-background)"
-            landFill="var(--color-dta-map-highlight)"
-          />
-        </div>
         <div>
           <DTAHeader className="capitalize">Related People</DTAHeader>
           <DTAPeopleGrid>

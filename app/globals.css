@@ -13,12 +13,13 @@
     @media (min-width: 700px) {
       & {
         --header-h: calc(var(--spacing) * 64);
-        --padding: calc(var(--spacing) * 30);
+        --padding: calc(var(--spacing) * 20);
         --nav-btn-font-size: calc(var(--spacing) * 36);
         --menu-svg-font-size: calc(var(--spacing) * 27);
       }
     }
     @media (min-width: 1000px) {
+      --padding: calc(var(--spacing) * 24);
       --header-h: calc(var(--spacing) * 76);
       --nav-btn-font-size: calc(var(--spacing) * 48);
       --menu-svg-font-size: calc(var(--spacing) * 36);

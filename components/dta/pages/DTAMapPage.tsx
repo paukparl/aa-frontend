@@ -12,10 +12,10 @@ export async function DTAMapPage() {
 
   return (
     <ViewTransitionGroundPage panel="public" microsite="dta">
-      <DTAMapNav className="px-10 700:mb-30 700:px-30" />
-      <DTAMapComponent className="p-10 700:p-30" />
+      <DTAMapNav className="700:mb-(--padding) px-(--padding)" />
+      <DTAMapComponent className="p-(--padding)" />
       {description && (
-        <DTAContentSingleCol className="p-10 700:p-30">
+        <DTAContentSingleCol className="p-(--padding)">
           {description}
         </DTAContentSingleCol>
       )}

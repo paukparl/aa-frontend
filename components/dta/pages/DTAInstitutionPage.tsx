@@ -16,7 +16,6 @@ import {
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
 import { Map } from "@/components/dta/components/Map";
-import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DTAInstitutionPage({ slug }: { slug: string }) {
@@ -35,13 +34,13 @@ export async function DTAInstitutionPage({ slug }: { slug: string }) {
         { title: "Institutions", path: routes.tipin1("dta", "institutions") },
       ]}
     >
-      <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="tipin">{institution.Name}</h1>
-        <div className={cn("grid grid-cols-2 gap-24")}>
-          <div className={cn("relative")}>
+        <div className="grid grid-cols-2 gap-24">
+          <div className="relative">
             {institution.Display && (
               <div
-                className={cn("relative")}
+                className="relative"
                 style={{
                   aspectRatio:
                     institution.Display.width / institution.Display.height,
@@ -56,12 +55,12 @@ export async function DTAInstitutionPage({ slug }: { slug: string }) {
               </div>
             )}
           </div>
-          <div className={cn("body")}>{institution.Description}</div>
+          <div className="body">{institution.Description}</div>
         </div>
         <div>
           <DTAHeader className="capitalize">Map</DTAHeader>
           <Map
-            className={cn("aspect-2/1 w-full")}
+            className="aspect-2/1 w-full"
             gridStroke="var(--color-dta-institutions-foreground)"
             landFill="var(--color-dta-map-land)"
           />

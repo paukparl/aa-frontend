@@ -16,7 +16,6 @@ import {
   DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import { Map } from "@/components/dta/components/Map";
-import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DTAPracticePage({ slug }: { slug: string }) {
@@ -35,7 +34,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
         { title: "Practices", path: routes.tipin1("dta", "practices") },
       ]}
     >
-      <div className="flex flex-col gap-20 p-24 700:gap-30">
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="tipin">{practice.name}</h1>
         {practice.description && (
           <span className="body">{practice.description}</span>
@@ -43,7 +42,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
         <div>
           <DTAHeader className="capitalize">Map</DTAHeader>
           <Map
-            className={cn("aspect-2/1 w-full")}
+            className="aspect-2/1 w-full"
             gridStroke="var(--color-dta-map-background)"
             landFill="var(--color-dta-map-highlight)"
           />

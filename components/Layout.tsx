@@ -16,7 +16,6 @@ import ViewTransitionPanel from "@/components/ViewTransitionPanel";
 import MenuSvg from "@/components/svgs/MenuSvg";
 import useEventHandler from "@/hooks/useEventHandler";
 import useInitial from "@/hooks/useInitial";
-import { cn } from "@/lib/cn";
 import { parsePanel } from "@/lib/layoutUtils";
 import { routes } from "@/lib/routes";
 
@@ -117,7 +116,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     </CollapsingText.Unit>
                   ))}
                   <CollapsingText.Unit
-                    className={cn("whitespace-pre")}
+                    className="whitespace-pre"
                     transformer={() => (expanded.get() > 0 ? "inline" : "none")}
                   >
                     {" "}
@@ -154,7 +153,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   {" of Architecture".split("").map((letter, i) => (
                     <CollapsingText.Unit
                       key={i}
-                      className={cn("whitespace-pre")}
+                      className="whitespace-pre"
                       transformer={() =>
                         expanded.get() * " of Architecture".length >= i + 1
                           ? "inline"
@@ -183,7 +182,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   {"Open to the ".split("").map((letter, i) => (
                     <CollapsingText.Unit
                       key={i}
-                      className={cn("whitespace-pre")}
+                      className="whitespace-pre"
                       transformer={() =>
                         expanded.get() * ("Open to the".length + 1) >=
                         "Open to the ".length - i

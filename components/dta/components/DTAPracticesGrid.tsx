@@ -16,7 +16,7 @@ export const DTAPracticesGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-2 gap-x-5 gap-y-8 1024:grid-cols-3 1024:gap-x-5 1024:gap-y-10 1280:gap-x-5 1280:gap-y-20",
+        "1024:grid-cols-3 1024:gap-x-5 1024:gap-y-10 1280:gap-x-5 1280:gap-y-20 700:grid-cols-2 grid gap-x-5 gap-y-8",
         className,
       )}
     >
@@ -38,14 +38,16 @@ export const DTAPracticesGridItem = ({
   return (
     <Link
       className={cn(
-        "block aspect-2/1 border border-dashed px-15 py-11 text-18 1024:px-20 1024:py-12",
+        "mono 1024:px-15 1024:py-15 700:aspect-2/1 block w-full border border-dashed p-15",
         className,
       )}
       href={href}
       scroll={false}
     >
       <div>{practice.name}</div>
-      <div>{practice.dta_location_news[0]?.country}</div>
+      {practice.dta_location_news[0]?.country && (
+        <div className="mt-20">{practice.dta_location_news[0]?.country}</div>
+      )}
     </Link>
   );
 };
