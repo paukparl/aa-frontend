@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
+import { composeUrl } from "@/lib/urlUtils";
 
 type DTAPracticesTableProps = {
   className?: string;
@@ -25,7 +27,11 @@ export const DTAPracticesTableRow = ({
   practice,
   className,
 }: DTAPracticesTableItemProps) => {
-  const href = routes.tipin2("dta", "practices", practice.documentId); // TODO: slug
+  const urlSearchParams = useSearchParams();
+  const href = composeUrl({
+    path: routes.tipin2("dta", "practices", practice.documentId), // TODO: slug
+    params: urlSearchParams,
+  });
   return (
     <div className={cn(className)}>
       <Link
@@ -33,10 +39,10 @@ export const DTAPracticesTableRow = ({
         href={href}
         scroll={false}
       >
-        <div className="mono 1024:px-[20px] 1024:py-[12px] border border-dashed px-[15px] py-[11px]">
+        <div className="border border-dashed px-[15px] py-[11px] mono 1024:px-[20px] 1024:py-[12px]">
           {practice.name}
         </div>
-        <div className="mono 1024:px-[20px] 1024:py-[12px] ml-[-1px] border border-dashed px-[15px] py-[11px]">
+        <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] mono 1024:px-[20px] 1024:py-[12px]">
           {practice.dta_locationNew?.country}
         </div>
       </Link>

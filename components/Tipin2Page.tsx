@@ -5,14 +5,11 @@ import { DTAPersonPage } from "@/components/dta/pages/DTAPersonPage";
 import { DTAPracticePage } from "@/components/dta/pages/DTAPracticePage";
 import PublicPage from "@/components/public/PublicPage";
 import SchoolPage from "@/components/school/SchoolPage";
-import { SearchParams } from "@/lib/types";
 
 export default async function Tipin2Page({
   params,
-  searchParams,
 }: {
   params: Promise<{ ground: string; tipin1: string; tipin2: string }>;
-  searchParams: SearchParams;
 }) {
   const { ground, tipin1, tipin2 } = await params;
 
@@ -28,16 +25,16 @@ export default async function Tipin2Page({
   }
   if (ground === "dta") {
     if (tipin1 === "people") {
-      return <DTAPersonPage searchParams={searchParams} slug={tipin2} />;
+      return <DTAPersonPage slug={tipin2} />;
     }
     if (tipin1 === "practices") {
-      return <DTAPracticePage searchParams={searchParams} slug={tipin2} />;
+      return <DTAPracticePage slug={tipin2} />;
     }
     if (tipin1 === "institutions") {
-      return <DTAInstitutionPage searchParams={searchParams} slug={tipin2} />;
+      return <DTAInstitutionPage slug={tipin2} />;
     }
     if (tipin1 === "collections") {
-      return <DTAObjectPage searchParams={searchParams} slug={tipin2} />;
+      return <DTAObjectPage slug={tipin2} />;
     }
   }
   if (ground === "roam") {

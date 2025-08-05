@@ -37,7 +37,7 @@ export async function DTACollectionsPage({
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-collections-foreground)"
       title="Collections"
-      ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
       <DTACollectionsPageContent
         objects={objects}

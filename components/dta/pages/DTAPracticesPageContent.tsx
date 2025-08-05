@@ -6,6 +6,7 @@ import {
   DTAPracticesTableRow,
 } from "@/components/dta/components/DTAPracticesTable";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { Pagination } from "@/components/globals/components/Pagination";
 import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
 
@@ -21,15 +22,16 @@ export const DTAPracticesPageContent = ({
   description,
 }: DTAPracticesPageContentProps) => {
   return (
-    <div className={cn("700:gap-30 flex flex-col gap-20 p-24")}>
+    <div className={cn("flex flex-col gap-20 p-24 700:gap-30")}>
       <h1>Practices</h1>
       {description && <DTAContentSingleCol>{description}</DTAContentSingleCol>}
-      <span className="mono mt-[10px]">All {pagination.total} records</span>
+      <span className="mt-[10px] mono">All {pagination.total} records</span>
       <DTAPracticesTable>
         {practices.map((practice) => (
           <DTAPracticesTableRow key={practice.documentId} practice={practice} />
         ))}
       </DTAPracticesTable>
+      <Pagination pagination={pagination} searchParamKey="1_page" />
     </div>
   );
 };

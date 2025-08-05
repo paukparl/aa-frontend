@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.11",
-    "@strapi/blocks-react-renderer": "^1.0.1",
     "@types/fuzzy-search": "^2.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

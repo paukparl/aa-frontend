@@ -6,6 +6,7 @@ import {
   DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { Pagination } from "@/components/globals/components/Pagination";
 import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
 
@@ -17,23 +18,24 @@ type DTAPeoplePageContentProps = {
 
 export const DTAPeoplePageContent = ({
   people,
-  pagination: _,
+  pagination,
   description,
 }: DTAPeoplePageContentProps) => {
   return (
     <div
       className={cn(
-        "text-dta-people-foreground 700:gap-[30px] flex flex-col gap-[20px] p-24",
+        "flex flex-col gap-[20px] p-24 text-dta-people-foreground 700:gap-[30px]",
       )}
     >
       <h1>People</h1>
       {description && <DTAContentSingleCol>{description}</DTAContentSingleCol>}
-      <span className="mono mt-[10px]">All 570 records</span>
+      <span className="mt-[10px] mono">All 570 records</span>
       <DTAPeopleGrid>
         {people.map((person) => (
           <DTAPeopleGridItem key={person.documentId} person={person} />
         ))}
       </DTAPeopleGrid>
+      <Pagination pagination={pagination} searchParamKey="1_page" />
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { z } from "zod/v4";
+
 type SearchParamsObj = Record<
   string,
   undefined | null | number | string | Array<string | number>
@@ -131,5 +133,35 @@ export function removeSearchParamsEntries(
       urlSearchParams.append(key, val);
     });
   });
+  return urlSearchParams;
+}
+
+export function parsePageParam({
+  urlSearchParams,
+  searchParamKey,
+}: {
+  urlSearchParams: URLSearchParams;
+  searchParamKey: "0_page" | "1_page" | "2_page";
+}) {
+  const page =
+    z.coerce
+      .number()
+      .int()
+      .min(1)
+      .safeParse(urlSearchParams.get(searchParamKey)).data ?? 1;
+  return page;
+}
+
+export function filterParamsByPrefix(
+  base: URLSearchParams,
+  prefix: ("0" | "1" | "2")[],
+) {
+  const urlSearchParams = new URLSearchParams();
+  for (const [key, value] of base.entries()) {
+    console.log("-------", key);
+    if (prefix.some((p) => key.startsWith(`${p}_`))) {
+      urlSearchParams.append(key, value);
+    }
+  }
   return urlSearchParams;
 }
