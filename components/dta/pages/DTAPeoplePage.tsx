@@ -37,7 +37,6 @@ export async function DTAPeoplePage({
     getDTASnippets(),
   ]);
 
-  console.log(snippets);
 
   return (
     <ViewTransitionTipinPage
