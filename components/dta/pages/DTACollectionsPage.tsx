@@ -35,7 +35,6 @@ export async function DTACollectionsPage({
     }),
     getDTASnippets(),
   ]);
-  console.log(pagination);
   return (
     <ViewTransitionTipinPage
       type="1"
