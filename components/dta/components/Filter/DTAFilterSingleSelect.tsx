@@ -68,7 +68,7 @@ export const DTAFilterSingleSelect = ({
           </ul>
         </div>
         {activeIndex !== null && (
-          <div className="700:mt-[20px] 700:p-[15px] 1280:grid-cols-[3fr_2fr] mt-[10px] grid w-full grid-cols-1 gap-[20px] border border-dashed bg-white px-[15px] py-[10px] xl:grid-cols-[1fr_1fr]">
+          <div className="700:mt-[20px] 700:p-[15px] 1280:grid-cols-[3fr_2fr] 1500:grid-cols-[1fr_1fr] mt-[10px] grid w-full grid-cols-1 gap-[20px] border border-dashed bg-white px-[15px] py-[10px]">
             <div>
               <div className="700:mb-[20px] mb-[10px] flex">
                 <button

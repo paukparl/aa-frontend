@@ -2,7 +2,14 @@ import { z } from "zod/v4";
 import { getDTAPeople } from "@/api";
 import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
-import { DTAPeoplePageContent } from "@/components/dta/pages/DTAPeoplePageContent";
+import {
+  DTAPeopleGrid,
+  DTAPersonGridItem,
+} from "@/components/dta/components/DTAPeopleGrid";
+// import { DTAFilterMultiSelectRow } from "@/components/dta/components/Filter/DTAFilterMultiSelectRow";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { FooterPagination } from "@/components/globals/components/FooterPagination";
+// import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -30,6 +37,7 @@ export async function DTAPeoplePage({
     getDTASnippets(),
   ]);
 
+
   return (
     <ViewTransitionTipinPage
       type="1"
@@ -38,11 +46,63 @@ export async function DTAPeoplePage({
       title="People"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
-      <DTAPeoplePageContent
-        people={people}
-        pagination={pagination}
-        description={snippets?.peopleLandingDescription}
-      />
+      <div className="text-dta-people-foreground 700:gap-[30px] flex flex-col gap-[20px] p-24">
+        <h1>People</h1>
+        <DTAContentSingleCol>
+          {snippets?.peopleLandingDescription ?? ``}
+        </DTAContentSingleCol>
+        {/* <DTAFilterMultiSelectRow
+          clearFilters={clearFilters}
+          activeFilters={activeFilters}
+          toggleFilter={toggleFilter}
+          colorTheme="people"
+          filtersInfo={[
+            { filters: mockAlphabetFilters, multiFilterType: "alphabet" },
+            {
+              filters: mockBirthPlaceFilters,
+              multiFilterType: "birthPlace",
+            },
+            { filters: mockYearOfStudyFilters, multiFilterType: "yearOfStudy" },
+          ]}
+        /> */}
+        <span className="mono mt-[10px]">{`All ${people.length} record${people.length > 1 ? `s` : ``}`}</span>
+        <DTAPeopleGrid>
+          {people.map((person) => (
+            <DTAPersonGridItem key={person.documentId} person={person} />
+          ))}
+        </DTAPeopleGrid>
+        {/* update pagination component:
+        pass in current page, total page, and setnewpage function */}
+        {pagination.pageCount > 1 && (
+          <FooterPagination
+            totalPages={pagination.pageCount}
+            className="text-dta-people-foreground"
+          />
+        )}
+      </div>
     </ViewTransitionTipinPage>
   );
 }
+
+// copied logic from unused and deleted people page below for filters
+// const [activeFilters, setActiveFilters] = useState<string[][]>([[], [], []]);
+// const toggleFilter = (groupIndex: number, filter: string) => {
+//   setActiveFilters((prev) => {
+//     const updated = [...prev];
+//     const group = new Set(updated[groupIndex] ?? []);
+//     if (group.has(filter)) {
+//       group.delete(filter);
+//     } else {
+//       group.add(filter);
+//     }
+//     updated[groupIndex] = Array.from(group);
+//     return updated;
+//   });
+// };
+// const clearFilters = (groupIndex: number) => {
+//   setActiveFilters((prev) => {
+//     const updated = [...prev];
+//     updated[groupIndex] = [];
+//     return updated;
+//   });
+// };

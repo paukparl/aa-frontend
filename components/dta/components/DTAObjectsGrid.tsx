@@ -17,7 +17,7 @@ export const DTAObjectsGrid = ({
   return (
     <div
       className={cn(
-        "700:grid-cols-3 1024:grid-cols-4 1024:gap-x-5 1024:gap-y-10 1280:grid-cols-5 1280:gap-x-5 1280:gap-y-20 grid w-full grid-cols-2 gap-x-5 gap-y-[35px] xl:grid-cols-6",
+        "700:grid-cols-3 1024:grid-cols-4 1024:gap-x-5 1024:gap-y-10 1280:grid-cols-5 1280:gap-x-5 1280:gap-y-20 1500:grid-cols-6 grid w-full grid-cols-2 gap-x-5 gap-y-[35px]",
         className,
       )}
     >

@@ -1,6 +1,3 @@
-// TODO :
-// update padding / gap classes to custom spacing utilities that are consistent across site
-// update prop definition + parsing for "items" array based on strapi
 import React from "react";
 import { DTAGridItem } from "@/components/dta/components/DTAGridItem";
 import { cn } from "@/lib/cn";
@@ -38,9 +35,9 @@ export const DTAGrid = ({
     practicesgrid: "grid-cols-2 1280:grid-cols-3 gap-5 1024:gap-5 1280:gap-5",
     practicestable: "grid-cols-1",
     people:
-      "grid-cols-2 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-[35px] 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
+      "grid-cols-2 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 1500:grid-cols-6 gap-x-5 gap-y-[35px] 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
     collections:
-      "grid-cols-2 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 xl:grid-cols-6 gap-x-5 gap-y-8 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
+      "grid-cols-2 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 1500:grid-cols-6 gap-x-5 gap-y-8 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
     institutions:
       "grid-cols-2 1024:grid-cols-3 gap-x-5 gap-y-8 1024:gap-y-10 1024:gap-x-5 1280:gap-y-20 1280:gap-x-5",
   };

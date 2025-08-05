@@ -3,7 +3,12 @@ import { z } from "zod/v4";
 import { getDTAPractices } from "@/api/getDTAPractices";
 import { getDTASnippets } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
-import { DTAPracticesPageContent } from "@/components/dta/pages/DTAPracticesPageContent";
+import {
+  DTAPracticesTable,
+  DTAPracticesTableRow,
+} from "@/components/dta/components/DTAPracticesTable";
+import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
+import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 import { SearchParams } from "@/lib/types";
 import { parseUrlSearchParams } from "@/lib/urlUtils";
@@ -39,11 +44,21 @@ export async function DTAPracticesPage({
       title="Practices"
       ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
     >
-      <DTAPracticesPageContent
-        practices={practices}
-        pagination={pagination}
-        description={snippets?.practicesLandingDescription}
-      />
+      <div className={cn("700:gap-30 flex flex-col gap-20 p-24")}>
+        <h1>Practices</h1>
+        <DTAContentSingleCol>
+          {snippets?.practicesLandingDescription ?? ``}
+        </DTAContentSingleCol>
+        <span className="mono mt-[10px]">All {pagination.total} records</span>
+        <DTAPracticesTable>
+          {practices.map((practice) => (
+            <DTAPracticesTableRow
+              key={practice.documentId}
+              practice={practice}
+            />
+          ))}
+        </DTAPracticesTable>
+      </div>
     </ViewTransitionTipinPage>
   );
 }
