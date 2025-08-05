@@ -121,15 +121,15 @@ async function fetchData(path: string, options: FetchDataOptions = {}) {
   });
 }
 
-// Handles "Not Found" by returning null and takes fewer strapi fetch options than fetchMany
+// Handles "Not Found" by returning {data: null} and takes fewer strapi fetch options than fetchMany
 export async function fetchOne<T>(
   path: string,
   options: FetchOneOptions = {},
-): Promise<T | null> {
+): Promise<T | { data: null }> {
   const response = await fetchData(path, options);
   if (!response.ok) {
     // Return null if not found
-    if (response.statusText === "Not Found") return null;
+    if (response.statusText === "Not Found") return { data: null };
     console.error(response.statusText);
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
