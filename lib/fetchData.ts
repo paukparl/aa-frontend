@@ -20,7 +20,11 @@ type PopulateClause =
   | string
   | string[]
   | {
-      [key: string]: string | string[] | StrapiFetchOptions;
+      [key: string]:
+        | string
+        | string[]
+        | StrapiFetchOptions
+        | { on: { [key: string]: StrapiFetchOptions } };
     };
 
 /*

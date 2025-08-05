@@ -15,7 +15,7 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-green)"
       title={page.pageTitle ?? ""}
-      ancestors={[{ title: "DTA Archive", href: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
       <DTAGenericPageContent page={page} />
     </ViewTransitionTipinPage>
