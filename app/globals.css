@@ -30,21 +30,6 @@
     --default-transition-duration: 0.1s;
     --default-transition-timing-function: linear;
   }
-  .dta-griditem-bg {
-    background-size: 20px 20px;
-    background-color: var(--color-dta-map-highlight);
-    background-image:
-      linear-gradient(
-        to right,
-        var(--color-dta-map-background) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        var(--color-dta-map-background) 1px,
-        transparent 1px
-      );
-  }
   .sb-show-main.sb-main-padded {
     padding: 0px !important;
   }
@@ -106,8 +91,7 @@
   --color-main-seasonal: #91ff8b;
   --color-dta-map-background: #1d453f;
   --color-dta-map-grid: #266259;
-  --color-dta-map-foreground: #ffffff;
-  --color-dta-map-highlight: #7c6d5a;
+  --color-dta-map-land: #7c6d5a;
   --color-dta-people-foreground: #1d453f;
   --color-dta-institutions-foreground: #150d50;
   --color-dta-practices-foreground: #732e5b;

@@ -25,7 +25,7 @@ export const DTAInstitutionPageContent = ({
   institution,
 }: DTAInstitutionPageContentProps) => {
   return (
-    <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+    <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
       <h1 className="tipin">{institution.Name}</h1>
       <div className={cn("grid grid-cols-2 gap-24")}>
         <div className={cn("relative")}>
@@ -52,8 +52,8 @@ export const DTAInstitutionPageContent = ({
         <DTAHeader className="capitalize">Map</DTAHeader>
         <Map
           className={cn("aspect-2/1 w-full")}
-          gridStroke="var(--color-dta-map-background)"
-          landFill="var(--color-dta-map-highlight)"
+          gridStroke="var(--color-dta-institutions-foreground)"
+          landFill="var(--color-dta-map-land)"
         />
       </div>
       <div>

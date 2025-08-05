@@ -22,7 +22,7 @@ type DTAPracticeProps = {
 
 export const DTAPracticePageContent = ({ practice }: DTAPracticeProps) => {
   return (
-    <div className="700:gap-30 flex flex-col gap-20 p-24">
+    <div className="flex flex-col gap-20 p-24 700:gap-30">
       <h1 className="tipin">{practice.name}</h1>
       {practice.description && (
         <span className="body">{practice.description}</span>
@@ -31,8 +31,8 @@ export const DTAPracticePageContent = ({ practice }: DTAPracticeProps) => {
         <DTAHeader className="capitalize">Map</DTAHeader>
         <Map
           className={cn("aspect-2/1 w-full")}
-          gridStroke="var(--color-dta-map-background)"
-          landFill="var(--color-dta-map-highlight)"
+          gridStroke="var(--color-dta-practices-foreground)"
+          landFill="var(--color-dta-map-land)"
         />
       </div>
       <div>

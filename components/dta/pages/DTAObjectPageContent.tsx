@@ -25,7 +25,7 @@ type DTAObjectPageContentProps = {
 
 export const DTAObjectPageContent = ({ object }: DTAObjectPageContentProps) => {
   return (
-    <div className="700:gap-[30px] flex flex-col gap-[20px] p-24">
+    <div className="flex flex-col gap-[20px] p-24 700:gap-[30px]">
       <h1 className="tipin">{object.title}</h1>
       <span className="body">{object.additionalDescription}</span>
       <MediaGallery
@@ -36,8 +36,8 @@ export const DTAObjectPageContent = ({ object }: DTAObjectPageContentProps) => {
         <DTAHeader className="capitalize">Map</DTAHeader>
         <Map
           className={cn("aspect-2/1 w-full")}
-          gridStroke="var(--color-dta-map-background)"
-          landFill="var(--color-dta-map-highlight)"
+          gridStroke="var(--color-dta-collections-foreground)"
+          landFill="var(--color-dta-map-land)"
         />
       </div>
       <div>

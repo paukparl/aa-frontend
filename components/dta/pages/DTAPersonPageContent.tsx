@@ -24,7 +24,7 @@ type DTAPersonPageContentProps = {
 
 export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
   return (
-    <div className={cn("700:gap-72 flex flex-col gap-20 p-24")}>
+    <div className={cn("flex flex-col gap-20 p-24 700:gap-72")}>
       <h1 className="tipin">
         Handel Kitchiner (Hal) Lawson
         <br />
@@ -46,7 +46,7 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
         </div>
         <div className={cn("body")}>{person.bio}</div>
       </div>
-      <div className="1024:grid-cols-2 grid grid-cols-1 gap-[30px]">
+      <div className="grid grid-cols-1 gap-[30px] 1024:grid-cols-2">
         <div>
           <DTAHeader className="capitalize">Education</DTAHeader>
           <DTAPeopleTable
@@ -70,8 +70,8 @@ export const DTAPersonPageContent = ({ person }: DTAPersonPageContentProps) => {
         <DTAHeader className="capitalize">Map</DTAHeader>
         <Map
           className={cn("aspect-2/1 w-full")}
-          gridStroke="var(--color-dta-map-background)"
-          landFill="var(--color-dta-map-highlight)"
+          gridStroke="var(--color-dta-people-foreground)"
+          landFill="var(--color-dta-map-land)"
         />
       </div>
       <div>
