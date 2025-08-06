@@ -28,7 +28,7 @@ export async function DTACollectionsPage({
       data: collections,
       meta: { pagination },
     },
-    { data: snippets },
+    snippets,
   ] = await Promise.all([
     getDTAObjects({
       pagination: { page, pageSize: 30 },

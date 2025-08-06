@@ -130,7 +130,6 @@ export async function fetchOne<T>(
   if (!response.ok) {
     // Return null if not found
     if (response.statusText === "Not Found") return { data: null };
-    console.error(response.statusText);
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
   const json = await response.json();
@@ -143,7 +142,6 @@ export async function fetchMany<T>(
 ): Promise<T | null> {
   const response = await fetchData(path, options);
   if (!response.ok) {
-    console.error(response.statusText);
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
   const json = await response.json();
