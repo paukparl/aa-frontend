@@ -44,7 +44,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
           <Map
             className="aspect-2/1 w-full"
             gridStroke="var(--color-dta-map-background)"
-            landFill="var(--color-dta-map-highlight)"
+            landFill="var(--color-dta-map-land)"
           />
         </div>
         <div>

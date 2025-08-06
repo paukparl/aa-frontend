@@ -15,7 +15,6 @@ import {
   DTAPracticesGrid,
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
-// import { Map } from "@/components/dta/components/Map";
 import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
 import { routes } from "@/lib/routes";
 

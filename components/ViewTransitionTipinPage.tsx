@@ -149,10 +149,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
       >
         <Dialog.Overlay
           ref={overlayRef}
-          className={cn(
-            "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto text-(--tipin-fg)",
-            "flex",
-          )}
+          className="fixed inset-0 top-0 left-0 z-40 flex w-full overflow-y-auto text-(--tipin-fg)"
           style={
             {
               "--tipin-bg": bg,
@@ -162,7 +159,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         >
           <Dialog.Content
             className={cn(
-              "w-full outline-none",
+              "w-full backdrop-blur-md outline-none",
               type === "1" ? "700:w-11/12" : "700:w-9/12",
             )}
             onPointerDownOutside={(e) => {
@@ -183,7 +180,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                 </Button>
                 <div className="mr-(--padding) flex flex-wrap items-start gap-12">
                   {ancestors.map((ancestor, idx) => (
-                    <div className="700:h-36 flex h-28 items-center" key={idx}>
+                    <div className="flex h-28 items-center 700:h-36" key={idx}>
                       <LoadingLink
                         href={composeUrl({
                           path: ancestor.path,
@@ -193,7 +190,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                               : filterParamsByPrefix(searchParams, ["0", "1"]),
                         })}
                         className={cn(
-                          "mono inline-flex h-28 items-center px-8 whitespace-nowrap",
+                          "inline-flex h-28 items-center px-8 mono whitespace-nowrap",
                           "bg-(--tipin-fg) text-(--tipin-bg) hover:bg-(--tipin-fg)/60",
                         )}
                         scroll={false}
@@ -202,7 +199,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                       </LoadingLink>
                     </div>
                   ))}
-                  <div className="mono 700:h-36 flex h-28 items-center">
+                  <div className="flex h-28 items-center mono 700:h-36">
                     {title}
                   </div>
                 </div>
@@ -237,7 +234,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           {/* Backdrop for tipin1 */}
           {type === "2" && (
             <div
-              className="700:block 700:w-2/12 sticky top-0 hidden h-full"
+              className="sticky top-0 hidden h-full 700:block 700:w-2/12"
               onClick={() => {
                 removeScrollBar();
                 router.push(
@@ -252,7 +249,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           )}
           {/* Backdrop for panel */}
           <div
-            className="700:block 700:w-1/12 sticky top-0 hidden h-full"
+            className="sticky top-0 hidden h-full 700:block 700:w-1/12"
             onClick={() => {
               removeScrollBar();
               router.push(
