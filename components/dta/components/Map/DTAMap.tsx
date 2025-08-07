@@ -171,11 +171,10 @@ export const DTAMap = ({
   return (
     <div className={cn("relative", className)}>
       <div
-        className={cn("relative gradient-mask")}
+        className="relative gradient-mask"
         style={{ "--gradient-mask-size": "3rem" } as CSSProperties}
       >
         <Map
-          className={cn("")}
           gridStroke="var(--color-dta-map-grid)"
           pathFill="var(--color-dta-map-land)"
           aspectRatio={2}
@@ -227,13 +226,13 @@ export const DTAMap = ({
       <MapTitle showTitle={showTitle} />
 
       {map?.Description && (
-        <p className={cn("absolute top-0 left-0 z-1 w-full mono")}>
+        <p className="absolute top-0 left-0 z-1 w-full mono">
           {map.Description}
         </p>
       )}
 
       <motion.div
-        className={cn("absolute bottom-0 left-0 z-1 flex w-full items-end")}
+        className="absolute bottom-0 left-0 z-1 flex w-full items-end"
         variants={{
           visible: { opacity: 1 },
           hidden: { opacity: 0 },
@@ -242,17 +241,17 @@ export const DTAMap = ({
         animate={showTitle ? "hidden" : "visible"}
         transition={{ duration: 0.5 }}
       >
-        <div className={cn("flex flex-1 items-end py-10")}>
+        <div className="flex flex-1 items-end py-10">
           <Button
             theme="minimal"
             onClick={() => setIsPlaying(!isPlaying)}
-            className={cn("btn-minimal-pad-3")}
+            className="btn-minimal-pad-3"
           >
             {isPlaying ? <PauseSvg /> : <PlaySvg />}
           </Button>
         </div>
 
-        <div className={cn("flex flex-initial items-end gap-6 py-12")}>
+        <div className="flex flex-initial items-end gap-6 py-12">
           {years.map((year) => (
             <YearButton
               key={year}
@@ -265,7 +264,7 @@ export const DTAMap = ({
           ))}
         </div>
 
-        <div className={cn("flex-1")} />
+        <div className="flex-1" />
       </motion.div>
     </div>
   );
@@ -329,7 +328,7 @@ function YearButton({
   const setSafeTimeout = useSafeTimeout();
 
   return (
-    <div className={cn("relative flex")}>
+    <div className="relative flex">
       <Button
         theme="minimal"
         onClick={() => onSelect(year)}
@@ -340,7 +339,7 @@ function YearButton({
         onFocus={() => setShowTooltip(true)}
         onBlur={() => setShowTooltip(false)}
       >
-        <span className={cn("sr-only")}>{year}</span>
+        <span className="sr-only">{year}</span>
         <div
           className={cn(
             "size-10 rounded-full bg-white/30",
@@ -402,7 +401,7 @@ const EventGroupsPopover = ({
             {events.map((event) => (
               <div
                 key={event.documentId}
-                className={cn("h-100 border-current not-last:border-b")}
+                className="h-100 border-current not-last:border-b"
               >
                 {/* TODO */}
               </div>
