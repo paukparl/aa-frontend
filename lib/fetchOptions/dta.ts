@@ -129,7 +129,7 @@ export const dtaPageFetchOptions = createFetchOptions({
   },
 });
 
-export const dtaSnippetsFetchOptions = createFetchOptions({
+export const dtaSnippetFetchOptions = createFetchOptions({
   fields: [
     ...documentFields,
     "peopleLandingDescription",

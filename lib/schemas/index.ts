@@ -12,7 +12,7 @@ import {
   dtaPersonPreview,
   dtaPracticeDetail,
   dtaPracticePreview,
-  dtaSnippets,
+  dtaSnippet,
 } from "@/lib/schemas/dta";
 import {
   schoolEventPreview,
@@ -54,7 +54,7 @@ export const schemas = {
   dtaObjectDetail,
   dtaLocation,
   dtaPage,
-  dtaSnippets,
+  dtaSnippet,
   dtaMap,
   dtaEvent,
   schoolEventPreview,
