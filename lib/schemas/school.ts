@@ -15,13 +15,6 @@ export const schoolProgrammePreview = document.extend({
   applyLink: z.string().nullable(),
 });
 
-// export const schoolPersonPreview = document.extend({
-//   slug: z.string().nullable(),
-//   personTitle: z.string().nullable(),
-//   representativeImage: img.nullable(),
-//   personLink: z.string().nullable(),
-// });
-
 export const schoolUnitPreview = document.extend({
   slug: z.string().nullable(),
   unitTitle: z.string().nullable(),

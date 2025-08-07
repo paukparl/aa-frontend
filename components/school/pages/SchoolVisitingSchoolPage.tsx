@@ -3,9 +3,6 @@ import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { routes } from "@/lib/routes";
 
 export async function SchoolVisitingSchoolPage({ slug }: { slug: string }) {
-  // const [visitingSchoolSnippet, { data: visitingSchools }] = await Promise.all([ getSchoolVisitingSchoolSnippet(),
-  //   getSchoolVisitingSchools(),
-  // ]);
   const visitingSchool = await getSchoolVisitingSchool(slug);
   return (
     <ViewTransitionTipinPage

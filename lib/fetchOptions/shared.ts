@@ -22,5 +22,5 @@ export const imgFetchOptions = createFetchOptions({
 });
 
 export const fileFetchOptions = createFetchOptions({
-  fields: [...documentFields, "url", "name", "mime"],
+  fields: [...documentFields, "url", "alternativeText", "caption", "mime"],
 });

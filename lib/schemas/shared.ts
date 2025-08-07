@@ -36,12 +36,7 @@ const mediaBase = document.extend({
 
 export const video = mediaBase;
 
-// export const file = mediaBase;
-export const file = document.extend({
-  url: z.string(),
-  // name: z.string(),
-  mime: z.string(),
-});
+export const file = mediaBase;
 
 const imgFormat = z.object({
   url: z
