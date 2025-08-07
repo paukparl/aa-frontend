@@ -17,6 +17,7 @@ import {
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
 import { Map, MapCoords } from "@/components/dta/components/Map";
+import { LineClampText } from "@/components/globals/components/LineClampText";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
@@ -56,7 +57,9 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
               />
             </div>
           )}
-          <div className="body">{person.bio}</div>
+          <LineClampText className="line-clamp-15 body" lineLimit={12}>
+            {person.bio}
+          </LineClampText>
         </div>
         <div className="grid grid-cols-1 gap-(--padding) 1024:grid-cols-2">
           <div>
