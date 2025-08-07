@@ -63,7 +63,7 @@ export const DTAMap = ({
     ? Math.max(...validEvents.map((event) => event.endYear))
     : undefined;
 
-  const [showTitle, setShowTitle] = useState(false);
+  const [showTitle, setShowTitle] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedYear, setSelectedYear] = useState<number | null>(
     firstYear ?? null,
