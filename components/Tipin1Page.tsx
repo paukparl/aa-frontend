@@ -1,52 +1,42 @@
 import { notFound } from "next/navigation";
-import TempLink from "@/components/TempLink";
-import ViewTransitionTipinPage, {
-  Ancestors,
-} from "@/components/ViewTransitionTipinPage";
-import { cn } from "@/lib/cn";
-import { RouteParsed, routes } from "@/lib/routes";
+import { DTACollectionsPage } from "@/components/dta/pages/DTACollectionsPage";
+import { DTAGenericPage } from "@/components/dta/pages/DTAGenericPage";
+import { DTAInstitutionsPage } from "@/components/dta/pages/DTAInstitutionsPage";
+import { DTAPeoplePage } from "@/components/dta/pages/DTAPeoplePage";
+import { DTAPracticesPage } from "@/components/dta/pages/DTAPracticesPage";
+import { SchoolProgrammePage } from "@/components/school/pages/SchoolProgrammePage";
+import { SchoolVisitingSchoolsPage } from "@/components/school/pages/SchoolVisitingSchoolsPage";
+import { SearchParams } from "@/lib/types";
 
 export default async function Tipin1Page({
-  routeParsed,
+  params,
+  searchParams,
 }: {
-  routeParsed: Exclude<RouteParsed["tipin1"], null>;
+  params: Promise<{ ground: string; tipin1: string }>;
+  searchParams: SearchParams;
 }) {
-  if (routeParsed.panel === "school") {
-    if (routeParsed.subpanel === "programmes") {
-      if (routeParsed.tipin1 === "programme-1") {
-        // TODO: fetch data
-        const title = "Title";
-        const ancestors = [
-          {
-            title: "Parent",
-            href: routes.panel(routeParsed.panel, routeParsed.subpanel),
-          },
-        ] satisfies Ancestors<"1">;
-        return (
-          <ViewTransitionTipinPage
-            type="1"
-            tipinBg="#fff"
-            className={cn(
-              "flex flex-col items-start gap-4 pt-[calc(var(--padding)*2)]",
-            )}
-            title={title}
-            ancestors={ancestors}
-          >
-            <TempLink
-              href={routes.tipin2(
-                routeParsed.panel,
-                routeParsed.subpanel,
-                routeParsed.tipin1,
-                "unit-1",
-              )}
-            >
-              Unit 1
-            </TempLink>
-            <div className={cn("h-dvh")} />
-          </ViewTransitionTipinPage>
-        );
-      }
+  const { ground, tipin1 } = await params;
+  if (ground === "school-programmes") {
+    if (tipin1 === "aa-visiting-school") {
+      return <SchoolVisitingSchoolsPage />;
+    } else {
+      return <SchoolProgrammePage slug={tipin1} />;
     }
+  }
+  if (ground === "dta") {
+    if (tipin1 === "people") {
+      return <DTAPeoplePage searchParams={searchParams} />;
+    }
+    if (tipin1 === "practices") {
+      return <DTAPracticesPage searchParams={searchParams} />;
+    }
+    if (tipin1 === "institutions") {
+      return <DTAInstitutionsPage searchParams={searchParams} />;
+    }
+    if (tipin1 === "collections") {
+      return <DTACollectionsPage searchParams={searchParams} />;
+    }
+    return <DTAGenericPage slug={tipin1} />;
   }
 
   notFound();

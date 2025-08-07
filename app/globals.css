@@ -13,7 +13,7 @@
     @media (min-width: 700px) {
       & {
         --header-h: calc(var(--spacing) * 64);
-        --padding: calc(var(--spacing) * 20);
+        --padding: calc(var(--spacing) * 24);
         --nav-btn-font-size: calc(var(--spacing) * 36);
         --menu-svg-font-size: calc(var(--spacing) * 27);
       }
@@ -29,21 +29,6 @@
     -moz-osx-font-smoothing: grayscale;
     --default-transition-duration: 0.1s;
     --default-transition-timing-function: linear;
-  }
-  .dta_griditem_bg {
-    background-size: 20px 20px;
-    background-color: var(--color-dta-map-highlight);
-    background-image:
-      linear-gradient(
-        to right,
-        var(--color-dta-map-background) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        var(--color-dta-map-background) 1px,
-        transparent 1px
-      );
   }
   .sb-show-main.sb-main-padded {
     padding: 0px !important;
@@ -100,17 +85,22 @@
   /* Breakpoints */
   /* --breakpoint-*: initial; */
   --breakpoint-700: 700px;
-  --breakpoint-1000: 1000px;
+  --breakpoint-1024: 1024px;
   --breakpoint-1280: 1280px;
+  --breakpoint-1500: 1500px;
 
   /* Font Sizes */
   /* --text-*: initial; */
   --text-12: 0.75rem;
   --text-15: 0.9375rem;
+  --text-16: 1rem;
   --text-18: 1.125rem;
+  --text-20: 1.25rem;
   --text-24: 1.5rem;
+  --text-26: 1.625rem;
   --text-36: 2.25rem;
   --text-48: 3rem;
+  --text-65: 4.0625rem;
 
   /* Line Heights */
   /* --leading-*: initial; */
@@ -145,17 +135,20 @@
   --color-main-white: #fff;
   --color-main-black: #000;
   --color-main-seasonal: #91ff8b;
-  /* DTA */
+  --color-school-visiting-school-bg: #fefccc;
   --color-dta-map-background: #1d453f;
-  --color-dta-map-foreground: #ffffff;
-  --color-dta-map-highlight: #7c6d5a;
+  --color-dta-map-grid: #266259;
+  --color-dta-map-land: #7c6d5a;
   --color-dta-people-foreground: #1d453f;
   --color-dta-institutions-foreground: #150d50;
   --color-dta-practices-foreground: #732e5b;
   --color-dta-collections-foreground: #531111;
   --color-dta-about-foreground: #1d453f;
   --color-dta-search-foreground: #1d453f;
-  /* School / Programmes */
+  --color-dta-tipin-1-background: #e9edec;
+  --color-dta-tipin-2-background: #fff;
+  --color-dta-green: #1d453f;
+  /*   School / Programmes */
   --color-programmes-main-background: #dfc784;
   --color-programmes-foundation-accent: #dfc784;
   --color-programmes-intermediate-accent: #ffd4e0;
@@ -163,29 +156,38 @@
   /* --color-programmes-profpractice-accent: #dbe6c8; */
   --color-programmes-postgrad-accent: #d3c2da;
   --color-programmes-visiting-accent: #fffdc8;
+
+  /* Border Radius */
+  /* --radius-*: initial; */
+  --radius-2: 0.125rem;
+  --radius-4: 0.25rem;
+
+  /* Box Shadow */
+  /* --shadow-*: initial; */
+  --shadow-10: 0 0 10px 0 rgb(0 0 0 / 0.25);
 }
 
-@utility h1 {
+h1 {
   font-family: var(--font-nhg-display);
-  font-size: var(--text-2xl);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--leading-1_1);
-  @media (min-width: 640px) {
-    font-size: var(--text-5xl);
+  font-size: var(--text-24);
+  font-weight: var(--font-weight-500);
+  line-height: 1.1;
+  @media (min-width: 700px) {
+    font-size: var(--text-48);
   }
 }
-@utility h1-tipin {
+h1.tipin {
   font-family: var(--font-diatype);
   font-size: var(--text-2xl);
-  @media (min-width: 640px) {
+  @media (min-width: 700px) {
     font-size: var(--text-5xl);
   }
 }
-@utility h2 {
+h2 {
   font-family: var(--font-nhg-display);
   font-size: var(--text-2xl);
-  font-weight: var(--font-weight-medium);
-  @media (min-width: 640px) {
+  font-weight: var(--font-weight-500);
+  @media (min-width: 700px) {
     font-size: var(--text-4xl);
   }
   @media (min-width: 1280px) {
@@ -194,25 +196,30 @@
 }
 @utility body {
   font-family: var(--font-nhg-text);
-  font-size: var(--text-base);
-  @media (min-width: 640px) {
-    font-size: var(--text-xl);
+  font-size: var(--text-16);
+  line-height: 1.3;
+  @media (min-width: 700px) {
+    font-size: var(--text-24);
   }
 }
 @utility mono {
   font-family: var(--font-diatype);
-  font-size: var(--text-sm);
-  @media (min-width: 640px) {
-    font-size: var(--text-lg);
+  font-size: var(--text-15);
+  line-height: 1.2;
+  @media (min-width: 700px) {
+    font-size: var(--text-18);
   }
+}
+@utility small {
+  font-size: var(--text-12) !important;
 }
 @utility caption {
   font-family: var(--font-nhg-text);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-medium);
-  @media (min-width: 640px) {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-bold);
+  font-size: var(--text-12);
+  font-weight: var(--font-weight-500);
+  @media (min-width: 700px) {
+    font-size: var(--text-16);
+    font-weight: var(--font-weight-700);
   }
 }
 /* EMBLA CAROUSEL  */
@@ -225,4 +232,44 @@
 .embla__slide {
   flex: 0 0 fit-content;
   min-width: 0;
+}
+
+@utility dta-griditem-bg {
+  background-size: 20px 20px;
+  background-color: var(--color-dta-map-highlight);
+  background-image:
+    linear-gradient(
+      to right,
+      var(--color-dta-map-background) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--color-dta-map-background) 1px,
+      transparent 1px
+    );
+}
+
+@utility btn-minimal-pad-3 {
+  --btn-px: calc(var(--spacing) * 3);
+  --btn-py: calc(var(--spacing) * 3);
+}
+
+@utility gradient-mask {
+  mask-image:
+    linear-gradient(
+      to right,
+      #0000 0,
+      #000f var(--gradient-mask-size),
+      #000f calc(100% - var(--gradient-mask-size)),
+      #0000 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #0000 0,
+      #000f var(--gradient-mask-size),
+      #000f calc(100% - var(--gradient-mask-size)),
+      #0000 100%
+    );
+  mask-composite: intersect;
 }

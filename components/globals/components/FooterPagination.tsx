@@ -1,6 +1,7 @@
-import clsx from "clsx";
+"use client";
+
 import React, { useState } from "react";
-import { Mono } from "@/components/Typography/Mono";
+import { cn } from "@/lib/cn";
 
 type PaginationProps = {
   totalPages: number;
@@ -53,23 +54,23 @@ export const FooterPagination = ({
 
   return (
     <nav
-      aria-label="Pagination Navigation pt-[20px] sm:pt-[30px]"
-      className={clsx(className)}
+      aria-label="Pagination Navigation pt-[20px] 700:pt-[30px]"
+      className={cn(className)}
     >
-      <ul className="m-0 flex items-center gap-[10px] p-0 sm:gap-[25px]">
-        <Mono>Page:</Mono>
+      <ul className="m-0 flex items-center gap-[10px] p-0 700:gap-[25px]">
+        <span className="mono">Page:</span>
         {pageItems.map((item, ind) =>
           item === "..." ? (
             <li
               key={`dots-${ind}`}
               style={{ padding: "0 8px", userSelect: "none" }}
             >
-              <Mono>...</Mono>
+              <span className="mono">...</span>
             </li>
           ) : (
             <li key={item}>
               <button
-                className={clsx(
+                className={cn(
                   "cursor-pointer",
                   activePage === item &&
                     "underline decoration-dotted underline-offset-[3px]",
@@ -81,7 +82,7 @@ export const FooterPagination = ({
                   cursor: "pointer",
                 }}
               >
-                <Mono>{item.toString()}</Mono>
+                <span className="mono">{item.toString()}</span>
               </button>
             </li>
           ),
@@ -92,7 +93,7 @@ export const FooterPagination = ({
             className="cursor-pointer"
             onClick={() => handleClick(activePage - 1)}
           >
-            <Mono>Prev</Mono>
+            <span className="mono">Prev</span>
           </button>
         </li>
         <li>
@@ -101,7 +102,7 @@ export const FooterPagination = ({
             className="cursor-pointer"
             onClick={() => handleClick(activePage + 1)}
           >
-            <Mono>Next</Mono>
+            <span className="mono">Next</span>
           </button>
         </li>
       </ul>

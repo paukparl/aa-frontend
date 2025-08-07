@@ -6,6 +6,7 @@ const config = {
     "prettier-plugin-tailwindcss",
   ],
   tailwindFunctions: ["cn"],
+  tailwindStylesheet: "./app/globals.css",
   importOrder: ["server-only", "<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],
   importOrderSeparation: false,
   importOrderSortSpecifiers: true,

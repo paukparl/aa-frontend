@@ -1,6 +1,5 @@
-import clsx from "clsx";
 import React, { useState } from "react";
-import { Caption } from "@/components/Typography/Caption";
+import { cn } from "@/lib/cn";
 
 type colorTheme =
   | "dta-people"
@@ -62,17 +61,17 @@ export const MediaGallery = ({
     },
   };
   return (
-    <div className={clsx("w-100%", className)}>
+    <div className={cn("w-100%", className)}>
       {slides.length > 1 && (
         <div className="flex gap-[10px] py-[20px] pl-[5px]">
           {slides.map((thumb, index) => (
             <img
               key={index}
               src={thumb.src}
-              className={clsx(
+              className={cn(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
-                "h-[65px] w-[65px] cursor-pointer object-cover p-[3px] sm:h-[75px] sm:w-[75px] sm:p-[5px]",
+                "h-[65px] w-[65px] cursor-pointer object-cover p-[3px] 700:h-[75px] 700:w-[75px] 700:p-[5px]",
               )}
               onClick={() => handleClick(index)}
             />
@@ -81,11 +80,14 @@ export const MediaGallery = ({
       )}
       <img src={slides[activeInd].src} className="h-[auto] w-[100%]" />
       {slides[activeInd].caption.length > 0 && (
-        <Caption
-          className={clsx("block pt-[10px]", colorThemeDict[colorTheme].text)}
+        <span
+          className={cn(
+            "block pt-[10px] caption",
+            colorThemeDict[colorTheme].text,
+          )}
         >
           {slides[activeInd].caption}
-        </Caption>
+        </span>
       )}
     </div>
   );

@@ -1,11 +1,41 @@
 import { z } from "zod/v4";
 import {
-  eventDetail,
-  eventPreview,
-  getEventData,
-  getEventsData,
-} from "@/lib/schemas/events";
-import { document, file, image, media, seo, video } from "@/lib/schemas/shared";
+  dtaEvent,
+  dtaInstitutionDetail,
+  dtaInstitutionPreview,
+  dtaLocation,
+  dtaMap,
+  dtaObjectDetail,
+  dtaObjectPreview,
+  dtaPage,
+  dtaPersonDetail,
+  dtaPersonPreview,
+  dtaPracticeDetail,
+  dtaPracticePreview,
+  dtaSnippet,
+} from "@/lib/schemas/dta";
+import {
+  schoolEventPreview,
+  schoolFacilityPreview,
+  schoolProgrammeDetail,
+  schoolProgrammePreview,
+  schoolUnitDetail,
+  schoolUnitPreview,
+  schoolVisitingSchoolDetail,
+  schoolVisitingSchoolPreview,
+  schoolVisitingSchoolSnippet,
+} from "@/lib/schemas/school";
+import {
+  document,
+  file,
+  getManyRes,
+  getOneRes,
+  img,
+  media,
+  pagination,
+  seo,
+  video,
+} from "@/lib/schemas/shared";
 
 // When importing files, use named imports for treeshaking
 
@@ -13,15 +43,36 @@ export const schemas = {
   document,
   video,
   file,
-  image,
+  img,
   media,
   seo,
-  eventPreview,
-  eventDetail,
-  getEventsData,
-  getEventData,
+  pagination,
+  getOneRes,
+  getManyRes,
+  dtaPersonPreview,
+  dtaPersonDetail,
+  dtaPracticePreview,
+  dtaPracticeDetail,
+  dtaInstitutionPreview,
+  dtaInstitutionDetail,
+  dtaObjectPreview,
+  dtaObjectDetail,
+  dtaLocation,
+  dtaPage,
+  dtaSnippet,
+  dtaMap,
+  dtaEvent,
+  schoolEventPreview,
+  schoolFacilityPreview,
+  schoolProgrammePreview,
+  schoolProgrammeDetail,
+  schoolUnitPreview,
+  schoolUnitDetail,
+  schoolVisitingSchoolSnippet,
+  schoolVisitingSchoolPreview,
+  schoolVisitingSchoolDetail,
 };
 
-export type Schema<Key extends keyof typeof schemas> = z.infer<
-  (typeof schemas)[Key]
->;
+export type Schema<
+  Key extends Exclude<keyof typeof schemas, "getOneRes" | "getManyRes">,
+> = z.infer<(typeof schemas)[Key]>;

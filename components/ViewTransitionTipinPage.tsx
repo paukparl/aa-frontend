@@ -23,16 +23,16 @@ import {
 import { cn } from "@/lib/cn";
 import {
   parseMenuOpen,
-  parsePanelPagePath,
   parseTipin1PagePath,
   parseTipin2PagePath,
 } from "@/lib/layoutUtils";
+import { composeUrl, filterParamsByPrefix } from "@/lib/urlUtils";
 
 type TipinType = "1" | "2";
 
 type Ancestor = {
   title: string;
-  href: string;
+  path: string;
 };
 
 export type Ancestors<T extends TipinType> = T extends "1"
@@ -45,17 +45,15 @@ const closeFadeDelay = 0.4; // in seconds
 export default function ViewTransitionTipinPage<T extends TipinType>({
   type,
   children,
-  className,
-  tipinBg,
-  textIsWhite,
+  bg,
+  fg,
   title,
   ancestors,
 }: {
   type: T;
   children?: React.ReactNode;
-  className?: string;
-  tipinBg: string;
-  textIsWhite?: boolean;
+  bg: string;
+  fg: string;
   title: React.ReactNode;
   ancestors: Ancestors<T>;
 }) {
@@ -65,7 +63,6 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
   const pathname = usePathname();
   const prev = usePrevRoute();
   const isMenuOpen = parseMenuOpen(searchParams);
-  const panelPagePath = parsePanelPagePath(pathname);
   const tipin1PagePath = parseTipin1PagePath(pathname);
   const tipin2PagePath = parseTipin2PagePath(pathname);
   const prevTipin1PagePath = prev.pathname
@@ -93,7 +90,12 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
     });
   }, [closeBtnOpacity, closeBtnOpacityMV]);
 
-  const parentHref = ancestors[ancestors.length - 1].href;
+  const parent = ancestors[ancestors.length - 1];
+  const grandparent = ancestors[ancestors.length - 2] as Ancestor | undefined;
+
+  const removeScrollBar = () => {
+    overlayRef.current?.style.setProperty("overflow", "hidden");
+  };
 
   return (
     <ViewTransition
@@ -107,6 +109,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
             ? "second-tipin"
             : "second-tipin-with-delay"
       }
+      exit={type === "1" ? "first-tipin" : "second-tipin"}
       onEnter={(tran) => {
         const anim = tran.new.getAnimations()[0] as Animation | undefined;
         if (anim) {
@@ -130,45 +133,33 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         open
         onOpenChange={(open) => {
           if (!open && getAnimations().length === 0) {
-            overlayRef.current?.style.setProperty("overflow", "hidden");
-            router.push(parentHref, { scroll: false });
+            removeScrollBar();
+            router.push(
+              composeUrl({
+                path: parent.path,
+                params:
+                  type === "1"
+                    ? filterParamsByPrefix(searchParams, ["0"])
+                    : filterParamsByPrefix(searchParams, ["0", "1"]),
+              }),
+              { scroll: false },
+            );
           }
         }}
       >
         <Dialog.Overlay
           ref={overlayRef}
           className={cn(
-            "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto",
+            "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto text-(--tipin-fg)",
+            "flex",
           )}
           style={
             {
-              "--tipin-bg": tipinBg,
-              color: textIsWhite ? "#fff" : "#000",
+              "--tipin-bg": bg,
+              "--tipin-fg": fg,
             } as React.CSSProperties
           }
         >
-          {/* Backdrop for panel */}
-          {panelPagePath && (
-            <div
-              className={cn(
-                "700:block 700:w-1/12 fixed top-0 right-0 hidden h-full",
-              )}
-              onClick={() => {
-                router.push(panelPagePath, { scroll: false });
-              }}
-            />
-          )}
-          {/* Backdrop for tipin1 */}
-          {tipin1PagePath && (
-            <div
-              className={cn(
-                "700:block 700:w-2/12 fixed top-0 right-1/12 hidden h-full",
-              )}
-              onClick={() => {
-                router.push(tipin1PagePath!, { scroll: false });
-              }}
-            />
-          )}
           <Dialog.Content
             className={cn(
               "w-full outline-none",
@@ -198,12 +189,16 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                   {ancestors.map((ancestor, idx) => (
                     <LoadingLink
                       key={idx}
-                      href={ancestor.href}
+                      href={composeUrl({
+                        path: ancestor.path,
+                        params:
+                          idx === 0
+                            ? filterParamsByPrefix(searchParams, ["0"])
+                            : filterParamsByPrefix(searchParams, ["0", "1"]),
+                      })}
                       className={cn(
-                        "font-diatype text-15/1.2 inline-flex h-28 items-center px-8",
-                        textIsWhite
-                          ? "bg-white text-black hover:bg-white/60"
-                          : "bg-black text-white hover:bg-black/60",
+                        "inline-flex h-28 items-center px-8 font-diatype text-15/1.2",
+                        "bg-(--tipin-fg) text-(--tipin-bg) hover:bg-(--tipin-fg)/60",
                       )}
                       scroll={false}
                     >
@@ -211,7 +206,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                     </LoadingLink>
                   ))}
                 </div>
-                <div className={cn("text-12/1.2 700:text-15/1.2 font-diatype")}>
+                <div className={cn("font-diatype text-12/1.2 700:text-15/1.2")}>
                   {title}
                 </div>
 
@@ -224,16 +219,55 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
                     className={cn("text-(length:--menu-svg-font-size)")}
                     asChild
                   >
-                    <LoadingLink href={parentHref} scroll={false}>
+                    <LoadingLink
+                      href={composeUrl({
+                        path: parent.path,
+                        params:
+                          type === "1"
+                            ? filterParamsByPrefix(searchParams, ["0"])
+                            : filterParamsByPrefix(searchParams, ["0", "1"]),
+                      })}
+                      scroll={false}
+                    >
                       <MenuSvg mode="close" />
                     </LoadingLink>
                   </Button>
                 </motion.div>
               </PageHeader>
-
-              <div className={cn("px-(--padding)", className)}>{children}</div>
+              {children}
             </div>
           </Dialog.Content>
+
+          {/* Backdrop for tipin1 */}
+          {type === "2" && (
+            <div
+              className={cn("sticky top-0 hidden h-full 700:block 700:w-2/12")}
+              onClick={() => {
+                removeScrollBar();
+                router.push(
+                  composeUrl({
+                    path: parent.path,
+                    params: filterParamsByPrefix(searchParams, ["0", "1"]),
+                  }),
+                  { scroll: false },
+                );
+              }}
+            />
+          )}
+          {/* Backdrop for panel */}
+          <div
+            className={cn("sticky top-0 hidden h-full 700:block 700:w-1/12")}
+            onClick={() => {
+              removeScrollBar();
+              router.push(
+                composeUrl({
+                  path: grandparent?.path ?? parent.path,
+                  params: filterParamsByPrefix(searchParams, ["0"]),
+                }),
+                { scroll: false },
+              );
+            }}
+          />
         </Dialog.Overlay>
       </Dialog.Root>
     </ViewTransition>

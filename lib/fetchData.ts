@@ -20,7 +20,11 @@ type PopulateClause =
   | string
   | string[]
   | {
-      [key: string]: string | string[] | StrapiFetchOptions;
+      [key: string]:
+        | string
+        | string[]
+        | StrapiFetchOptions
+        | { on: { [key: string]: StrapiFetchOptions } };
     };
 
 /*
@@ -43,7 +47,7 @@ type FilterClause = {
   };
 };
 
-export type StrapiFetchOptions = {
+type StrapiFetchOptions = {
   sort?: Record<string, "asc" | "desc"> | string;
   fields?: string[] | string;
   pagination?: {
@@ -52,15 +56,30 @@ export type StrapiFetchOptions = {
   };
   populate?: PopulateClause;
   filters?: FilterClause;
-};
-
-/*
-  Just in case the back-end's controller supports some custom parameters
-*/
-type FetchDataOptions = StrapiFetchOptions & {
-  headers?: Record<string, string>;
+  // Just in case the back-end's controller supports some custom parameters
   [key: string]: unknown;
 };
+
+export function createFetchOptions<
+  T extends Pick<StrapiFetchOptions, "fields" | "populate">,
+>(fieldsAndPopulate: T): T {
+  return fieldsAndPopulate;
+}
+
+export type StrapiFetchManyOptions = StrapiFetchOptions;
+export type StrapiFetchOneOptions = Pick<
+  StrapiFetchOptions,
+  "fields" | "populate" | "filters"
+>;
+
+type FetchConfig = {
+  headers?: Record<string, string>;
+  next?: NextFetchRequestConfig;
+};
+
+type FetchDataOptions = StrapiFetchOptions & FetchConfig;
+type FetchManyOptions = StrapiFetchManyOptions & FetchConfig;
+type FetchOneOptions = StrapiFetchOneOptions & FetchConfig;
 
 export class StrapiError extends Error {
   constructor(
@@ -72,14 +91,11 @@ export class StrapiError extends Error {
   }
 }
 
-export async function fetchData<T>(
-  path: string,
-  options: FetchDataOptions = {},
-): Promise<T> {
+async function fetchData(path: string, options: FetchDataOptions = {}) {
   const { isEnabled: draftModeEnabled } = await draftMode();
 
   const safePath = path.replace(/^\/|\/$|\?$/g, "");
-  const { headers, ...params } = options;
+  const { headers, next, ...params } = options;
 
   const queryString = qs.stringify({
     ...params,
@@ -93,21 +109,41 @@ export async function fetchData<T>(
   );
 
   // Perform the fetch request with the provided query parameters
-  const response = await fetch(endpoint, {
+  return fetch(endpoint, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.BACKEND_API_TOKEN}`,
       "Content-Type": "application/json",
       ...headers,
     },
+    cache: "no-store", // TODO: replace this with cache strategy
+    next,
   });
+}
 
+// Handles "Not Found" by returning {data: null} and takes fewer strapi fetch options than fetchMany
+export async function fetchOne<T>(
+  path: string,
+  options: FetchOneOptions = {},
+): Promise<T | { data: null }> {
+  const response = await fetchData(path, options);
   if (!response.ok) {
-    if (response.statusText === "Not Found")
-      throw new StrapiError("NOT_FOUND", "Resource not found");
+    // Return null if not found
+    if (response.statusText === "Not Found") return { data: null };
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
+  const json = await response.json();
+  return json;
+}
 
+export async function fetchMany<T>(
+  path: string,
+  options: FetchManyOptions = {},
+): Promise<T | null> {
+  const response = await fetchData(path, options);
+  if (!response.ok) {
+    throw new StrapiError("UNKNOWN_ERROR", response.statusText);
+  }
   const json = await response.json();
   return json;
 }

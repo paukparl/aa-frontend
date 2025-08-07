@@ -3,10 +3,21 @@ import clientEnv from "@/lib/clientEnv";
 
 export const document = z.object({
   // There seem to be multiple ids per documentId.
-  // Use documentId for consistency.
+  // Use documentId to fetch the document.
   id: z.number(),
   documentId: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  publishedAt: z.string().nullable(),
 });
+
+export const documentFields = [
+  "id",
+  "documentId",
+  "createdAt",
+  "updatedAt",
+  "publishedAt",
+];
 
 const mediaBase = document.extend({
   url: z
@@ -27,7 +38,7 @@ export const video = mediaBase;
 
 export const file = mediaBase;
 
-const imageFormat = z.object({
+const imgFormat = z.object({
   url: z
     .string()
     .transform((val) =>
@@ -38,37 +49,36 @@ const imageFormat = z.object({
   mime: z.string(),
 });
 
-export const image = mediaBase.extend({
+export const img = mediaBase.extend({
   width: z.number(),
   height: z.number(),
   formats: z
     .object({
-      small: imageFormat,
-      medium: imageFormat,
-      large: imageFormat,
-      thumbnail: imageFormat,
+      thumbnail: imgFormat.optional(),
+      small: imgFormat.optional(),
+      medium: imgFormat.optional(),
+      large: imgFormat.optional(),
     })
     .nullable(),
 });
 
-export const media = z.union([image, video, file]);
+export const media = z.union([img, video, file]);
+
+export const pagination = z.object({
+  page: z.number(),
+  pageSize: z.number(),
+  pageCount: z.number(),
+  total: z.number(),
+});
 
 export const getOneRes = <T extends z.ZodType>(schema: T) =>
-  z.object({
-    data: document.and(schema),
-    // meta: z.object({ }),
-  });
+  z.object({ data: schema.nullable() });
 
 export const getManyRes = <T extends z.ZodType>(schema: T) =>
   z.object({
-    data: z.array(document.and(schema)),
+    data: z.array(schema),
     meta: z.object({
-      pagination: z.object({
-        page: z.number(),
-        pageSize: z.number(),
-        pageCount: z.number(),
-        total: z.number(),
-      }),
+      pagination,
     }),
   });
 

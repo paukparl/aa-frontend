@@ -1,6 +1,5 @@
-import clsx from "clsx";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
+import { cn } from "@/lib/cn";
 
 export type BreadcrumbColorTheme =
   | "dta-people"
@@ -59,23 +58,25 @@ export const HeaderBreadcrumb = ({
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
-        "flex flex-wrap items-center gap-[15px] sm:gap-[20px]",
+        "flex flex-wrap items-center gap-[15px] 700:gap-[20px]",
       )}
     >
       {links.map((item, index) => (
-        <Mono
+        <span
           key={index}
-          className={clsx(
+          className={cn(
             colorThemeDict[colorTheme].bg,
-            "px-[7px] py-[3px] text-white sm:px-[10px] sm:py-[5px]",
+            "px-[7px] py-[3px] mono text-white 700:px-[10px] 700:py-[5px]",
           )}
         >
           {item.title}
-        </Mono>
+        </span>
       ))}
-      <Mono className={colorThemeDict[colorTheme].text}>{pageTitle}</Mono>
+      <span className={cn("mono", colorThemeDict[colorTheme].text)}>
+        {pageTitle}
+      </span>
     </div>
   );
 };

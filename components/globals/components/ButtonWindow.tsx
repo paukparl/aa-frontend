@@ -1,7 +1,6 @@
-import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
-import { Mono } from "@/components/Typography/Mono";
+import { cn } from "@/lib/cn";
 
 type colorTheme = "dta-map" | "school";
 type ButtonWindowLink = { displayText: React.ReactNode; link: string };

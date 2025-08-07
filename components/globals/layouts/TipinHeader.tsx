@@ -1,8 +1,6 @@
-import clsx from "clsx";
 import React from "react";
 import { HeaderBreadcrumb } from "@/components/globals/components/HeaderBreadcrumb";
-import type { BreadcrumbColorTheme } from "@/components/globals/components/HeaderBreadcrumb";
-import type { BreadcrumbLink } from "@/components/globals/components/HeaderBreadcrumb";
+import { cn } from "@/lib/cn";
 
 type DTATipinHeaderProps = {
   pageTitle: string;
@@ -42,14 +40,14 @@ export const TipinHeader = ({
   };
   return (
     <div
-      className={clsx(
+      className={cn(
         className,
-        "mb-[20px] flex h-fit items-start justify-between sm:mb-[40px]",
+        "700:mb-[40px] mb-[20px] flex h-fit items-start justify-between",
       )}
     >
       <div className="flex items-start gap-[20px]">
         <svg
-          className="mt-[2px] h-[20px] w-[20px] shrink-0 sm:mt-[3px] sm:h-[30px] sm:w-[30px]"
+          className="700:mt-[3px] 700:h-[30px] 700:w-[30px] mt-[2px] h-[20px] w-[20px] shrink-0"
           viewBox="0 0 34 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +79,7 @@ export const TipinHeader = ({
       </div>
       <div>
         <svg
-          className="mt-[3px] h-[18px] w-[18px] sm:mt-[6px] sm:h-[26px] sm:w-[26px]"
+          className="700:mt-[6px] 700:h-[26px] 700:w-[26px] mt-[3px] h-[18px] w-[18px]"
           viewBox="0 0 34 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

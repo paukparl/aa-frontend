@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
+import { DependencyList, useEffect, useRef } from "react";
 
 // If deps is undefined, previous value will be updated on every render
 export default function usePrevious<T>(
   state: T,
-  deps?: unknown[],
+  deps?: DependencyList,
 ): T | undefined {
   const ref = useRef<T>(undefined);
   useEffect(() => {
