@@ -149,10 +149,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
       >
         <Dialog.Overlay
           ref={overlayRef}
-          className={cn(
-            "fixed inset-0 top-0 left-0 z-40 w-full overflow-y-auto text-(--tipin-fg)",
-            "flex",
-          )}
+          className="fixed inset-0 top-0 left-0 z-40 flex w-full overflow-y-auto text-(--tipin-fg)"
           style={
             {
               "--tipin-bg": bg,
@@ -162,7 +159,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         >
           <Dialog.Content
             className={cn(
-              "w-full outline-none",
+              "w-full backdrop-blur-md outline-none",
               type === "1" ? "700:w-11/12" : "700:w-9/12",
             )}
             onPointerDownOutside={(e) => {
@@ -172,51 +169,47 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
               e.preventDefault();
             }}
           >
-            <Dialog.Title className={cn("sr-only")}></Dialog.Title>
-            <Dialog.Description className={cn("sr-only")}></Dialog.Description>
-            <div className={cn("relative min-h-dvh w-full bg-(--tipin-bg)")}>
-              <PageHeader className={cn("from-(--tipin-bg) px-(--padding)")}>
+            <Dialog.Title className="sr-only"></Dialog.Title>
+            <Dialog.Description className="sr-only"></Dialog.Description>
+            <div className="relative min-h-dvh w-full bg-(--tipin-bg)">
+              <PageHeader className="flex items-center justify-between from-(--tipin-bg) px-(--padding)">
                 <Button theme="minimal" asChild>
-                  <MenuButton
-                    className={cn(
-                      "mr-(--padding) text-(length:--menu-svg-font-size)",
-                    )}
-                  >
+                  <MenuButton className="mr-(--padding) h-26 text-(length:--menu-svg-font-size)">
                     <MenuSvg />
                   </MenuButton>
                 </Button>
-                <div className={cn("mr-(--padding) flex items-center gap-12")}>
+                <div className="mr-(--padding) flex flex-wrap items-start gap-12">
                   {ancestors.map((ancestor, idx) => (
-                    <LoadingLink
-                      key={idx}
-                      href={composeUrl({
-                        path: ancestor.path,
-                        params:
-                          idx === 0
-                            ? filterParamsByPrefix(searchParams, ["0"])
-                            : filterParamsByPrefix(searchParams, ["0", "1"]),
-                      })}
-                      className={cn(
-                        "inline-flex h-28 items-center px-8 font-diatype text-15/1.2",
-                        "bg-(--tipin-fg) text-(--tipin-bg) hover:bg-(--tipin-fg)/60",
-                      )}
-                      scroll={false}
-                    >
-                      {ancestor.title}
-                    </LoadingLink>
+                    <div className="flex h-28 items-center 700:h-36" key={idx}>
+                      <LoadingLink
+                        href={composeUrl({
+                          path: ancestor.path,
+                          params:
+                            idx === 0
+                              ? filterParamsByPrefix(searchParams, ["0"])
+                              : filterParamsByPrefix(searchParams, ["0", "1"]),
+                        })}
+                        className={cn(
+                          "inline-flex h-28 items-center px-8 mono whitespace-nowrap",
+                          "bg-(--tipin-fg) text-(--tipin-bg) hover:bg-(--tipin-fg)/60",
+                        )}
+                        scroll={false}
+                      >
+                        {ancestor.title}
+                      </LoadingLink>
+                    </div>
                   ))}
+                  <div className="flex h-28 items-center mono 700:h-36">
+                    {title}
+                  </div>
                 </div>
-                <div className={cn("font-diatype text-12/1.2 700:text-15/1.2")}>
-                  {title}
-                </div>
-
                 <motion.div
-                  className={cn("ml-auto")}
+                  className="ml-auto"
                   style={{ opacity: closeBtnOpacityMV }}
                 >
                   <Button
                     theme="minimal"
-                    className={cn("text-(length:--menu-svg-font-size)")}
+                    className="block pt-3 text-(length:--menu-svg-font-size)"
                     asChild
                   >
                     <LoadingLink
@@ -241,7 +234,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           {/* Backdrop for tipin1 */}
           {type === "2" && (
             <div
-              className={cn("sticky top-0 hidden h-full 700:block 700:w-2/12")}
+              className="sticky top-0 hidden h-full 700:block 700:w-2/12"
               onClick={() => {
                 removeScrollBar();
                 router.push(
@@ -256,7 +249,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
           )}
           {/* Backdrop for panel */}
           <div
-            className={cn("sticky top-0 hidden h-full 700:block 700:w-1/12")}
+            className="sticky top-0 hidden h-full 700:block 700:w-1/12"
             onClick={() => {
               removeScrollBar();
               router.push(

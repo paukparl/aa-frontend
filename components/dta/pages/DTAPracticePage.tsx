@@ -35,7 +35,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
         { title: "Practices", path: routes.tipin1("dta", "practices") },
       ]}
     >
-      <div className="flex flex-col gap-20 p-24 700:gap-30">
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="tipin">{practice.name}</h1>
         {practice.description && (
           <span className="body">{practice.description}</span>

@@ -78,7 +78,7 @@ export function Map({
             y2={height}
             stroke={gridStroke}
             vectorEffect="non-scaling-stroke"
-            className={cn("stroke-[0.33px] 1280:stroke-[0.5px]")}
+            className="stroke-[0.33px] 1280:stroke-[0.5px]"
           />
         );
       })}
@@ -97,7 +97,7 @@ export function Map({
             y2={y}
             stroke={gridStroke}
             vectorEffect="non-scaling-stroke"
-            className={cn("stroke-[0.33px] 1280:stroke-[0.5px]")}
+            className="stroke-[0.33px] 1280:stroke-[0.5px]"
           />
         );
       })}
@@ -114,7 +114,7 @@ export function Map({
       <div className={cn("relative", className)}>
         <svg
           viewBox={`0 0 ${width} ${height}`}
-          className={cn("h-auto w-full")}
+          className="h-auto w-full"
           style={{ aspectRatio }}
         >
           <g>{gridLines}</g>
@@ -141,7 +141,7 @@ export function MapCoords({
   if (!point) return null;
   return (
     <div
-      className={cn("absolute -translate-1/2")}
+      className="absolute -translate-1/2"
       style={{
         left: `${(point[0] / width) * 100}%`,
         top: `${(point[1] / height) * 100}%`,
