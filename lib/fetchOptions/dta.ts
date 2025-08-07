@@ -1,7 +1,7 @@
 import { createFetchOptions } from "@/lib/fetchData";
 import { documentFields, imgFetchOptions } from "@/lib/fetchOptions/shared";
 
-export const dtaLocationPreviewFetchOptions = createFetchOptions({
+export const dtaLocationFetchOptions = createFetchOptions({
   fields: [...documentFields, "longitude", "latitude", "city", "country"],
 });
 
@@ -21,8 +21,7 @@ export const dtaPersonPreviewFetchOptions = createFetchOptions({
 export const dtaPracticePreviewFetchOptions = createFetchOptions({
   fields: [...documentFields, "slug", "name"],
   populate: {
-    // dta_locationNew: dtaLocationPreviewFetchOptions,
-    dta_location_news: dtaLocationPreviewFetchOptions,
+    dta_location_news: dtaLocationFetchOptions,
   },
 });
 
@@ -61,6 +60,7 @@ export const dtaPersonDetailFetchOptions = createFetchOptions({
     dta_practicesNew: dtaPracticePreviewFetchOptions,
     dtaInstitutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
+    dta_location: dtaLocationFetchOptions,
   },
 });
 
@@ -71,6 +71,7 @@ export const dtaPracticeDetailFetchOptions = createFetchOptions({
     dta_peopleNew: dtaPersonPreviewFetchOptions,
     dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
+    dta_location_news: dtaLocationFetchOptions,
   },
 });
 
@@ -81,6 +82,7 @@ export const dtaInstitutionDetailFetchOptions = createFetchOptions({
     dtaPeople: dtaPersonPreviewFetchOptions,
     dta_practices: dtaPracticePreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
+    dta_locationsNew: dtaLocationFetchOptions,
   },
 });
 
@@ -136,4 +138,20 @@ export const dtaSnippetsFetchOptions = createFetchOptions({
     "collectionsLandingDescription",
     "dtaHomepageDescription",
   ],
+});
+
+export const dtaMapFetchOptions = createFetchOptions({
+  fields: [...documentFields, "Description"],
+  populate: {
+    dta_event_types: {
+      fields: [...documentFields, "description", "shortTitle"],
+    },
+  },
+});
+
+export const dtaEventFetchOptions = createFetchOptions({
+  fields: [...documentFields, "beginYear", "endYear"],
+  populate: {
+    dtaLocation: dtaLocationFetchOptions,
+  },
 });

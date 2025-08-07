@@ -28,7 +28,7 @@ export async function DTAInstitutionsPage({
       data: institutions,
       meta: { pagination },
     },
-    { data: snippets },
+    snippets,
   ] = await Promise.all([
     getDTAInstitutions({
       pagination: { page, pageSize: 30 },

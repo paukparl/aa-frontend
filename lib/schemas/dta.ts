@@ -9,9 +9,11 @@ export const dtaPersonPreview = document.extend({
   headshot: img.nullable(),
 });
 
-export const dtaLocationPreview = document.extend({
-  longitude: z.number().nullable(),
-  latitude: z.number().nullable(),
+export const dtaLocation = document.extend({
+  // longitude: z.number().nullable(),
+  // latitude: z.number().nullable(),
+  longitude: z.coerce.number().nullable(),
+  latitude: z.coerce.number().nullable(),
   city: z.string().nullable(),
   country: z.string().nullable(),
 });
@@ -19,7 +21,7 @@ export const dtaLocationPreview = document.extend({
 export const dtaPracticePreview = document.extend({
   slug: z.string().nullable(),
   name: z.string().nullable(),
-  dta_location_news: z.array(dtaLocationPreview),
+  dta_location_news: z.array(dtaLocation),
 });
 
 export const dtaInstitutionPreview = document.extend({
@@ -62,6 +64,7 @@ export const dtaPersonDetail = dtaPersonPreview.extend({
   dta_practicesNew: z.array(dtaPracticePreview),
   dtaInstitutionsNew: z.array(dtaInstitutionPreview),
   dta_objects: z.array(dtaObjectPreview),
+  dta_location: dtaLocation.nullable(),
 });
 
 export const dtaPracticeDetail = dtaPracticePreview.extend({
@@ -69,6 +72,7 @@ export const dtaPracticeDetail = dtaPracticePreview.extend({
   dta_peopleNew: z.array(dtaPersonPreview),
   dta_institutionsNew: z.array(dtaInstitutionPreview),
   dta_objects: z.array(dtaObjectPreview),
+  dta_location_news: z.array(dtaLocation),
 });
 
 export const dtaInstitutionDetail = dtaInstitutionPreview.extend({
@@ -76,6 +80,7 @@ export const dtaInstitutionDetail = dtaInstitutionPreview.extend({
   dtaPeople: z.array(dtaPersonPreview),
   dta_objects: z.array(dtaObjectPreview),
   dta_practices: z.array(dtaPracticePreview),
+  dta_locationsNew: z.array(dtaLocation),
 });
 
 export const dtaObjectDetail = dtaObjectPreview.extend({
@@ -127,4 +132,20 @@ export const dtaSnippets = document.extend({
   institutionsLandingDescription: z.string().nullable(),
   collectionsLandingDescription: z.string().nullable(),
   dtaHomepageDescription: z.string().nullable(),
+});
+
+export const dtaEvent = document.extend({
+  beginYear: z.coerce.number().nullable(),
+  endYear: z.coerce.number().nullable(),
+  dtaLocation: dtaLocation.nullable(),
+});
+
+export const dtaMap = document.extend({
+  Description: z.string().nullable(),
+  dta_event_types: z.array(
+    document.extend({
+      description: z.string().nullable(),
+      shortTitle: z.string().nullable(),
+    }),
+  ),
 });

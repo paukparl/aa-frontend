@@ -16,7 +16,7 @@ import {
   DTAPracticesGrid,
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
-import { Map } from "@/components/dta/components/Map";
+import { Map, MapCoords } from "@/components/dta/components/Map";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
@@ -24,6 +24,8 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
   const person = await getDTAPerson(slug);
 
   if (!person) notFound();
+
+  const location = person?.dta_location;
 
   return (
     <ViewTransitionTipinPage
@@ -78,14 +80,24 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
             />
           </div>
         </div>
-        <div>
-          <DTAHeader className="capitalize">Map</DTAHeader>
-          <Map
-            className={cn("aspect-2/1 w-full")}
-            gridStroke="var(--color-dta-people-foreground)"
-            landFill="var(--color-dta-map-land)"
-          />
-        </div>
+
+        {location && location.longitude && location.latitude && (
+          <div>
+            <DTAHeader className="capitalize">Map</DTAHeader>
+            <Map
+              gridStroke="var(--color-dta-people-foreground)"
+              pathFill="var(--color-dta-map-land)"
+            >
+              <MapCoords long={location.longitude} lat={location.latitude}>
+                <div
+                  className={cn(
+                    "size-20 rounded-full bg-dta-people-foreground",
+                  )}
+                />
+              </MapCoords>
+            </Map>
+          </div>
+        )}
         <div>
           <DTAHeader className="capitalize">Related Practices</DTAHeader>
           <DTAPracticesGrid>
