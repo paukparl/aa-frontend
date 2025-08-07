@@ -21,7 +21,7 @@ export const DTAInstitutionsGrid = ({
   return (
     <div
       className={cn(
-        "1024:grid-cols-3 1024:gap-y-10 1280:gap-y-20 grid grid-cols-2 gap-x-(--padding) gap-y-8",
+        "grid grid-cols-2 gap-x-(--padding) gap-y-8 1024:grid-cols-3 1024:gap-y-10 1280:gap-y-20",
         className,
       )}
     >
@@ -45,28 +45,25 @@ export const DTAInstitutionsGridItem = ({
     params: urlSearchParams,
   });
   return (
-    <div className={cn(className)}>
-      <Link
-        className={cn(
-          "dta-griditem-bg 700:mb-10 relative mb-5 block aspect-[4/3]",
-        )}
-        tabIndex={-1}
-        href={href}
-        scroll={false}
-      >
+    <Link
+      className={cn(className, "group block")}
+      tabIndex={-1}
+      href={href}
+      scroll={false}
+    >
+      <div className="relative mb-5 block aspect-[4/3] dta-griditem-bg 700:mb-10">
         {institution.Display && (
           <Image
             src={institution.Display.url}
-            sizes="30vw"
             fill
             alt={institution.Display.alternativeText ?? ""}
             className="object-cover"
           />
         )}
-      </Link>
-      <Link href={href} className="mono" scroll={false}>
+      </div>
+      <div className="mono transition-all group-hover:opacity-70">
         {institution.Name}
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };

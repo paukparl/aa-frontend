@@ -17,7 +17,7 @@ export const DTAObjectsGrid = ({
   return (
     <div
       className={cn(
-        "700:grid-cols-3 1024:grid-cols-4 1024:gap-x-5 1024:gap-y-10 1280:grid-cols-5 1280:gap-x-5 1280:gap-y-20 1500:grid-cols-6 grid w-full grid-cols-2 gap-x-5 gap-y-[35px]",
+        "grid w-full grid-cols-2 gap-x-5 gap-y-[35px] 700:grid-cols-3 1024:grid-cols-4 1024:gap-x-5 1024:gap-y-10 1280:grid-cols-5 1280:gap-x-5 1280:gap-y-20 1500:grid-cols-6",
         className,
       )}
     >
@@ -37,15 +37,13 @@ export const DTAObjectsGridItem = ({
 }: DTAObjectsGridItemProps) => {
   const href = routes.tipin2("dta", "collections", object.documentId); // TODO: slug
   return (
-    <div className={cn(className)}>
-      <Link
-        className={cn(
-          "dta-griditem-bg 700:mb-10 relative mb-5 block aspect-[4/5]",
-        )}
-        tabIndex={-1}
-        href={href}
-        scroll={false}
-      >
+    <Link
+      className={cn(className, "group block")}
+      tabIndex={-1}
+      href={href}
+      scroll={false}
+    >
+      <div className="relative mb-5 block aspect-[4/5] dta-griditem-bg 700:mb-10">
         {object.image[0] && (
           <Image
             src={object.image[0].url}
@@ -54,10 +52,10 @@ export const DTAObjectsGridItem = ({
             className="object-cover"
           />
         )}
-      </Link>
-      <Link href={href} className="mono" scroll={false}>
+      </div>
+      <div className="mono transition-all group-hover:opacity-70">
         {object.title}
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };

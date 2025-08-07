@@ -172,7 +172,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
             <Dialog.Title className="sr-only"></Dialog.Title>
             <Dialog.Description className="sr-only"></Dialog.Description>
             <div className="relative min-h-dvh w-full bg-(--tipin-bg)">
-              <PageHeader className="from-(--tipin-bg) px-(--padding)">
+              <PageHeader className="flex items-center justify-between from-(--tipin-bg) px-(--padding)">
                 <Button theme="minimal" asChild>
                   <MenuButton className="mr-(--padding) h-26 text-(length:--menu-svg-font-size)">
                     <MenuSvg />
