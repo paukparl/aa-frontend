@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import * as React from "react";
-import { ProgrammeTableInfoTipIn } from "@/components/School/Programmes/components/ProgrammeTableInfoTipIn";
-import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { ProgrammeTableInfoTipIn } from "@/components/school/programmes/components/ProgrammeTableInfoTipIn";
+import { ProgrammeTextCol } from "@/components/school/programmes/components/ProgrammeTextCol";
 
 type PagePostgradTipInProps = {
   className?: string;
@@ -17,7 +17,7 @@ export const PagePostgradTipIn = ({ className }: PagePostgradTipInProps) => {
     <div
       className={clsx(
         className,
-        "bg-programmes-postgrad-accent padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[100px] backdrop-blur-lg lg:w-[75%]",
+        "padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] bg-programmes-postgrad-accent pb-[100px] backdrop-blur-lg lg:w-[75%]",
       )}
     >
       <TipinHeader

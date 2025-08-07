@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import * as React from "react";
-import { ProgrammeDoubleTextCol } from "@/components/School/Programmes/components/ProgrammeDoubleTextCol";
-import { ProgrammeGridStudentWork } from "@/components/School/Programmes/components/ProgrammeGridStudentWork";
-import { ProgrammeTableInfoTipIn } from "@/components/School/Programmes/components/ProgrammeTableInfoTipIn";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { ButtonCTA } from "@/components/globals/components/ButtonCTA";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { ProgrammeDoubleTextCol } from "@/components/school/programmes/components/ProgrammeDoubleTextCol";
+import { ProgrammeGridStudentWork } from "@/components/school/programmes/components/ProgrammeGridStudentWork";
+import { ProgrammeTableInfoTipIn } from "@/components/school/programmes/components/ProgrammeTableInfoTipIn";
 
 type PageIntermediateTipInProps = {
   className?: string;
@@ -20,7 +20,7 @@ export const PageIntermediateTipIn = ({
     <div
       className={clsx(
         className,
-        "bg-programmes-intermediate-accent padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[100px] backdrop-blur-lg lg:w-[75%]",
+        "padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] bg-programmes-intermediate-accent pb-[100px] backdrop-blur-lg lg:w-[75%]",
       )}
     >
       <TipinHeader

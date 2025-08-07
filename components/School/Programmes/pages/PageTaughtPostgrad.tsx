@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import * as React from "react";
-import { ProgrammeTableInfo } from "@/components/School/Programmes/components/ProgrammeTableInfo";
-import { ProgrammeTableProgrammes } from "@/components/School/Programmes/components/ProgrammeTableProgrammes";
-import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { ProgrammeTableInfo } from "@/components/school/programmes/components/ProgrammeTableInfo";
+import { ProgrammeTableProgrammes } from "@/components/school/programmes/components/ProgrammeTableProgrammes";
+import { ProgrammeTextCol } from "@/components/school/programmes/components/ProgrammeTextCol";
 
 type PageTaughtPostgradProps = {
   className?: string;

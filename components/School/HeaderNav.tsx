@@ -1,9 +1,8 @@
 import clsx from "clsx";
 import Link from "next/link";
 import * as React from "react";
-import { Mono } from "@/components/Typography/Mono";
 
-type routes =
+type route =
   | "programmes"
   | "apply"
   | "facilities"
@@ -15,7 +14,7 @@ type routes =
   | "documents";
 type HeaderNavProps = {
   className?: string;
-  activeRoute: routes;
+  activeRoute: route;
 };
 
 export const HeaderNav = ({ className, activeRoute }: HeaderNavProps) => {
@@ -43,15 +42,13 @@ export const HeaderNav = ({ className, activeRoute }: HeaderNavProps) => {
           href={`/school/${route}`}
           className={clsx(
             activeRoute === route && "bg-school-tint",
-            "border-school-tint hover:bg-school-tint mt-[-1px] ml-[-1px] block border-[1px] py-[7px] pl-[20px] capitalize",
+            "mt-[-1px] ml-[-1px] block border-[1px] border-school-tint py-[7px] pl-[20px] capitalize hover:bg-school-tint",
           )}
         >
           {route === "calendar" ? (
-            <Mono>
-              <span className="hidden md:inline">Academic </span>Calendar
-            </Mono>
+            <span className="hidden mono md:inline">Academic Calendar</span>
           ) : (
-            <Mono>{route}</Mono>
+            <div className="mono">{route}</div>
           )}
         </Link>
       ))}

@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { getSchoolProgrammes } from "@/api/getSchoolProgrammes";
 import { getSchoolVisitingSchoolSnippet } from "@/api/getSchoolVisitingSchoolSnippet";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
+import { HeaderNav } from "@/components/school/HeaderNav";
 import { routes } from "@/lib/routes";
 
 export default async function SchoolProgrammesPage() {
@@ -14,6 +15,7 @@ export default async function SchoolProgrammesPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       {/* Links and data */}
+      <HeaderNav activeRoute="programmes" />
       <pre>
         {programmes.map((programme) => (
           <Fragment key={programme.documentId}>

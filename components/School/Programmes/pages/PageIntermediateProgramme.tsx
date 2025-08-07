@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import * as React from "react";
-import { ProgrammeTableInfo } from "@/components/School/Programmes/components/ProgrammeTableInfo";
-import { ProgrammeTableTerm } from "@/components/School/Programmes/components/ProgrammeTableTerm";
-import { ProgrammeTableUnits } from "@/components/School/Programmes/components/ProgrammeTableUnits";
-import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { Collapsible } from "@/components/globals/components/Collapsible";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { ProgrammeTableInfo } from "@/components/school/programmes/components/ProgrammeTableInfo";
+import { ProgrammeTableTerm } from "@/components/school/programmes/components/ProgrammeTableTerm";
+import { ProgrammeTableUnits } from "@/components/school/programmes/components/ProgrammeTableUnits";
+import { ProgrammeTextCol } from "@/components/school/programmes/components/ProgrammeTextCol";
 
 type PageIntermediateProgrammeProps = {
   className?: string;

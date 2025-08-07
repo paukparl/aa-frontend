@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { PageProgrammesIndex } from "@/components/School/Programmes/pages/PageProgrammesIndex";
+import { PageProgrammesIndex } from "@/components/school/programmes/pages/PageProgrammesIndex";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

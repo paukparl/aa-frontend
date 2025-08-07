@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import * as React from "react";
-import { ProgrammeTableVisitingSchool } from "@/components/School/Programmes/components/ProgrammeTableVisitingSchool";
-import { ProgrammeTextCol } from "@/components/School/Programmes/components/ProgrammeTextCol";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
 import { Mono } from "@/components/Typography/Mono";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { ProgrammeTableVisitingSchool } from "@/components/school/programmes/components/ProgrammeTableVisitingSchool";
+import { ProgrammeTextCol } from "@/components/school/programmes/components/ProgrammeTextCol";
 
 type PageVisitingSchoolProps = {
   className?: string;

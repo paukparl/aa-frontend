@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import * as React from "react";
-import { ProgrammeDoubleTextCol } from "@/components/School/Programmes/components/ProgrammeDoubleTextCol";
-import { ProgrammeTableInfoTipIn } from "@/components/School/Programmes/components/ProgrammeTableInfoTipIn";
 import { Body } from "@/components/Typography/Body";
 import { H1 } from "@/components/Typography/H1";
-import { UL } from "@/components/Typography/UL";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+import { ProgrammeDoubleTextCol } from "@/components/school/programmes/components/ProgrammeDoubleTextCol";
+import { ProgrammeTableInfoTipIn } from "@/components/school/programmes/components/ProgrammeTableInfoTipIn";
+import { UL } from "@/components/typography/UL";
 
 type PageVisitingTipInProps = {
   className?: string;
@@ -17,7 +17,7 @@ export const PageVisitingTipIn = ({ className }: PageVisitingTipInProps) => {
     <div
       className={clsx(
         className,
-        "bg-programmes-visiting-accent padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[100px] backdrop-blur-lg lg:w-[75%]",
+        "padding-default-y flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] bg-programmes-visiting-accent pb-[100px] backdrop-blur-lg lg:w-[75%]",
       )}
     >
       <TipinHeader
