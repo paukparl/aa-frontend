@@ -1,6 +1,6 @@
 import { DebounceSettings, ThrottleSettings, debounce, throttle } from "lodash";
 import { RefObject, useEffect } from "react";
-import useCallbackRef from "@/hooks/useCallbackRef";
+import useCallbackMemo from "@/hooks/useCallbackMemo";
 import useDeepMemo from "@/hooks/useDeepMemo";
 import isReactRef from "@/lib/isReactRef";
 
@@ -27,7 +27,7 @@ function useEventHandler<T extends keyof HTMLElementEventMap>({
   handler: (event: HTMLElementEventMap[T]) => void;
   options?: TOptions;
 }) {
-  const handler = useCallbackRef(handlerProp);
+  const handler = useCallbackMemo(handlerProp);
 
   const options = useDeepMemo(optionsProp);
 
