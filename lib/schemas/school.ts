@@ -1,5 +1,5 @@
 import z from "zod/v4";
-import { dtaLocationPreview } from "@/lib/schemas/dta";
+import { dtaLocation } from "@/lib/schemas/dta";
 import { document, img } from "@/lib/schemas/shared";
 
 export const schoolProgrammePreview = document.extend({
@@ -25,6 +25,6 @@ export const schoolVisitingSchoolPreview = document.extend({
   slug: z.string().nullable(),
   tempVisitingSchoolTitle: z.string().nullable(),
   tempRepresentativeImage: img.nullable(),
-  tempDtaLocation: dtaLocationPreview.nullable(),
+  tempDtaLocation: dtaLocation.nullable(),
   tempDate: z.string().nullable(),
 });

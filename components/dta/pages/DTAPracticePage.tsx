@@ -15,7 +15,8 @@ import {
   DTAPeopleGrid,
   DTAPeopleGridItem,
 } from "@/components/dta/components/DTAPeopleGrid";
-import { Map } from "@/components/dta/components/Map";
+import { Map, MapCoords } from "@/components/dta/components/Map";
+import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DTAPracticePage({ slug }: { slug: string }) {
@@ -39,14 +40,33 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
         {practice.description && (
           <span className="body">{practice.description}</span>
         )}
-        <div>
-          <DTAHeader className="capitalize">Map</DTAHeader>
-          <Map
-            className="aspect-2/1 w-full"
-            gridStroke="var(--color-dta-map-background)"
-            landFill="var(--color-dta-map-land)"
-          />
-        </div>
+        {practice.dta_location_news.length > 0 && (
+          <div>
+            <DTAHeader className="capitalize">Map</DTAHeader>
+            <Map
+              gridStroke="var(--color-dta-practices-foreground)"
+              pathFill="var(--color-dta-map-land)"
+            >
+              {practice.dta_location_news.map(
+                (location) =>
+                  location.longitude &&
+                  location.latitude && (
+                    <MapCoords
+                      key={location.documentId}
+                      long={location.longitude ?? 0}
+                      lat={location.latitude ?? 0}
+                    >
+                      <div
+                        className={cn(
+                          "size-20 rounded-full bg-dta-practices-foreground",
+                        )}
+                      />
+                    </MapCoords>
+                  ),
+              )}
+            </Map>
+          </div>
+        )}
         <div>
           <DTAHeader className="capitalize">Related People</DTAHeader>
           <DTAPeopleGrid>

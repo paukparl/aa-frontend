@@ -26,7 +26,7 @@ export async function DTAPeoplePage({
       data: people,
       meta: { pagination },
     },
-    { data: snippets },
+    snippets,
   ] = await Promise.all([
     getDTAPeople({
       pagination: { page, pageSize: 30 },

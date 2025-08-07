@@ -27,7 +27,7 @@ export async function DTAPracticesPage({
       data: practices,
       meta: { pagination },
     },
-    { data: snippets },
+    snippets,
   ] = await Promise.all([
     getDTAPractices({
       pagination: { page, pageSize: 30 },

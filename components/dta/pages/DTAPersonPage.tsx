@@ -16,13 +16,16 @@ import {
   DTAPracticesGrid,
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
-import { Map } from "@/components/dta/components/Map";
+import { Map, MapCoords } from "@/components/dta/components/Map";
+import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DTAPersonPage({ slug }: { slug: string }) {
   const person = await getDTAPerson(slug);
 
   if (!person) notFound();
+
+  const location = person?.dta_location;
 
   return (
     <ViewTransitionTipinPage
@@ -35,13 +38,13 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
         { title: "People", path: routes.tipin1("dta", "people") },
       ]}
     >
-      <div className="700:gap-72 flex flex-col gap-20 p-(--padding)">
+      <div className="flex flex-col gap-20 p-(--padding) 700:gap-72">
         <h1 className="tipin">
           {person.firstName} {person.lastName}
           <br />
           {person.displayStudyYear}
         </h1>
-        <div className="700:grid-cols-2 grid gap-(--padding)">
+        <div className="grid gap-(--padding) 700:grid-cols-2">
           {person.headshot && (
             <div className="relative aspect-4/5">
               <Image
@@ -55,7 +58,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
           )}
           <div className="body">{person.bio}</div>
         </div>
-        <div className="1024:grid-cols-2 grid grid-cols-1 gap-(--padding)">
+        <div className="grid grid-cols-1 gap-(--padding) 1024:grid-cols-2">
           <div>
             <DTAHeader>Education</DTAHeader>
             <DTAPeopleTable
@@ -75,14 +78,24 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
             />
           </div>
         </div>
-        <div>
-          <DTAHeader>Map</DTAHeader>
-          <Map
-            className="aspect-2/1 w-full"
-            gridStroke="var(--color-dta-people-foreground)"
-            landFill="var(--color-dta-map-land)"
-          />
-        </div>
+
+        {location && location.longitude && location.latitude && (
+          <div>
+            <DTAHeader className="capitalize">Map</DTAHeader>
+            <Map
+              gridStroke="var(--color-dta-people-foreground)"
+              pathFill="var(--color-dta-map-land)"
+            >
+              <MapCoords long={location.longitude} lat={location.latitude}>
+                <div
+                  className={cn(
+                    "size-20 rounded-full bg-dta-people-foreground",
+                  )}
+                />
+              </MapCoords>
+            </Map>
+          </div>
+        )}
         <div>
           <DTAHeader>Related Practices</DTAHeader>
           <DTAPracticesGrid>
