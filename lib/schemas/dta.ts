@@ -126,7 +126,7 @@ export const dtaPage = document
   })
   .loose();
 
-export const dtaSnippets = document.extend({
+export const dtaSnippet = document.extend({
   peopleLandingDescription: z.string().nullable(),
   practicesLandingDescription: z.string().nullable(),
   institutionsLandingDescription: z.string().nullable(),

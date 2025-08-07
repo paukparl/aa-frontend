@@ -1,11 +1,11 @@
 import { fetchOne } from "@/lib/fetchData";
-import { dtaSnippetsFetchOptions } from "@/lib/fetchOptions";
+import { dtaSnippetFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
 
-export async function getDTASnippets() {
-  return schemas.getOneRes(schemas.dtaSnippets).parse(
+export async function getDTASnippet() {
+  return schemas.getOneRes(schemas.dtaSnippet).parse(
     await fetchOne("/dta-snippet", {
-      ...dtaSnippetsFetchOptions,
+      ...dtaSnippetFetchOptions,
     }),
   ).data;
 }

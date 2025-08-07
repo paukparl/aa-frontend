@@ -12,13 +12,18 @@ import {
   dtaPersonPreview,
   dtaPracticeDetail,
   dtaPracticePreview,
-  dtaSnippets,
+  dtaSnippet,
 } from "@/lib/schemas/dta";
 import {
   schoolEventPreview,
   schoolFacilityPreview,
+  schoolProgrammeDetail,
   schoolProgrammePreview,
+  schoolUnitDetail,
+  schoolUnitPreview,
+  schoolVisitingSchoolDetail,
   schoolVisitingSchoolPreview,
+  schoolVisitingSchoolSnippet,
 } from "@/lib/schemas/school";
 import {
   document,
@@ -54,13 +59,18 @@ export const schemas = {
   dtaObjectDetail,
   dtaLocation,
   dtaPage,
-  dtaSnippets,
+  dtaSnippet,
   dtaMap,
   dtaEvent,
   schoolEventPreview,
   schoolFacilityPreview,
   schoolProgrammePreview,
+  schoolProgrammeDetail,
+  schoolUnitPreview,
+  schoolUnitDetail,
+  schoolVisitingSchoolSnippet,
   schoolVisitingSchoolPreview,
+  schoolVisitingSchoolDetail,
 };
 
 export type Schema<

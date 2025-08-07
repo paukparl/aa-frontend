@@ -1,6 +1,6 @@
 import * as React from "react";
 import { getDTAMap } from "@/api/getDTAMap";
-import { getDTASnippets } from "@/api/getDTASnippet";
+import { getDTASnippet } from "@/api/getDTASnippet";
 import { tempGetDTAEvents } from "@/api/tempGetDTAEvents";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { DTAMapFooter } from "@/components/dta/components/DTAMapFooter";
@@ -10,7 +10,7 @@ import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCo
 
 export async function DTAMapPage() {
   const [snippets, map, { data: events }] = await Promise.all([
-    getDTASnippets(),
+    getDTASnippet(),
     getDTAMap(),
     tempGetDTAEvents(),
   ]);

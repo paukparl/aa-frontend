@@ -1,7 +1,7 @@
 import * as React from "react";
 import { z } from "zod/v4";
 import { getDTAPractices } from "@/api/getDTAPractices";
-import { getDTASnippets } from "@/api/getDTASnippet";
+import { getDTASnippet } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import {
   DTAPracticesTable,
@@ -32,7 +32,7 @@ export async function DTAPracticesPage({
     getDTAPractices({
       pagination: { page, pageSize: 30 },
     }),
-    getDTASnippets(),
+    getDTASnippet(),
   ]);
 
   return (
