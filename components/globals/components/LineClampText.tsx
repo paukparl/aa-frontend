@@ -1,12 +1,12 @@
 "use client";
 
-import { ReactNode, Suspense, useEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type LineClampTextProps = {
   className?: string;
   children: ReactNode;
-  lineLimit: Number;
+  lineLimit: number;
 };
 
 export const LineClampText = ({ children, className }: LineClampTextProps) => {
