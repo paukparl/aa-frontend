@@ -17,8 +17,13 @@ import {
 import {
   schoolEventPreview,
   schoolFacilityPreview,
+  schoolProgrammeDetail,
   schoolProgrammePreview,
+  schoolUnitDetail,
+  schoolUnitPreview,
+  schoolVisitingSchoolDetail,
   schoolVisitingSchoolPreview,
+  schoolVisitingSchoolSnippet,
 } from "@/lib/schemas/school";
 import {
   document,
@@ -60,7 +65,12 @@ export const schemas = {
   schoolEventPreview,
   schoolFacilityPreview,
   schoolProgrammePreview,
+  schoolProgrammeDetail,
+  schoolUnitPreview,
+  schoolUnitDetail,
+  schoolVisitingSchoolSnippet,
   schoolVisitingSchoolPreview,
+  schoolVisitingSchoolDetail,
 };
 
 export type Schema<

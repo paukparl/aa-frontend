@@ -1,21 +1,27 @@
+import { getSchoolVisitingSchool } from "@/api/getSchoolVisitingSchool";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { routes } from "@/lib/routes";
 
-// These names are getting long... I don't mind them, but if you have any better idea for organizing page components, feel free to change!
-
-export async function SchoolProgrammesVisitingSchoolPage() {
-  // TODO: (Paul) Fetch and pass data below
+export async function SchoolVisitingSchoolPage({ slug }: { slug: string }) {
+  // const [visitingSchoolSnippet, { data: visitingSchools }] = await Promise.all([ getSchoolVisitingSchoolSnippet(),
+  //   getSchoolVisitingSchools(),
+  // ]);
+  const visitingSchool = await getSchoolVisitingSchool(slug);
   return (
     <ViewTransitionTipinPage
-      type="1"
-      bg="var(--color-name)"
-      fg="var(--color-name)"
-      title="AA Visiting School"
+      type="2"
+      bg="var(--color-school-visiting-school-bg)"
+      fg="var(--color-black)"
+      title={visitingSchool?.title ?? ""}
       ancestors={[
         { title: "Programmes", path: routes.ground("school-programmes") },
+        {
+          title: "AA Visiting School",
+          path: routes.tipin1("school-programmes", "aa-visiting-school"),
+        },
       ]}
     >
-      {/* TODO: (Jess) Page goes here */}
+      <pre>{JSON.stringify(visitingSchool, null, 2)}</pre>
     </ViewTransitionTipinPage>
   );
 }

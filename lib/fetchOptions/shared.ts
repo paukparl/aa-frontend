@@ -20,3 +20,7 @@ export const imgFetchOptions = createFetchOptions({
     "formats",
   ],
 });
+
+export const fileFetchOptions = createFetchOptions({
+  fields: [...documentFields, "url", "name", "mime"],
+});
