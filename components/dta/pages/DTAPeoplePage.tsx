@@ -1,5 +1,5 @@
 import { getDTAPeople } from "@/api";
-import { getDTASnippets } from "@/api/getDTASnippet";
+import { getDTASnippet } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import {
   DTAPeopleGrid,
@@ -31,7 +31,7 @@ export async function DTAPeoplePage({
     getDTAPeople({
       pagination: { page, pageSize: 30 },
     }),
-    getDTASnippets(),
+    getDTASnippet(),
   ]);
 
   return (

@@ -4,8 +4,8 @@ import { DTAGenericPage } from "@/components/dta/pages/DTAGenericPage";
 import { DTAInstitutionsPage } from "@/components/dta/pages/DTAInstitutionsPage";
 import { DTAPeoplePage } from "@/components/dta/pages/DTAPeoplePage";
 import { DTAPracticesPage } from "@/components/dta/pages/DTAPracticesPage";
-import { SchoolProgrammesProgrammePage } from "@/components/school/pages/SchoolProgrammesProgrammePage";
-import { SchoolProgrammesVisitingSchoolPage } from "@/components/school/pages/SchoolProgrammesVisitingSchoolPage";
+import { SchoolProgrammePage } from "@/components/school/pages/SchoolProgrammePage";
+import { SchoolVisitingSchoolsPage } from "@/components/school/pages/SchoolVisitingSchoolsPage";
 import { SearchParams } from "@/lib/types";
 
 export default async function Tipin1Page({
@@ -18,9 +18,9 @@ export default async function Tipin1Page({
   const { ground, tipin1 } = await params;
   if (ground === "school-programmes") {
     if (tipin1 === "aa-visiting-school") {
-      return <SchoolProgrammesVisitingSchoolPage />;
+      return <SchoolVisitingSchoolsPage />;
     } else {
-      return <SchoolProgrammesProgrammePage />;
+      return <SchoolProgrammePage slug={tipin1} />;
     }
   }
   if (ground === "dta") {

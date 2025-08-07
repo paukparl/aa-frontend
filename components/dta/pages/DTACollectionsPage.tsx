@@ -1,7 +1,7 @@
 import * as React from "react";
 import { z } from "zod/v4";
 import { getDTAObjects } from "@/api/getDTAObjects";
-import { getDTASnippets } from "@/api/getDTASnippet";
+import { getDTASnippet } from "@/api/getDTASnippet";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import {
   DTAObjectsGrid,
@@ -33,7 +33,7 @@ export async function DTACollectionsPage({
     getDTAObjects({
       pagination: { page, pageSize: 30 },
     }),
-    getDTASnippets(),
+    getDTASnippet(),
   ]);
   return (
     <ViewTransitionTipinPage
