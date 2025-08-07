@@ -71,6 +71,7 @@ export const dtaPracticeDetailFetchOptions = createFetchOptions({
     dta_peopleNew: dtaPersonPreviewFetchOptions,
     dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
+    dta_location_news: dtaLocationFetchOptions,
   },
 });
 
@@ -81,6 +82,7 @@ export const dtaInstitutionDetailFetchOptions = createFetchOptions({
     dtaPeople: dtaPersonPreviewFetchOptions,
     dta_practices: dtaPracticePreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
+    dta_locationsNew: dtaLocationFetchOptions,
   },
 });
 
