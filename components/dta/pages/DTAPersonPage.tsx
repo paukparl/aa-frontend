@@ -26,7 +26,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
 
   if (!person) notFound();
 
-  const location = person?.dta_location;
+  const location = person?.dtaLocation;
 
   return (
     <ViewTransitionTipinPage
