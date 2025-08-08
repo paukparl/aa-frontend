@@ -25,6 +25,7 @@ export const schoolUnitPreview = document.extend({
       lastName: z.string().nullable(),
     }),
   ),
+  school_programmes: z.array(schoolProgrammePreview),
 });
 
 export const schoolProgrammeDetail = schoolProgrammePreview.extend({
