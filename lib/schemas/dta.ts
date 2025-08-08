@@ -68,7 +68,7 @@ export const dtaPersonDetail = dtaPersonPreview.extend({
   dta_practicesNew: z.array(dtaPracticePreview),
   dtaInstitutionsNew: z.array(dtaInstitutionPreview),
   dta_objects: z.array(dtaObjectPreview),
-  dta_location: dtaLocation.nullable(),
+  dtaLocation: dtaLocation.nullable(),
 });
 
 export const dtaPracticeDetail = dtaPracticePreview.extend({
@@ -142,6 +142,11 @@ export const dtaEvent = document.extend({
   beginYear: z.coerce.number().nullable(),
   endYear: z.coerce.number().nullable(),
   dtaLocation: dtaLocation.nullable(),
+  image: z.array(img).nullable(),
+  dta_peopleNew: z.array(dtaPersonPreview),
+  dta_institutionsNew: z.array(dtaInstitutionPreview),
+  dta_practicesNew: z.array(dtaPracticePreview),
+  dta_objectsNew: z.array(dtaObjectPreview),
 });
 
 export const dtaMap = document.extend({

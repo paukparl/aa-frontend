@@ -60,7 +60,7 @@ export const dtaPersonDetailFetchOptions = createFetchOptions({
     dta_practicesNew: dtaPracticePreviewFetchOptions,
     dtaInstitutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
-    dta_location: dtaLocationFetchOptions,
+    dtaLocation: dtaLocationFetchOptions,
   },
 });
 
@@ -153,5 +153,10 @@ export const dtaEventFetchOptions = createFetchOptions({
   fields: [...documentFields, "beginYear", "endYear"],
   populate: {
     dtaLocation: dtaLocationFetchOptions,
+    image: imgFetchOptions,
+    dta_peopleNew: dtaPersonPreviewFetchOptions,
+    dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
+    dta_practicesNew: dtaPracticePreviewFetchOptions,
+    dta_objectsNew: dtaObjectPreviewFetchOptions,
   },
 });
