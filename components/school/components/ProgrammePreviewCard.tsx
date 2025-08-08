@@ -1,15 +1,19 @@
-import clsx from "clsx";
+import Link from "next/link";
 import * as React from "react";
+import { ButtonViewMore } from "@/components/school/components/ButtonViewMore";
+import { cn } from "@/lib/cn";
 
 type ProgrammePreviewCardProps = {
   className?: string;
-  programmeTitle: string;
+  programmeTitle: string | null;
   description: string;
+  documentId: string;
+  applyLink: string | null;
   degreeAwarded: string | null;
-  durationText: string;
-  durationFrac: number; // must be between 0 and 1
+  durationText: string | null;
+  durationValue: number | null;
   fullTime: boolean; // displays solid vs dotted line
-  durationStart: boolean; // true if the duration starts at the beginning of study, shows duraiton bar at beginning or end
+  rightAlign: boolean | null; // true if the duration starts at the beginning of study, shows duraiton bar at beginning or end
 };
 
 export const ProgrammePreviewCard = ({
@@ -18,36 +22,55 @@ export const ProgrammePreviewCard = ({
   description,
   degreeAwarded,
   durationText,
-  durationFrac,
+  durationValue,
   fullTime,
-  durationStart,
+  rightAlign,
+  documentId,
+  applyLink,
 }: ProgrammePreviewCardProps) => {
-  const durationBarW = `${durationFrac * 100}%`;
+  const durationBarW = `${durationValue}%`;
+  console.log(applyLink);
   return (
-    <div className={clsx(className, "pb-[50px] md:pr-[30px]")}>
-      <h1 className="flex w-[90%] items-end md:h-[90px]">{programmeTitle}</h1>
-      <div className="mt-[10px] border border-dotted sm:mt-[20px]">
+    <div className={cn(className, "pb-[50px]")}>
+      <h1 className="flex items-end md:h-[90px]">{programmeTitle}</h1>
+      <Link
+        scroll={false}
+        href={`school-programmes/${documentId}`}
+        className="group mt-[10px] block border border-dotted transition-all hover:border-solid hover:bg-school-tint sm:mt-[20px]"
+      >
         {degreeAwarded && (
-          <div className="border-b border-dotted p-[15px] mono sm:min-h-[87px]">
+          <div className="border-b border-dotted p-[15px] mono transition-all group-hover:border-solid sm:min-h-[87px]">
             {degreeAwarded}
           </div>
         )}
         <div className="p-[15px]">
           <div className="mono md:min-h-[90px]">{durationText}</div>
-          <div className="mt-[10px] h-[10px] w-[100%] bg-school-tint">
+          <div className="mt-[10px] h-[10px] w-[100%] bg-school-tint transition-all group-hover:bg-white">
             <div
               style={{ width: durationBarW }}
-              className={clsx(
-                !durationStart && "float-end",
+              className={cn(
+                rightAlign && "float-end",
                 fullTime ? "bg-black" : "bg-dotted-line",
                 "h-[10px]",
               )}
             ></div>
           </div>
         </div>
-      </div>
+      </Link>
       <div className="mt-[15px] line-clamp-10 body whitespace-pre-line">
         {description}
+      </div>
+      <div className="mt-(--padding) flex gap-10">
+        <ButtonViewMore href={`school-programmes/${documentId}`}>
+          Learn More
+        </ButtonViewMore>
+        <ButtonViewMore
+          href={
+            applyLink ? `school-programmes/${applyLink}` : "school-programmes/"
+          }
+        >
+          How to Apply
+        </ButtonViewMore>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
+// import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 
 export const DTAMapFooter = () => {
   return (

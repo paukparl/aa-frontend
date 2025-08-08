@@ -1,40 +1,34 @@
-import Link from "next/link";
 import { getSchoolProgrammes } from "@/api/getSchoolProgrammes";
-import { getSchoolVisitingSchoolSnippet } from "@/api/getSchoolVisitingSchoolSnippet";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { ProgrammePreviewCard } from "@/components/school/components/ProgrammePreviewCard";
 import { SchoolNav } from "@/components/school/components/SchoolNav";
-import { routes } from "@/lib/routes";
 
 export default async function SchoolProgrammesPage() {
-  const [{ data: programmes }, visitingSchoolSnippet] = await Promise.all([
-    getSchoolProgrammes(),
-    getSchoolVisitingSchoolSnippet(),
-  ]);
-
+  const { data: programmes } = await getSchoolProgrammes();
+  console.log(programmes);
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
         <SchoolNav activeRoute="programmes" />
-        <div className="1000:grid-cols-2 grid 1280:grid-cols-3">
+        <div className="1000:grid-cols-2 grid gap-(--padding) 1280:grid-cols-3">
           {programmes.map((programme) => (
             <ProgrammePreviewCard
               key={programme.documentId}
+              rightAlign={programme.rightAlign}
+              fullTime={programme.studyMode === "full-time"}
+              durationValue={programme.durationValue}
+              documentId={
+                programme.programmeTitle === "AA Visiting School"
+                  ? "aa-visiting-school"
+                  : programme.documentId
+              }
               programmeTitle={programme.programmeTitle}
+              applyLink={programme.applyLink}
               degreeAwarded={programme.degreeAwarded}
               durationText={programme.durationText}
+              description="The Diploma Programme introduces students to the study of advanced research and design methods, and new approaches to practice. Throughout its history, the Diploma Programme has fostered some of the most innovative, challenging and progressive thinking in architecture."
             />
           ))}
-          <Link
-            href={routes.tipin1("school-programmes", "aa-visiting-school")}
-            className="underline"
-            scroll={false}
-          >
-            {routes.tipin1("school-programmes", "aa-visiting-school")}
-          </Link>
-          <br />
-          {JSON.stringify(programmes, null, 2)}
-          {JSON.stringify(visitingSchoolSnippet, null, 2)}
         </div>
       </div>
     </ViewTransitionGroundPage>
