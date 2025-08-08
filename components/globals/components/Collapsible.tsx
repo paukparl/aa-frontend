@@ -35,14 +35,14 @@ export const Collapsible = ({ items, className }: CollapsibleProps) => {
                 <path
                   d="M0.0263672 10.5263L20.0264 10.5263"
                   stroke="black"
-                  stroke-width="5"
-                  stroke-linejoin="round"
+                  strokeWidth="5"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M10 0.526306L10 20.5263"
                   stroke="black"
-                  stroke-width="5"
-                  stroke-linejoin="round"
+                  strokeWidth="5"
+                  strokeLinejoin="round"
                 />
               </svg>
               <svg
@@ -56,8 +56,8 @@ export const Collapsible = ({ items, className }: CollapsibleProps) => {
                 <path
                   d="M0 2.5H20"
                   stroke="black"
-                  stroke-width="5"
-                  stroke-linejoin="round"
+                  strokeWidth="5"
+                  strokeLinejoin="round"
                 />
               </svg>
               {item.header}

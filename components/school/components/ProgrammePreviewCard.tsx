@@ -29,7 +29,6 @@ export const ProgrammePreviewCard = ({
   applyLink,
 }: ProgrammePreviewCardProps) => {
   const durationBarW = `${durationValue}%`;
-  console.log(applyLink);
   return (
     <div className={cn(className, "pb-[50px]")}>
       <h1 className="flex items-end md:h-[90px]">{programmeTitle}</h1>

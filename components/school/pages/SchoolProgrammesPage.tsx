@@ -5,7 +5,9 @@ import { SchoolNav } from "@/components/school/components/SchoolNav";
 
 export default async function SchoolProgrammesPage() {
   const { data: programmes } = await getSchoolProgrammes();
-  console.log(programmes);
+  // replace mock data below when we can access the rich text fields
+  const mockDescriptionData =
+    "The Diploma Programme introduces students to the study of advanced research and design methods, and new approaches to practice. Throughout its history, the Diploma Programme has fostered some of the most innovative, challenging and progressive thinking in architecture.";
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
@@ -26,7 +28,7 @@ export default async function SchoolProgrammesPage() {
               applyLink={programme.applyLink}
               degreeAwarded={programme.degreeAwarded}
               durationText={programme.durationText}
-              description="The Diploma Programme introduces students to the study of advanced research and design methods, and new approaches to practice. Throughout its history, the Diploma Programme has fostered some of the most innovative, challenging and progressive thinking in architecture."
+              description={mockDescriptionData}
             />
           ))}
         </div>

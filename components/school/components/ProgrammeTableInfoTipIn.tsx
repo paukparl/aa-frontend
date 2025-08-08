@@ -14,15 +14,15 @@ export const ProgrammeTableInfoTipIn = ({
   return (
     <div className={clsx(className, "pb-[30px] sm:pb-[50px]")}>
       <div className="mt-[10px] grid grid-cols-[1fr_2fr] border-x border-t border-dotted sm:mt-[20px] sm:min-h-[85px] md:grid-cols-[1fr_3fr]">
-        {items.map((item) => (
-          <>
+        {items.map((item, index) => (
+          <div key={`${index},${item.type}`}>
             <div className="border-r border-b border-dotted p-[15px] mono">
               {item.type}
             </div>
             <div className="border-b border-dotted p-[15px] mono">
               {item.content}
             </div>
-          </>
+          </div>
         ))}
       </div>
     </div>
