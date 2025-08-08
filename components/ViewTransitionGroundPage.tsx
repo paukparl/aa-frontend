@@ -53,7 +53,7 @@ export default function ViewTransitionGroundPage({
           microsite === "dta" && "text-white",
         )}
       >
-        {panel === "home" && <PageHeader className={cn("from-transparent")} />}
+        {panel === "home" && <PageHeader className="from-transparent" />}
         {panel === "school" && (
           <PageHeader
             className={
@@ -66,7 +66,7 @@ export default function ViewTransitionGroundPage({
         {panel === "public" && (
           <PageHeader
             className={
-              cn()
+              cn("!p-20 700:!p-38")
               // "from-public",
               // microsite === "dta" && "from-[#1d453f]",
               // microsite === "roam" && "from-[#fdfff0]",

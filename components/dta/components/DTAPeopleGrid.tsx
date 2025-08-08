@@ -42,38 +42,29 @@ export const DTAPeopleGridItem = ({
     params: urlSearchParams,
   });
   return (
-    <div className={cn(className)}>
-      <Link
-        className={cn(
-          "relative mb-2 block aspect-[4/5] dta-griditem-bg 1280:mb-3",
-        )}
-        tabIndex={-1}
-        href={href}
-        scroll={false}
-      >
+    <Link
+      className={cn(className, "group block")}
+      tabIndex={-1}
+      href={href}
+      scroll={false}
+    >
+      <div className="relative mb-5 block aspect-[4/5] dta-griditem-bg 700:mb-10">
         {person.headshot && (
           <Image
             src={person.headshot.url}
             fill
-            sizes="20vw"
+            sizes="fill"
             alt={person.headshot.alternativeText ?? ""}
             className="object-cover"
           />
         )}
-      </Link>
-      <Link
-        href={href}
-        className={cn("font-diatype text-18/1.3")}
-        scroll={false}
-      >
+      </div>
+      <div className="mono transition-all group-hover:opacity-70">
         {person.firstName} {person.lastName}
         {person.displayStudyYear && (
-          <>
-            <br />
-            {person.displayStudyYear}
-          </>
+          <div className="mt-10">{person.displayStudyYear}</div>
         )}
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };

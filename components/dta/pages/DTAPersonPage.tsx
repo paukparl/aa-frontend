@@ -17,6 +17,7 @@ import {
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
 import { Map, MapCoords } from "@/components/dta/components/Map";
+import { LineClampText } from "@/components/globals/components/LineClampText";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
@@ -38,31 +39,31 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
         { title: "People", path: routes.tipin1("dta", "people") },
       ]}
     >
-      <div className={cn("flex flex-col gap-20 p-24 700:gap-72")}>
+      <div className="flex flex-col gap-20 p-(--padding) 700:gap-72">
         <h1 className="tipin">
           {person.firstName} {person.lastName}
           <br />
           {person.displayStudyYear}
         </h1>
-        <div className={cn("grid grid-cols-2 gap-24")}>
-          <div className={cn("")}>
-            {person.headshot && (
-              <div className={cn("relative aspect-4/5")}>
-                <Image
-                  fill
-                  sizes="50vw"
-                  src={person.headshot.url}
-                  alt={person.headshot.alternativeText ?? ""}
-                  className={cn("object-cover")}
-                />
-              </div>
-            )}
-          </div>
-          <div className={cn("body")}>{person.bio}</div>
+        <div className="grid gap-(--padding) 700:grid-cols-2">
+          {person.headshot && (
+            <div className="relative aspect-4/5">
+              <Image
+                fill
+                sizes="50vw"
+                src={person.headshot.url}
+                alt={person.headshot.alternativeText ?? ""}
+                className="object-cover"
+              />
+            </div>
+          )}
+          <LineClampText className="line-clamp-15 body" lineLimit={12}>
+            {person.bio}
+          </LineClampText>
         </div>
-        <div className="grid grid-cols-1 gap-[30px] 1024:grid-cols-2">
+        <div className="grid grid-cols-1 gap-(--padding) 1024:grid-cols-2">
           <div>
-            <DTAHeader className="capitalize">Education</DTAHeader>
+            <DTAHeader>Education</DTAHeader>
             <DTAPeopleTable
               content={person.Eduction.map((row) => ({
                 info: `${row.courseName ? `${row.courseName}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
@@ -71,7 +72,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
             />
           </div>
           <div>
-            <DTAHeader className="capitalize">Career</DTAHeader>
+            <DTAHeader>Career</DTAHeader>
             <DTAPeopleTable
               content={person.Career.map((row) => ({
                 info: `${row.jobRole ? `${row.jobRole}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
@@ -99,7 +100,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
           </div>
         )}
         <div>
-          <DTAHeader className="capitalize">Related Practices</DTAHeader>
+          <DTAHeader>Related Practices</DTAHeader>
           <DTAPracticesGrid>
             {person.dta_practicesNew.map((practice) => (
               <DTAPracticesGridItem
@@ -110,7 +111,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
           </DTAPracticesGrid>
         </div>
         <div>
-          <DTAHeader className="capitalize">Related Institutions</DTAHeader>
+          <DTAHeader>Related Institutions</DTAHeader>
           <DTAInstitutionsGrid>
             {person.dtaInstitutionsNew.map((institution) => (
               <DTAInstitutionsGridItem
@@ -121,7 +122,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
           </DTAInstitutionsGrid>
         </div>
         <div>
-          <DTAHeader className="capitalize">Related Collections</DTAHeader>
+          <DTAHeader>Related Collections</DTAHeader>
           <DTAObjectsGrid>
             {person.dta_objects.map((object) => (
               <DTAObjectsGridItem key={object.documentId} object={object} />

@@ -37,15 +37,13 @@ export const DTAObjectsGridItem = ({
 }: DTAObjectsGridItemProps) => {
   const href = routes.tipin2("dta", "collections", object.documentId); // TODO: slug
   return (
-    <div className={cn(className)}>
-      <Link
-        className={cn(
-          "relative mb-2 block aspect-[4/5] dta-griditem-bg 1280:mb-3",
-        )}
-        tabIndex={-1}
-        href={href}
-        scroll={false}
-      >
+    <Link
+      className={cn(className, "group block")}
+      tabIndex={-1}
+      href={href}
+      scroll={false}
+    >
+      <div className="relative mb-5 block aspect-[4/5] dta-griditem-bg 700:mb-10">
         {object.image[0] && (
           <Image
             src={object.image[0].url}
@@ -54,14 +52,10 @@ export const DTAObjectsGridItem = ({
             className="object-cover"
           />
         )}
-      </Link>
-      <Link
-        href={href}
-        className={cn("font-diatype text-18/1.3")}
-        scroll={false}
-      >
+      </div>
+      <div className="mono transition-all group-hover:opacity-70">
         {object.title}
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };

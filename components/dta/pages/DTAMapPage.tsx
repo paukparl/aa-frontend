@@ -23,7 +23,7 @@ export async function DTAMapPage() {
         <DTAMap map={map ?? undefined} events={events ?? undefined} />
       </div>
       {description && (
-        <DTAContentSingleCol className="p-10 700:p-30">
+        <DTAContentSingleCol className="p-(--padding)">
           {description}
         </DTAContentSingleCol>
       )}

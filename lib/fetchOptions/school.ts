@@ -14,7 +14,6 @@ export const schoolProgrammePreviewFetchOptions = createFetchOptions({
     "degreeAwarded",
     "studyMode",
     "durationValue",
-    "studyModeText",
     "durationText",
     "rightAlign",
     "applyLink",

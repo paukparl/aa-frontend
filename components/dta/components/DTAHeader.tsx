@@ -1,4 +1,3 @@
-// TODO
 import React from "react";
 import { cn } from "@/lib/cn";
 
@@ -12,7 +11,7 @@ export const DTAHeader = ({ children, className }: DTAHeaderProps) => {
     <div
       className={cn(
         className,
-        "mb-[10px] w-full border-b-[1.5px] pb-[10px] 1024:border-b-[2px]",
+        "700:mb-30 700:pb-20 700:border-b-2 mb-10 w-full border-b pb-10",
       )}
     >
       <span className="body">{children}</span>

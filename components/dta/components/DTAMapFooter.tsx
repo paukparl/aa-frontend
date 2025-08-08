@@ -2,7 +2,7 @@ import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 
 export const DTAMapFooter = () => {
   return (
-    <div className="mt-[50px] flex flex-col gap-10 p-10 700:gap-30 700:p-30">
+    <div className="mt-[50px] flex flex-col gap-(--padding) 700:p-(--padding)">
       <span className="body font-700 whitespace-pre">{`36 Bedford Square\nLondon WC1B 3ES\n+44 (0)20 7887 4000\nreception@aaschool.ac.uk`}</span>
       <span className="body font-700 whitespace-pre">{`Sign up for AA Weekly\nFollow us on Instagram`}</span>
       <span className="body font-700 whitespace-pre">{`Governance\nDocuments`}</span>

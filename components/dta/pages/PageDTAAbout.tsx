@@ -2,7 +2,7 @@ import * as React from "react";
 import { DTACarousel } from "@/components/dta/components/DTACarousel";
 import { DTAContentDoubleCol } from "@/components/dta/layouts/DTAContentDoubleCol";
 import { DTAContentSingleCol } from "@/components/dta/layouts/DTAContentSingleCol";
-import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
+// import { TipinHeader } from "@/components/globals/layouts/TipinHeader";
 import { cn } from "@/lib/cn";
 
 type DTAAboutProps = {
@@ -51,15 +51,15 @@ export const PageDTAAbout = ({ className }: DTAAboutProps) => {
     <div
       className={cn(
         className,
-        "flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] text-dta-about-foreground backdrop-blur-lg 700:pb-[75px] 1280:w-[90%]",
+        "text-dta-about-foreground 700:pb-[75px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg",
       )}
     >
-      <div className="flex flex-col gap-[20px] p-[10px] 700:gap-[30px] 700:p-[30px]">
-        <TipinHeader
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
+        {/* <TipinHeader
           pageTitle="About the Archive"
           breadcrumbLinks={[{ title: "DTA Archive" }]}
           colorTheme="dta-about"
-        />
+        /> */}
         <h1>About the Archive</h1>
         <DTAContentSingleCol>
           The Archive Lab examines alternative organisational approaches to
@@ -73,7 +73,7 @@ export const PageDTAAbout = ({ className }: DTAAboutProps) => {
         </DTAContentSingleCol>
       </div>
       <DTACarousel carouselSlides={mockCarouselSlides} />
-      <div className="flex flex-col gap-[20px] p-[10px] 700:gap-[30px] 700:p-[30px]">
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <DTAContentSingleCol>
           The first embodiment of this work is the Entangled Archive, a Graham
           Foundation-funded project to digitise material from the AA Department

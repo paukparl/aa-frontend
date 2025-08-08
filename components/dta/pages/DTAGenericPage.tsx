@@ -4,7 +4,6 @@ import { Fragment } from "react";
 import { getDTAPage } from "@/api/getDTAPage";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { DTACarousel } from "@/components/dta/components/DTACarousel";
-import { cn } from "@/lib/cn";
 import { routes } from "@/lib/routes";
 
 export async function DTAGenericPage({ slug }: { slug: string }) {
@@ -20,7 +19,7 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
       title={page.pageTitle ?? ""}
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
-      <div className={cn("flex flex-col gap-20 p-24 700:gap-30")}>
+      <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1>{page.pageTitle}</h1>
         {page.dynamicZone.map((component) => (
           <Fragment key={component.id}>
@@ -32,7 +31,7 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
             )}
             {component.__component === "dynamic-zone.image-carousel-module" && (
               <DTACarousel
-                className={cn("-mx-24")}
+                className="-mx-24"
                 carouselSlides={(component.carouselImages ?? []).map((img) => ({
                   imgSrc: img.url,
                   imgAlt: img.alternativeText ?? "",
@@ -40,9 +39,9 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
               />
             )}
             {component.__component === "dynamic-zone.text-image-module" && (
-              <div className={cn("grid grid-cols-1 1280:grid-cols-2")}>
-                <div className={cn("w-full body")}>{/* {component.} */}</div>
-                <div className="flex justify-center pt-20 1280:pt-0">
+              <div className="1280:grid-cols-2 grid grid-cols-1">
+                <div className="body w-full">{/* {component.} */}</div>
+                <div className="1280:pt-0 flex justify-center pt-20">
                   {component.image && (
                     <Image
                       src={component.image.url}
@@ -50,7 +49,6 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
                       width={component.image.width}
                       height={component.image.height}
                       sizes="100vw, (min-width: 1280px) 50vw"
-                      className={cn("")}
                     />
                   )}
                 </div>

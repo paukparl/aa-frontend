@@ -35,16 +35,16 @@ export const DTAPracticesTableRow = ({
     params: urlSearchParams,
   });
   return (
-    <div className={cn(className)}>
+    <div className={className}>
       <Link
-        className={cn("mb-[-1px] grid grid-cols-[75%_25%]")}
+        className="group mb-[-1px] grid grid-cols-[75%_25%] transition-all hover:bg-white"
         href={href}
         scroll={false}
       >
-        <div className="border border-dashed px-[15px] py-[11px] mono 1024:px-[20px] 1024:py-[12px]">
+        <div className="border border-dashed px-[15px] py-[11px] mono group-hover:border-solid 1024:px-[20px] 1024:py-[12px]">
           {practice.name}
         </div>
-        <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] mono 1024:px-[20px] 1024:py-[12px]">
+        <div className="ml-[-1px] border border-dashed px-[15px] py-[11px] mono group-hover:border-solid 1024:px-[20px] 1024:py-[12px]">
           {practice.dta_location_news[0]?.country}
         </div>
       </Link>

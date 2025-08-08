@@ -26,17 +26,17 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
             <div
               key={thumb.documentId}
               className={cn(
-                "size-65 cursor-pointer p-3 700:size-75 700:p-5",
+                "700:size-75 700:p-5 size-65 cursor-pointer p-3",
                 activeInd === index && "outline outline-current",
               )}
             >
-              <div className={cn("relative size-full")}>
+              <div className="relative size-full">
                 <Image
                   fill
                   key={thumb.documentId}
                   src={thumb.url}
                   alt={thumb.alternativeText ?? ""}
-                  className={cn("object-contain")}
+                  className="object-contain"
                   onClick={() => handleClick(index)}
                 />
               </div>
@@ -45,7 +45,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
         </div>
       )}
       <div
-        className={cn("relative h-auto max-h-[80vh] w-[100%]")}
+        className="relative h-auto max-h-[80vh] w-[100%]"
         style={{
           aspectRatio: activeImg.width / activeImg.height,
         }}
@@ -54,11 +54,11 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
           alt={activeImg.alternativeText ?? ""}
           src={activeImg.url}
           fill
-          className={cn("object-contain")}
+          className="object-contain"
         />
       </div>
       {activeImg.caption && (
-        <span className="block pt-[10px] caption">{activeImg.caption}</span>
+        <span className="caption block pt-[10px]">{activeImg.caption}</span>
       )}
     </div>
   );
