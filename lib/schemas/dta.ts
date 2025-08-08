@@ -34,7 +34,7 @@ export const dtaObjectPreview = document.extend({
   slug: z.string().nullable(),
   title: z.string().nullable(),
   // image: img.nullable(),
-  image: z.array(img),
+  image: z.array(img).nullable(),
 });
 
 export const dtaPersonDetail = dtaPersonPreview.extend({
@@ -43,24 +43,28 @@ export const dtaPersonDetail = dtaPersonPreview.extend({
   dateBirth: z.string().nullable(),
   dateDeath: z.string().nullable(),
   placeOfBirth: z.string().nullable(),
-  Eduction: z.array(
-    z.object({
-      id: z.number(),
-      institution: z.string().nullable(),
-      country: z.string().nullable(),
-      dateRange: z.string().nullable(),
-      courseName: z.string().nullable(),
-    }),
-  ),
-  Career: z.array(
-    z.object({
-      id: z.number(),
-      institution: z.string().nullable(),
-      country: z.string().nullable(),
-      dateRange: z.string().nullable(),
-      jobRole: z.string().nullable(),
-    }),
-  ),
+  Eduction: z
+    .array(
+      z.object({
+        id: z.number(),
+        institution: z.string().nullable(),
+        country: z.string().nullable(),
+        dateRange: z.string().nullable(),
+        courseName: z.string().nullable(),
+      }),
+    )
+    .nullable(),
+  Career: z
+    .array(
+      z.object({
+        id: z.number(),
+        institution: z.string().nullable(),
+        country: z.string().nullable(),
+        dateRange: z.string().nullable(),
+        jobRole: z.string().nullable(),
+      }),
+    )
+    .nullable(),
   dta_practicesNew: z.array(dtaPracticePreview),
   dtaInstitutionsNew: z.array(dtaInstitutionPreview),
   dta_objects: z.array(dtaObjectPreview),
