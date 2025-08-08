@@ -1,4 +1,5 @@
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
+import { SchoolNav } from "@/components/school/components/SchoolNav";
 import { Schema } from "@/lib/schemas";
 
 type _TypesAvailable =
@@ -12,7 +13,9 @@ export default async function SchoolPage() {
 
   return (
     <ViewTransitionGroundPage panel="school">
-      {/* TODO: (Jess) Page goes here */}
+      <div className="min-h-[90vh] px-(--padding)">
+        <SchoolNav />
+      </div>
     </ViewTransitionGroundPage>
   );
 }

@@ -14,7 +14,7 @@ type route =
   | "documents";
 type SchoolNavProps = {
   className?: string;
-  activeRoute: route;
+  activeRoute?: route;
 };
 
 export const SchoolNav = ({ className, activeRoute }: SchoolNavProps) => {
@@ -39,7 +39,7 @@ export const SchoolNav = ({ className, activeRoute }: SchoolNavProps) => {
       {routes.map((route, index) => (
         <Link
           key={index}
-          href={`/school/${route}`}
+          href={`/school-${route}`}
           className={clsx(
             activeRoute === route && "bg-school-tint",
             "mt-[-1px] ml-[-1px] block border-[1px] border-school-tint py-[7px] pl-[20px] capitalize hover:bg-school-tint",
