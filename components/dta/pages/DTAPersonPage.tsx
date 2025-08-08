@@ -64,21 +64,25 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
         <div className="grid grid-cols-1 gap-(--padding) 1024:grid-cols-2">
           <div>
             <DTAHeader>Education</DTAHeader>
-            <DTAPeopleTable
-              content={person.Eduction.map((row) => ({
-                info: `${row.courseName ? `${row.courseName}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
-                year: row.dateRange ?? "",
-              }))}
-            />
+            {person.Eduction && (
+              <DTAPeopleTable
+                content={person.Eduction.map((row) => ({
+                  info: `${row.courseName ? `${row.courseName}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
+                  year: row.dateRange ?? "",
+                }))}
+              />
+            )}
           </div>
           <div>
             <DTAHeader>Career</DTAHeader>
-            <DTAPeopleTable
-              content={person.Career.map((row) => ({
-                info: `${row.jobRole ? `${row.jobRole}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
-                year: row.dateRange ?? "",
-              }))}
-            />
+            {person.Career && (
+              <DTAPeopleTable
+                content={person.Career.map((row) => ({
+                  info: `${row.jobRole ? `${row.jobRole}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
+                  year: row.dateRange ?? "",
+                }))}
+              />
+            )}
           </div>
         </div>
 

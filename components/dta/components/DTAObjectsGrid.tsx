@@ -44,7 +44,7 @@ export const DTAObjectsGridItem = ({
       scroll={false}
     >
       <div className="relative mb-5 block aspect-[4/5] dta-griditem-bg 700:mb-10">
-        {object.image[0] && (
+        {object.image?.[0] && (
           <Image
             src={object.image[0].url}
             fill

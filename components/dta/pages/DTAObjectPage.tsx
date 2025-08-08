@@ -38,7 +38,7 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
         <h1 className="tipin">{object.title}</h1>
         <span className="body">{object.additionalDescription}</span>
         <MediaGallery
-          imgs={object.image}
+          imgs={object.image ?? []}
           className="text-dta-collections-foreground"
         />
         <div>
