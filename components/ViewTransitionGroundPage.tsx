@@ -6,17 +6,19 @@ import { usePrevRoute } from "@/contexts/PrevRouteContext";
 import { cn } from "@/lib/cn";
 import { parseMicrosite, parsePanel } from "@/lib/layoutUtils";
 
-export default function ViewTransitionGroundPage({
-  panel,
-  microsite,
-  children,
-  className: _,
-}: {
+type ViewTransitionGroundPageProps = {
   panel: "home" | "school" | "public";
   microsite?: "hooke-park" | "dta" | "roam";
   children?: ReactNode;
   className?: string;
-}) {
+};
+
+export default function ViewTransitionGroundPage({
+  panel,
+  microsite,
+  children,
+  className,
+}: ViewTransitionGroundPageProps) {
   const prev = usePrevRoute();
   const prevPanel = prev.pathname ? parsePanel(prev.pathname) : undefined;
   const prevMicrosite = prev.pathname
@@ -39,12 +41,13 @@ export default function ViewTransitionGroundPage({
     >
       <div
         className={cn(
+          className,
           "relative z-10",
           // "h-full overflow-auto",
           panel === "home"
             ? "pr-(--header-h) pb-(--header-h)"
             : panel === "school"
-              ? "pb-(--header-h) pl-(--header-h)"
+              ? "bg-school-background pb-(--header-h) pl-(--header-h)"
               : // public
                 "pt-(--header-h)",
           microsite === "dta" && "text-white",
@@ -54,7 +57,7 @@ export default function ViewTransitionGroundPage({
         {panel === "school" && (
           <PageHeader
             className={
-              cn("700:!p-38 !p-20")
+              cn("mb-20 700:mb-50")
               // "from-school",
               // microsite === "hooke-park" && "from-white",
             }
@@ -63,7 +66,7 @@ export default function ViewTransitionGroundPage({
         {panel === "public" && (
           <PageHeader
             className={
-              cn("700:!p-38 !p-20")
+              cn("!p-20 700:!p-38")
               // "from-public",
               // microsite === "dta" && "from-[#1d453f]",
               // microsite === "roam" && "from-[#fdfff0]",

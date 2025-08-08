@@ -7,7 +7,8 @@ type colorTheme =
   | "dta-institutions"
   | "dta-collections"
   | "dta-about"
-  | "dta-search";
+  | "dta-search"
+  | "school-programmes";
 type Slide = {
   src: string;
   caption: string;
@@ -54,6 +55,10 @@ export const MediaGallery = ({
       text: "text-dta-search-foreground",
       outline: "outline-dta-search-foreground",
     },
+    "school-programmes": {
+      text: "text-black",
+      outline: "outline-black",
+    },
   };
   return (
     <div className={cn("w-100%", className)}>
@@ -73,10 +78,7 @@ export const MediaGallery = ({
           ))}
         </div>
       )}
-      <img
-        src={slides[activeInd].src}
-        className="h-[auto] max-h-[80vh] w-[100%] object-contain"
-      />
+      <img src={slides[activeInd].src} className="h-[auto] w-[100%]" />
       {slides[activeInd].caption.length > 0 && (
         <span
           className={cn(
