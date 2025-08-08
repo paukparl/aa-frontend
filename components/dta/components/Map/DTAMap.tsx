@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
 import { Popover } from "radix-ui";
 import React, {
   CSSProperties,
+  Fragment,
   ReactNode,
   RefObject,
   useEffect,
@@ -18,6 +21,7 @@ import PlaySvg from "@/components/svgs/PlaySvg";
 import useAnimationFrame from "@/hooks/useAnimationFrame";
 import { useSafeTimeout } from "@/hooks/useSafeTimeout";
 import { cn } from "@/lib/cn";
+import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 
 type ValidEvent = Schema<"dtaEvent"> & {
@@ -395,15 +399,106 @@ const EventGroupsPopover = ({
         >
           <div
             className={cn(
-              "w-260 rounded-2 bg-white px-10 pt-7 pb-12 outline-none",
+              "w-260 overflow-y-auto rounded-2 bg-white px-10 outline-none",
+              events.length > 1 && "max-h-340",
             )}
           >
             {events.map((event) => (
               <div
                 key={event.documentId}
-                className="h-100 border-current not-last:border-b"
+                className="border-dotted border-current py-16 mono text-12/1.4 not-last:border-b first:pt-10 last:pb-10"
               >
-                {/* TODO */}
+                {event.image?.map((image) => (
+                  <Image
+                    key={image.documentId}
+                    src={image.url}
+                    alt={image.alternativeText ?? ""}
+                    width={image.width}
+                    height={image.height}
+                    sizes="16rem"
+                    className={cn("mb-10")}
+                  />
+                ))}
+                <div className="space-y-16">
+                  {event.dtaLocation && (
+                    <div>
+                      <div>LOCATION</div>
+                      <div>{event.dtaLocation.country}</div>
+                    </div>
+                  )}
+                  <div>
+                    <div>DATE</div>
+                    <div>
+                      {event.beginYear}-{event.endYear}
+                    </div>
+                  </div>
+                  {event.dta_peopleNew.length > 0 && (
+                    <div>
+                      <div>PERSON</div>
+                      <div>
+                        {event.dta_peopleNew.map((person, idx) => (
+                          <div key={person.documentId}>
+                            {idx > 0 && ", "}
+                            <Link
+                              href={routes.tipin2(
+                                "dta",
+                                "people",
+                                person.documentId,
+                              )}
+                              className="underline decoration-dotted decoration-1 underline-offset-3"
+                            >
+                              {person.firstName} {person.lastName}
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {event.dta_institutionsNew.length > 0 && (
+                    <div>
+                      <div>INSTITUTION</div>
+                      <div>
+                        {event.dta_institutionsNew.map((institution, idx) => (
+                          <div key={institution.documentId}>
+                            {idx > 0 && ", "}
+                            <Link
+                              href={routes.tipin2(
+                                "dta",
+                                "institutions",
+                                institution.documentId,
+                              )}
+                              className="underline decoration-dotted decoration-1 underline-offset-3"
+                            >
+                              {institution.Name}
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {event.dta_practicesNew.length > 0 && (
+                    <div>
+                      <div>PRACTICE</div>
+                      <div>
+                        {event.dta_practicesNew.map((practice, idx) => (
+                          <Fragment key={practice.documentId}>
+                            {idx > 0 && <span>, </span>}
+                            <Link
+                              href={routes.tipin2(
+                                "dta",
+                                "practices",
+                                practice.documentId,
+                              )}
+                              className="underline decoration-dotted decoration-1 underline-offset-3"
+                            >
+                              {practice.name}
+                            </Link>
+                          </Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
