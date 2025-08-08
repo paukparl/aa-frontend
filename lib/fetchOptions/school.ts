@@ -30,6 +30,10 @@ export const schoolUnitPreviewFetchOptions = createFetchOptions({
     school_people: {
       fields: [...documentFields, "firstName", "lastName"],
     },
+    school_programmes: {
+      fields: schoolProgrammePreviewFetchOptions.fields,
+      populate: schoolProgrammePreviewFetchOptions.populate,
+    },
   },
 });
 
