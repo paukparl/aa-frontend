@@ -3,6 +3,7 @@ import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
+import { ProgrammeTableUnitsTemporary } from "@/components/school/components/ProgrammeTableUnitsTemporary";
 import { ProgrammeTextCol } from "@/components/school/components/ProgrammeTextCol";
 import { routes } from "@/lib/routes";
 
@@ -10,6 +11,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
   const programme = await getSchoolProgramme(slug);
 
   if (!programme) notFound();
+  console.log(programme);
 
   return (
     <ViewTransitionTipinPage
@@ -21,7 +23,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
         { title: "Programmes", path: routes.ground("school-programmes") },
       ]}
     >
-      <div className="p-(--padding)">
+      <div className="p-(--padding) pb-100">
         <h1 className="tipin">{programme.programmeTitle}</h1>
         <ProgrammeTableInfo
           degreeAwarded={programme.degreeAwarded}
@@ -79,6 +81,19 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
           Bentovim, Sensy Mania, Sabrina Morreale, Frédérique Paraskevas, Claire
           Potter, Álvaro Velasco Pérez
         </ProgrammeTextCol>
+        {/* table below is temporary */}
+        <div className="mt-(--padding) pt-(--padding)">
+          <h1 className="tipin mb-(--padding)">Design Units</h1>
+          <ProgrammeTableUnitsTemporary
+            programmeColor={programme.hexValue}
+            programmeId={programme.documentId}
+            units={programme.school_units.map((unit) => ({
+              title: unit.unitTitle,
+              lecturers: `${unit.school_people.map((person) => `${person.firstName} ${person.lastName}`).join(", ")}`,
+              documentId: unit.documentId,
+            }))}
+          />
+        </div>
       </div>
     </ViewTransitionTipinPage>
   );
