@@ -9,7 +9,6 @@ export const schoolProgrammePreview = document.extend({
   degreeAwarded: z.string().nullable(),
   studyMode: z.enum(["full-time", "part-time"]).nullable(),
   durationValue: z.number().nullable(),
-  studyModeText: z.string().nullable(),
   durationText: z.string().nullable(),
   rightAlign: z.boolean().nullable(),
   applyLink: z.string().nullable(),
