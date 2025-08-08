@@ -56,6 +56,7 @@ type StrapiFetchOptions = {
   };
   populate?: PopulateClause;
   filters?: FilterClause;
+  status?: "draft" | "published";
   // Just in case the back-end's controller supports some custom parameters
   [key: string]: unknown;
 };
@@ -69,7 +70,7 @@ export function createFetchOptions<
 export type StrapiFetchManyOptions = StrapiFetchOptions;
 export type StrapiFetchOneOptions = Pick<
   StrapiFetchOptions,
-  "fields" | "populate" | "filters"
+  "fields" | "populate" | "filters" | "status"
 >;
 
 type FetchConfig = {

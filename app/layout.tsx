@@ -1,4 +1,6 @@
+import { draftMode } from "next/headers";
 import { CSSProperties, ReactNode } from "react";
+import { DisableDraftMode } from "@/components/DisableDraftModeButton";
 import Layout from "@/components/Layout";
 import { PrevRouteProvider } from "@/contexts/PrevRouteContext";
 import { fonts } from "@/fonts";
@@ -28,6 +30,7 @@ export default async function RootLayout({
         <PrevRouteProvider>
           <Layout>{children}</Layout>
         </PrevRouteProvider>
+        {(await draftMode()).isEnabled && <DisableDraftMode />}
       </body>
     </html>
   );
