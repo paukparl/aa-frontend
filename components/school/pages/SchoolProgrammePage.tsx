@@ -29,17 +29,19 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
         />
         <ProgrammeTextCol
           className="mt-(--padding)"
-          col2content=<div className="flex justify-center">
-            <ButtonWindow
-              links={[
-                { displayText: "Apply", link: "" },
-                { displayText: "Enquire to study", link: "" },
-                { displayText: "Download program guide", link: "" },
-              ]}
-              context="school"
-              colorTheme="school"
-            />
-          </div>
+          col2content={
+            <div className="flex justify-center">
+              <ButtonWindow
+                links={[
+                  { displayText: "Apply", link: "" },
+                  { displayText: "Enquire to study", link: "" },
+                  { displayText: "Download program guide", link: "" },
+                ]}
+                context="school"
+                colorTheme="school"
+              />
+            </div>
+          }
         >
           Term 1 of the Foundation Course focuses on observation, conversation
           and developing key skills. We will begin by crafting portraits of
