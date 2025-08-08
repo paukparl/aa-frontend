@@ -11,7 +11,7 @@ export function DisableDraftMode() {
 
   // Render only when the page is not in an iframe
   if (
-    typeof window === undefined ||
+    typeof window === 'undefined' ||
     window !== window.parent ||
     !!window.opener
   )
