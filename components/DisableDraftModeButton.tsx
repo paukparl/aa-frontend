@@ -33,7 +33,7 @@ export function DisableDraftMode() {
       )}
       disabled={pending}
     >
-      {pending ? "Exititing..." : "Exit Preview"}
+      {pending ? "Exiting..." : "Exit Preview"}
     </button>
   );
 }
