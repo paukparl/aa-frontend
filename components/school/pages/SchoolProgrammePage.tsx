@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
+import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
 import { routes } from "@/lib/routes";
 
 export async function SchoolProgrammePage({ slug }: { slug: string }) {
@@ -20,6 +21,13 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
         { title: "Programmes", path: routes.ground("school-programmes") },
       ]}
     >
+      <div className="p-(--padding)">
+        <h1 className="tipin">{programme.programmeTitle}</h1>
+        <ProgrammeTableInfo
+          degreeAwarded={programme.degreeAwarded}
+          durationText={programme.durationText}
+        />
+      </div>
       {/* Links and data */}
       <pre>
         {programme.school_units.map((unit) => (
