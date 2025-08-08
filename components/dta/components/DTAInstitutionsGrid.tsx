@@ -21,7 +21,7 @@ export const DTAInstitutionsGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-2 gap-x-(--padding) gap-y-8 1024:grid-cols-3 1024:gap-y-10 1280:gap-y-20",
+        "grid grid-cols-2 gap-(--padding) 1024:grid-cols-3",
         className,
       )}
     >
