@@ -18,7 +18,7 @@ export const DTAPeopleGrid = ({ className, children }: DTAPeopleGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full grid-cols-2 gap-x-5 gap-y-[35px] 700:grid-cols-3 1024:grid-cols-4 1024:gap-x-5 1024:gap-y-10 1280:grid-cols-5 1280:gap-x-5 1280:gap-y-20 xl:grid-cols-6",
+        "grid w-full grid-cols-2 gap-(--padding) 700:grid-cols-3 1024:grid-cols-4 1280:grid-cols-5 xl:grid-cols-6",
         className,
       )}
     >
