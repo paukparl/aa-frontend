@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import * as React from "react";
 import { Footer } from "@/components/globals/components/Footer";
-import { HeaderNav } from "@/components/school/HeaderNav";
-import { ProgrammePreviewCard } from "@/components/school/programmes/components/ProgrammePreviewCard";
+import { ProgrammePreviewCard } from "@/components/school/components/ProgrammePreviewCard";
+import { HeaderNav } from "@/components/school/components/SchoolNav";
 
 type PagesProgrammesIndexProps = {
   className?: string;

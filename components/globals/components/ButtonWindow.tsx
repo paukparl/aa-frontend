@@ -36,14 +36,14 @@ export const ButtonWindow = ({
   return (
     <div className={className}>
       <div
-        className={clsx(
+        className={cn(
           colorThemeDict[colorTheme],
           contextDict[context].top,
           "flex cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid sm:p-[30px]",
         )}
       >
         <Link href={links[0].link}>
-          <Mono className="whitespace-pre">{links[0].displayText}</Mono>
+          <span className="mono whitespace-pre">{links[0].displayText}</span>
         </Link>
       </div>
       {links.length > 1 &&
@@ -52,14 +52,16 @@ export const ButtonWindow = ({
             index !== 0 && (
               <div
                 key={index}
-                className={clsx(
+                className={cn(
                   colorThemeDict[colorTheme],
                   contextDict[context].btm,
                   "mt-[-1px] flex cursor-pointer items-center justify-center border-[1px] border-dotted p-[15px] text-center transition-all hover:border-solid sm:p-[15px]",
                 )}
               >
                 <Link href={item.link}>
-                  <Mono className="whitespace-pre">{item.displayText}</Mono>
+                  <span className="mono whitespace-pre">
+                    {item.displayText}
+                  </span>
                 </Link>
               </div>
             ),

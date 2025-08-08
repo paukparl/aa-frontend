@@ -12,12 +12,12 @@ type route =
   | "about"
   | "governance"
   | "documents";
-type HeaderNavProps = {
+type SchoolNavProps = {
   className?: string;
   activeRoute: route;
 };
 
-export const HeaderNav = ({ className, activeRoute }: HeaderNavProps) => {
+export const SchoolNav = ({ className, activeRoute }: SchoolNavProps) => {
   const routes = [
     "programmes",
     "apply",
@@ -46,9 +46,11 @@ export const HeaderNav = ({ className, activeRoute }: HeaderNavProps) => {
           )}
         >
           {route === "calendar" ? (
-            <span className="hidden mono md:inline">Academic Calendar</span>
+            <span className="mono">
+              <span className="hidden 700:inline">Academic </span>Calendar
+            </span>
           ) : (
-            <div className="mono">{route}</div>
+            <span className="mono">{route}</span>
           )}
         </Link>
       ))}

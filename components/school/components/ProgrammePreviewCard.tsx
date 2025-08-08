@@ -1,15 +1,12 @@
 import clsx from "clsx";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
-import { H1 } from "@/components/Typography/H1";
-import { Mono } from "@/components/Typography/Mono";
 
 type ProgrammePreviewCardProps = {
   className?: string;
-  title: string;
+  programmeTitle: string;
   description: string;
-  degreeType: string | null;
-  duration: string;
+  degreeAwarded: string | null;
+  durationText: string;
   durationFrac: number; // must be between 0 and 1
   fullTime: boolean; // displays solid vs dotted line
   durationStart: boolean; // true if the duration starts at the beginning of study, shows duraiton bar at beginning or end
@@ -17,10 +14,10 @@ type ProgrammePreviewCardProps = {
 
 export const ProgrammePreviewCard = ({
   className,
-  title,
+  programmeTitle,
   description,
-  degreeType,
-  duration,
+  degreeAwarded,
+  durationText,
   durationFrac,
   fullTime,
   durationStart,
@@ -28,16 +25,16 @@ export const ProgrammePreviewCard = ({
   const durationBarW = `${durationFrac * 100}%`;
   return (
     <div className={clsx(className, "pb-[50px] md:pr-[30px]")}>
-      <H1 className="block md:h-[90px]">{title}</H1>
+      <h1 className="flex w-[90%] items-end md:h-[90px]">{programmeTitle}</h1>
       <div className="mt-[10px] border border-dotted sm:mt-[20px]">
-        {degreeType && (
-          <Mono className="block border-b border-dotted p-[15px] sm:min-h-[87px]">
-            {degreeType}
-          </Mono>
+        {degreeAwarded && (
+          <div className="border-b border-dotted p-[15px] mono sm:min-h-[87px]">
+            {degreeAwarded}
+          </div>
         )}
         <div className="p-[15px]">
-          <Mono className="block md:min-h-[90px]">{duration}</Mono>
-          <div className="bg-school-tint mt-[10px] h-[10px] w-[100%]">
+          <div className="mono md:min-h-[90px]">{durationText}</div>
+          <div className="mt-[10px] h-[10px] w-[100%] bg-school-tint">
             <div
               style={{ width: durationBarW }}
               className={clsx(
@@ -49,10 +46,9 @@ export const ProgrammePreviewCard = ({
           </div>
         </div>
       </div>
-      <Body className="mt-[15px] line-clamp-10 whitespace-pre-line">
+      <div className="mt-[15px] line-clamp-10 body whitespace-pre-line">
         {description}
-      </Body>
+      </div>
     </div>
   );
 };
-0;

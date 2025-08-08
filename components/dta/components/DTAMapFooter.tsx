@@ -7,12 +7,12 @@ export const DTAMapFooter = () => {
       <span className="body font-700 whitespace-pre">{`Sign up for AA Weekly\nFollow us on Instagram`}</span>
       <span className="body font-700 whitespace-pre">{`Governance\nDocuments`}</span>
       <div className="flex w-[100%] flex-col justify-between gap-[10px] 700:gap-[30px] 1024:flex-row-reverse 1024:items-end">
-        <ButtonWindow
+        {/* <ButtonWindow
           className="shrink-0"
           colorTheme="dta-map"
           link=""
           displayText={`Become\na Member`}
-        />
+        /> */}
         <h1 className="whitespace-pre">{`Architectural Association\nSchool of Architecture`}</h1>
       </div>
     </div>

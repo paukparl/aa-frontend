@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
 
 type ProgrammeTextColProps = {
   className?: string;
@@ -15,10 +14,9 @@ export const ProgrammeTextCol = ({
   return (
     <div className={className}>
       <div className="grid grid-cols-1 gap-[20px] md:grid-cols-[2fr_1fr] md:gap-[30px]">
-        <Body>{children}</Body>
+        <span className="body">{children}</span>
         <div>{col2content}</div>
       </div>
     </div>
   );
 };
-0;

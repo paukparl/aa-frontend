@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { Accordion } from "radix-ui";
 import * as React from "react";
-import { Body } from "@/components/Typography/Body";
 
 type CollapsibleItem = { header: React.ReactNode; content: React.ReactNode };
 type CollapsibleProps = {
@@ -24,7 +23,7 @@ export const Collapsible = ({ items, className }: CollapsibleProps) => {
           className="mt-[-1px] border-y border-dotted border-black py-[20px]"
         >
           <Accordion.Trigger className="group block cursor-pointer pb-[10px]">
-            <Body className="!font-bold">
+            <span className="body !font-bold">
               <svg
                 width="18"
                 height="18"
@@ -62,10 +61,10 @@ export const Collapsible = ({ items, className }: CollapsibleProps) => {
                 />
               </svg>
               {item.header}
-            </Body>
+            </span>
           </Accordion.Trigger>
           <Accordion.Content>
-            <Body>{item.content}</Body>
+            <span className="body">{item.content}</span>
           </Accordion.Content>
         </Accordion.Item>
       ))}

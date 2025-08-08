@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { PageFoundationCourse } from "@/components/school/programmes/pages/PageFoundationCourse";
+import { PageFoundationCourse } from "@/components/school/zzProgrammes/pages/PageFoundationCourse";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

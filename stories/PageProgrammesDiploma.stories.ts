@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { PageDiplomaProgramme } from "@/components/school/programmes/pages/PageDiplomaProgramme";
+import { PageDiplomaProgramme } from "@/components/school/zzProgrammes/pages/PageDiplomaProgramme";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

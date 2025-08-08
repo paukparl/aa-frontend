@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import { getSchoolProgrammes } from "@/api/getSchoolProgrammes";
 import { getSchoolVisitingSchoolSnippet } from "@/api/getSchoolVisitingSchoolSnippet";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
-import { HeaderNav } from "@/components/school/HeaderNav";
+import { ProgrammePreviewCard } from "@/components/school/components/ProgrammePreviewCard";
+import { SchoolNav } from "@/components/school/components/SchoolNav";
 import { routes } from "@/lib/routes";
 
 export default async function SchoolProgrammesPage() {
@@ -14,33 +14,29 @@ export default async function SchoolProgrammesPage() {
 
   return (
     <ViewTransitionGroundPage panel="school">
-      {/* Links and data */}
-      <HeaderNav activeRoute="programmes" />
-      <pre>
-        {programmes.map((programme) => (
-          <Fragment key={programme.documentId}>
-            <Link
+      <div className="px-(--padding)">
+        <SchoolNav activeRoute="programmes" />
+        <div className="1000:grid-cols-2 grid 1280:grid-cols-3">
+          {programmes.map((programme) => (
+            <ProgrammePreviewCard
               key={programme.documentId}
-              href={routes.tipin1("school-programmes", programme.documentId)}
-              className="underline"
-              scroll={false}
-            >
-              {routes.tipin1("school-programmes", programme.documentId)}
-            </Link>
-            <br />
-          </Fragment>
-        ))}
-        <Link
-          href={routes.tipin1("school-programmes", "aa-visiting-school")}
-          className="underline"
-          scroll={false}
-        >
-          {routes.tipin1("school-programmes", "aa-visiting-school")}
-        </Link>
-        <br />
-        {JSON.stringify(programmes, null, 2)}
-        {JSON.stringify(visitingSchoolSnippet, null, 2)}
-      </pre>
+              programmeTitle={programme.programmeTitle}
+              degreeAwarded={programme.degreeAwarded}
+              durationText={programme.durationText}
+            />
+          ))}
+          <Link
+            href={routes.tipin1("school-programmes", "aa-visiting-school")}
+            className="underline"
+            scroll={false}
+          >
+            {routes.tipin1("school-programmes", "aa-visiting-school")}
+          </Link>
+          <br />
+          {JSON.stringify(programmes, null, 2)}
+          {JSON.stringify(visitingSchoolSnippet, null, 2)}
+        </div>
+      </div>
     </ViewTransitionGroundPage>
   );
 }
