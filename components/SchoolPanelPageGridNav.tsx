@@ -1,7 +1,7 @@
 import { GridNavLink, GridNavRoot } from "@/components/GridNav";
 import { routes } from "@/lib/routes";
 
-export default function SchoolPanelPageGridNav() {
+export const SchoolPanelPageGridNav = () => {
   return (
     <GridNavRoot theme="page" className="mb-[calc(var(--padding)*2)]">
       <GridNavLink href={routes.ground("school")}>Programmes</GridNavLink>
@@ -13,4 +13,4 @@ export default function SchoolPanelPageGridNav() {
       <GridNavLink href={routes.ground("school")}>About</GridNavLink>
     </GridNavRoot>
   );
-}
+};

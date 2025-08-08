@@ -2,35 +2,70 @@ import Link from "next/link";
 import React from "react";
 import { cn } from "@/lib/cn";
 
-type colorTheme = "dta-map";
+type colorTheme = "dta-map" | "school";
+type ButtonWindowLink = { displayText: React.ReactNode; link: string };
+type ButtonWindowContext = "footer" | "school";
 type ButtonWindowProps = {
-  displayText: string;
-  link: string;
+  context: ButtonWindowContext;
+  links: ButtonWindowLink[];
   colorTheme: colorTheme;
   className?: string;
 };
 
 export const ButtonWindow = ({
-  displayText,
-  link,
+  links,
   colorTheme,
   className,
+  context,
 }: ButtonWindowProps) => {
   const colorThemeDict = {
     "dta-map":
       "border-white hover:bg-white text-white hover:text-dta-map-background",
+    school: "border-black text-black",
+  };
+  const contextDict = {
+    school: {
+      top: "w-[250px] h-[240px] sm:w-[300px] sm:h-[280px] sm:pt-[80px]",
+      btm: "h-fit w-[250px] sm:w-[300px]",
+    },
+    footer: {
+      top: "sm:h-[240px] sm:w-[220px] h-[150px] w-[140px] sm:pt-[50px]",
+      btm: "",
+    },
   };
   return (
-    <div
-      className={cn(
-        className,
-        colorThemeDict[colorTheme],
-        "pt-30px 700:h-[240px] 700:w-[220px] 700:pt-[50px] flex h-150 w-140 cursor-pointer items-center justify-center rounded-t-[100%] border-1 border-dotted p-(--padding) text-center transition-all hover:border-solid",
-      )}
-    >
-      <Link href={link}>
-        <span className="mono whitespace-pre">{displayText}</span>
-      </Link>
+    <div className={className}>
+      <div
+        className={cn(
+          colorThemeDict[colorTheme],
+          contextDict[context].top,
+          "flex cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid sm:p-[30px]",
+        )}
+      >
+        <Link href={links[0].link}>
+          <span className="mono whitespace-pre">{links[0].displayText}</span>
+        </Link>
+      </div>
+      {links.length > 1 &&
+        links.map(
+          (item, index) =>
+            index !== 0 && (
+              <div
+                key={index}
+                className={cn(
+                  colorThemeDict[colorTheme],
+                  contextDict[context].btm,
+                  "mt-[-1px] flex cursor-pointer items-center justify-center border-[1px] border-dotted p-[15px] text-center transition-all hover:border-solid sm:p-[15px]",
+                )}
+              >
+                <Link href={item.link}>
+                  <span className="mono whitespace-pre">
+                    {item.displayText}
+                  </span>
+                </Link>
+              </div>
+            ),
+        )}
     </div>
   );
 };
