@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -10,8 +12,8 @@ type colorTheme =
   | "dta-search"
   | "school-programmes";
 type Slide = {
-  src: string;
-  caption: string;
+  src?: string;
+  caption?: string | null;
 };
 type MediaGalleryProps = {
   slides: Slide[];
@@ -79,7 +81,7 @@ export const MediaGallery = ({
         </div>
       )}
       <img src={slides[activeInd].src} className="h-[auto] w-[100%]" />
-      {slides[activeInd].caption.length > 0 && (
+      {slides[activeInd].caption && slides[activeInd].caption?.length > 0 && (
         <span
           className={cn(
             "block pt-[10px] caption",
