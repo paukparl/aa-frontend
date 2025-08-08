@@ -1,6 +1,4 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Fragment } from "react";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
