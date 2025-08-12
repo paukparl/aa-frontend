@@ -24,7 +24,7 @@ export const schoolProgrammePreviewFetchOptions = createFetchOptions({
 });
 
 export const schoolUnitPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "unitTitle", "projectReviewLink"],
+  fields: [...documentFields, "slug", "unitTitle", "term", "projectReviewLink"],
   populate: {
     representativeImage: imgFetchOptions,
     school_people: {
@@ -50,11 +50,7 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolUnitDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...schoolUnitPreviewFetchOptions.fields,
-    "term",
-    "projectReviewLink",
-  ],
+  fields: [...schoolUnitPreviewFetchOptions.fields, "projectReviewLink"],
   populate: {
     ...schoolUnitPreviewFetchOptions.populate,
     extendedBriefFile: fileFetchOptions,

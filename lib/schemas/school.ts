@@ -17,6 +17,7 @@ export const schoolProgrammePreview = document.extend({
 export const schoolUnitPreview = document.extend({
   slug: z.string().nullable(),
   unitTitle: z.string().nullable(),
+  term: z.string().nullable(),
   representativeImage: img.nullable(),
   projectReviewLink: z.string().nullable(),
   school_people: z.array(
@@ -35,7 +36,6 @@ export const schoolProgrammeDetail = schoolProgrammePreview.extend({
 });
 
 export const schoolUnitDetail = schoolUnitPreview.extend({
-  term: z.string().nullable(),
   projectReviewLink: z.string().nullable(),
   extendedBriefFile: file.nullable(),
   studentWorkItem: z.array(
