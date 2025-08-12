@@ -4,7 +4,7 @@ import { DTAObjectPage } from "@/components/dta/pages/DTAObjectPage";
 import { DTAPersonPage } from "@/components/dta/pages/DTAPersonPage";
 import { DTAPracticePage } from "@/components/dta/pages/DTAPracticePage";
 import { SchoolUnitPage } from "@/components/school/pages/SchoolUnitPage";
-import { SchoolVisitingSchoolPage } from "@/components/school/pages/SchoolVisitingSchoolPage";
+import { SchoolVisitingSchoolCoursePage } from "@/components/school/pages/SchoolVisitingSchoolCoursePage";
 
 export default async function Tipin2Page({
   params,
@@ -15,7 +15,7 @@ export default async function Tipin2Page({
 
   if (ground === "school-programmes") {
     if (tipin1 === "aa-visiting-school") {
-      return <SchoolVisitingSchoolPage slug={tipin2} />;
+      return <SchoolVisitingSchoolCoursePage slug={tipin2} />;
     } else {
       return <SchoolUnitPage programmeSlug={tipin1} slug={tipin2} />;
     }
