@@ -1,4 +1,4 @@
-import { getSchoolVisitingSchool } from "@/api/getSchoolVisitingSchool";
+import { getSchoolVisitingSchoolCourse } from "@/api/getSchoolVisitingSchoolCourse";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { routes } from "@/lib/routes";
 
@@ -7,7 +7,7 @@ export async function SchoolVisitingSchoolCoursePage({
 }: {
   slug: string;
 }) {
-  const visitingSchool = await getSchoolVisitingSchool(slug);
+  const visitingSchool = await getSchoolVisitingSchoolCourse(slug);
   return (
     <ViewTransitionTipinPage
       type="2"

@@ -1,5 +1,5 @@
+import { getSchoolVisitingSchoolCourses } from "@/api/getSchoolVisitingSchoolCourses";
 import { getSchoolVisitingSchoolSnippet } from "@/api/getSchoolVisitingSchoolSnippet";
-import { getSchoolVisitingSchools } from "@/api/getSchoolVisitingSchools";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableVisitingSchool } from "@/components/school/components/ProgrammeTableVisitingSchool";
@@ -9,7 +9,7 @@ import { routes } from "@/lib/routes";
 export async function SchoolVisitingSchoolPage() {
   const [visitingSchoolSnippet, { data: visitingSchools }] = await Promise.all([
     getSchoolVisitingSchoolSnippet(),
-    getSchoolVisitingSchools(),
+    getSchoolVisitingSchoolCourses(),
   ]);
   return (
     <ViewTransitionTipinPage
