@@ -1,5 +1,6 @@
 import { getSchoolVisitingSchoolCourse } from "@/api/getSchoolVisitingSchoolCourse";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
+import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { routes } from "@/lib/routes";
 
 export async function SchoolVisitingSchoolCoursePage({
@@ -7,13 +8,13 @@ export async function SchoolVisitingSchoolCoursePage({
 }: {
   slug: string;
 }) {
-  const visitingSchool = await getSchoolVisitingSchoolCourse(slug);
+  const course = await getSchoolVisitingSchoolCourse(slug);
   return (
     <ViewTransitionTipinPage
       type="2"
       bg="var(--color-school-visiting-school-bg)"
       fg="var(--color-black)"
-      title={visitingSchool?.title ?? ""}
+      title={course?.title ?? ""}
       ancestors={[
         { title: "Programmes", path: routes.ground("school-programmes") },
         {
@@ -22,7 +23,44 @@ export async function SchoolVisitingSchoolCoursePage({
         },
       ]}
     >
-      <pre>{JSON.stringify(visitingSchool, null, 2)}</pre>
+      <div className="p-(--padding)">
+        <h1 className="tipin">{course?.title}</h1>
+        <MediaGallery
+          className="mt-(--padding)"
+          colorTheme="school-programmes"
+          slides={[
+            {
+              src: course?.representativeImage?.url,
+              caption: course?.representativeImage?.caption,
+            },
+          ]}
+        />
+        <div className="pb-[30px] sm:pb-[50px]">
+          <div className="mt-[10px] grid grid-cols-[1fr_2fr] border-x border-t border-dotted sm:mt-[20px] md:grid-cols-[1fr_3fr]">
+            <div className="border-r border-b border-dotted p-[15px] mono">
+              Location
+            </div>
+            <div className="border-b border-dotted p-[15px] mono">
+              {`${course?.onlineCourse ? `Online / ` : ``}${course?.dta_locations
+                .map((location) => `${location.city}, ${location.country}`)
+                .join(" / ")}`}
+            </div>
+            <div className="border-r border-b border-dotted p-[15px] mono">
+              Duration
+            </div>
+            <div className="border-b border-dotted p-[15px] mono">
+              {course?.dateTextOverride}
+            </div>
+            <div className="border-r border-b border-dotted p-[15px] mono">
+              Theme
+            </div>
+            <div className="border-b border-dotted p-[15px] mono">
+              {course?.theme}
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-100 text-center mono">DYNAMIC ZONE</div>
+      </div>
     </ViewTransitionTipinPage>
   );
 }
