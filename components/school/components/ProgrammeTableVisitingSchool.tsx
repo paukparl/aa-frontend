@@ -1,5 +1,6 @@
 import Link from "next/link";
 import * as React from "react";
+import { routes } from "@/lib/routes";
 
 export type CourseUnit = {
   representativeImage: string | undefined;
@@ -37,7 +38,11 @@ export const ProgrammeTableVisitingSchool = ({
         </div>
         {units.map((unit) => (
           <Link
-            href={`school-programmes/aa-visiting-school/${unit.documentId}`}
+            href={routes.tipin2(
+              "school-programmes",
+              "aa-visiting-school",
+              unit.documentId,
+            )}
             key={unit.title}
             className="mb-[-1px] block grid cursor-pointer grid-cols-[1fr_1fr] transition-[.1s] hover:bg-school-visiting-school-bg sm:min-h-[86px] md:grid-cols-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr]"
           >
