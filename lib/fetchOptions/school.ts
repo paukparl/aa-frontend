@@ -74,6 +74,7 @@ export const schoolVisitingSchoolPreviewFetchOptions = createFetchOptions({
     "title",
     "onlineCourse",
     "dateTextOverride",
+    "theme",
   ],
   populate: {
     dta_locations: dtaLocationFetchOptions,
@@ -84,7 +85,6 @@ export const schoolVisitingSchoolPreviewFetchOptions = createFetchOptions({
 export const schoolVisitingSchoolDetailFetchOptions = createFetchOptions({
   fields: [
     ...schoolVisitingSchoolPreviewFetchOptions.fields,
-    "theme",
     "startDate",
     "endDate",
   ],

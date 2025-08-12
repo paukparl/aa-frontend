@@ -7,7 +7,7 @@ import { getDTAObject } from "@/api/getDTAObject";
 import { getDTAPage } from "@/api/getDTAPage";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import { getSchoolUnit } from "@/api/getSchoolUnit";
-import { getSchoolVisitingSchool } from "@/api/getSchoolVisitingSchool";
+import { getSchoolVisitingSchoolCourse } from "@/api/getSchoolVisitingSchoolCourse";
 import { routes } from "@/lib/routes";
 import serverEnv from "@/lib/serverEnv";
 
@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
         unit.documentId,
       );
   } else if (uid === "api::school-visiting-school.school-visiting-school") {
-    const visitingSchool = await getSchoolVisitingSchool(slug);
+    const visitingSchool = await getSchoolVisitingSchoolCourse(slug);
     if (visitingSchool)
       path = routes.tipin2(
         "school-programmes",
