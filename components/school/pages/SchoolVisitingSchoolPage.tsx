@@ -72,6 +72,7 @@ export async function SchoolVisitingSchoolPage() {
             representativeImage:
               course.representativeImage?.formats?.thumbnail?.url ??
               course.representativeImage?.url,
+            imgAlt: course.representativeImage?.alternativeText,
             dateTextOverride: course.dateTextOverride,
             title: course.title,
             location: formatLocationText(

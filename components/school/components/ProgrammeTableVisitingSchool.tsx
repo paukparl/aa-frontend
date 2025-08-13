@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { routes } from "@/lib/routes";
 
 export type CourseUnit = {
   representativeImage: string | undefined;
+  imgAlt: string | null;
   title: string | null;
   dateTextOverride: string | null;
   location: string;
@@ -19,6 +21,7 @@ export const ProgrammeTableVisitingSchool = ({
   className,
   units,
 }: ProgrammeTableVisitingSchoolProps) => {
+  console.log(units);
   return (
     <div className={className}>
       <div className="border-x border-t border-dotted">
@@ -48,9 +51,12 @@ export const ProgrammeTableVisitingSchool = ({
           >
             <div className="block flex items-start border-y border-r border-dotted p-[15px] body">
               {unit.representativeImage && (
-                <img
+                <Image
+                  width={67}
+                  height={67}
+                  alt={unit.imgAlt ?? ``}
                   src={unit.representativeImage}
-                  className="mr-[20px] hidden h-[67px] w-[67px] object-cover object-center sm:block"
+                  className="mr-[20px] hidden sm:block"
                 />
               )}
               {unit.title}
