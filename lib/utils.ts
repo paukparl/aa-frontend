@@ -19,7 +19,7 @@ export const formatLocationText = (
   online: boolean | null | undefined,
   locations: Schema<"dtaLocation">[] | undefined,
 ) => {
-  return `${online === true ? `Online` : ``}${online && locations?.length && locations?.length > 0 ? ` / ` : ``}${locations
+  return `${online === true ? `Online` : ``}${online && locations?.length > 0 ? ` / ` : ``}${locations
     ?.map((location) => `${location.city}, ${location.country}`)
     .join(" / ")}`;
 };
