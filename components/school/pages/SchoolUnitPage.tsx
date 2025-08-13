@@ -3,8 +3,10 @@ import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import { getSchoolUnit } from "@/api/getSchoolUnit";
 import { UL } from "@/components/Typography/UL";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
+import { ButtonCTA } from "@/components/globals/components/ButtonCTA";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { ProgrammeDoubleTextCol } from "@/components/school/components/ProgrammeDoubleTextCol";
+import { ProgrammeGridStudentWork } from "@/components/school/components/ProgrammeGridStudentWork";
 import { UnitTableInfo } from "@/components/school/components/UnitTableInfo";
 import { routes } from "@/lib/routes";
 
@@ -203,6 +205,25 @@ export async function SchoolUnitPage({
             </UL>
           }
         />
+        {unit.extendedBriefFile && (
+          <ButtonCTA
+            className="mt-(--padding)"
+            link={unit.extendedBriefFile.url}
+            label="Download extended brief ↗"
+          />
+        )}
+        {unit.studentWorkItem?.length > 0 && (
+          <ProgrammeGridStudentWork
+            className="mt-50"
+            projectReviewLink={unit.projectReviewLink}
+            items={unit.studentWorkItem.map((artwork) => ({
+              title: artwork.studentWorkItemTitle,
+              artist: artwork.studentFirstLastName,
+              imgSrc: artwork.studentWorkItemImage?.url,
+              link: "",
+            }))}
+          />
+        )}
       </div>
     </ViewTransitionTipinPage>
   );

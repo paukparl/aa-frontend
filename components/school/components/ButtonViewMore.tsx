@@ -18,7 +18,7 @@ export const ButtonViewMore = ({
       href={href}
       className={cn(
         className,
-        "block border border-dotted px-10 py-5 mono hover:border-solid hover:bg-school-tint",
+        "block border border-dotted px-10 py-5 mono hover:border-solid",
       )}
     >
       {children}

@@ -5,6 +5,7 @@ import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableVisitingSchool } from "@/components/school/components/ProgrammeTableVisitingSchool";
 import { ProgrammeTextCol } from "@/components/school/components/ProgrammeTextCol";
 import { routes } from "@/lib/routes";
+import { formatLocationText } from "@/lib/utils";
 
 export async function SchoolVisitingSchoolPage() {
   const [visitingSchoolSnippet, { data: visitingSchools }] = await Promise.all([
@@ -73,9 +74,10 @@ export async function SchoolVisitingSchoolPage() {
               course.representativeImage?.url,
             dateTextOverride: course.dateTextOverride,
             title: course.title,
-            location: `${course.onlineCourse ? `Online / ` : ``}${course.dta_locations
-              .map((location) => `${location.city}, ${location.country}`)
-              .join(" / ")}`,
+            location: formatLocationText(
+              course.onlineCourse,
+              course.dta_locations,
+            ),
             theme: "Urban and Landscape Ecologies",
             documentId: course.documentId,
           }))}
