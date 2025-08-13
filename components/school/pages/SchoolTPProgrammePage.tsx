@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
-import { getSchoolTPProgrammes } from "@/api/getSchoolTPProgrammes";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
@@ -8,26 +7,32 @@ import { ProgrammeTableUnitsTemporary } from "@/components/school/components/Pro
 import { ProgrammeTextCol } from "@/components/school/components/ProgrammeTextCol";
 import { routes } from "@/lib/routes";
 
-export async function SchoolProgrammePage({ slug }: { slug: string }) {
-  const programme = await getSchoolProgramme(slug);
+export async function SchoolTPProgrammePage({
+  parentSlug,
+  slug,
+}: {
+  parentSlug: string;
+  slug: string;
+}) {
+  const [parentProgramme, programme] = await Promise.all([
+    getSchoolProgramme(parentSlug),
+    getSchoolProgramme(slug),
+  ]);
 
-  // TODO: fetch in parallel
-  // TODO: maybe not depend on slug, and use single type as with visiting school
-  const taughtPostgraduateProgrammes =
-    slug === "taught-postgraduate" ? await getSchoolTPProgrammes() : null;
-
-  console.log(taughtPostgraduateProgrammes);
-
-  if (!programme) notFound();
+  if (!parentProgramme || !programme) notFound();
 
   return (
     <ViewTransitionTipinPage
-      type="1"
-      bg={"var(--color-white)"}
+      type="2"
+      bg={parentProgramme.hexValue ?? "var(--color-white)"}
       fg={"var(--color-black)"}
       title={programme.programmeTitle}
       ancestors={[
         { title: "Programmes", path: routes.ground("school-programmes") },
+        {
+          title: parentProgramme.programmeTitle ?? "",
+          path: routes.tipin1("school-programmes", parentSlug),
+        },
       ]}
     >
       <div className="p-(--padding) pb-100">
