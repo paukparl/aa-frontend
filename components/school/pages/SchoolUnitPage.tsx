@@ -23,7 +23,6 @@ export async function SchoolUnitPage({
   ]);
 
   if (!programme || !unit) notFound();
-  console.log(unit);
   return (
     <ViewTransitionTipinPage
       type="2"
