@@ -155,6 +155,7 @@ export const dtaMap = document.extend({
     document.extend({
       description: z.string().nullable(),
       shortTitle: z.string().nullable(),
+      dta_events: z.array(dtaEvent),
     }),
   ),
 });

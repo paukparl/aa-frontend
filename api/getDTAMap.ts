@@ -3,9 +3,11 @@ import { dtaMapFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
 
 export async function getDTAMap() {
-  return schemas.getOneRes(schemas.dtaMap).parse(
-    await fetchOne("/dta-map", {
+  return await fetchOne({
+    path: "/dta-map",
+    schema: schemas.dtaMap,
+    options: {
       ...dtaMapFetchOptions,
-    }),
-  ).data;
+    },
+  });
 }
