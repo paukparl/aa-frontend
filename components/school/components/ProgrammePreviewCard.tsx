@@ -33,7 +33,7 @@ export const ProgrammePreviewCard = ({
   durationValue,
   fullTime,
   rightAlign,
-  documentId,
+  documentId: _,
   applyLink,
   slug,
 }: ProgrammePreviewCardProps) => {
