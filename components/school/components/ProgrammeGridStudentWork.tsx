@@ -30,15 +30,15 @@ export const ProgrammeGridStudentWork = ({
         )}
       </div>
       <div className="grid grid-cols-2 gap-[10px] sm:gap-[30px] md:grid-cols-3 lg:grid-cols-4">
-        {items.map((item) =>
+        {items.map((item, index) =>
           item.link ? (
-            <Link href={item.link} key={`linked-${item.title}`}>
+            <Link href={item.link} key={`linked-${index}`}>
               <img className="h-[auto] w-[100%]" src={item.imgSrc} />
               <div className="body !font-bold">{item.title}</div>
               <span className="body">{item.artist}</span>
             </Link>
           ) : (
-            <div key={`unlinked-${item.title}`}>
+            <div key={`unlinked-${index}`}>
               <img className="h-[auto] w-[100%]" src={item.imgSrc} />
               <div className="mt-[10px] block body !font-bold">
                 {item.title}
