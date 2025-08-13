@@ -72,10 +72,11 @@ export const ProgrammePreviewCard = ({
       <div className="mt-(--padding) flex gap-10">
         <ButtonViewMore
           className="hover:bg-school-tint"
-          href={`school-programmes/${documentId}`}
+          href={routes.tipin1("school-programmes", slug)}
         >
           Learn More
         </ButtonViewMore>
+        {/* TODO: This doesn't seem right. Maybe the button shouldn't appear when applyLink is null. Also relative urls are safer with a leading slash */}
         <ButtonViewMore
           className="hover:bg-school-tint"
           href={
