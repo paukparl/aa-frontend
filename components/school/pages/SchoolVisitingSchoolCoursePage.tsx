@@ -2,6 +2,7 @@ import { getSchoolVisitingSchoolCourse } from "@/api/getSchoolVisitingSchoolCour
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { routes } from "@/lib/routes";
+import { formatLocationText } from "@/lib/utils";
 
 export async function SchoolVisitingSchoolCoursePage({
   slug,
@@ -41,9 +42,7 @@ export async function SchoolVisitingSchoolCoursePage({
               Location
             </div>
             <div className="border-b border-dotted p-[15px] mono">
-              {`${course?.onlineCourse ? `Online / ` : ``}${course?.dta_locations
-                .map((location) => `${location.city}, ${location.country}`)
-                .join(" / ")}`}
+              {formatLocationText(course?.onlineCourse, course?.dta_locations)}
             </div>
             <div className="border-r border-b border-dotted p-[15px] mono">
               Duration

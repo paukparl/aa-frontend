@@ -108,7 +108,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
           ref={overlayRef}
           className="fixed inset-0 top-0 left-0 z-60 size-full overflow-auto"
         >
-          <Dialog.Content className="bg-menu min-h-full outline-none">
+          <Dialog.Content className="min-h-full bg-menu outline-none">
             <Dialog.Title className="sr-only" />
             <Dialog.Description className="sr-only" />
 
@@ -122,7 +122,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
                   <MenuSvg mode="close" />
                 </MenuButton>
               </Button>
-              <div className="font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 pt-[0.075em]">
+              <div className="pt-[0.075em] font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500">
                 Architectural Association
               </div>
             </PageHeader>
@@ -130,7 +130,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
             <div className="px-(--padding) pb-(--padding)">
               <LoadingLink
                 href="/public"
-                className="font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] outline outline-black outline-dotted hover:bg-white"
+                className="mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 outline outline-black outline-dotted hover:bg-white"
               >
                 Public
               </LoadingLink>
@@ -155,7 +155,7 @@ function Menu({ exitUrl }: { exitUrl: string }) {
               </GridNavRoot>
               <LoadingLink
                 href="/school"
-                className="font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] outline outline-black outline-dotted hover:bg-white"
+                className="mb-(--padding) inline-flex h-[1.25em] items-center rounded-full px-[0.5em] pt-[0.075em] font-nhg-display text-(length:--nav-btn-font-size)/1.1 font-500 outline outline-black outline-dotted hover:bg-white"
               >
                 School
               </LoadingLink>

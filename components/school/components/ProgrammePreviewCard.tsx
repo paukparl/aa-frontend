@@ -60,10 +60,14 @@ export const ProgrammePreviewCard = ({
         {description}
       </div>
       <div className="mt-(--padding) flex gap-10">
-        <ButtonViewMore href={`school-programmes/${documentId}`}>
+        <ButtonViewMore
+          className="hover:bg-school-tint"
+          href={`school-programmes/${documentId}`}
+        >
           Learn More
         </ButtonViewMore>
         <ButtonViewMore
+          className="hover:bg-school-tint"
           href={
             applyLink ? `school-programmes/${applyLink}` : "school-programmes/"
           }
