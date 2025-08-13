@@ -1,5 +1,7 @@
 import { draftMode } from "next/headers";
 import qs from "qs";
+import { z } from "zod/v4";
+import { Schema, schemas } from "@/lib/schemas";
 
 /*
   This is a utility function to fetch data from a Strapi backend.
@@ -117,34 +119,81 @@ async function fetchData(path: string, options: FetchDataOptions = {}) {
       "Content-Type": "application/json",
       ...headers,
     },
-    cache: "no-store", // TODO: replace this with cache strategy
     next,
   });
 }
 
+type GetOneRes<T extends z.ZodObject> = {
+  data: z.infer<T>;
+};
+
+type GetManyRes<T extends z.ZodObject> = {
+  data: z.infer<T>[];
+  meta: { pagination: Schema<"pagination"> };
+};
+
 // Handles "Not Found" by returning {data: null} and takes fewer strapi fetch options than fetchMany
-export async function fetchOne<T>(
-  path: string,
-  options: FetchOneOptions = {},
-): Promise<T | { data: null }> {
+export async function fetchOne<T extends z.ZodObject>({
+  path,
+  schema,
+  options,
+}: {
+  path: string;
+  schema: T;
+  options: FetchOneOptions;
+}) {
   const response = await fetchData(path, options);
   if (!response.ok) {
     // Return null if not found
-    if (response.statusText === "Not Found") return { data: null };
+    if (response.statusText === "Not Found") return null;
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
-  const json = await response.json();
-  return json;
+  const { data } = schemas
+    .getOneRes(schema)
+    .parse(await response.json()) as unknown as GetOneRes<T>; // TS fails to infer this deep
+  return data;
 }
 
-export async function fetchMany<T>(
-  path: string,
-  options: FetchManyOptions = {},
-): Promise<T | null> {
+export async function fetchOneBySlug<T extends z.ZodObject>({
+  path,
+  slug,
+  schema,
+  options,
+}: {
+  path: string;
+  slug: string;
+  schema: T;
+  options: FetchOneOptions;
+}) {
+  const response = await fetchData(path, {
+    filters: { slug: { $eq: slug } },
+    ...options,
+  });
+  if (!response.ok) {
+    console.log(response.statusText);
+    throw new StrapiError("UNKNOWN_ERROR", response.statusText);
+  }
+  const { data } = schemas
+    .getManyRes(schema)
+    .parse(await response.json()) as unknown as GetManyRes<T>; // TS fails to infer this deep
+  return data[0] ?? null;
+}
+
+export async function fetchMany<T extends z.ZodObject>({
+  path,
+  schema,
+  options,
+}: {
+  path: string;
+  schema: T;
+  options: FetchManyOptions;
+}) {
   const response = await fetchData(path, options);
   if (!response.ok) {
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
-  const json = await response.json();
-  return json;
+  const res = schemas
+    .getManyRes(schema)
+    .parse(await response.json()) as unknown as GetManyRes<T>; // TS fails to infer this deep
+  return res;
 }
