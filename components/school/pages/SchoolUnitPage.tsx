@@ -11,14 +11,14 @@ import { UnitTableInfo } from "@/components/school/components/UnitTableInfo";
 import { routes } from "@/lib/routes";
 
 export async function SchoolUnitPage({
-  programmeSlug,
+  parentSlug,
   slug,
 }: {
-  programmeSlug: string;
+  parentSlug: string;
   slug: string;
 }) {
   const [programme, unit] = await Promise.all([
-    getSchoolProgramme(programmeSlug),
+    getSchoolProgramme(parentSlug),
     getSchoolUnit(slug),
   ]);
 
@@ -33,7 +33,7 @@ export async function SchoolUnitPage({
         { title: "Programmes", path: routes.ground("school-programmes") },
         {
           title: programme.programmeTitle ?? "",
-          path: routes.tipin1("school-programmes", programmeSlug),
+          path: routes.tipin1("school-programmes", parentSlug),
         },
       ]}
     >
