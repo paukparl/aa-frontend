@@ -43,13 +43,12 @@ type ValidEventGroup = {
 export const DTAMap = ({
   className,
   map,
-  events = [],
 }: {
   className?: string;
   map?: Schema<"dtaMap">;
-  events?: Schema<"dtaEvent">[];
 }) => {
   // filter out non-valid events
+  const events = map?.dta_event_types.flatMap((type) => type.dta_events) ?? [];
   const validEvents = events.filter(
     (event) =>
       event.dtaLocation &&

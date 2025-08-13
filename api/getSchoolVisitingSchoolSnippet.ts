@@ -3,9 +3,11 @@ import { schoolVisitingSchoolSnippetFetchOptions } from "@/lib/fetchOptions/scho
 import { schemas } from "@/lib/schemas";
 
 export async function getSchoolVisitingSchoolSnippet() {
-  return schemas.getOneRes(schemas.schoolVisitingSchoolSnippet).parse(
-    await fetchOne("/visiting-school-snippet", {
+  return await fetchOne({
+    path: "/visiting-school-snippet",
+    schema: schemas.schoolVisitingSchoolSnippet,
+    options: {
       ...schoolVisitingSchoolSnippetFetchOptions,
-    }),
-  ).data;
+    },
+  });
 }

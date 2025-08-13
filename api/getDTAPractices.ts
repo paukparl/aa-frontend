@@ -6,10 +6,12 @@ import { schemas } from "@/lib/schemas";
 export async function getDTAPractices(
   options: Pick<StrapiFetchManyOptions, "pagination" | "filters"> = {},
 ) {
-  return schemas.getManyRes(schemas.dtaPracticePreview).parse(
-    await fetchMany("/dta-practices", {
+  return await fetchMany({
+    path: "/dta-practices",
+    schema: schemas.dtaPracticePreview,
+    options: {
       ...dtaPracticePreviewFetchOptions,
       ...options,
-    }),
-  );
+    },
+  });
 }

@@ -3,9 +3,11 @@ import { schoolVisitingSchoolPreviewFetchOptions } from "@/lib/fetchOptions/scho
 import { schemas } from "@/lib/schemas";
 
 export async function getSchoolVisitingSchoolCourses() {
-  return schemas.getManyRes(schemas.schoolVisitingSchoolPreview).parse(
-    await fetchMany("/school-visiting-schools", {
+  return await fetchMany({
+    path: "/school-visiting-schools",
+    schema: schemas.schoolVisitingSchoolPreview,
+    options: {
       ...schoolVisitingSchoolPreviewFetchOptions,
-    }),
-  );
+    },
+  });
 }

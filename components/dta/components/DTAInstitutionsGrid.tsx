@@ -40,8 +40,9 @@ export const DTAInstitutionsGridItem = ({
   className,
 }: DTAInstitutionsGridItemProps) => {
   const urlSearchParams = useSearchParams();
+  if (!institution.slug) return null;
   const href = composeUrl({
-    path: routes.tipin2("dta", "institutions", institution.documentId), // TODO: slug
+    path: routes.tipin2("dta", "institutions", institution.slug),
     params: urlSearchParams,
   });
   return (

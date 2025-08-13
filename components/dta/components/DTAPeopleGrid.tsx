@@ -37,8 +37,9 @@ export const DTAPeopleGridItem = ({
   className,
 }: DTAPeopleGridItemProps) => {
   const urlSearchParams = useSearchParams();
+  if (!person.slug) return null;
   const href = composeUrl({
-    path: routes.tipin2("dta", "people", person.documentId), // TODO: slug
+    path: routes.tipin2("dta", "people", person.slug),
     params: urlSearchParams,
   });
   return (

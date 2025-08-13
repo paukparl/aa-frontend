@@ -71,10 +71,10 @@ export const pagination = z.object({
   total: z.number(),
 });
 
-export const getOneRes = <T extends z.ZodType>(schema: T) =>
-  z.object({ data: schema.nullable() });
+export const getOneRes = <T extends z.ZodObject>(schema: T) =>
+  z.object({ data: schema });
 
-export const getManyRes = <T extends z.ZodType>(schema: T) =>
+export const getManyRes = <T extends z.ZodObject>(schema: T) =>
   z.object({
     data: z.array(schema),
     meta: z.object({

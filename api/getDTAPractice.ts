@@ -1,11 +1,14 @@
-import { fetchOne } from "@/lib/fetchData";
+import { fetchOneBySlug } from "@/lib/fetchData";
 import { dtaPracticeDetailFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
 
 export async function getDTAPractice(slug: string) {
-  return schemas.getOneRes(schemas.dtaPracticeDetail).parse(
-    await fetchOne(`/dta-practices/${slug}`, {
+  return await fetchOneBySlug({
+    path: "/dta-practices",
+    slug,
+    schema: schemas.dtaPracticeDetail,
+    options: {
       ...dtaPracticeDetailFetchOptions,
-    }),
-  ).data;
+    },
+  });
 }

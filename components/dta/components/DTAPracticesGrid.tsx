@@ -34,7 +34,8 @@ export const DTAPracticesGridItem = ({
   practice,
   className,
 }: DTAPracticesGridItemProps) => {
-  const href = routes.tipin2("dta", "practices", practice.documentId); // TODO: slug
+  if (!practice.slug) return null;
+  const href = routes.tipin2("dta", "practices", practice.slug);
   return (
     <Link
       className={cn(
