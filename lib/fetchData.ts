@@ -170,7 +170,6 @@ export async function fetchOneBySlug<T extends z.ZodObject>({
     ...options,
   });
   if (!response.ok) {
-    console.log(response.statusText);
     throw new StrapiError("UNKNOWN_ERROR", response.statusText);
   }
   const { data } = schemas
