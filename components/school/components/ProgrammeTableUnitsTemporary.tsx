@@ -1,16 +1,23 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { Schema } from "@/lib/schemas";
 
 type UnitInfo = {
   title: string | null;
   lecturers: string;
   documentId: string;
+  slug: string | null;
 };
 type ProgrammeTableUnitsTemporaryProps = {
   className?: string;
   programmeColor?: string | null;
   units: UnitInfo[];
   programmeId: string;
+};
+
+// You could do this ↓↓
+type _ProgrammeTableUnitsTemporaryProps = {
+  programme: Schema<"schoolProgrammeDetail">;
 };
 
 export const ProgrammeTableUnitsTemporary = ({
@@ -41,7 +48,7 @@ export const ProgrammeTableUnitsTemporary = ({
         {units.map((unit, index) => (
           <Link
             scroll={false}
-            href={`/school-programmes/${programmeId}/${unit.documentId}`}
+            href={`/school-programmes/${programmeId}/${unit.slug}`}
             key={index}
             className="temptable_unitrow mb-[-1px] grid cursor-pointer grid-cols-[2fr_1fr] transition-[.1s] md:grid-cols-[3fr_1fr]"
           >

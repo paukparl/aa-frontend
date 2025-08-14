@@ -91,6 +91,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
               title: unit.unitTitle,
               lecturers: `${unit.school_people.map((person) => `${person.firstName} ${person.lastName}`).join(", ")}`,
               documentId: unit.documentId,
+              slug: unit.slug,
             }))}
           />
         </div>

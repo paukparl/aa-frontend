@@ -2,6 +2,8 @@ import Link from "next/link";
 import * as React from "react";
 import { ButtonViewMore } from "@/components/school/components/ButtonViewMore";
 import { cn } from "@/lib/cn";
+import { routes } from "@/lib/routes";
+import { Schema } from "@/lib/schemas";
 
 type ProgrammePreviewCardProps = {
   className?: string;
@@ -14,6 +16,12 @@ type ProgrammePreviewCardProps = {
   durationValue: number | null;
   fullTime: boolean; // displays solid vs dotted line
   rightAlign: boolean | null; // true if the duration starts at the beginning of study, shows duraiton bar at beginning or end
+  slug: string | null;
+};
+
+// You could do this ↓↓
+type _ProgrammePreviewCardProps = {
+  programme: Schema<"schoolProgrammePreview">;
 };
 
 export const ProgrammePreviewCard = ({
@@ -25,16 +33,18 @@ export const ProgrammePreviewCard = ({
   durationValue,
   fullTime,
   rightAlign,
-  documentId,
+  documentId: _,
   applyLink,
+  slug,
 }: ProgrammePreviewCardProps) => {
   const durationBarW = `${durationValue}%`;
+  if (!slug) return null;
   return (
     <div className={cn(className, "pb-[50px]")}>
       <h1 className="flex items-end md:h-[90px]">{programmeTitle}</h1>
       <Link
         scroll={false}
-        href={`school-programmes/${documentId}`}
+        href={routes.tipin1("school-programmes", slug)}
         className="group mt-[10px] block border border-dotted transition-all hover:border-solid hover:bg-school-tint sm:mt-[20px]"
       >
         {degreeAwarded && (
@@ -62,10 +72,11 @@ export const ProgrammePreviewCard = ({
       <div className="mt-(--padding) flex gap-10">
         <ButtonViewMore
           className="hover:bg-school-tint"
-          href={`school-programmes/${documentId}`}
+          href={routes.tipin1("school-programmes", slug)}
         >
           Learn More
         </ButtonViewMore>
+        {/* TODO: This doesn't seem right. Maybe the button shouldn't appear when applyLink is null. Also relative urls are safer with a leading slash */}
         <ButtonViewMore
           className="hover:bg-school-tint"
           href={

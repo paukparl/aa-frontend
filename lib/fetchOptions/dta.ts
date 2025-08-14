@@ -102,14 +102,14 @@ export const dtaPageFetchOptions = createFetchOptions({
     dynamicZone: {
       on: {
         "dynamic-zone.subhead-module": {
-          fields: ["subhead"],
+          fields: ["text"],
         },
         "dynamic-zone.text-module": {
           fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {
-            carouselImages: imgFetchOptions,
+            imageCarouselItem: imgFetchOptions,
           },
         },
         "dynamic-zone.text-image-module": {
@@ -140,15 +140,6 @@ export const dtaSnippetFetchOptions = createFetchOptions({
   ],
 });
 
-export const dtaMapFetchOptions = createFetchOptions({
-  fields: [...documentFields, "Description"],
-  populate: {
-    dta_event_types: {
-      fields: [...documentFields, "description", "shortTitle"],
-    },
-  },
-});
-
 export const dtaEventFetchOptions = createFetchOptions({
   fields: [...documentFields, "beginYear", "endYear"],
   populate: {
@@ -158,5 +149,17 @@ export const dtaEventFetchOptions = createFetchOptions({
     dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_practicesNew: dtaPracticePreviewFetchOptions,
     dta_objectsNew: dtaObjectPreviewFetchOptions,
+  },
+});
+
+export const dtaMapFetchOptions = createFetchOptions({
+  fields: [...documentFields, "Description"],
+  populate: {
+    dta_event_types: {
+      fields: [...documentFields, "description", "shortTitle"],
+      populate: {
+        dta_events: dtaEventFetchOptions,
+      },
+    },
   },
 });

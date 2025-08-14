@@ -29,6 +29,7 @@ export default async function SchoolProgrammesPage() {
               degreeAwarded={programme.degreeAwarded}
               durationText={programme.durationText}
               description={mockDescriptionData}
+              slug={programme.slug}
             />
           ))}
         </div>

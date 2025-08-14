@@ -24,7 +24,7 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
         {page.dynamicZone.map((component) => (
           <Fragment key={component.id}>
             {component.__component === "dynamic-zone.subhead-module" && (
-              <h2>{component.subhead}</h2>
+              <h2>{component.text}</h2>
             )}
             {component.__component === "dynamic-zone.text-module" && (
               <div>{/* {component.text} */}</div>
@@ -32,16 +32,18 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
             {component.__component === "dynamic-zone.image-carousel-module" && (
               <DTACarousel
                 className="-mx-24"
-                carouselSlides={(component.carouselImages ?? []).map((img) => ({
-                  imgSrc: img.url,
-                  imgAlt: img.alternativeText ?? "",
-                }))}
+                carouselSlides={(component.imageCarouselItem ?? []).map(
+                  (img) => ({
+                    imgSrc: img.url,
+                    imgAlt: img.alternativeText ?? "",
+                  }),
+                )}
               />
             )}
             {component.__component === "dynamic-zone.text-image-module" && (
-              <div className="1280:grid-cols-2 grid grid-cols-1">
-                <div className="body w-full">{/* {component.} */}</div>
-                <div className="1280:pt-0 flex justify-center pt-20">
+              <div className="grid grid-cols-1 1280:grid-cols-2">
+                <div className="w-full body">{/* {component.} */}</div>
+                <div className="flex justify-center pt-20 1280:pt-0">
                   {component.image && (
                     <Image
                       src={component.image.url}

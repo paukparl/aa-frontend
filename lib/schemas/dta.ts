@@ -103,7 +103,7 @@ export const dtaPage = document
         z.object({
           id: z.number(),
           __component: z.literal("dynamic-zone.subhead-module"),
-          subhead: z.string().nullable(),
+          text: z.string().nullable(),
         }),
         z.object({
           id: z.number(),
@@ -113,7 +113,7 @@ export const dtaPage = document
         z.object({
           id: z.number(),
           __component: z.literal("dynamic-zone.image-carousel-module"),
-          carouselImages: z.array(img).nullable(),
+          imageCarouselItem: z.array(img).nullable(),
         }),
         z.object({
           id: z.number(),
@@ -155,6 +155,7 @@ export const dtaMap = document.extend({
     document.extend({
       description: z.string().nullable(),
       shortTitle: z.string().nullable(),
+      dta_events: z.array(dtaEvent),
     }),
   ),
 });

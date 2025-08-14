@@ -30,8 +30,9 @@ export const DTAPracticesTableRow = ({
   className,
 }: DTAPracticesTableItemProps) => {
   const urlSearchParams = useSearchParams();
+  if (!practice.slug) return null;
   const href = composeUrl({
-    path: routes.tipin2("dta", "practices", practice.documentId), // TODO: slug
+    path: routes.tipin2("dta", "practices", practice.slug),
     params: urlSearchParams,
   });
   return (

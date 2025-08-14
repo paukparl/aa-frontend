@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { routes } from "@/lib/routes";
+import { Schema } from "@/lib/schemas";
 
 export type CourseUnit = {
   representativeImage: string | undefined;
@@ -15,10 +16,16 @@ export type CourseUnit = {
   location: string;
   theme: string;
   documentId: string;
+  slug: string | null;
 };
 type ProgrammeTableVisitingSchoolProps = {
   className?: string;
   units: CourseUnit[];
+};
+
+// You could do this ↓↓
+type _ProgrammeTableVisitingSchoolProps = {
+  courses: Schema<"schoolVisitingSchoolPreview">[];
 };
 
 export const ProgrammeTableVisitingSchool = ({
@@ -44,39 +51,42 @@ export const ProgrammeTableVisitingSchool = ({
           </div>
         </div>
 <<<<<<< Updated upstream
-        {units.map((unit) => (
-          <Link
-            href={routes.tipin2(
-              "school-programmes",
-              "aa-visiting-school",
-              unit.documentId,
-            )}
-            key={unit.title}
-            className="mb-[-1px] block grid cursor-pointer grid-cols-[1fr_1fr] transition-[.1s] hover:bg-school-visiting-school-bg sm:min-h-[86px] md:grid-cols-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr]"
-          >
-            <div className="block flex items-start border-y border-r border-dotted p-[15px] body">
-              {unit.representativeImage && (
-                <Image
+        {units.map(
+          (unit) =>
+            unit.slug && (
+              <Link
+                href={routes.tipin2(
+                  "school-programmes",
+                  "aa-visiting-school",
+                  unit.slug,
+                )}
+                key={unit.title}
+                className="mb-[-1px] block grid cursor-pointer grid-cols-[1fr_1fr] transition-[.1s] hover:bg-school-visiting-school-bg sm:min-h-[86px] md:grid-cols-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr]"
+              >
+                <div className="block flex items-start border-y border-r border-dotted p-[15px] body">
+                  {unit.representativeImage && (
+                    <Image
                   width={67}
                   height={67}
                   alt={unit.imgAlt ?? ``}
-                  src={unit.representativeImage}
-                  className="mr-[20px] hidden sm:block"
-                />
-              )}
-              {unit.title}
-            </div>
-            <div className="hidden border-y border-dotted p-[15px] body md:block md:border-r">
-              {unit.dateTextOverride}
-            </div>
-            <div className="block border-y border-dotted p-[15px] body md:border-r">
-              {unit.location}
-            </div>
-            <div className="hidden border-y border-dotted p-[15px] body lg:block">
-              {unit.theme}
-            </div>
-          </Link>
-        ))}
+                      src={unit.representativeImage}
+                      className="mr-[20px] hidden sm:block"
+                    />
+                  )}
+                  {unit.title}
+                </div>
+                <div className="hidden border-y border-dotted p-[15px] body md:block md:border-r">
+                  {unit.dateTextOverride}
+                </div>
+                <div className="block border-y border-dotted p-[15px] body md:border-r">
+                  {unit.location}
+                </div>
+                <div className="hidden border-y border-dotted p-[15px] body lg:block">
+                  {unit.theme}
+                </div>
+              </Link>
+            ),
+        )}
 =======
         {units.map(
           (unit) =>

@@ -82,6 +82,7 @@ export async function SchoolVisitingSchoolPage() {
             ),
             theme: "Urban and Landscape Ecologies",
             documentId: course.documentId,
+            slug: course.slug,
           }))}
         />
         <div className="my-(--padding) w-full bg-school-visiting-school-bg py-100 text-center mono">
