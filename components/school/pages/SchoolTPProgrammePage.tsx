@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
-import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
-import { ProgrammeTableUnitsTemporary } from "@/components/school/components/ProgrammeTableUnitsTemporary";
+import { MediaGallery } from "@/components/globals/components/MediaGallery";
 import { ProgrammeTextCol } from "@/components/school/components/ProgrammeTextCol";
+import { UnitTableInfo } from "@/components/school/components/UnitTableInfo";
 import { routes } from "@/lib/routes";
 
 export async function SchoolTPProgrammePage({
@@ -37,9 +37,22 @@ export async function SchoolTPProgrammePage({
     >
       <div className="p-(--padding) pb-100">
         <h1 className="tipin">{programme.programmeTitle}</h1>
-        <ProgrammeTableInfo
-          degreeAwarded={programme.degreeAwarded}
-          durationText={programme.durationText}
+        <MediaGallery
+          className="mt-(--padding)"
+          colorTheme="school-programmes"
+          slides={[
+            {
+              src: programme.representativeImage?.url,
+              caption: programme.representativeImage?.caption,
+            },
+          ]}
+        />
+        <UnitTableInfo
+          className="pt-20"
+          items={[
+            { type: "Degree", content: programme.degreeAwarded ?? `` },
+            { type: "Duration", content: programme.durationText ?? `` },
+          ]}
         />
         <ProgrammeTextCol
           className="mt-(--padding)"
@@ -57,26 +70,26 @@ export async function SchoolTPProgrammePage({
             </div>
           }
         >
-          Term 1 of the Foundation Course focuses on observation, conversation
-          and developing key skills. We will begin by crafting portraits of
-          mother Earth, our hometown and ourselves, and will discuss our
-          influence upon and duties towards our local environment in light of
-          the climate crisis. This will prepare us for active participation in
-          the school-wide conversations that take place during Climate Matters
-          Week in Term 1. On a study trip to Venice, we will investigate how the
-          city has been designed to harvest fresh water and to endure the
-          salinity of its surroundings, through surveying and rebuilding
-          elements of the Venetian urban fabric at a range of scales. We will
-          explore complex junctions, interconnecting volumes, sections and
-          thresholds, and we will question how materials can be used responsibly
-          in design by investigating their origins and relationships to climatic
-          stressors. In parallel with studio practice, students will identify
-          and compile a series of contextual references and apply critical
-          thinking to their own self-initiated research. Tutorials and workshops
-          introduce students to different techniques and encourage translation
-          from observation to material interpretation, and regular discussions
-          of ongoing work take place in individual tutorials, group
-          presentations and juries.
+          This is a child of Taught Postgraduate. Term 1 of the Foundation
+          Course focuses on observation, conversation and developing key skills.
+          We will begin by crafting portraits of mother Earth, our hometown and
+          ourselves, and will discuss our influence upon and duties towards our
+          local environment in light of the climate crisis. This will prepare us
+          for active participation in the school-wide conversations that take
+          place during Climate Matters Week in Term 1. On a study trip to
+          Venice, we will investigate how the city has been designed to harvest
+          fresh water and to endure the salinity of its surroundings, through
+          surveying and rebuilding elements of the Venetian urban fabric at a
+          range of scales. We will explore complex junctions, interconnecting
+          volumes, sections and thresholds, and we will question how materials
+          can be used responsibly in design by investigating their origins and
+          relationships to climatic stressors. In parallel with studio practice,
+          students will identify and compile a series of contextual references
+          and apply critical thinking to their own self-initiated research.
+          Tutorials and workshops introduce students to different techniques and
+          encourage translation from observation to material interpretation, and
+          regular discussions of ongoing work take place in individual
+          tutorials, group presentations and juries.
           <br />
           <br />
           Term 2 focuses on work that clarifies students own individual areas of
@@ -93,20 +106,6 @@ export async function SchoolTPProgrammePage({
           Bentovim, Sensy Mania, Sabrina Morreale, Frédérique Paraskevas, Claire
           Potter, Álvaro Velasco Pérez
         </ProgrammeTextCol>
-        {/* table below is temporary */}
-        <div className="mt-(--padding) pt-(--padding)">
-          <h1 className="tipin mb-(--padding)">Design Units</h1>
-          <ProgrammeTableUnitsTemporary
-            programmeColor={programme.hexValue}
-            programmeSlug="taught-postgraduate"
-            units={programme.school_units.map((unit) => ({
-              title: unit.unitTitle,
-              lecturers: `${unit.school_people.map((person) => `${person.firstName} ${person.lastName}`).join(", ")}`,
-              documentId: unit.documentId,
-              slug: unit.slug,
-            }))}
-          />
-        </div>
       </div>
     </ViewTransitionTipinPage>
   );

@@ -25,7 +25,7 @@ export const ProgrammeTableProgrammes = ({
         </div>
         {programmes.map((programme) => (
           <Link
-            href={programme.slug}
+            href={`taught-postgraduate/${programme.slug}`}
             scroll={false}
             key={programme.title}
             className="mb-[-1px] grid grid-cols-[2fr_1fr] transition hover:bg-programmes-postgrad-accent md:grid-cols-[3fr_1fr]"
