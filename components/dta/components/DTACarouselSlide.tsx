@@ -41,7 +41,8 @@ export const DTACarouselSlide = ({
         ref={imgRef}
         src={imgSrc}
         alt={imgAlt}
-        fill
+        width={515}
+        height={180}
         className="mb-1 h-[180px] w-auto 700:h-[370px] 1500:h-[515px]"
         onLoad={setCaptionWidths}
       />
