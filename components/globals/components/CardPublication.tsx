@@ -22,7 +22,8 @@ export const CardPublication = ({
         <Image
           src={imgSrc}
           alt=""
-          fill
+          width="1200"
+          height="1000"
           className="max-h-[70vh] w-full object-contain"
         />
         <span className="block pt-[10px] body font-700 text-dta-about-foreground">

@@ -110,7 +110,8 @@ export const DTAFilterSingleSelect = ({
             </div>
             <Image
               alt=""
-              fill
+              width="700"
+              height="700"
               src={activeIndex !== null ? filterData[activeIndex].imgSrc : ""}
             />
           </div>

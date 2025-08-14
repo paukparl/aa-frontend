@@ -71,7 +71,8 @@ export const MediaGallery = ({
             <Image
               key={index}
               alt=""
-              fill
+              width="100"
+              height="100"
               src={thumb.src ?? ``}
               className={cn(
                 activeInd === index &&

@@ -58,7 +58,8 @@ export const DTAContentDoubleCol = ({
       {contentType === "image" && (
         <>
           <Image
-            fill
+            width="1200"
+            height="1200"
             src={imgSrc ?? ``}
             alt=""
             className="w-[100%] 700:w-[60%] 1280:w-[100%]"
