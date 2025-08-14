@@ -67,33 +67,39 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
             </Map>
           </div>
         )}
-        <div>
-          <DTAHeader className="capitalize">Related People</DTAHeader>
-          <DTAPeopleGrid>
-            {practice.dta_peopleNew.map((person) => (
-              <DTAPeopleGridItem key={person.documentId} person={person} />
-            ))}
-          </DTAPeopleGrid>
-        </div>
-        <div>
-          <DTAHeader className="capitalize">Related Institutions</DTAHeader>
-          <DTAInstitutionsGrid>
-            {practice.dta_institutionsNew.map((institution) => (
-              <DTAInstitutionsGridItem
-                key={institution.documentId}
-                institution={institution}
-              />
-            ))}
-          </DTAInstitutionsGrid>
-        </div>
-        <div>
-          <DTAHeader className="capitalize">Related Collections</DTAHeader>
-          <DTAObjectsGrid>
-            {practice.dta_objects.map((object) => (
-              <DTAObjectsGridItem key={object.documentId} object={object} />
-            ))}
-          </DTAObjectsGrid>
-        </div>
+        {practice.dta_peopleNew.length && (
+          <div>
+            <DTAHeader className="capitalize">Related People</DTAHeader>
+            <DTAPeopleGrid>
+              {practice.dta_peopleNew.map((person) => (
+                <DTAPeopleGridItem key={person.documentId} person={person} />
+              ))}
+            </DTAPeopleGrid>
+          </div>
+        )}
+        {practice.dta_institutionsNew.length && (
+          <div>
+            <DTAHeader className="capitalize">Related Institutions</DTAHeader>
+            <DTAInstitutionsGrid>
+              {practice.dta_institutionsNew.map((institution) => (
+                <DTAInstitutionsGridItem
+                  key={institution.documentId}
+                  institution={institution}
+                />
+              ))}
+            </DTAInstitutionsGrid>
+          </div>
+        )}
+        {practice.dta_objects.length && (
+          <div>
+            <DTAHeader className="capitalize">Related Collections</DTAHeader>
+            <DTAObjectsGrid>
+              {practice.dta_objects.map((object) => (
+                <DTAObjectsGridItem key={object.documentId} object={object} />
+              ))}
+            </DTAObjectsGrid>
+          </div>
+        )}
       </div>
     </ViewTransitionTipinPage>
   );

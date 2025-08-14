@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -35,11 +36,13 @@ export const DTACarouselSlide = ({
     }
   }
   return (
-    <div className={cn(className, "w-fit")}>
-      <img
+    <div className={cn(className, "relative w-fit")}>
+      <Image
         ref={imgRef}
         src={imgSrc}
         alt={imgAlt}
+        width={515}
+        height={180}
         className="mb-1 h-[180px] w-auto 700:h-[370px] 1500:h-[515px]"
         onLoad={setCaptionWidths}
       />

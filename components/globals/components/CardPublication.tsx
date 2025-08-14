@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { cn } from "@/lib/cn";
 
@@ -17,8 +18,14 @@ export const CardPublication = ({
     <div
       className={cn(className, "flex w-full justify-start 700:justify-center")}
     >
-      <div className="w-[50%] 700:w-fit">
-        <img src={imgSrc} className="max-h-[70vh] w-full object-contain" />
+      <div className="relative w-[50%] 700:w-fit">
+        <Image
+          src={imgSrc}
+          alt=""
+          width="1200"
+          height="1000"
+          className="max-h-[70vh] w-full object-contain"
+        />
         <span className="block pt-[10px] body font-700 text-dta-about-foreground">
           {title}
         </span>

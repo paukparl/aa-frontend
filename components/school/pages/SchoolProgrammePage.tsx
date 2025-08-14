@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
-import { getSchoolTPProgrammes } from "@/api/getSchoolTPProgrammes";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
@@ -10,13 +9,6 @@ import { routes } from "@/lib/routes";
 
 export async function SchoolProgrammePage({ slug }: { slug: string }) {
   const programme = await getSchoolProgramme(slug);
-
-  // TODO: fetch in parallel
-  // TODO: maybe not depend on slug, and use single type as with visiting school
-  const taughtPostgraduateProgrammes =
-    slug === "taught-postgraduate" ? await getSchoolTPProgrammes() : null;
-
-  console.log(taughtPostgraduateProgrammes);
 
   if (!programme) notFound();
 
@@ -93,7 +85,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
           <h1 className="tipin mb-(--padding)">Design Units</h1>
           <ProgrammeTableUnitsTemporary
             programmeColor={programme.hexValue}
-            programmeId={programme.documentId}
+            programmeSlug={programme.slug ?? ``}
             units={programme.school_units.map((unit) => ({
               title: unit.unitTitle,
               lecturers: `${unit.school_people.map((person) => `${person.firstName} ${person.lastName}`).join(", ")}`,

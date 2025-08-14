@@ -26,16 +26,18 @@ export async function SchoolVisitingSchoolCoursePage({
     >
       <div className="p-(--padding)">
         <h1 className="tipin">{course?.title}</h1>
-        <MediaGallery
-          className="mt-(--padding)"
-          colorTheme="school-programmes"
-          slides={[
-            {
-              src: course?.representativeImage?.url,
-              caption: course?.representativeImage?.caption,
-            },
-          ]}
-        />
+        {course?.representativeImage?.url && (
+          <MediaGallery
+            className="mt-(--padding)"
+            colorTheme="school-programmes"
+            slides={[
+              {
+                src: course?.representativeImage?.url,
+                caption: course?.representativeImage?.caption,
+              },
+            ]}
+          />
+        )}
         <div className="pb-[30px] sm:pb-[50px]">
           <div className="mt-[10px] grid grid-cols-[1fr_2fr] border-x border-t border-dotted sm:mt-[20px] md:grid-cols-[1fr_3fr]">
             <div className="border-r border-b border-dotted p-[15px] mono">

@@ -85,33 +85,39 @@ export async function DTAInstitutionPage({ slug }: { slug: string }) {
             </Map>
           </div>
         )}
-        <div>
-          <DTAHeader className="capitalize">Related People</DTAHeader>
-          <DTAPeopleGrid>
-            {institution.dtaPeople.map((person) => (
-              <DTAPeopleGridItem key={person.documentId} person={person} />
-            ))}
-          </DTAPeopleGrid>
-        </div>
-        <div>
-          <DTAHeader className="capitalize">Related Practices</DTAHeader>
-          <DTAPracticesGrid>
-            {institution.dta_practices.map((practice) => (
-              <DTAPracticesGridItem
-                key={practice.documentId}
-                practice={practice}
-              />
-            ))}
-          </DTAPracticesGrid>
-        </div>
-        <div>
-          <DTAHeader className="capitalize">Related Collections</DTAHeader>
-          <DTAObjectsGrid>
-            {institution.dta_objects.map((object) => (
-              <DTAObjectsGridItem key={object.documentId} object={object} />
-            ))}
-          </DTAObjectsGrid>
-        </div>
+        {institution.dtaPeople.length && (
+          <div>
+            <DTAHeader className="capitalize">Related People</DTAHeader>
+            <DTAPeopleGrid>
+              {institution.dtaPeople.map((person) => (
+                <DTAPeopleGridItem key={person.documentId} person={person} />
+              ))}
+            </DTAPeopleGrid>
+          </div>
+        )}
+        {institution.dta_practices.length && (
+          <div>
+            <DTAHeader className="capitalize">Related Practices</DTAHeader>
+            <DTAPracticesGrid>
+              {institution.dta_practices.map((practice) => (
+                <DTAPracticesGridItem
+                  key={practice.documentId}
+                  practice={practice}
+                />
+              ))}
+            </DTAPracticesGrid>
+          </div>
+        )}
+        {institution.dta_objects.length && (
+          <div>
+            <DTAHeader className="capitalize">Related Collections</DTAHeader>
+            <DTAObjectsGrid>
+              {institution.dta_objects.map((object) => (
+                <DTAObjectsGridItem key={object.documentId} object={object} />
+              ))}
+            </DTAObjectsGrid>
+          </div>
+        )}
       </div>
     </ViewTransitionTipinPage>
   );
