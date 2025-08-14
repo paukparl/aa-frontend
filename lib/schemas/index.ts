@@ -19,6 +19,7 @@ import {
   schoolFacilityPreview,
   schoolProgrammeDetail,
   schoolProgrammePreview,
+  schoolSnippet,
   schoolUnitDetail,
   schoolUnitPreview,
   schoolVisitingSchoolDetail,
@@ -71,6 +72,7 @@ export const schemas = {
   schoolVisitingSchoolSnippet,
   schoolVisitingSchoolPreview,
   schoolVisitingSchoolDetail,
+  schoolSnippet,
 };
 
 export type Schema<

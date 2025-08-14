@@ -92,3 +92,7 @@ export const schoolVisitingSchoolDetailFetchOptions = createFetchOptions({
     ...schoolVisitingSchoolPreviewFetchOptions.populate,
   },
 });
+
+export const schoolSnippetFetchOptions = createFetchOptions({
+  fields: [...documentFields],
+});

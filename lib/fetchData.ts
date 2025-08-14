@@ -33,21 +33,26 @@ type PopulateClause =
   Read more about Strapi's filter syntax here:
   https://docs.strapi.io/cms/api/rest/filters
 */
-type FilterClause = {
-  [key: string]: {
-    $eq?: unknown;
-    $ne?: unknown;
-    $gt?: unknown;
-    $gte?: unknown;
-    $lt?: unknown;
-    $lte?: unknown;
-    $in?: unknown[];
-    $nin?: unknown[];
-    $contains?: string;
-    $ncontains?: string;
-    $null?: boolean;
-  };
-};
+type FilterClause =
+  | {
+      $or?: FilterClause[];
+      $and?: FilterClause[];
+    }
+  | {
+      [key: string]: {
+        $eq?: unknown;
+        $ne?: unknown;
+        $gt?: unknown;
+        $gte?: unknown;
+        $lt?: unknown;
+        $lte?: unknown;
+        $in?: unknown[];
+        $nin?: unknown[];
+        $contains?: string;
+        $ncontains?: string;
+        $null?: boolean;
+      };
+    };
 
 type StrapiFetchOptions = {
   sort?: Record<string, "asc" | "desc"> | string;

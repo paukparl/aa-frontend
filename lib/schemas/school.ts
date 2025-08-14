@@ -81,3 +81,5 @@ export const schoolVisitingSchoolDetail = schoolVisitingSchoolPreview.extend({
   startDate: z.string().nullable(),
   endDate: z.string().nullable(),
 });
+
+export const schoolSnippet = document.extend({});
