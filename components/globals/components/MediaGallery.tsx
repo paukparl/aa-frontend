@@ -64,13 +64,14 @@ export const MediaGallery = ({
     },
   };
   return (
-    <div className={cn("w-100%", className)}>
+    <div className={cn("w-100% relative", className)}>
       {slides.length > 1 && (
-        <div className="flex gap-[10px] py-[20px] pl-[5px]">
+        <div className="relative flex gap-[10px] py-[20px] pl-[5px]">
           {slides.map((thumb, index) => (
             <Image
               key={index}
               alt=""
+              fill
               src={thumb.src ?? ``}
               className={cn(
                 activeInd === index &&
@@ -86,6 +87,7 @@ export const MediaGallery = ({
         src={slides[activeInd].src ?? ``}
         className="h-[auto] w-[100%]"
         alt=""
+        fill
       />
       {slides[activeInd].caption && slides[activeInd].caption?.length > 0 && (
         <span
