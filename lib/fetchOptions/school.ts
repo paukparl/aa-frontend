@@ -46,6 +46,33 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
   populate: {
     ...schoolProgrammePreviewFetchOptions.populate,
     school_units: schoolUnitPreviewFetchOptions,
+    programmeDynamicZone: {
+      on: {
+        "dynamic-zone.subhead-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.text-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.image-carousel-module": {
+          populate: {
+            imageCarouselItem: imgFetchOptions,
+          },
+        },
+        "dynamic-zone.text-image-module": {
+          fields: [
+            "text",
+            "imageCaptionOverride",
+            "ctaText",
+            "ctaLink",
+            "ctaSide",
+          ],
+          populate: {
+            image: imgFetchOptions,
+          },
+        },
+      },
+    },
   },
 });
 
@@ -58,6 +85,21 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
       fields: ["id", "studentWorkItemTitle", "studentFirstLastName"],
       populate: {
         studentWorkItemImage: imgFetchOptions,
+      },
+    },
+    unitDynamicZone: {
+      on: {
+        "dynamic-zone.subhead-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.text-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.image-carousel-module": {
+          populate: {
+            imageCarouselItem: imgFetchOptions,
+          },
+        },
       },
     },
   },
@@ -90,6 +132,28 @@ export const schoolVisitingSchoolDetailFetchOptions = createFetchOptions({
   ],
   populate: {
     ...schoolVisitingSchoolPreviewFetchOptions.populate,
+    visitingSchoolDynamicZone: {
+      on: {
+        "dynamic-zone.subhead-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.text-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.image-carousel-module": {
+          populate: {
+            imageCarouselItem: imgFetchOptions,
+          },
+        },
+        "dynamic-zone.cta": {
+          populate: {
+            ctas: {
+              fields: ["text", "url", "ctaStyle"],
+            },
+          },
+        },
+      },
+    },
   },
 });
 
