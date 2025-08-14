@@ -3,6 +3,7 @@ import { DTAInstitutionPage } from "@/components/dta/pages/DTAInstitutionPage";
 import { DTAObjectPage } from "@/components/dta/pages/DTAObjectPage";
 import { DTAPersonPage } from "@/components/dta/pages/DTAPersonPage";
 import { DTAPracticePage } from "@/components/dta/pages/DTAPracticePage";
+import { SchoolTPProgrammePage } from "@/components/school/pages/SchoolTPProgrammePage";
 import { SchoolUnitPage } from "@/components/school/pages/SchoolUnitPage";
 import { SchoolVisitingSchoolCoursePage } from "@/components/school/pages/SchoolVisitingSchoolCoursePage";
 
@@ -16,8 +17,10 @@ export default async function Tipin2Page({
   if (ground === "school-programmes") {
     if (tipin1 === "aa-visiting-school") {
       return <SchoolVisitingSchoolCoursePage slug={tipin2} />;
+    } else if (tipin1 === "taught-postgraduate") {
+      return <SchoolTPProgrammePage parentSlug={tipin1} slug={tipin2} />;
     } else {
-      return <SchoolUnitPage programmeSlug={tipin1} slug={tipin2} />;
+      return <SchoolUnitPage parentSlug={tipin1} slug={tipin2} />;
     }
   }
   if (ground === "hooke-park") {

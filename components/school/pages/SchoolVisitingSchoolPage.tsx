@@ -8,10 +8,11 @@ import { routes } from "@/lib/routes";
 import { formatLocationText } from "@/lib/utils";
 
 export async function SchoolVisitingSchoolPage() {
-  const [visitingSchoolSnippet, { data: visitingSchools }] = await Promise.all([
-    getSchoolVisitingSchoolSnippet(),
-    getSchoolVisitingSchoolCourses(),
-  ]);
+  const [visitingSchoolSnippet, { data: visitingSchoolCourses }] =
+    await Promise.all([
+      getSchoolVisitingSchoolSnippet(),
+      getSchoolVisitingSchoolCourses(),
+    ]);
   return (
     <ViewTransitionTipinPage
       type="1"
@@ -68,7 +69,7 @@ export async function SchoolVisitingSchoolPage() {
           world.
         </div>
         <ProgrammeTableVisitingSchool
-          units={visitingSchools.map((course) => ({
+          units={visitingSchoolCourses.map((course) => ({
             representativeImage:
               course.representativeImage?.formats?.thumbnail?.url ??
               course.representativeImage?.url,
