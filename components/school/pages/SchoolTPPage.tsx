@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
+import { getSchoolTPProgrammes } from "@/api/getSchoolTPProgrammes";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
@@ -10,7 +11,7 @@ import { routes } from "@/lib/routes";
 export async function SchoolTPPage() {
   const [taughtPostgrad, childProgrammes] = await Promise.all([
     getSchoolProgramme("taught-postgraduate"),
-    getSchoolProgramme("taught-postgraduate"),
+    getSchoolTPProgrammes(),
   ]);
 
   if (!taughtPostgrad) notFound();
@@ -85,7 +86,11 @@ export async function SchoolTPPage() {
         </ProgrammeTextCol>
         <ProgrammeTableProgrammes
           className="mt-(--padding) pt-(--padding)"
-          programmes={[{ title: "", degree: "" }]}
+          programmes={childProgrammes.data.map((programme) => ({
+            title: programme.programmeTitle ?? ``,
+            degree: programme.degreeAwarded ?? ``,
+            slug: programme.slug ?? ``,
+          }))}
         />
       </div>
     </ViewTransitionTipinPage>
