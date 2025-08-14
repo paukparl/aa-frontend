@@ -1,3 +1,4 @@
+import Image from "next/image";
 import * as React from "react";
 import { CardPublication } from "@/components/globals/components/CardPublication";
 import { cn } from "@/lib/cn";
@@ -56,7 +57,12 @@ export const DTAContentDoubleCol = ({
       )}
       {contentType === "image" && (
         <>
-          <img src={imgSrc} className="w-[100%] 700:w-[60%] 1280:w-[100%]" />
+          <Image
+            fill
+            src={imgSrc ?? ``}
+            alt=""
+            className="w-[100%] 700:w-[60%] 1280:w-[100%]"
+          />
           <div
             className={cn(
               colorThemeDict[colorTheme].text,

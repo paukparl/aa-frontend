@@ -1,6 +1,7 @@
 "use client";
 
 import * as Collapsible from "@radix-ui/react-collapsible";
+import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/cn";
 import { DTAFilterButton } from "./DTAFilterButton";
@@ -48,11 +49,11 @@ export const DTAFilterSingleSelect = ({
         <div
           className={cn(
             activeIndex === null
-              ? "700:mt-[20px] 700:p-[15px] mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px]"
+              ? "mt-[10px] w-full border border-dashed bg-white px-[15px] py-[10px] 700:mt-[20px] 700:p-[15px]"
               : "hidden",
           )}
         >
-          <ul role="listbox" className="700:gap-[15px] gap-[10px]">
+          <ul role="listbox" className="gap-[10px] 700:gap-[15px]">
             {filterData.map((filter, index) => (
               <li key={filter.title}>
                 <button
@@ -68,9 +69,9 @@ export const DTAFilterSingleSelect = ({
           </ul>
         </div>
         {activeIndex !== null && (
-          <div className="700:mt-[20px] 700:p-[15px] 1280:grid-cols-[3fr_2fr] 1500:grid-cols-[1fr_1fr] mt-[10px] grid w-full grid-cols-1 gap-[20px] border border-dashed bg-white px-[15px] py-[10px]">
+          <div className="mt-[10px] grid w-full grid-cols-1 gap-[20px] border border-dashed bg-white px-[15px] py-[10px] 700:mt-[20px] 700:p-[15px] 1280:grid-cols-[3fr_2fr] 1500:grid-cols-[1fr_1fr]">
             <div>
-              <div className="700:mb-[20px] mb-[10px] flex">
+              <div className="mb-[10px] flex 700:mb-[20px]">
                 <button
                   onClick={() => {
                     clearFilter();
@@ -78,7 +79,7 @@ export const DTAFilterSingleSelect = ({
                   }}
                 >
                   <svg
-                    className="700:h-[18px] 700:w-[18px] h-[15px] w-[15px]"
+                    className="h-[15px] w-[15px] 700:h-[18px] 700:w-[18px]"
                     viewBox="0 0 23 23"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +100,7 @@ export const DTAFilterSingleSelect = ({
                     />
                   </svg>
                 </button>
-                <span className="mono text-dta-collections-foreground ml-[10px]">
+                <span className="ml-[10px] mono text-dta-collections-foreground">
                   {filterData[activeIndex].title}
                 </span>
               </div>
@@ -107,7 +108,9 @@ export const DTAFilterSingleSelect = ({
                 {filterData[activeIndex].description}
               </span>
             </div>
-            <img
+            <Image
+              alt=""
+              fill
               src={activeIndex !== null ? filterData[activeIndex].imgSrc : ""}
             />
           </div>

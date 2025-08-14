@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -67,9 +68,10 @@ export const MediaGallery = ({
       {slides.length > 1 && (
         <div className="flex gap-[10px] py-[20px] pl-[5px]">
           {slides.map((thumb, index) => (
-            <img
+            <Image
               key={index}
-              src={thumb.src}
+              alt=""
+              src={thumb.src ?? ``}
               className={cn(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
@@ -80,7 +82,11 @@ export const MediaGallery = ({
           ))}
         </div>
       )}
-      <img src={slides[activeInd].src} className="h-[auto] w-[100%]" />
+      <Image
+        src={slides[activeInd].src ?? ``}
+        className="h-[auto] w-[100%]"
+        alt=""
+      />
       {slides[activeInd].caption && slides[activeInd].caption?.length > 0 && (
         <span
           className={cn(

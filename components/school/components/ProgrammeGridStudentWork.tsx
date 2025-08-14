@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { ButtonViewMore } from "@/components/school/components/ButtonViewMore";
@@ -33,13 +34,23 @@ export const ProgrammeGridStudentWork = ({
         {items.map((item, index) =>
           item.link ? (
             <Link href={item.link} key={`linked-${index}`}>
-              <img className="h-[auto] w-[100%]" src={item.imgSrc} />
+              <Image
+                className="h-[auto] w-[100%]"
+                src={item.imgSrc ?? ``}
+                alt=""
+                fill
+              />
               <div className="body !font-bold">{item.title}</div>
               <span className="body">{item.artist}</span>
             </Link>
           ) : (
             <div key={`unlinked-${index}`}>
-              <img className="h-[auto] w-[100%]" src={item.imgSrc} />
+              <Image
+                className="h-[auto] w-[100%]"
+                src={item.imgSrc ?? ``}
+                alt=""
+                fill
+              />
               <div className="mt-[10px] block body !font-bold">
                 {item.title}
               </div>
