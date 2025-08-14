@@ -115,7 +115,7 @@ export const schoolVisitingSchoolSnippet = document.extend({
   mapHeadline: z.string().nullable(),
 });
 
-export const schoolVisitingSchoolPreview = document.extend({
+export const schoolVisitingSchoolCoursePreview = document.extend({
   slug: z.string().nullable(),
   title: z.string().nullable(),
   onlineCourse: z.boolean().nullable(),
@@ -124,41 +124,42 @@ export const schoolVisitingSchoolPreview = document.extend({
   representativeImage: img.nullable(),
 });
 
-export const schoolVisitingSchoolDetail = schoolVisitingSchoolPreview.extend({
-  theme: z.string().nullable(),
-  startDate: z.string().nullable(),
-  endDate: z.string().nullable(),
-  visitingSchoolDynamicZone: z.array(
-    z.union([
-      z.object({
-        id: z.number(),
-        __component: z.literal("dynamic-zone.subhead-module"),
-        text: z.string().nullable(),
-      }),
-      z.object({
-        id: z.number(),
-        __component: z.literal("dynamic-zone.text-module"),
-        // text: z.string().nullable(),
-      }),
-      z.object({
-        id: z.number(),
-        __component: z.literal("dynamic-zone.image-carousel-module"),
-        imageCarouselItem: z.array(img).nullable(),
-      }),
-      z.object({
-        id: z.number(),
-        __component: z.literal("dynamic-zone.cta"),
-        ctas: z.array(
-          z.object({
-            id: z.number(),
-            text: z.string().nullable(),
-            url: z.string().nullable(),
-            ctaStyle: z.string().nullable(),
-          }),
-        ),
-      }),
-    ]),
-  ),
-});
+export const schoolVisitingSchoolCourseDetail =
+  schoolVisitingSchoolCoursePreview.extend({
+    theme: z.string().nullable(),
+    startDate: z.string().nullable(),
+    endDate: z.string().nullable(),
+    visitingSchoolDynamicZone: z.array(
+      z.union([
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.subhead-module"),
+          text: z.string().nullable(),
+        }),
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.text-module"),
+          // text: z.string().nullable(),
+        }),
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.image-carousel-module"),
+          imageCarouselItem: z.array(img).nullable(),
+        }),
+        z.object({
+          id: z.number(),
+          __component: z.literal("dynamic-zone.cta"),
+          ctas: z.array(
+            z.object({
+              id: z.number(),
+              text: z.string().nullable(),
+              url: z.string().nullable(),
+              ctaStyle: z.string().nullable(),
+            }),
+          ),
+        }),
+      ]),
+    ),
+  });
 
 export const schoolSnippet = document.extend({});

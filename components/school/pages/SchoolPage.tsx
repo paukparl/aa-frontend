@@ -5,7 +5,7 @@ import { Schema } from "@/lib/schemas";
 type _TypesAvailable =
   | Schema<"schoolProgrammePreview">
   | Schema<"schoolFacilityPreview">
-  | Schema<"schoolVisitingSchoolPreview">
+  | Schema<"schoolVisitingSchoolCoursePreview">
   | Schema<"schoolEventPreview">;
 
 export default async function SchoolPage() {

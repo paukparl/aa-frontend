@@ -109,29 +109,31 @@ export const schoolVisitingSchoolSnippetFetchOptions = createFetchOptions({
   fields: [...documentFields, "contactLink", "newsletterLink", "mapHeadline"],
 });
 
-export const schoolVisitingSchoolPreviewFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "slug",
-    "title",
-    "onlineCourse",
-    "dateTextOverride",
-    "theme",
-  ],
-  populate: {
-    dta_locations: dtaLocationFetchOptions,
-    representativeImage: imgFetchOptions,
+export const schoolVisitingSchoolCoursePreviewFetchOptions = createFetchOptions(
+  {
+    fields: [
+      ...documentFields,
+      "slug",
+      "title",
+      "onlineCourse",
+      "dateTextOverride",
+      "theme",
+    ],
+    populate: {
+      dta_locations: dtaLocationFetchOptions,
+      representativeImage: imgFetchOptions,
+    },
   },
-});
+);
 
-export const schoolVisitingSchoolDetailFetchOptions = createFetchOptions({
+export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
   fields: [
-    ...schoolVisitingSchoolPreviewFetchOptions.fields,
+    ...schoolVisitingSchoolCoursePreviewFetchOptions.fields,
     "startDate",
     "endDate",
   ],
   populate: {
-    ...schoolVisitingSchoolPreviewFetchOptions.populate,
+    ...schoolVisitingSchoolCoursePreviewFetchOptions.populate,
     visitingSchoolDynamicZone: {
       on: {
         "dynamic-zone.subhead-module": {
