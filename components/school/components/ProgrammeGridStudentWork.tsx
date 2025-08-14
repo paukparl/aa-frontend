@@ -34,23 +34,13 @@ export const ProgrammeGridStudentWork = ({
         {items.map((item, index) =>
           item.link ? (
             <Link href={item.link} key={`linked-${index}`}>
-              <Image
-                className="h-[auto] w-[100%]"
-                src={item.imgSrc ?? ``}
-                alt=""
-                fill
-              />
+              <Image width="500" height="500" src={item.imgSrc ?? ``} alt="" />
               <div className="body !font-bold">{item.title}</div>
               <span className="body">{item.artist}</span>
             </Link>
           ) : (
             <div key={`unlinked-${index}`}>
-              <Image
-                className="h-[auto] w-[100%]"
-                src={item.imgSrc ?? ``}
-                alt=""
-                fill
-              />
+              <Image width="500" height="500" src={item.imgSrc ?? ``} alt="" />
               <div className="mt-[10px] block body !font-bold">
                 {item.title}
               </div>
