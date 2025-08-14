@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getSchoolProgramme } from "@/api/getSchoolProgramme";
-import { getSchoolTPProgrammes } from "@/api/getSchoolTPProgrammes";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
@@ -10,11 +9,6 @@ import { routes } from "@/lib/routes";
 
 export async function SchoolProgrammePage({ slug }: { slug: string }) {
   const programme = await getSchoolProgramme(slug);
-
-  // TODO: fetch in parallel
-  // TODO: maybe not depend on slug, and use single type as with visiting school
-  const taughtPostgraduateProgrammes =
-    slug === "taught-postgraduate" ? await getSchoolTPProgrammes() : null;
 
   if (!programme) notFound();
 

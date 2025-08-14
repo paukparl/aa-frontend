@@ -28,7 +28,6 @@ export const ProgrammeTableVisitingSchool = ({
   className,
   units,
 }: ProgrammeTableVisitingSchoolProps) => {
-  console.log(units);
   return (
     <div className={className}>
       <div className="border-x border-t border-dotted">
@@ -60,9 +59,12 @@ export const ProgrammeTableVisitingSchool = ({
               >
                 <div className="block flex items-start border-y border-r border-dotted p-[15px] body">
                   {unit.representativeImage && (
-                    <img
+                    <Image
+                      height="67"
+                      width="67"
+                      alt={unit.imgAlt ?? ``}
                       src={unit.representativeImage}
-                      className="mr-[20px] hidden h-[67px] w-[67px] object-cover object-center sm:block"
+                      className="mr-[20px] hidden object-cover object-center sm:block"
                     />
                   )}
                   {unit.title}

@@ -87,7 +87,8 @@ export const MediaGallery = ({
         src={slides[activeInd].src ?? ``}
         className="h-[auto] w-[100%]"
         alt=""
-        fill
+        width="1000"
+        height="1000"
       />
       {slides[activeInd].caption && slides[activeInd].caption?.length > 0 && (
         <span

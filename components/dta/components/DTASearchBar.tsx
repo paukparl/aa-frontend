@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { cn } from "@/lib/cn";
 
@@ -18,6 +17,7 @@ export const DTASearchBar = ({ className }: DTASearchBarProps) => {
         required
       />
       <img
+        alt="search icon"
         className="height-[auto] absolute top-[33%] right-[15px] w-[20px] 700:right-[20px] 700:w-[25px]"
         src="/icons/search-dta-green.svg"
       />

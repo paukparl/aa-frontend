@@ -1,7 +1,6 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
 import { DTACarouselSlide } from "@/components/dta/components/DTACarouselSlide";
 
