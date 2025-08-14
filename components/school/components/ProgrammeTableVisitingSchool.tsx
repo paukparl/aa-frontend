@@ -8,6 +8,7 @@ export type CourseUnit = {
   representativeImage: string | undefined;
   imgAlt: string | null | undefined;
   title: string | null;
+  imgAlt: string;
   dateTextOverride: string | null;
   location: string;
   theme: string;
@@ -61,11 +62,19 @@ export const ProgrammeTableVisitingSchool = ({
                 <div className="block flex items-start border-y border-r border-dotted p-[15px] body">
                   {unit.representativeImage && (
                     <Image
+<<<<<<< Updated upstream
                       width={67}
                       height={67}
                       alt={unit.imgAlt ?? ``}
                       src={unit.representativeImage}
                       className="mr-[20px] hidden sm:block"
+=======
+                      alt={unit.imgAlt}
+                      height="67"
+                      width="67"
+                      src={unit.representativeImage}
+                      className="mr-[20px] hidden object-cover object-center sm:block"
+>>>>>>> Stashed changes
                     />
                   )}
                   {unit.title}

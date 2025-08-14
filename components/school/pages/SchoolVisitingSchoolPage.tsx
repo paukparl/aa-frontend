@@ -73,7 +73,11 @@ export async function SchoolVisitingSchoolPage() {
             representativeImage:
               course.representativeImage?.formats?.thumbnail?.url ??
               course.representativeImage?.url,
+<<<<<<< Updated upstream
             imgAlt: course.representativeImage?.alternativeText,
+=======
+            imgAlt: course.representativeImage?.alternativeText ?? ``,
+>>>>>>> Stashed changes
             dateTextOverride: course.dateTextOverride,
             imgAlt: course.representativeImage?.alternativeText,
             title: course.title,

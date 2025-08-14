@@ -98,7 +98,7 @@ export async function SchoolTPProgrammePage({
           <h1 className="tipin mb-(--padding)">Design Units</h1>
           <ProgrammeTableUnitsTemporary
             programmeColor={programme.hexValue}
-            programmeId={programme.documentId}
+            programmeSlug="taught-postgraduate"
             units={programme.school_units.map((unit) => ({
               title: unit.unitTitle,
               lecturers: `${unit.school_people.map((person) => `${person.firstName} ${person.lastName}`).join(", ")}`,

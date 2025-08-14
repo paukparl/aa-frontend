@@ -16,8 +16,6 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
   const taughtPostgraduateProgrammes =
     slug === "taught-postgraduate" ? await getSchoolTPProgrammes() : null;
 
-  console.log(taughtPostgraduateProgrammes);
-
   if (!programme) notFound();
 
   return (
@@ -93,7 +91,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
           <h1 className="tipin mb-(--padding)">Design Units</h1>
           <ProgrammeTableUnitsTemporary
             programmeColor={programme.hexValue}
-            programmeId={programme.documentId}
+            programmeSlug={programme.slug ?? ``}
             units={programme.school_units.map((unit) => ({
               title: unit.unitTitle,
               lecturers: `${unit.school_people.map((person) => `${person.firstName} ${person.lastName}`).join(", ")}`,

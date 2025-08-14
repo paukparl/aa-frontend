@@ -12,7 +12,7 @@ type ProgrammeTableUnitsTemporaryProps = {
   className?: string;
   programmeColor?: string | null;
   units: UnitInfo[];
-  programmeId: string;
+  programmeSlug: string;
 };
 
 // You could do this ↓↓
@@ -23,7 +23,7 @@ type _ProgrammeTableUnitsTemporaryProps = {
 export const ProgrammeTableUnitsTemporary = ({
   className,
   programmeColor,
-  programmeId,
+  programmeSlug,
   units,
 }: ProgrammeTableUnitsTemporaryProps) => {
   return (
@@ -48,7 +48,7 @@ export const ProgrammeTableUnitsTemporary = ({
         {units.map((unit, index) => (
           <Link
             scroll={false}
-            href={`/school-programmes/${programmeId}/${unit.slug}`}
+            href={`/school-programmes/${programmeSlug}/${unit.slug}`}
             key={index}
             className="temptable_unitrow mb-[-1px] grid cursor-pointer grid-cols-[2fr_1fr] transition-[.1s] md:grid-cols-[3fr_1fr]"
           >
