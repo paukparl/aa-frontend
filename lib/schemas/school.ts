@@ -34,7 +34,7 @@ export const schoolProgrammeDetail = schoolProgrammePreview.extend({
   hexValue: z.string().nullable(),
   contactLink: z.string().nullable(),
   school_units: z.array(schoolUnitPreview),
-  designUnitInfoText: z.string().nullable(),
+  designUnitInfoText: z.string().nullable().transform((val) => (val ? sanitize(val) : null)),
   shortDescription: z.string().nullable(),
   aboutText: z.string().nullable(),
 });
