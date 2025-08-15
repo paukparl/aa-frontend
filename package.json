@@ -20,6 +20,7 @@
     "dompurify": "^3.2.6",
     "embla-carousel-react": "^8.6.0",
     "fuzzy-search": "^3.2.1",
+    "html-react-parser": "^5.2.6",
     "jsdom": "^26.1.0",
     "lodash": "^4.17.21",
     "mini-svg-data-uri": "^1.4.4",
