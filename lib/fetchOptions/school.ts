@@ -160,5 +160,49 @@ export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolSnippetFetchOptions = createFetchOptions({
-  fields: [...documentFields],
+  fields: [
+    ...documentFields,
+    "applyLandingDescription",
+    "applyLandingFinancialAssistanceLink",
+    "applyLandingTuitionFees",
+  ],
+  populate: {
+    programOrdering: {
+      fields: ["titleReference"],
+      populate: {
+        school_programme: schoolProgrammePreviewFetchOptions,
+      },
+    },
+  },
+});
+
+export const schoolApplyEntryPreviewFetchOptions = createFetchOptions({
+  fields: [...documentFields, "slug"],
+  populate: {
+    schoolProgramme: schoolProgrammePreviewFetchOptions,
+  },
+});
+
+export const schoolApplyEntryDetailFetchOptions = createFetchOptions({
+  fields: [
+    ...schoolApplyEntryPreviewFetchOptions.fields,
+    "howToApplyRichText",
+    "startApplicationLink",
+    "discoverTheProgrammeLink",
+    "enquireToStudyLink",
+  ],
+  populate: {
+    ...schoolApplyEntryPreviewFetchOptions.populate,
+  },
+});
+
+export const schoolFacilityPreviewFetchOptions = createFetchOptions({
+  fields: [...documentFields, "slug", "name"],
+  populate: {
+    representativeImage: imgFetchOptions,
+  },
+});
+
+export const schoolPersonPreviewFetchOptions = createFetchOptions({
+  fields: [...documentFields, "slug", "firstName", "lastName", "title"],
 });

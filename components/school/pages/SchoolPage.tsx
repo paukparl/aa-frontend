@@ -14,7 +14,7 @@ export default async function SchoolPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="min-h-[90vh] px-(--padding)">
-        <SchoolNav />
+        <SchoolNav activeSlug="school" />
       </div>
     </ViewTransitionGroundPage>
   );

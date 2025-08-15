@@ -98,8 +98,8 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
 
 export const schoolFacilityPreview = document.extend({
   slug: z.string().nullable(),
-  tempFacilityTitle: z.string().nullable(),
-  tempRepresentativeImage: img.nullable(),
+  name: z.string().nullable(),
+  representativeImage: img.nullable(),
 });
 
 export const schoolEventPreview = document.extend({
@@ -162,4 +162,33 @@ export const schoolVisitingSchoolCourseDetail =
     ),
   });
 
-export const schoolSnippet = document.extend({});
+export const schoolSnippet = document.extend({
+  applyLandingDescription: z.string().nullable(),
+  applyLandingFinancialAssistanceLink: z.string().nullable(),
+  applyLandingTuitionFees: z.string().nullable(),
+  programOrdering: z.array(
+    z.object({
+      titleReference: z.string().nullable(),
+      school_programme: schoolProgrammePreview.nullable(),
+    }),
+  ),
+});
+
+export const schoolApplyEntryPreview = document.extend({
+  slug: z.string().nullable(),
+  schoolProgramme: schoolProgrammePreview.nullable(),
+});
+
+export const schoolApplyEntryDetail = schoolApplyEntryPreview.extend({
+  howToApplyRichText: z.string().nullable(),
+  startApplicationLink: z.string().nullable(),
+  discoverTheProgrammeLink: z.string().nullable(),
+  enquireToStudyLink: z.string().nullable(),
+});
+
+export const schoolPersonPreview = document.extend({
+  slug: z.string().nullable(),
+  firstName: z.string().nullable(),
+  lastName: z.string().nullable(),
+  title: z.string().nullable(),
+});
