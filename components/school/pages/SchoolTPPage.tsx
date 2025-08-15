@@ -15,7 +15,6 @@ export async function SchoolTPPage() {
   ]);
 
   if (!taughtPostgrad) notFound();
-  console.log(childProgrammes);
   return (
     <ViewTransitionTipinPage
       type="1"
