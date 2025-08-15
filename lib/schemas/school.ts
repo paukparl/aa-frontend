@@ -50,8 +50,8 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
 
 export const schoolFacilityPreview = document.extend({
   slug: z.string().nullable(),
-  tempFacilityTitle: z.string().nullable(),
-  tempRepresentativeImage: img.nullable(),
+  name: z.string().nullable(),
+  representativeImage: img.nullable(),
 });
 
 export const schoolEventPreview = document.extend({
@@ -104,4 +104,11 @@ export const schoolApplyEntryDetail = schoolApplyEntryPreview.extend({
   startApplicationLink: z.string().nullable(),
   discoverTheProgrammeLink: z.string().nullable(),
   enquireToStudyLink: z.string().nullable(),
+});
+
+export const schoolPersonPreview = document.extend({
+  slug: z.string().nullable(),
+  firstName: z.string().nullable(),
+  lastName: z.string().nullable(),
+  title: z.string().nullable(),
 });

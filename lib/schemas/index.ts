@@ -19,6 +19,7 @@ import {
   schoolApplyEntryPreview,
   schoolEventPreview,
   schoolFacilityPreview,
+  schoolPersonPreview,
   schoolProgrammeDetail,
   schoolProgrammePreview,
   schoolSnippet,
@@ -77,6 +78,7 @@ export const schemas = {
   schoolSnippet,
   schoolApplyEntryPreview,
   schoolApplyEntryDetail,
+  schoolPersonPreview,
 };
 
 export type Schema<
