@@ -17,6 +17,7 @@ import {
 } from "@/components/dta/components/DTAPeopleGrid";
 import { Map, MapCoords } from "@/components/dta/components/Map";
 import { cn } from "@/lib/cn";
+import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 
 export async function DTAPracticePage({ slug }: { slug: string }) {
@@ -37,8 +38,10 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="tipin">{practice.name}</h1>
-        {practice.description && (
-          <span className="body">{practice.description}</span>
+        {practice.descriptionRichText && (
+          <span className="body">
+            {parseHtml(practice.descriptionRichText)}
+          </span>
         )}
         {practice.dta_location_news.length > 0 && (
           <div>
@@ -67,7 +70,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
             </Map>
           </div>
         )}
-        {practice.dta_peopleNew.length && (
+        {practice.dta_peopleNew.length > 0 && (
           <div>
             <DTAHeader className="capitalize">Related People</DTAHeader>
             <DTAPeopleGrid>
@@ -77,7 +80,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
             </DTAPeopleGrid>
           </div>
         )}
-        {practice.dta_institutionsNew.length && (
+        {practice.dta_institutionsNew.length > 0 && (
           <div>
             <DTAHeader className="capitalize">Related Institutions</DTAHeader>
             <DTAInstitutionsGrid>
@@ -90,7 +93,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
             </DTAInstitutionsGrid>
           </div>
         )}
-        {practice.dta_objects.length && (
+        {practice.dta_objects.length > 0 && (
           <div>
             <DTAHeader className="capitalize">Related Collections</DTAHeader>
             <DTAObjectsGrid>

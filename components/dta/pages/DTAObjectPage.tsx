@@ -16,6 +16,7 @@ import {
   DTAPracticesGridItem,
 } from "@/components/dta/components/DTAPracticesGrid";
 import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
+import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 
 export async function DTAObjectPage({ slug }: { slug: string }) {
@@ -36,12 +37,15 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="tipin">{object.title}</h1>
-        <span className="body">{object.additionalDescription}</span>
+        <span className="body">
+          {object.additionalDescriptionRichText &&
+            parseHtml(object.additionalDescriptionRichText)}
+        </span>
         <MediaGallery
           imgs={object.image ?? []}
           className="text-dta-collections-foreground"
         />
-        {object.dta_peopleNew.length && (
+        {object.dta_peopleNew.length > 0 && (
           <div>
             <DTAHeader className="capitalize">Related People</DTAHeader>
             <DTAPeopleGrid>
@@ -51,7 +55,7 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
             </DTAPeopleGrid>
           </div>
         )}
-        {object.dta_practicesNew.length && (
+        {object.dta_practicesNew.length > 0 && (
           <div>
             <DTAHeader className="capitalize">Related Practices</DTAHeader>
             <DTAPracticesGrid>
@@ -64,7 +68,7 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
             </DTAPracticesGrid>
           </div>
         )}
-        {object.dta_institutionsNew.length && (
+        {object.dta_institutionsNew.length > 0 && (
           <div>
             <DTAHeader className="capitalize">Related Institutions</DTAHeader>
             <DTAInstitutionsGrid>

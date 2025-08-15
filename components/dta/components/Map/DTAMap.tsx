@@ -21,6 +21,7 @@ import PlaySvg from "@/components/svgs/PlaySvg";
 import useAnimationFrame from "@/hooks/useAnimationFrame";
 import { useSafeTimeout } from "@/hooks/useSafeTimeout";
 import { cn } from "@/lib/cn";
+import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 
@@ -431,6 +432,11 @@ const EventGroupsPopover = ({
                       {event.beginYear}-{event.endYear}
                     </div>
                   </div>
+                  {event.descriptionRichText && (
+                    <div>
+                      <div>{parseHtml(event.descriptionRichText)}</div>
+                    </div>
+                  )}
                   {event.dta_peopleNew.length > 0 && (
                     <div>
                       <div>PERSON</div>
