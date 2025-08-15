@@ -42,6 +42,9 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
     ...schoolProgrammePreviewFetchOptions.fields,
     "hexValue",
     "contactLink",
+    "designUnitInfoText",
+    "shortDescription",
+    "aboutText",
   ],
   populate: {
     ...schoolProgrammePreviewFetchOptions.populate,
@@ -50,7 +53,11 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolUnitDetailFetchOptions = createFetchOptions({
-  fields: [...schoolUnitPreviewFetchOptions.fields, "projectReviewLink"],
+  fields: [
+    ...schoolUnitPreviewFetchOptions.fields,
+    "projectReviewLink",
+    "brief",
+  ],
   populate: {
     ...schoolUnitPreviewFetchOptions.populate,
     extendedBriefFile: fileFetchOptions,
@@ -64,7 +71,13 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolVisitingSchoolSnippetFetchOptions = createFetchOptions({
-  fields: [...documentFields, "contactLink", "newsletterLink", "mapHeadline"],
+  fields: [
+    ...documentFields,
+    "contactLink",
+    "newsletterLink",
+    "mapHeadline",
+    "descriptionLandingPage",
+  ],
 });
 
 export const schoolVisitingSchoolPreviewFetchOptions = createFetchOptions({
@@ -87,6 +100,7 @@ export const schoolVisitingSchoolDetailFetchOptions = createFetchOptions({
     ...schoolVisitingSchoolPreviewFetchOptions.fields,
     "startDate",
     "endDate",
+    "synopsis",
   ],
   populate: {
     ...schoolVisitingSchoolPreviewFetchOptions.populate,

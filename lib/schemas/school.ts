@@ -1,4 +1,5 @@
 import z from "zod/v4";
+import { sanitize } from "@/lib/sanitize";
 import { dtaLocation } from "@/lib/schemas/dta";
 import { document, file, img } from "@/lib/schemas/shared";
 
@@ -33,6 +34,9 @@ export const schoolProgrammeDetail = schoolProgrammePreview.extend({
   hexValue: z.string().nullable(),
   contactLink: z.string().nullable(),
   school_units: z.array(schoolUnitPreview),
+  designUnitInfoText: z.string().nullable(),
+  shortDescription: z.string().nullable(),
+  aboutText: z.string().nullable(),
 });
 
 export const schoolUnitDetail = schoolUnitPreview.extend({
@@ -46,6 +50,10 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
       studentWorkItemImage: img.nullable(),
     }),
   ),
+  brief: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
 });
 
 export const schoolFacilityPreview = document.extend({
@@ -65,6 +73,10 @@ export const schoolVisitingSchoolSnippet = document.extend({
   contactLink: z.string().nullable(),
   newsletterLink: z.string().nullable(),
   mapHeadline: z.string().nullable(),
+  descriptionLandingPage: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
 });
 
 export const schoolVisitingSchoolPreview = document.extend({
@@ -80,6 +92,10 @@ export const schoolVisitingSchoolDetail = schoolVisitingSchoolPreview.extend({
   theme: z.string().nullable(),
   startDate: z.string().nullable(),
   endDate: z.string().nullable(),
+  synopsis: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
 });
 
 export const schoolSnippet = document.extend({});
