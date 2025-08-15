@@ -46,6 +46,33 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
   populate: {
     ...schoolProgrammePreviewFetchOptions.populate,
     school_units: schoolUnitPreviewFetchOptions,
+    programmeDynamicZone: {
+      on: {
+        "dynamic-zone.subhead-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.text-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.image-carousel-module": {
+          populate: {
+            imageCarouselItem: imgFetchOptions,
+          },
+        },
+        "dynamic-zone.text-image-module": {
+          fields: [
+            "text",
+            "imageCaptionOverride",
+            "ctaText",
+            "ctaLink",
+            "ctaSide",
+          ],
+          populate: {
+            image: imgFetchOptions,
+          },
+        },
+      },
+    },
   },
 });
 
@@ -60,6 +87,21 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
         studentWorkItemImage: imgFetchOptions,
       },
     },
+    unitDynamicZone: {
+      on: {
+        "dynamic-zone.subhead-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.text-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.image-carousel-module": {
+          populate: {
+            imageCarouselItem: imgFetchOptions,
+          },
+        },
+      },
+    },
   },
 });
 
@@ -67,29 +109,53 @@ export const schoolVisitingSchoolSnippetFetchOptions = createFetchOptions({
   fields: [...documentFields, "contactLink", "newsletterLink", "mapHeadline"],
 });
 
-export const schoolVisitingSchoolPreviewFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "slug",
-    "title",
-    "onlineCourse",
-    "dateTextOverride",
-    "theme",
-  ],
-  populate: {
-    dta_locations: dtaLocationFetchOptions,
-    representativeImage: imgFetchOptions,
+export const schoolVisitingSchoolCoursePreviewFetchOptions = createFetchOptions(
+  {
+    fields: [
+      ...documentFields,
+      "slug",
+      "title",
+      "onlineCourse",
+      "dateTextOverride",
+      "theme",
+    ],
+    populate: {
+      dta_locations: dtaLocationFetchOptions,
+      representativeImage: imgFetchOptions,
+    },
   },
-});
+);
 
-export const schoolVisitingSchoolDetailFetchOptions = createFetchOptions({
+export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
   fields: [
-    ...schoolVisitingSchoolPreviewFetchOptions.fields,
+    ...schoolVisitingSchoolCoursePreviewFetchOptions.fields,
     "startDate",
     "endDate",
   ],
   populate: {
-    ...schoolVisitingSchoolPreviewFetchOptions.populate,
+    ...schoolVisitingSchoolCoursePreviewFetchOptions.populate,
+    visitingSchoolDynamicZone: {
+      on: {
+        "dynamic-zone.subhead-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.text-module": {
+          fields: ["text"],
+        },
+        "dynamic-zone.image-carousel-module": {
+          populate: {
+            imageCarouselItem: imgFetchOptions,
+          },
+        },
+        "dynamic-zone.cta": {
+          populate: {
+            ctas: {
+              fields: ["text", "url", "ctaStyle"],
+            },
+          },
+        },
+      },
+    },
   },
 });
 

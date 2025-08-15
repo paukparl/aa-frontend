@@ -22,8 +22,8 @@ import {
   schoolSnippet,
   schoolUnitDetail,
   schoolUnitPreview,
-  schoolVisitingSchoolDetail,
-  schoolVisitingSchoolPreview,
+  schoolVisitingSchoolCourseDetail,
+  schoolVisitingSchoolCoursePreview,
   schoolVisitingSchoolSnippet,
 } from "@/lib/schemas/school";
 import {
@@ -70,8 +70,8 @@ export const schemas = {
   schoolUnitPreview,
   schoolUnitDetail,
   schoolVisitingSchoolSnippet,
-  schoolVisitingSchoolPreview,
-  schoolVisitingSchoolDetail,
+  schoolVisitingSchoolCoursePreview,
+  schoolVisitingSchoolCourseDetail,
   schoolSnippet,
 };
 
