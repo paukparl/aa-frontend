@@ -82,4 +82,26 @@ export const schoolVisitingSchoolDetail = schoolVisitingSchoolPreview.extend({
   endDate: z.string().nullable(),
 });
 
-export const schoolSnippet = document.extend({});
+export const schoolSnippet = document.extend({
+  applyLandingDescription: z.string().nullable(),
+  applyLandingFinancialAssistanceLink: z.string().nullable(),
+  applyLandingTuitionFees: z.string().nullable(),
+  programOrdering: z.array(
+    z.object({
+      titleReference: z.string().nullable(),
+      school_programme: schoolProgrammePreview.nullable(),
+    }),
+  ),
+});
+
+export const schoolApplyEntryPreview = document.extend({
+  slug: z.string().nullable(),
+  schoolProgramme: schoolProgrammePreview.nullable(),
+});
+
+export const schoolApplyEntryDetail = schoolApplyEntryPreview.extend({
+  howToApplyRichText: z.string().nullable(),
+  startApplicationLink: z.string().nullable(),
+  discoverTheProgrammeLink: z.string().nullable(),
+  enquireToStudyLink: z.string().nullable(),
+});

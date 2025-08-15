@@ -15,6 +15,8 @@ import {
   dtaSnippet,
 } from "@/lib/schemas/dta";
 import {
+  schoolApplyEntryDetail,
+  schoolApplyEntryPreview,
   schoolEventPreview,
   schoolFacilityPreview,
   schoolProgrammeDetail,
@@ -73,6 +75,8 @@ export const schemas = {
   schoolVisitingSchoolPreview,
   schoolVisitingSchoolDetail,
   schoolSnippet,
+  schoolApplyEntryPreview,
+  schoolApplyEntryDetail,
 };
 
 export type Schema<
