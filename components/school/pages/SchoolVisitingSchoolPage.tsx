@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { Popover } from "radix-ui";
 import { CSSProperties } from "react";
 import { getSchoolVisitingSchoolCourses } from "@/api/getSchoolVisitingSchoolCourses";
@@ -21,7 +20,7 @@ import { Schema } from "@/lib/schemas";
 import { formatLocationText, groupItemsByCoordinates } from "@/lib/utils";
 
 type ValidCourse = Omit<
-  Schema<"schoolVisitingSchoolPreview">,
+  Schema<"schoolVisitingSchoolCoursePreview">,
   "dta_locations"
 > & {
   dta_locations: (Omit<Schema<"dtaLocation">, "longitude" | "latitude"> & {
@@ -85,8 +84,8 @@ export async function SchoolVisitingSchoolPage() {
             </div>
           }
         >
-          {visitingSchoolSnippet.descriptionLandingPage &&
-            parseHtml(visitingSchoolSnippet.descriptionLandingPage)}
+          {visitingSchoolSnippet?.descriptionLandingPage &&
+            parseHtml(visitingSchoolSnippet?.descriptionLandingPage)}
         </ProgrammeTextCol>
       </div>
       <div className="relative w-full bg-school-visiting-school-bg p-(--padding)">
