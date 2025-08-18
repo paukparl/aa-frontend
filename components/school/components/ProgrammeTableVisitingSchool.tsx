@@ -21,7 +21,7 @@ type ProgrammeTableVisitingSchoolProps = {
 
 // You could do this ↓↓
 type _ProgrammeTableVisitingSchoolProps = {
-  courses: Schema<"schoolVisitingSchoolPreview">[];
+  courses: Schema<"schoolVisitingSchoolCoursePreview">[];
 };
 
 export const ProgrammeTableVisitingSchool = ({

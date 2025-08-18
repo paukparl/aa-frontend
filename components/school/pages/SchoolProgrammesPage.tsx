@@ -16,7 +16,7 @@ export default async function SchoolProgrammesPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
-        <SchoolNav activeRoute="programmes" />
+        <SchoolNav activeSlug={"school-programmes"} />
         <div className="1000:grid-cols-2 grid gap-(--padding) 1280:grid-cols-3">
           {programmes.map((programme) => (
             <ProgrammePreviewCard

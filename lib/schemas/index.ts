@@ -15,15 +15,18 @@ import {
   dtaSnippet,
 } from "@/lib/schemas/dta";
 import {
+  schoolApplyEntryDetail,
+  schoolApplyEntryPreview,
   schoolEventPreview,
   schoolFacilityPreview,
+  schoolPersonPreview,
   schoolProgrammeDetail,
   schoolProgrammePreview,
   schoolSnippet,
   schoolUnitDetail,
   schoolUnitPreview,
-  schoolVisitingSchoolDetail,
-  schoolVisitingSchoolPreview,
+  schoolVisitingSchoolCourseDetail,
+  schoolVisitingSchoolCoursePreview,
   schoolVisitingSchoolSnippet,
 } from "@/lib/schemas/school";
 import {
@@ -70,9 +73,12 @@ export const schemas = {
   schoolUnitPreview,
   schoolUnitDetail,
   schoolVisitingSchoolSnippet,
-  schoolVisitingSchoolPreview,
-  schoolVisitingSchoolDetail,
+  schoolVisitingSchoolCoursePreview,
+  schoolVisitingSchoolCourseDetail,
   schoolSnippet,
+  schoolApplyEntryPreview,
+  schoolApplyEntryDetail,
+  schoolPersonPreview,
 };
 
 export type Schema<

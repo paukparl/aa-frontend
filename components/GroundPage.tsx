@@ -3,7 +3,10 @@ import { DTAMapPage } from "@/components/dta/pages/DTAMapPage";
 import { HookeParkPage } from "@/components/hooke-park/HookeParkPage";
 import PublicPage from "@/components/public/PublicPage";
 import { RoamPage } from "@/components/roam/RoamPage";
+import SchoolApplyPage from "@/components/school/pages/SchoolApplyPage";
+import SchoolFacilitiesPage from "@/components/school/pages/SchoolFacilitiesPage";
 import SchoolPage from "@/components/school/pages/SchoolPage";
+import SchoolPeoplePage from "@/components/school/pages/SchoolPeoplePage";
 import SchoolProgrammesPage from "@/components/school/pages/SchoolProgrammesPage";
 import { SearchParams } from "@/lib/types";
 
@@ -21,6 +24,15 @@ export default async function Ground({
   }
   if (ground === "school-programmes") {
     return <SchoolProgrammesPage />;
+  }
+  if (ground === "school-apply") {
+    return <SchoolApplyPage />;
+  }
+  if (ground === "school-facilities") {
+    return <SchoolFacilitiesPage />;
+  }
+  if (ground === "school-people") {
+    return <SchoolPeoplePage />;
   }
   if (ground === "public") {
     return <PublicPage />;

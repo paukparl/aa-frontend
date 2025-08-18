@@ -108,7 +108,7 @@ export const dtaPageFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {

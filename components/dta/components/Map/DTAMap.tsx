@@ -6,8 +6,6 @@ import Link from "next/link";
 import { Popover } from "radix-ui";
 import React, {
   CSSProperties,
-  Fragment,
-  ReactNode,
   RefObject,
   useEffect,
   useLayoutEffect,
@@ -15,7 +13,13 @@ import React, {
   useState,
 } from "react";
 import Button from "@/components/Button";
-import { Map, MapCoords } from "@/components/dta/components/Map";
+import UnderlinedButton from "@/components/buttons/UnderlinedButton";
+import {
+  Map,
+  MapCoords,
+  MapPopoverContent,
+  MapPopoverTrigger,
+} from "@/components/dta/components/Map";
 import PauseSvg from "@/components/svgs/PauseSvg";
 import PlaySvg from "@/components/svgs/PlaySvg";
 import useAnimationFrame from "@/hooks/useAnimationFrame";
@@ -24,6 +28,7 @@ import { cn } from "@/lib/cn";
 import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
+import { groupItemsByCoordinates } from "@/lib/utils";
 
 type ValidEvent = Schema<"dtaEvent"> & {
   dtaLocation: Schema<"dtaLocation"> & {
@@ -32,13 +37,6 @@ type ValidEvent = Schema<"dtaEvent"> & {
   };
   beginYear: number;
   endYear: number;
-};
-
-type ValidEventGroup = {
-  key: string;
-  longitude: number;
-  latitude: number;
-  events: ValidEvent[];
 };
 
 export const DTAMap = ({
@@ -112,36 +110,13 @@ export const DTAMap = ({
       event.beginYear <= selectedYear &&
       event.endYear >= selectedYear,
   );
+
   // if longitude and latitude are close enough, group them together
-  const distThreshold = 3;
-  const visibleEventGroups: ValidEventGroup[] = [];
-  for (const event of visibleEvents) {
-    const { longitude, latitude } = event.dtaLocation;
-    // Try to find a group this event is close to
-    const nearbyGroup = visibleEventGroups.find((group) => {
-      const dx = group.longitude - longitude;
-      const dy = group.latitude - latitude;
-      return Math.sqrt(dx * dx + dy * dy) < distThreshold;
-    });
-    if (nearbyGroup) {
-      nearbyGroup.events.push(event);
-      // Recalculate average location
-      const length = nearbyGroup.events.length;
-      nearbyGroup.key += `-${event.documentId}`;
-      nearbyGroup.longitude =
-        (nearbyGroup.longitude * (length - 1) + longitude) / length;
-      nearbyGroup.latitude =
-        (nearbyGroup.latitude * (length - 1) + latitude) / length;
-    } else {
-      // Create a new group
-      visibleEventGroups.push({
-        key: event.documentId,
-        longitude,
-        latitude,
-        events: [event],
-      });
-    }
-  }
+  const visibleEventGroups = groupItemsByCoordinates({
+    items: visibleEvents,
+    getCoords: (event) => event.dtaLocation,
+    getKey: (event) => event.documentId,
+  });
 
   const selectNextYear = () => {
     setSelectedYear((prev) => {
@@ -174,58 +149,131 @@ export const DTAMap = ({
 
   return (
     <div className={cn("relative", className)}>
-      <div
+      <Map
+        gridStroke="var(--color-dta-map-grid)"
+        pathFill="var(--color-dta-map-land)"
+        aspectRatio={2}
+        center={[0, 8]}
         className="relative gradient-mask"
         style={{ "--gradient-mask-size": "3rem" } as CSSProperties}
       >
-        <Map
-          gridStroke="var(--color-dta-map-grid)"
-          pathFill="var(--color-dta-map-land)"
-          aspectRatio={2}
-          center={[0, 8]}
-        >
-          {visibleEventGroups.map((group) => (
-            <MapCoords
-              key={group.key}
-              long={group.longitude}
-              lat={group.latitude}
+        {visibleEventGroups.map((group) => (
+          <MapCoords
+            key={group.key}
+            long={group.longitude}
+            lat={group.latitude}
+          >
+            <Popover.Root
+              onOpenChange={(open) => {
+                isPopoverOpenRef.current = open;
+              }}
             >
-              <EventGroupsPopover
-                events={group.events}
-                onOpenChange={(open) => {
-                  isPopoverOpenRef.current = open;
-                }}
-                trigger={
-                  <button
-                    className={cn(
-                      "group relative cursor-pointer rounded-full opacity-0 outline-none",
-                      group.events.length === 1 && "size-20",
-                      group.events.length > 1 && "size-30",
-                      !showTitle && "opacity-100",
-                    )}
+              <MapPopoverTrigger count={group.items.length} />
+              <MapPopoverContent
+                className={cn(group.items.length > 1 && "max-h-340")}
+              >
+                {group.items.map((event) => (
+                  <div
+                    key={event.documentId}
+                    className="border-dotted border-current py-16 mono text-12/1.4 not-last:border-b first:pt-10 last:pb-10"
                   >
-                    <div
-                      className={cn(
-                        "flex size-full scale-50 items-center justify-center rounded-full bg-white transition-transform duration-100 group-hover:scale-100 group-data-[state=open]:scale-100",
-                        group.events.length > 1 && "scale-75",
+                    {event.image?.map((image) => (
+                      <Image
+                        key={image.documentId}
+                        src={image.url}
+                        alt={image.alternativeText ?? ""}
+                        width={image.width}
+                        height={image.height}
+                        sizes="16rem"
+                        className={cn("mb-10")}
+                      />
+                    ))}
+                    <div>
+                      <div className="mt-16">LOCATION</div>
+                      <div>{event.dtaLocation.country}</div>
+                      <div className="mt-16">DATE</div>
+                      <div>
+                        {event.beginYear}-{event.endYear}
+                      </div>
+                      {event.dta_peopleNew.length > 0 && (
+                        <>
+                          <div className="mt-16">PERSON</div>
+                          <div>
+                            {event.dta_peopleNew.map((person, idx) => (
+                              <span key={person.documentId}>
+                                {idx > 0 && ", "}
+                                <UnderlinedButton asChild>
+                                  <Link
+                                    href={routes.tipin2(
+                                      "dta",
+                                      "people",
+                                      person.slug ?? "-",
+                                    )}
+                                  >
+                                    {person.firstName} {person.lastName}
+                                  </Link>
+                                </UnderlinedButton>
+                              </span>
+                            ))}
+                          </div>
+                        </>
                       )}
-                    />
-                    {group.events.length > 1 && (
-                      <span
-                        className={cn(
-                          "absolute top-1/2 left-1/2 block -translate-1/2 font-diatype text-15 font-500 text-black",
-                        )}
-                      >
-                        {group.events.length}
-                      </span>
-                    )}
-                  </button>
-                }
-              />
-            </MapCoords>
-          ))}
-        </Map>
-      </div>
+                      {event.dta_institutionsNew.length > 0 && (
+                        <>
+                          <div className="mt-16">INSTITUTION</div>
+                          <div>
+                            {event.dta_institutionsNew.map(
+                              (institution, idx) => (
+                                <span key={institution.documentId}>
+                                  {idx > 0 && ", "}
+                                  <UnderlinedButton asChild>
+                                    <Link
+                                      href={routes.tipin2(
+                                        "dta",
+                                        "institutions",
+                                        institution.slug ?? "-",
+                                      )}
+                                    >
+                                      {institution.Name}
+                                    </Link>
+                                  </UnderlinedButton>
+                                </span>
+                              ),
+                            )}
+                          </div>
+                        </>
+                      )}
+                      {event.dta_practicesNew.length > 0 && (
+                        <>
+                          <div className="mt-16">PRACTICE</div>
+                          <div>
+                            {event.dta_practicesNew.map((practice, idx) => (
+                              <span key={practice.documentId}>
+                                {idx > 0 && ", "}
+                                <UnderlinedButton asChild>
+                                  <Link
+                                    href={routes.tipin2(
+                                      "dta",
+                                      "practices",
+                                      practice.slug ?? "-",
+                                    )}
+                                  >
+                                    {practice.name}
+                                  </Link>
+                                </UnderlinedButton>
+                              </span>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </MapPopoverContent>
+            </Popover.Root>
+          </MapCoords>
+        ))}
+      </Map>
 
       <MapTitle showTitle={showTitle} />
 

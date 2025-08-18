@@ -2,7 +2,8 @@
 
 import { GeoProjection, geoMercator, geoPath } from "d3-geo";
 import type { FeatureCollection } from "geojson";
-import { ReactNode, createContext, useContext } from "react";
+import { Popover } from "radix-ui";
+import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { feature } from "topojson-client";
 import { cn } from "@/lib/cn";
 import worldData from "@/lib/world-110m.json";
@@ -22,20 +23,19 @@ const useMapContext = () => {
 };
 
 export function Map({
-  children,
-  className,
   gridStroke,
   pathFill,
   aspectRatio = 800 / 460, // almost 16:9, but grid lines fit
   center = [0, 0],
+  children,
+  className,
+  ...props
 }: {
-  children?: React.ReactNode;
-  className?: string;
   gridStroke: string;
   pathFill: string;
   aspectRatio?: number;
   center?: [number, number];
-}) {
+} & ComponentProps<"div">) {
   const width = 800; // fixed
   const height = width / aspectRatio;
   const scaleFactor = 2; // how zoomed out the map is. shouldn't be bigger than 2
@@ -111,7 +111,7 @@ export function Map({
 
   return (
     <MapContext value={{ projection, width, height }}>
-      <div className={cn("relative", className)}>
+      <div className={cn("relative", className)} {...props}>
         <svg
           viewBox={`0 0 ${width} ${height}`}
           className="h-auto w-full"
@@ -149,5 +149,69 @@ export function MapCoords({
     >
       {children}
     </div>
+  );
+}
+
+export function MapPopoverTrigger({
+  bg = "var(--color-white)",
+  fg = "var(--color-black)",
+  count = 1,
+}: {
+  bg?: string;
+  fg?: string;
+  count?: number;
+}) {
+  return (
+    <Popover.Trigger
+      className={cn(
+        "group relative block cursor-pointer rounded-full outline-none",
+      )}
+    >
+      <div
+        className={cn(
+          "flex size-full items-center justify-center rounded-full transition-transform duration-100",
+          count === 1 &&
+            "size-10 group-hover:scale-200 group-data-[state=open]:scale-200",
+          count > 1 &&
+            "size-20 group-hover:scale-140 group-data-[state=open]:scale-140",
+        )}
+        style={{ backgroundColor: bg }}
+      />
+      {count > 1 && (
+        <span
+          className={cn(
+            "absolute top-1/2 left-1/2 block -translate-1/2 font-diatype text-15 font-500",
+          )}
+          style={{ color: fg }}
+        >
+          {count}
+        </span>
+      )}
+    </Popover.Trigger>
+  );
+}
+
+export function MapPopoverContent({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <Popover.Portal>
+      <Popover.Content
+        className={cn(
+          "z-50 w-260 overflow-y-auto rounded-2 bg-white px-10 shadow-10 outline-none",
+          className,
+        )}
+        side="right"
+        align="start"
+        sideOffset={10}
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
+        {children}
+      </Popover.Content>
+    </Popover.Portal>
   );
 }

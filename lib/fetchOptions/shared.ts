@@ -21,6 +21,10 @@ export const imgFetchOptions = createFetchOptions({
   ],
 });
 
+export const videoFetchOptions = createFetchOptions({
+  fields: [...documentFields, "url", "alternativeText", "caption", "mime"],
+});
+
 export const fileFetchOptions = createFetchOptions({
   fields: [...documentFields, "url", "alternativeText", "caption", "mime"],
 });

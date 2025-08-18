@@ -1,13 +1,13 @@
 import { fetchMany } from "@/lib/fetchData";
-import { schoolVisitingSchoolPreviewFetchOptions } from "@/lib/fetchOptions/school";
+import { schoolVisitingSchoolCoursePreviewFetchOptions } from "@/lib/fetchOptions/school";
 import { schemas } from "@/lib/schemas";
 
 export async function getSchoolVisitingSchoolCourses() {
   return await fetchMany({
     path: "/school-visiting-schools",
-    schema: schemas.schoolVisitingSchoolPreview,
+    schema: schemas.schoolVisitingSchoolCoursePreview,
     options: {
-      ...schoolVisitingSchoolPreviewFetchOptions,
+      ...schoolVisitingSchoolCoursePreviewFetchOptions,
     },
   });
 }
