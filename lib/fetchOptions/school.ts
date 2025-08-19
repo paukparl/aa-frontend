@@ -55,7 +55,7 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {
@@ -100,7 +100,7 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {
@@ -154,7 +154,7 @@ export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {
