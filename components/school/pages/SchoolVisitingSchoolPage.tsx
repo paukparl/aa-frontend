@@ -14,12 +14,13 @@ import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
 import { ProgrammeTableVisitingSchool } from "@/components/school/components/ProgrammeTableVisitingSchool";
 import { ProgrammeTextCol } from "@/components/school/components/ProgrammeTextCol";
 import { cn } from "@/lib/cn";
+import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 import { formatLocationText, groupItemsByCoordinates } from "@/lib/utils";
 
 type ValidCourse = Omit<
-  Schema<"schoolVisitingSchoolPreview">,
+  Schema<"schoolVisitingSchoolCoursePreview">,
   "dta_locations"
 > & {
   dta_locations: (Omit<Schema<"dtaLocation">, "longitude" | "latitude"> & {
@@ -83,18 +84,8 @@ export async function SchoolVisitingSchoolPage() {
             </div>
           }
         >
-          Encompassing myriad forms and agendas, AA Visiting School courses,
-          competitions and workshops are built around agenda driven project
-          briefs that are pursued and shaped by participants working intensively
-          in small groups, and are led by AA tutors and other international
-          experts. Central to each is the idea that experimental, new and
-          provocative forms of architecture are best learned by doing. The
-          school promotes, tests and challenges contemporary global interests
-          and issues in architectural learning and exchange by embedding a
-          diverse group of creative participants and tutors in an array of
-          unique rural, urban, international and online contexts. Places on each
-          course are limited, and anybody who would like to further their
-          architectural knowledge and skills can apply.
+          {visitingSchoolSnippet?.descriptionLandingPage &&
+            parseHtml(visitingSchoolSnippet?.descriptionLandingPage)}
         </ProgrammeTextCol>
       </div>
       <div className="relative w-full bg-school-visiting-school-bg p-(--padding)">

@@ -42,6 +42,9 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
     ...schoolProgrammePreviewFetchOptions.fields,
     "hexValue",
     "contactLink",
+    "designUnitInfoText",
+    "shortDescription",
+    "aboutText",
   ],
   populate: {
     ...schoolProgrammePreviewFetchOptions.populate,
@@ -52,7 +55,7 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {
@@ -77,7 +80,11 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolUnitDetailFetchOptions = createFetchOptions({
-  fields: [...schoolUnitPreviewFetchOptions.fields, "projectReviewLink"],
+  fields: [
+    ...schoolUnitPreviewFetchOptions.fields,
+    "projectReviewLink",
+    "brief",
+  ],
   populate: {
     ...schoolUnitPreviewFetchOptions.populate,
     extendedBriefFile: fileFetchOptions,
@@ -93,7 +100,7 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {
@@ -106,7 +113,13 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolVisitingSchoolSnippetFetchOptions = createFetchOptions({
-  fields: [...documentFields, "contactLink", "newsletterLink", "mapHeadline"],
+  fields: [
+    ...documentFields,
+    "contactLink",
+    "newsletterLink",
+    "mapHeadline",
+    "descriptionLandingPage",
+  ],
 });
 
 export const schoolVisitingSchoolCoursePreviewFetchOptions = createFetchOptions(
@@ -131,6 +144,7 @@ export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
     ...schoolVisitingSchoolCoursePreviewFetchOptions.fields,
     "startDate",
     "endDate",
+    "synopsis",
   ],
   populate: {
     ...schoolVisitingSchoolCoursePreviewFetchOptions.populate,
@@ -140,7 +154,7 @@ export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
           fields: ["text"],
         },
         "dynamic-zone.text-module": {
-          fields: ["text"],
+          // fields: ["text"],
         },
         "dynamic-zone.image-carousel-module": {
           populate: {

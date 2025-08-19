@@ -42,7 +42,7 @@ export const dtaObjectPreviewFetchOptions = createFetchOptions({
 export const dtaPersonDetailFetchOptions = createFetchOptions({
   fields: [
     ...dtaPersonPreviewFetchOptions.fields,
-    "bio",
+    "bioRichText",
     "studyYear",
     "dateBirth",
     "dateDeath",
@@ -65,7 +65,7 @@ export const dtaPersonDetailFetchOptions = createFetchOptions({
 });
 
 export const dtaPracticeDetailFetchOptions = createFetchOptions({
-  fields: [...dtaPracticePreviewFetchOptions.fields, "description"],
+  fields: [...dtaPracticePreviewFetchOptions.fields, "descriptionRichText"],
   populate: {
     ...dtaPracticePreviewFetchOptions.populate,
     dta_peopleNew: dtaPersonPreviewFetchOptions,
@@ -76,7 +76,7 @@ export const dtaPracticeDetailFetchOptions = createFetchOptions({
 });
 
 export const dtaInstitutionDetailFetchOptions = createFetchOptions({
-  fields: [...dtaInstitutionPreviewFetchOptions.fields, "Description"], // Wrong casing in Strapi
+  fields: [...dtaInstitutionPreviewFetchOptions.fields, "descriptionRichText"],
   populate: {
     ...dtaInstitutionPreviewFetchOptions.populate,
     dtaPeople: dtaPersonPreviewFetchOptions,
@@ -87,7 +87,10 @@ export const dtaInstitutionDetailFetchOptions = createFetchOptions({
 });
 
 export const dtaObjectDetailFetchOptions = createFetchOptions({
-  fields: [...dtaObjectPreviewFetchOptions.fields, "additionalDescription"],
+  fields: [
+    ...dtaObjectPreviewFetchOptions.fields,
+    "additionalDescriptionRichText",
+  ],
   populate: {
     ...dtaObjectPreviewFetchOptions.populate,
     dta_peopleNew: dtaPersonPreviewFetchOptions,
@@ -141,7 +144,7 @@ export const dtaSnippetFetchOptions = createFetchOptions({
 });
 
 export const dtaEventFetchOptions = createFetchOptions({
-  fields: [...documentFields, "beginYear", "endYear"],
+  fields: [...documentFields, "beginYear", "endYear", "descriptionRichText"],
   populate: {
     dtaLocation: dtaLocationFetchOptions,
     image: imgFetchOptions,
@@ -156,7 +159,7 @@ export const dtaMapFetchOptions = createFetchOptions({
   fields: [...documentFields, "Description"],
   populate: {
     dta_event_types: {
-      fields: [...documentFields, "description", "shortTitle"],
+      fields: [...documentFields, "descriptionRichText", "shortTitle"],
       populate: {
         dta_events: dtaEventFetchOptions,
       },

@@ -1,4 +1,5 @@
 import z from "zod/v4";
+import { sanitize } from "@/lib/sanitize";
 import { dtaLocation } from "@/lib/schemas/dta";
 import { document, file, img } from "@/lib/schemas/shared";
 
@@ -33,6 +34,18 @@ export const schoolProgrammeDetail = schoolProgrammePreview.extend({
   hexValue: z.string().nullable(),
   contactLink: z.string().nullable(),
   school_units: z.array(schoolUnitPreview),
+  designUnitInfoText: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
+  shortDescription: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
+  aboutText: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
   programmeDynamicZone: z.array(
     z.union([
       z.object({
@@ -75,6 +88,10 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
       studentWorkItemImage: img.nullable(),
     }),
   ),
+  brief: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
   unitDynamicZone: z.array(
     z.union([
       z.object({
@@ -113,6 +130,10 @@ export const schoolVisitingSchoolSnippet = document.extend({
   contactLink: z.string().nullable(),
   newsletterLink: z.string().nullable(),
   mapHeadline: z.string().nullable(),
+  descriptionLandingPage: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
 });
 
 export const schoolVisitingSchoolCoursePreview = document.extend({
@@ -129,6 +150,10 @@ export const schoolVisitingSchoolCourseDetail =
     theme: z.string().nullable(),
     startDate: z.string().nullable(),
     endDate: z.string().nullable(),
+    synopsis: z
+      .string()
+      .nullable()
+      .transform((val) => (val ? sanitize(val) : null)),
     visitingSchoolDynamicZone: z.array(
       z.union([
         z.object({

@@ -1,4 +1,5 @@
 import z from "zod/v4";
+import { sanitize } from "@/lib/sanitize";
 import { document, img } from "@/lib/schemas/shared";
 
 export const dtaPersonPreview = document.extend({
@@ -38,7 +39,10 @@ export const dtaObjectPreview = document.extend({
 });
 
 export const dtaPersonDetail = dtaPersonPreview.extend({
-  bio: z.string().nullable(),
+  bioRichText: z
+    .string()
+    .nullable()
+    .transform((v) => (v ? sanitize(v) : null)),
   studyYear: z.number().nullable(),
   dateBirth: z.string().nullable(),
   dateDeath: z.string().nullable(),
@@ -72,7 +76,10 @@ export const dtaPersonDetail = dtaPersonPreview.extend({
 });
 
 export const dtaPracticeDetail = dtaPracticePreview.extend({
-  description: z.string().nullable(),
+  descriptionRichText: z
+    .string()
+    .nullable()
+    .transform((v) => (v ? sanitize(v) : null)),
   dta_peopleNew: z.array(dtaPersonPreview),
   dta_institutionsNew: z.array(dtaInstitutionPreview),
   dta_objects: z.array(dtaObjectPreview),
@@ -80,7 +87,10 @@ export const dtaPracticeDetail = dtaPracticePreview.extend({
 });
 
 export const dtaInstitutionDetail = dtaInstitutionPreview.extend({
-  Description: z.string().nullable(),
+  descriptionRichText: z
+    .string()
+    .nullable()
+    .transform((v) => (v ? sanitize(v) : null)),
   dtaPeople: z.array(dtaPersonPreview),
   dta_objects: z.array(dtaObjectPreview),
   dta_practices: z.array(dtaPracticePreview),
@@ -88,7 +98,10 @@ export const dtaInstitutionDetail = dtaInstitutionPreview.extend({
 });
 
 export const dtaObjectDetail = dtaObjectPreview.extend({
-  additionalDescription: z.string().nullable(),
+  additionalDescriptionRichText: z
+    .string()
+    .nullable()
+    .transform((v) => (v ? sanitize(v) : null)),
   dta_peopleNew: z.array(dtaPersonPreview),
   dta_institutionsNew: z.array(dtaInstitutionPreview),
   dta_practicesNew: z.array(dtaPracticePreview),
@@ -141,6 +154,10 @@ export const dtaSnippet = document.extend({
 export const dtaEvent = document.extend({
   beginYear: z.coerce.number().nullable(),
   endYear: z.coerce.number().nullable(),
+  descriptionRichText: z
+    .string()
+    .nullable()
+    .transform((v) => (v ? sanitize(v) : null)),
   dtaLocation: dtaLocation.nullable(),
   image: z.array(img).nullable(),
   dta_peopleNew: z.array(dtaPersonPreview),
@@ -153,7 +170,10 @@ export const dtaMap = document.extend({
   Description: z.string().nullable(),
   dta_event_types: z.array(
     document.extend({
-      description: z.string().nullable(),
+      descriptionRichText: z
+        .string()
+        .nullable()
+        .transform((v) => (v ? sanitize(v) : null)),
       shortTitle: z.string().nullable(),
       dta_events: z.array(dtaEvent),
     }),
