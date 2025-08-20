@@ -4,9 +4,7 @@ import { getSchoolPeople } from "@/api/getSchoolPeople";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { SchoolNav } from "@/components/school/components/SchoolNav";
 import { cn } from "@/lib/cn";
-import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
-import { composeUrl } from "@/lib/urlUtils";
 
 export default async function SchoolPeoplePage() {
   const { data: people } = await getSchoolPeople();
