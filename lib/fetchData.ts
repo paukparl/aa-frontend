@@ -23,6 +23,7 @@ type PopulateClause =
   | string[]
   | {
       [key: string]:
+        | true
         | string
         | string[]
         | StrapiFetchOptions
@@ -145,7 +146,7 @@ export async function fetchOne<T extends z.ZodObject>({
 }: {
   path: string;
   schema: T;
-  options: FetchOneOptions;
+  options?: FetchOneOptions;
 }) {
   const response = await fetchData(path, options);
   if (!response.ok) {
@@ -168,7 +169,7 @@ export async function fetchOneBySlug<T extends z.ZodObject>({
   path: string;
   slug: string;
   schema: T;
-  options: FetchOneOptions;
+  options?: FetchOneOptions;
 }) {
   const response = await fetchData(path, {
     filters: { slug: { $eq: slug } },
@@ -190,7 +191,7 @@ export async function fetchMany<T extends z.ZodObject>({
 }: {
   path: string;
   schema: T;
-  options: FetchManyOptions;
+  options?: FetchManyOptions;
 }) {
   const response = await fetchData(path, options);
   if (!response.ok) {
