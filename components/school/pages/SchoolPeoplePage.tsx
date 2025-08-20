@@ -14,6 +14,7 @@ export default async function SchoolPeoplePage() {
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
         <SchoolNav activeSlug={"school-people"} />
+        <div className="mb-10 mono">{`All ${people.length} ${people.length > 1 ? `People` : `Person`}`}</div>
         <div className="1000:grid-cols-5 grid grid-cols-2 gap-(--padding) 700:grid-cols-4 1280:grid-cols-6">
           {people.map((person) => (
             <SchoolPeopleGridItem person={person} key={person.id} />
@@ -33,17 +34,24 @@ export const SchoolPeopleGridItem = ({
   person,
   className,
 }: SchoolPeopleGridItemProps) => {
-  const href = composeUrl({
-    path: routes.tipin2("school", "people", person.slug ?? ``),
-  });
   return (
     <Link
       className={cn(className, "group block")}
       tabIndex={-1}
-      href={href}
+      href={`/school-people/${person.slug}`}
       scroll={false}
     >
-      <div className="relative mb-5 block aspect-[4/5] school-griditem-bg 700:mb-10"></div>
+      <div className="relative mb-5 block aspect-[4/5] school-griditem-bg 700:mb-10">
+        {person.representativeImage && (
+          <Image
+            src={person.representativeImage.url}
+            fill
+            sizes="fill"
+            alt={person.representativeImage.alternativeText ?? ""}
+            className="object-cover"
+          />
+        )}
+      </div>
       <div className="mono transition-all group-hover:opacity-70">
         {person.firstName} {person.lastName}
         {person.title && <div className="mt-10">{person.title}</div>}

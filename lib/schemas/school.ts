@@ -216,4 +216,5 @@ export const schoolPersonPreview = document.extend({
   firstName: z.string().nullable(),
   lastName: z.string().nullable(),
   title: z.string().nullable(),
+  representativeImage: img.nullable(),
 });
