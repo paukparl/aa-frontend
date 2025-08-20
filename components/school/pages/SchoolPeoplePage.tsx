@@ -35,7 +35,6 @@ export const SchoolPeopleGridItem = ({
   return (
     <Link
       className={cn(className, "group block")}
-      tabIndex={-1}
       href={`/school-people/${person.slug}`}
       scroll={false}
     >
@@ -44,7 +43,7 @@ export const SchoolPeopleGridItem = ({
           <Image
             src={person.representativeImage.url}
             fill
-            sizes="fill"
+            sizes="(max-width: 768px) 300px, 500px"
             alt={person.representativeImage.alternativeText ?? ""}
             className="object-cover"
           />
