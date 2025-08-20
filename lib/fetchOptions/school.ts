@@ -219,4 +219,7 @@ export const schoolFacilityPreviewFetchOptions = createFetchOptions({
 
 export const schoolPersonPreviewFetchOptions = createFetchOptions({
   fields: [...documentFields, "slug", "firstName", "lastName", "title"],
+  populate: {
+    representativeImage: imgFetchOptions,
+  },
 });

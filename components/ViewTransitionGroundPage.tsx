@@ -42,7 +42,7 @@ export default function ViewTransitionGroundPage({
       <div
         className={cn(
           className,
-          "relative z-10",
+          "relative z-10 min-h-[100vh]",
           // "h-full overflow-auto",
           panel === "home"
             ? "pr-(--header-h) pb-(--header-h)"

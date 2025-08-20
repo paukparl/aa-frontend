@@ -251,6 +251,22 @@ h2 {
     );
 }
 
+@utility school-griditem-bg {
+  background-size: 20px 20px;
+  background-color: var(--color-school-tint);
+  background-image:
+    linear-gradient(
+      to right,
+      var(--color-school-background) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--color-school-background) 1px,
+      transparent 1px
+    );
+}
+
 @utility btn-minimal-pad-3 {
   --btn-px: calc(var(--spacing) * 3);
   --btn-py: calc(var(--spacing) * 3);
