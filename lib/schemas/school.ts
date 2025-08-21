@@ -207,7 +207,7 @@ export const schoolApplyEntryPreview = document.extend({
 export const schoolApplyEntryDetail = schoolApplyEntryPreview.extend({
   howToApplyRichText: z.string().nullable(),
   startApplicationLink: z.string().nullable(),
-  discoverTheProgrammeLink: z.string().nullable(),
+  discoverTheProgramLink: z.string().nullable(),
   enquireToStudyLink: z.string().nullable(),
 });
 

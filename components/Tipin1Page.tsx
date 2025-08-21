@@ -4,6 +4,7 @@ import { DTAGenericPage } from "@/components/dta/pages/DTAGenericPage";
 import { DTAInstitutionsPage } from "@/components/dta/pages/DTAInstitutionsPage";
 import { DTAPeoplePage } from "@/components/dta/pages/DTAPeoplePage";
 import { DTAPracticesPage } from "@/components/dta/pages/DTAPracticesPage";
+import { SchoolApplyEntryPage } from "@/components/school/pages/SchoolApplyEntryPage";
 import { SchoolProgrammePage } from "@/components/school/pages/SchoolProgrammePage";
 import { SchoolTPPage } from "@/components/school/pages/SchoolTPPage";
 import { SchoolVisitingSchoolPage } from "@/components/school/pages/SchoolVisitingSchoolPage";
@@ -25,6 +26,9 @@ export default async function Tipin1Page({
     } else {
       return <SchoolProgrammePage slug={tipin1} />;
     }
+  }
+  if (ground === "school-apply") {
+    return <SchoolApplyEntryPage slug={tipin1} />;
   }
   if (ground === "dta") {
     if (tipin1 === "people") {
