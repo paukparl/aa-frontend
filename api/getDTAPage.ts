@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchOneBySlug } from "@/lib/fetchData";
 import { dtaPageFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
@@ -9,6 +10,7 @@ export async function getDTAPage(slug: string) {
     schema: schemas.dtaPage,
     options: {
       ...dtaPageFetchOptions,
+      next: { tags: [tags.dtaPage(slug)] },
     },
   });
 }

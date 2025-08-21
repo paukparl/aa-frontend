@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchOneBySlug } from "@/lib/fetchData";
 import { schoolProgrammeDetailFetchOptions } from "@/lib/fetchOptions/school";
 import { schemas } from "@/lib/schemas";
@@ -9,6 +10,7 @@ export async function getSchoolProgramme(slug: string) {
     schema: schemas.schoolProgrammeDetail,
     options: {
       ...schoolProgrammeDetailFetchOptions,
+      next: { tags: [tags.schoolProgramme(slug)] },
     },
   });
 }

@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchOne } from "@/lib/fetchData";
 import { dtaSnippetFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
@@ -8,6 +9,7 @@ export async function getDTASnippet() {
     schema: schemas.dtaSnippet,
     options: {
       ...dtaSnippetFetchOptions,
+      next: { tags: [tags.dtaSnippet] },
     },
   });
 }

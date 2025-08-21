@@ -124,7 +124,6 @@ async function fetchData(path: string, options: FetchDataOptions = {}) {
       "Content-Type": "application/json",
       ...headers,
     },
-    cache: "no-store", // TODO: replace this with cache strategy
     next,
   });
 }

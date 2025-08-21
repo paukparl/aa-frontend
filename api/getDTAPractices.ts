@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchMany } from "@/lib/fetchData";
 import { StrapiFetchManyOptions } from "@/lib/fetchData";
 import { dtaPracticePreviewFetchOptions } from "@/lib/fetchOptions";
@@ -12,6 +13,7 @@ export async function getDTAPractices(
     options: {
       ...dtaPracticePreviewFetchOptions,
       ...options,
+      next: { tags: [tags.dtaPractices] },
     },
   });
 }

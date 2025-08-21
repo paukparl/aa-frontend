@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchMany } from "@/lib/fetchData";
 import { schoolProgrammePreviewFetchOptions } from "@/lib/fetchOptions/school";
 import { schemas } from "@/lib/schemas";
@@ -14,6 +15,7 @@ export async function getSchoolProgrammes() {
           { childOfTaughtPostgraduate: { $eq: false } },
         ],
       },
+      next: { tags: [tags.schoolProgrammes] },
     },
   });
 }
