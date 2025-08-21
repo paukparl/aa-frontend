@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchOneBySlug } from "@/lib/fetchData";
 import { dtaPersonDetailFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
@@ -9,7 +10,7 @@ export async function getDTAPerson(slug: string) {
     schema: schemas.dtaPersonDetail,
     options: {
       ...dtaPersonDetailFetchOptions,
-      next: { tags: [`dta-person-${slug}`] },
+      next: { tags: [tags.dtaPerson(slug)] },
     },
   });
 }

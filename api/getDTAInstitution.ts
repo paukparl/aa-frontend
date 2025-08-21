@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchOneBySlug } from "@/lib/fetchData";
 import { dtaInstitutionDetailFetchOptions } from "@/lib/fetchOptions";
 import { schemas } from "@/lib/schemas";
@@ -9,6 +10,7 @@ export async function getDTAInstitution(slug: string) {
     schema: schemas.dtaInstitutionDetail,
     options: {
       ...dtaInstitutionDetailFetchOptions,
+      next: { tags: [tags.dtaInstitution(slug)] },
     },
   });
 }

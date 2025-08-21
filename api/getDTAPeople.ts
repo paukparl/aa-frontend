@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchMany } from "@/lib/fetchData";
 import { StrapiFetchManyOptions } from "@/lib/fetchData";
 import { dtaPersonPreviewFetchOptions } from "@/lib/fetchOptions";
@@ -12,6 +13,7 @@ export async function getDTAPeople(
     options: {
       ...dtaPersonPreviewFetchOptions,
       ...options,
+      next: { tags: [tags.dtaPeople] },
     },
   });
 }

@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchMany } from "@/lib/fetchData";
 import { StrapiFetchManyOptions } from "@/lib/fetchData";
 import { dtaObjectPreviewFetchOptions } from "@/lib/fetchOptions";
@@ -12,6 +13,7 @@ export async function getDTAObjects(
     options: {
       ...dtaObjectPreviewFetchOptions,
       ...options,
+      next: { tags: [tags.dtaObjects] },
     },
   });
 }

@@ -1,3 +1,4 @@
+import { tags } from "@/lib/cacheUtils";
 import { fetchOne } from "@/lib/fetchData";
 import { schoolVisitingSchoolSnippetFetchOptions } from "@/lib/fetchOptions/school";
 import { schemas } from "@/lib/schemas";
@@ -8,6 +9,7 @@ export async function getSchoolVisitingSchoolSnippet() {
     schema: schemas.schoolVisitingSchoolSnippet,
     options: {
       ...schoolVisitingSchoolSnippetFetchOptions,
+      next: { tags: [tags.schoolVisitingSchoolSnippet] },
     },
   });
 }
