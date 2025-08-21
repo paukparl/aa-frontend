@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { DTASearchBar } from "@/components/dta/components/DTASearchBar";
 
 const meta = {
-  title: "DTA/Search Bar",
+  title: "Global/Search Bar",
   component: DTASearchBar,
 } satisfies Meta<typeof DTASearchBar>;
 

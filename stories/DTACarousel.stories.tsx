@@ -306,7 +306,7 @@ type Story = StoryObj<typeof DTACarousel>;
 
 export const Primary: Story = {
   args: {
-    className: "p-10 700:p-30",
+    className: "p-10 700:p-30 text-dta-about-foreground",
     carouselSlides: [
       {
         imgSrc: "storybook/DTA/components/Carousel/dta_carousel_1.png",
