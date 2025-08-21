@@ -29,7 +29,5 @@ jobs:
           git remote add gitlab "https://${GITLAB_TOKEN_NAME}:${GITLAB_TOKEN}@gitlab.com/${GITLAB_REPO}.git"
           # Fetch the latest changes from the GitLab remote
           git fetch gitlab main
-          # Pull the latest changes from the GitLab remote
-          git pull gitlab main --rebase
           # Push commits from the main branch to GitLab
           git push gitlab main
