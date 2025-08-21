@@ -237,9 +237,6 @@ type Story = StoryObj<typeof DTAPeopleTable>;
 export const Primary: Story = {
   args: {
     className: "p-10 700:p-30",
-    content: mockPersonData.Eduction.map((row) => ({
-      info: `${row.courseName ? `${row.courseName}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
-      year: row.dateRange ?? "",
-    })),
+    person: mockPersonData,
   },
 };
