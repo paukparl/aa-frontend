@@ -48,7 +48,7 @@ export async function DTAPracticesPage({
         <DTAContentSingleCol>
           {snippets?.practicesLandingDescription ?? ``}
         </DTAContentSingleCol>
-        <span className="mono mt-[10px]">All {pagination.total} records</span>
+        <span className="mt-10 mono">All {pagination.total} records</span>
         <DTAPracticesTable>
           {practices.map((practice) => (
             <DTAPracticesTableRow

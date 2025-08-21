@@ -20,7 +20,7 @@ export const DTAPracticesTable = ({
   return <div className={cn("w-full", className)}>{children}</div>;
 };
 
-type DTAPracticesTableItemProps = {
+type DTAPracticesTableRowProps = {
   practice: Schema<"dtaPracticePreview">;
   className?: string;
 };
@@ -28,7 +28,7 @@ type DTAPracticesTableItemProps = {
 export const DTAPracticesTableRow = ({
   practice,
   className,
-}: DTAPracticesTableItemProps) => {
+}: DTAPracticesTableRowProps) => {
   const urlSearchParams = useSearchParams();
   if (!practice.slug) return null;
   const href = composeUrl({
