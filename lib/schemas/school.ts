@@ -218,3 +218,5 @@ export const schoolPersonPreview = document.extend({
   title: z.string().nullable(),
   representativeImage: img.nullable(),
 });
+
+export const schoolSnippet = document.extend({});

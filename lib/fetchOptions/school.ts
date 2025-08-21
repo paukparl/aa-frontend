@@ -223,3 +223,7 @@ export const schoolPersonPreviewFetchOptions = createFetchOptions({
     representativeImage: imgFetchOptions,
   },
 });
+
+export const schoolSnippetFetchOptions = createFetchOptions({
+  fields: [...documentFields],
+});
