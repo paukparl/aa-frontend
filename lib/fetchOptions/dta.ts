@@ -1,96 +1,56 @@
 import { createFetchOptions } from "@/lib/fetchData";
-import { documentFields, imgFetchOptions } from "@/lib/fetchOptions/shared";
-
-export const dtaLocationFetchOptions = createFetchOptions({
-  fields: [...documentFields, "longitude", "latitude", "city", "country"],
-});
 
 export const dtaPersonPreviewFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "slug",
-    "firstName",
-    "lastName",
-    "displayStudyYear",
-  ],
-  populate: {
-    headshot: imgFetchOptions,
-  },
+  populate: { headshot: true },
 });
 
 export const dtaPracticePreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "name"],
   populate: {
-    dta_location_news: dtaLocationFetchOptions,
+    dta_location_news: true,
   },
 });
 
 export const dtaInstitutionPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "Name"], // Wrong casing in Strapi
-  populate: {
-    Display: imgFetchOptions, // Wrong casing in Strapi
-  },
+  populate: { Display: true },
 });
 
 export const dtaObjectPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "title"],
-  populate: {
-    image: imgFetchOptions,
-  },
+  populate: { image: true },
 });
 
 export const dtaPersonDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...dtaPersonPreviewFetchOptions.fields,
-    "bioRichText",
-    "studyYear",
-    "dateBirth",
-    "dateDeath",
-    "placeOfBirth",
-  ],
   populate: {
     ...dtaPersonPreviewFetchOptions.populate,
-    // Typo
-    Eduction: {
-      fields: ["id", "institution", "country", "dateRange", "courseName"],
-    },
-    Career: {
-      fields: ["id", "institution", "country", "dateRange", "jobRole"],
-    },
+    Eduction: true,
+    Career: true,
     dta_practicesNew: dtaPracticePreviewFetchOptions,
     dtaInstitutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
-    dtaLocation: dtaLocationFetchOptions,
+    dtaLocation: true,
   },
 });
 
 export const dtaPracticeDetailFetchOptions = createFetchOptions({
-  fields: [...dtaPracticePreviewFetchOptions.fields, "descriptionRichText"],
   populate: {
     ...dtaPracticePreviewFetchOptions.populate,
     dta_peopleNew: dtaPersonPreviewFetchOptions,
     dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
-    dta_location_news: dtaLocationFetchOptions,
+    dta_location_news: true,
   },
 });
 
 export const dtaInstitutionDetailFetchOptions = createFetchOptions({
-  fields: [...dtaInstitutionPreviewFetchOptions.fields, "descriptionRichText"],
   populate: {
     ...dtaInstitutionPreviewFetchOptions.populate,
     dtaPeople: dtaPersonPreviewFetchOptions,
     dta_practices: dtaPracticePreviewFetchOptions,
     dta_objects: dtaObjectPreviewFetchOptions,
-    dta_locationsNew: dtaLocationFetchOptions,
+    dta_locationsNew: true,
   },
 });
 
 export const dtaObjectDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...dtaObjectPreviewFetchOptions.fields,
-    "additionalDescriptionRichText",
-  ],
   populate: {
     ...dtaObjectPreviewFetchOptions.populate,
     dta_peopleNew: dtaPersonPreviewFetchOptions,
@@ -100,54 +60,26 @@ export const dtaObjectDetailFetchOptions = createFetchOptions({
 });
 
 export const dtaPageFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "pageTitle"],
   populate: {
     dynamicZone: {
       on: {
-        "dynamic-zone.subhead-module": {
-          fields: ["text"],
-        },
-        "dynamic-zone.text-module": {
-          // fields: ["text"],
-        },
+        "dynamic-zone.subhead-module": true,
+        "dynamic-zone.text-module": true,
         "dynamic-zone.image-carousel-module": {
-          populate: {
-            imageCarouselItem: imgFetchOptions,
-          },
+          populate: { imageCarouselItem: true },
         },
         "dynamic-zone.text-image-module": {
-          fields: [
-            "text",
-            "imageCaptionOverride",
-            "ctaText",
-            "ctaLink",
-            "ctaSide",
-          ],
-          populate: {
-            image: imgFetchOptions,
-          },
+          populate: { image: true },
         },
       },
     },
   },
 });
 
-export const dtaSnippetFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "peopleLandingDescription",
-    "practicesLandingDescription",
-    "institutionsLandingDescription",
-    "collectionsLandingDescription",
-    "dtaHomepageDescription",
-  ],
-});
-
 export const dtaEventFetchOptions = createFetchOptions({
-  fields: [...documentFields, "beginYear", "endYear", "descriptionRichText"],
   populate: {
-    dtaLocation: dtaLocationFetchOptions,
-    image: imgFetchOptions,
+    dtaLocation: true,
+    image: true,
     dta_peopleNew: dtaPersonPreviewFetchOptions,
     dta_institutionsNew: dtaInstitutionPreviewFetchOptions,
     dta_practicesNew: dtaPracticePreviewFetchOptions,
@@ -156,13 +88,9 @@ export const dtaEventFetchOptions = createFetchOptions({
 });
 
 export const dtaMapFetchOptions = createFetchOptions({
-  fields: [...documentFields, "Description"],
   populate: {
     dta_event_types: {
-      fields: [...documentFields, "descriptionRichText", "shortTitle"],
-      populate: {
-        dta_events: dtaEventFetchOptions,
-      },
+      populate: { dta_events: dtaEventFetchOptions },
     },
   },
 });

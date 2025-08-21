@@ -1,77 +1,36 @@
 import { createFetchOptions } from "@/lib/fetchData";
-import { dtaLocationFetchOptions } from "@/lib/fetchOptions/dta";
-import {
-  documentFields,
-  fileFetchOptions,
-  imgFetchOptions,
-} from "@/lib/fetchOptions/shared";
+import { fileFetchOptions } from "@/lib/fetchOptions/shared";
 
 export const schoolProgrammePreviewFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "slug",
-    "programmeTitle",
-    "degreeAwarded",
-    "studyMode",
-    "durationValue",
-    "durationText",
-    "rightAlign",
-    "applyLink",
-  ],
   populate: {
-    representativeImage: imgFetchOptions,
+    representativeImage: true,
   },
 });
 
 export const schoolUnitPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "unitTitle", "term", "projectReviewLink"],
   populate: {
-    representativeImage: imgFetchOptions,
-    school_people: {
-      fields: [...documentFields, "firstName", "lastName"],
-    },
+    representativeImage: true,
+    school_people: true,
     school_programmes: {
-      fields: schoolProgrammePreviewFetchOptions.fields,
       populate: schoolProgrammePreviewFetchOptions.populate,
     },
   },
 });
 
 export const schoolProgrammeDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...schoolProgrammePreviewFetchOptions.fields,
-    "hexValue",
-    "contactLink",
-    "designUnitInfoText",
-    "shortDescription",
-    "aboutText",
-  ],
   populate: {
     ...schoolProgrammePreviewFetchOptions.populate,
     school_units: schoolUnitPreviewFetchOptions,
     programmeDynamicZone: {
       on: {
-        "dynamic-zone.subhead-module": {
-          fields: ["text"],
-        },
-        "dynamic-zone.text-module": {
-          // fields: ["text"],
-        },
+        "dynamic-zone.subhead-module": true,
+        "dynamic-zone.text-module": true,
         "dynamic-zone.image-carousel-module": {
-          populate: {
-            imageCarouselItem: imgFetchOptions,
-          },
+          populate: { imageCarouselItem: true },
         },
         "dynamic-zone.text-image-module": {
-          fields: [
-            "text",
-            "imageCaptionOverride",
-            "ctaText",
-            "ctaLink",
-            "ctaSide",
-          ],
           populate: {
-            image: imgFetchOptions,
+            image: true,
           },
         },
       },
@@ -80,31 +39,21 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolUnitDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...schoolUnitPreviewFetchOptions.fields,
-    "projectReviewLink",
-    "brief",
-  ],
   populate: {
     ...schoolUnitPreviewFetchOptions.populate,
     extendedBriefFile: fileFetchOptions,
     studentWorkItem: {
-      fields: ["id", "studentWorkItemTitle", "studentFirstLastName"],
       populate: {
-        studentWorkItemImage: imgFetchOptions,
+        studentWorkItemImage: true,
       },
     },
     unitDynamicZone: {
       on: {
-        "dynamic-zone.subhead-module": {
-          fields: ["text"],
-        },
-        "dynamic-zone.text-module": {
-          // fields: ["text"],
-        },
+        "dynamic-zone.subhead-module": true,
+        "dynamic-zone.text-module": true,
         "dynamic-zone.image-carousel-module": {
           populate: {
-            imageCarouselItem: imgFetchOptions,
+            imageCarouselItem: true,
           },
         },
       },
@@ -112,61 +61,27 @@ export const schoolUnitDetailFetchOptions = createFetchOptions({
   },
 });
 
-export const schoolVisitingSchoolSnippetFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "contactLink",
-    "newsletterLink",
-    "mapHeadline",
-    "descriptionLandingPage",
-  ],
-});
-
 export const schoolVisitingSchoolCoursePreviewFetchOptions = createFetchOptions(
   {
-    fields: [
-      ...documentFields,
-      "slug",
-      "title",
-      "onlineCourse",
-      "dateTextOverride",
-      "theme",
-    ],
     populate: {
-      dta_locations: dtaLocationFetchOptions,
-      representativeImage: imgFetchOptions,
+      dta_locations: true,
+      representativeImage: true,
     },
   },
 );
 
 export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...schoolVisitingSchoolCoursePreviewFetchOptions.fields,
-    "startDate",
-    "endDate",
-    "synopsis",
-  ],
   populate: {
     ...schoolVisitingSchoolCoursePreviewFetchOptions.populate,
     visitingSchoolDynamicZone: {
       on: {
-        "dynamic-zone.subhead-module": {
-          fields: ["text"],
-        },
-        "dynamic-zone.text-module": {
-          // fields: ["text"],
-        },
+        "dynamic-zone.subhead-module": true,
+        "dynamic-zone.text-module": true,
         "dynamic-zone.image-carousel-module": {
-          populate: {
-            imageCarouselItem: imgFetchOptions,
-          },
+          populate: { imageCarouselItem: true },
         },
         "dynamic-zone.cta": {
-          populate: {
-            ctas: {
-              fields: ["text", "url", "ctaStyle"],
-            },
-          },
+          populate: { ctas: true },
         },
       },
     },
@@ -174,15 +89,8 @@ export const schoolVisitingSchoolCourseDetailFetchOptions = createFetchOptions({
 });
 
 export const schoolSnippetFetchOptions = createFetchOptions({
-  fields: [
-    ...documentFields,
-    "applyLandingDescription",
-    "applyLandingFinancialAssistanceLink",
-    "applyLandingTuitionFees",
-  ],
   populate: {
     programOrdering: {
-      fields: ["titleReference"],
       populate: {
         school_programme: schoolProgrammePreviewFetchOptions,
       },
@@ -191,35 +99,17 @@ export const schoolSnippetFetchOptions = createFetchOptions({
 });
 
 export const schoolApplyEntryPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug"],
   populate: {
     schoolProgramme: schoolProgrammePreviewFetchOptions,
   },
 });
 
 export const schoolApplyEntryDetailFetchOptions = createFetchOptions({
-  fields: [
-    ...schoolApplyEntryPreviewFetchOptions.fields,
-    "howToApplyRichText",
-    "startApplicationLink",
-    "discoverTheProgrammeLink",
-    "enquireToStudyLink",
-  ],
   populate: {
     ...schoolApplyEntryPreviewFetchOptions.populate,
   },
 });
 
 export const schoolFacilityPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "name"],
-  populate: {
-    representativeImage: imgFetchOptions,
-  },
-});
-
-export const schoolPersonPreviewFetchOptions = createFetchOptions({
-  fields: [...documentFields, "slug", "firstName", "lastName", "title"],
-  populate: {
-    representativeImage: imgFetchOptions,
-  },
+  populate: { representativeImage: true },
 });
