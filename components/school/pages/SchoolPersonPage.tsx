@@ -4,7 +4,7 @@ import { getSchoolPerson } from "@/api/getSchoolPerson";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import UnderlinedButton from "@/components/buttons/UnderlinedButton";
 import { cn } from "@/lib/cn";
-import { parseHtml } from "@/lib/parseHtml";
+// import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { newTabProps } from "@/lib/urlUtils";
 
@@ -67,13 +67,13 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
           </div>
         </div>
 
-        {person.bio && (
+        {/* {person.bio && (
           <div className={cn("mt-100 body-24")}>
             <h2 className={cn("!body-24")}>Biography</h2>
             <div className={cn("my-[0.6em] border-b-2 border-current")} />
             {parseHtml(person.bio)}
           </div>
-        )}
+        )} */}
       </div>
     </ViewTransitionTipinPage>
   );
