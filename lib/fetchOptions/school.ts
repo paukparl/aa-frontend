@@ -1,10 +1,12 @@
 import { createFetchOptions } from "@/lib/fetchData";
 import { fileFetchOptions } from "@/lib/fetchOptions/shared";
 
+export const schoolPersonPreviewFetchOptions = createFetchOptions({
+  populate: { representativeImage: true },
+});
+
 export const schoolProgrammePreviewFetchOptions = createFetchOptions({
-  populate: {
-    representativeImage: true,
-  },
+  populate: { representativeImage: true },
 });
 
 export const schoolUnitPreviewFetchOptions = createFetchOptions({
@@ -15,6 +17,10 @@ export const schoolUnitPreviewFetchOptions = createFetchOptions({
       populate: schoolProgrammePreviewFetchOptions.populate,
     },
   },
+});
+
+export const schoolPersonDetailFetchOptions = createFetchOptions({
+  populate: { ...schoolPersonPreviewFetchOptions.populate },
 });
 
 export const schoolProgrammeDetailFetchOptions = createFetchOptions({

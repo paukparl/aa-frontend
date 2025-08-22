@@ -18,7 +18,9 @@ import {
   schoolApplyEntryDetail,
   schoolApplyEntryPreview,
   schoolEventPreview,
+  schoolFacilityDetail,
   schoolFacilityPreview,
+  schoolPersonDetail,
   schoolPersonPreview,
   schoolProgrammeDetail,
   schoolProgrammePreview,
@@ -68,6 +70,7 @@ export const schemas = {
   dtaEvent,
   schoolEventPreview,
   schoolFacilityPreview,
+  schoolFacilityDetail,
   schoolProgrammePreview,
   schoolProgrammeDetail,
   schoolUnitPreview,
@@ -79,6 +82,7 @@ export const schemas = {
   schoolApplyEntryPreview,
   schoolApplyEntryDetail,
   schoolPersonPreview,
+  schoolPersonDetail,
 };
 
 export type Schema<
