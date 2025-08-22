@@ -39,7 +39,7 @@ export const ButtonWindow = ({
         className={cn(
           colorThemeDict[colorTheme],
           contextDict[context].top,
-          "flex cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-[15px] pt-[30px] text-center transition-all hover:border-solid sm:p-[30px]",
+          "flex cursor-pointer items-center justify-center rounded-t-[100%] border-[1px] border-dotted p-15 pt-0 text-center transition-all hover:border-solid 700:p-30",
         )}
       >
         <Link href={links[0].link}>

@@ -28,7 +28,6 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
   if (!person) notFound();
 
   const location = person?.dtaLocation;
-
   return (
     <ViewTransitionTipinPage
       type="2"
@@ -62,31 +61,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
             {person.bioRichText && parseHtml(person.bioRichText)}
           </LineClampText>
         </div>
-        <div className="grid grid-cols-1 gap-(--padding) 1024:grid-cols-2">
-          <div>
-            <DTAHeader>Education</DTAHeader>
-            {person.Eduction && (
-              <DTAPeopleTable
-                content={person.Eduction.map((row) => ({
-                  info: `${row.courseName ? `${row.courseName}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
-                  year: row.dateRange ?? "",
-                }))}
-              />
-            )}
-          </div>
-          <div>
-            <DTAHeader>Career</DTAHeader>
-            {person.Career && (
-              <DTAPeopleTable
-                content={person.Career.map((row) => ({
-                  info: `${row.jobRole ? `${row.jobRole}, ` : ""}${row.institution ? `${row.institution}, ` : ""}${row.country ?? ""}`,
-                  year: row.dateRange ?? "",
-                }))}
-              />
-            )}
-          </div>
-        </div>
-
+        <DTAPeopleTable person={person} />
         {location && location.longitude && location.latitude && (
           <div>
             <DTAHeader className="capitalize">Map</DTAHeader>

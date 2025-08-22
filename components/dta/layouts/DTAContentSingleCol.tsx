@@ -1,9 +1,9 @@
-import * as React from "react";
+import { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type DTAContentSingleColProps = {
   className?: string;
-  children: string;
+  children: ReactNode;
 };
 
 export const DTAContentSingleCol = ({
@@ -12,7 +12,7 @@ export const DTAContentSingleCol = ({
 }: DTAContentSingleColProps) => {
   return (
     <div className={cn(className, "w-full")}>
-      <div className="w-full body 700:w-[calc(7/12)] 1024:w-[75%] 1500:w-[50%]">
+      <div className="w-full body 700:w-[calc(7/12)] 1024:w-[75%] 1280:w-[50%]">
         {children}
       </div>
     </div>

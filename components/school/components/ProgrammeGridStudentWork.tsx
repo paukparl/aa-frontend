@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import { ButtonViewMore } from "@/components/school/components/ButtonViewMore";
+import { ButtonViewMore } from "@/components/globals/ButtonDefault";
 
 type StudentWorkPreview = {
   title: string | null;

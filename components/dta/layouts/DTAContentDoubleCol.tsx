@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as React from "react";
+import { ReactNode } from "react";
 import { CardPublication } from "@/components/globals/components/CardPublication";
 import { cn } from "@/lib/cn";
 
@@ -7,7 +7,7 @@ type contentType = "image" | "publication";
 type colorTheme = "people" | "institutions" | "collections" | "about";
 type DTAContentDoubleColProps = {
   className?: string;
-  textContent: string;
+  children: ReactNode;
   colorTheme: colorTheme;
   contentType: contentType;
   imgSrc?: string;
@@ -15,7 +15,7 @@ type DTAContentDoubleColProps = {
 
 export const DTAContentDoubleCol = ({
   className,
-  textContent,
+  children,
   contentType,
   imgSrc,
   colorTheme,
@@ -44,7 +44,7 @@ export const DTAContentDoubleCol = ({
               "w-full body 1500:w-[100%]",
             )}
           >
-            {textContent}
+            {children}
           </div>
           <div className="flex justify-center pt-[20px] 1280:pt-0">
             <CardPublication
@@ -70,7 +70,7 @@ export const DTAContentDoubleCol = ({
               "w-full pt-[20px] body 1280:pt-0 1280:pl-[20px]",
             )}
           >
-            {textContent}
+            {children}
           </div>
         </>
       )}
