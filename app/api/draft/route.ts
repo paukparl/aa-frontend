@@ -1,13 +1,8 @@
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
-import { getDTAPerson, getDTAPractice } from "@/api";
 import { getDTAInstitution } from "@/api/getDTAInstitution";
-import { getDTAObject } from "@/api/getDTAObject";
-import { getDTAPage } from "@/api/getDTAPage";
-import { getSchoolProgramme } from "@/api/getSchoolProgramme";
 import { getSchoolUnit } from "@/api/getSchoolUnit";
-import { getSchoolVisitingSchoolCourse } from "@/api/getSchoolVisitingSchoolCourse";
 import { routes } from "@/lib/routes";
 import serverEnv from "@/lib/serverEnv";
 
@@ -20,8 +15,7 @@ export async function GET(request: NextRequest) {
 
   if (secret !== serverEnv.PREVIEW_SECRET)
     return new Response("Invalid token", { status: 401 });
-  if (!slug || !uid || !status)
-    return new Response("Bad request", { status: 400 });
+  if (!uid || !status) return new Response("Bad request", { status: 400 });
 
   // Enable/disable draft mode
   const draft = await draftMode();
@@ -31,47 +25,46 @@ export async function GET(request: NextRequest) {
   let path;
   if (uid === "api::dta-collection.dta-collection") {
     path = routes.tipin1("dta", "collections");
-  } else if (uid === "api::dta-institution.dta-institution") {
+  } else if (uid === "api::dta-institution.dta-institution" && slug) {
     const institution = await getDTAInstitution(slug);
     if (institution)
-      path = routes.tipin2("dta", "institutions", institution.documentId);
-  } else if (uid === "api::dta-object.dta-object") {
-    const object = await getDTAObject(slug);
-    if (object) path = routes.tipin2("dta", "collections", object.documentId);
-  } else if (uid === "api::dta-page.dta-page") {
-    const page = await getDTAPage(slug);
-    if (page) path = routes.tipin2("dta", "pages", page.documentId);
-  } else if (uid === "api::dta-person.dta-person") {
-    const person = await getDTAPerson(slug);
-    if (person) path = routes.tipin2("dta", "people", person.documentId);
-  } else if (uid === "api::dta-practice.dta-practice") {
-    const practice = await getDTAPractice(slug);
-    if (practice) path = routes.tipin2("dta", "practices", practice.documentId);
-  } else if (uid === "api::school-programme.school-programme") {
-    const programme = await getSchoolProgramme(slug);
-    if (programme)
-      path = routes.tipin1("school-programmes", programme.documentId);
-  } else if (uid === "api::school-unit.school-unit") {
+      path = routes.tipin2("dta", "institutions", institution.slug ?? "-");
+  } else if (uid === "api::dta-object.dta-object" && slug) {
+    path = routes.tipin2("dta", "collections", slug);
+  } else if (uid === "api::dta-page.dta-page" && slug) {
+    path = routes.tipin2("dta", "pages", slug);
+  } else if (uid === "api::dta-person.dta-person" && slug) {
+    path = routes.tipin2("dta", "people", slug);
+  } else if (uid === "api::dta-practice.dta-practice" && slug) {
+    path = routes.tipin2("dta", "practices", slug);
+  } else if (uid === "api::school-apply.school-apply" && slug) {
+    path = routes.tipin1("school-apply", slug);
+  } else if (uid === "api::school-facility.school-facility" && slug) {
+    path = routes.tipin1("school-facilities", slug);
+  } else if (uid === "api::school-programme.school-programme" && slug) {
+    path = routes.tipin1("school-programmes", slug);
+  } else if (uid === "api::school-unit.school-unit" && slug) {
     const unit = await getSchoolUnit(slug);
-    const firstProgramme = unit?.school_programmes[0];
+    const firstProgramme = unit?.school_programmes[0] ?? null;
     if (unit && firstProgramme)
       path = routes.tipin2(
         "school-programmes",
-        firstProgramme.documentId,
-        unit.documentId,
+        firstProgramme.slug ?? "-",
+        unit.slug ?? "-",
       );
-  } else if (uid === "api::school-visiting-school.school-visiting-school") {
-    const visitingSchool = await getSchoolVisitingSchoolCourse(slug);
-    if (visitingSchool)
-      path = routes.tipin2(
-        "school-programmes",
-        "aa-visiting-school",
-        visitingSchool.documentId,
-      );
+  } else if (
+    uid === "api::school-visiting-school.school-visiting-school" &&
+    slug
+  ) {
+    path = routes.tipin2("school-programmes", "aa-visiting-school", slug);
   } else if (uid === "api::dta-map.dta-map") {
+    path = routes.ground("dta");
+  } else if (uid === "api::dta-nav.dta-nav") {
     path = routes.ground("dta");
   } else if (uid === "api::dta-snippet.dta-snippet") {
     path = routes.ground("dta");
+  } else if (uid === "api::taught-postgraduate.taught-postgraduate") {
+    path = routes.tipin1("school-programmes", "taught-postgraduate");
   } else if (uid === "api::visiting-school-snippet.visiting-school-snippet") {
     path = routes.tipin1("school-programmes", "aa-visiting-school");
   }
