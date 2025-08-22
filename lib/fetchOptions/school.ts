@@ -1,5 +1,5 @@
 import { createFetchOptions } from "@/lib/fetchData";
-import { fileFetchOptions } from "@/lib/fetchOptions/shared";
+import { eventFetchOptions } from "@/lib/fetchOptions/shared";
 
 export const schoolPersonPreviewFetchOptions = createFetchOptions({
   populate: { representativeImage: true },
@@ -47,7 +47,7 @@ export const schoolProgrammeDetailFetchOptions = createFetchOptions({
 export const schoolUnitDetailFetchOptions = createFetchOptions({
   populate: {
     ...schoolUnitPreviewFetchOptions.populate,
-    extendedBriefFile: fileFetchOptions,
+    extendedBriefFile: true,
     studentWorkItem: {
       populate: {
         studentWorkItemImage: true,
@@ -118,4 +118,11 @@ export const schoolApplyEntryDetailFetchOptions = createFetchOptions({
 
 export const schoolFacilityPreviewFetchOptions = createFetchOptions({
   populate: { representativeImage: true },
+});
+
+export const schoolFacilityDetailFetchOptions = createFetchOptions({
+  populate: {
+    ...schoolFacilityPreviewFetchOptions.populate,
+    aaEvents: eventFetchOptions,
+  },
 });

@@ -33,6 +33,7 @@ import {
 } from "@/lib/schemas/school";
 import {
   document,
+  event,
   file,
   getManyRes,
   getOneRes,
@@ -55,6 +56,7 @@ export const schemas = {
   pagination,
   getOneRes,
   getManyRes,
+  event,
   dtaPersonPreview,
   dtaPersonDetail,
   dtaPracticePreview,
