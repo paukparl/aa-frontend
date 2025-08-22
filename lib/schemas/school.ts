@@ -1,7 +1,7 @@
 import z from "zod/v4";
 import { sanitize } from "@/lib/sanitize";
 import { dtaLocation } from "@/lib/schemas/dta";
-import { document, file, img } from "@/lib/schemas/shared";
+import { document, event, file, img } from "@/lib/schemas/shared";
 
 export const schoolProgrammePreview = document.extend({
   slug: z.string().nullable(),
@@ -19,6 +19,7 @@ export const schoolUnitPreview = document.extend({
   slug: z.string().nullable(),
   unitTitle: z.string().nullable(),
   term: z.string().nullable(),
+  requirementText: z.string().nullable(),
   representativeImage: img.nullable(),
   projectReviewLink: z.string().nullable(),
   school_people: z.array(
@@ -56,7 +57,10 @@ export const schoolProgrammeDetail = schoolProgrammePreview.extend({
       z.object({
         id: z.number(),
         __component: z.literal("dynamic-zone.text-module"),
-        // text: z.string().nullable(),
+        bodyText: z
+          .string()
+          .nullable()
+          .transform((v) => (v ? sanitize(v) : null)),
       }),
       z.object({
         id: z.number(),
@@ -86,6 +90,7 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
       studentWorkItemTitle: z.string().nullable(),
       studentFirstLastName: z.string().nullable(),
       studentWorkItemImage: img.nullable(),
+      link: z.string().nullable(),
     }),
   ),
   brief: z
@@ -102,7 +107,10 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
       z.object({
         id: z.number(),
         __component: z.literal("dynamic-zone.text-module"),
-        // text: z.string().nullable(),
+        bodyText: z
+          .string()
+          .nullable()
+          .transform((v) => (v ? sanitize(v) : null)),
       }),
       z.object({
         id: z.number(),
@@ -117,6 +125,8 @@ export const schoolFacilityPreview = document.extend({
   slug: z.string().nullable(),
   name: z.string().nullable(),
   representativeImage: img.nullable(),
+  publicFacility: z.boolean().nullable(),
+  hookeParkFacility: z.boolean().nullable(),
 });
 
 export const schoolEventPreview = document.extend({
@@ -145,6 +155,16 @@ export const schoolVisitingSchoolCoursePreview = document.extend({
   representativeImage: img.nullable(),
 });
 
+export const schoolFacilityDetail = schoolFacilityPreview.extend({
+  hours: z.string().nullable(),
+  contact: z.string().nullable(),
+  description: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
+  aaEvents: z.array(event),
+});
+
 export const schoolVisitingSchoolCourseDetail =
   schoolVisitingSchoolCoursePreview.extend({
     theme: z.string().nullable(),
@@ -164,7 +184,10 @@ export const schoolVisitingSchoolCourseDetail =
         z.object({
           id: z.number(),
           __component: z.literal("dynamic-zone.text-module"),
-          // text: z.string().nullable(),
+          bodyText: z
+            .string()
+            .nullable()
+            .transform((v) => (v ? sanitize(v) : null)),
         }),
         z.object({
           id: z.number(),
@@ -191,6 +214,7 @@ export const schoolSnippet = document.extend({
   applyLandingDescription: z.string().nullable(),
   applyLandingFinancialAssistanceLink: z.string().nullable(),
   applyLandingTuitionFees: z.string().nullable(),
+  facilityLandingPageText: z.string().nullable(),
   programOrdering: z.array(
     z.object({
       titleReference: z.string().nullable(),
@@ -217,4 +241,11 @@ export const schoolPersonPreview = document.extend({
   lastName: z.string().nullable(),
   title: z.string().nullable(),
   representativeImage: img.nullable(),
+});
+
+export const schoolPersonDetail = schoolPersonPreview.extend({
+  websiteLink: z.string().nullable(),
+  linkedInLink: z.string().nullable(),
+  instagramLink: z.string().nullable(),
+  // bio: z.string().nullable(),
 });

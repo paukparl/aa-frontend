@@ -11,8 +11,6 @@ export const dtaPersonPreview = document.extend({
 });
 
 export const dtaLocation = document.extend({
-  // longitude: z.number().nullable(),
-  // latitude: z.number().nullable(),
   longitude: z.coerce.number().nullable(),
   latitude: z.coerce.number().nullable(),
   city: z.string().nullable(),
@@ -34,7 +32,6 @@ export const dtaInstitutionPreview = document.extend({
 export const dtaObjectPreview = document.extend({
   slug: z.string().nullable(),
   title: z.string().nullable(),
-  // image: img.nullable(),
   image: z.array(img).nullable(),
 });
 
@@ -121,7 +118,10 @@ export const dtaPage = document
         z.object({
           id: z.number(),
           __component: z.literal("dynamic-zone.text-module"),
-          // text: z.string().nullable(),
+          bodyText: z
+            .string()
+            .nullable()
+            .transform((v) => (v ? sanitize(v) : null)),
         }),
         z.object({
           id: z.number(),
@@ -167,13 +167,12 @@ export const dtaEvent = document.extend({
 });
 
 export const dtaMap = document.extend({
-  Description: z.string().nullable(),
+  descriptionRichText: z
+    .string()
+    .nullable()
+    .transform((v) => (v ? sanitize(v) : null)),
   dta_event_types: z.array(
     document.extend({
-      descriptionRichText: z
-        .string()
-        .nullable()
-        .transform((v) => (v ? sanitize(v) : null)),
       shortTitle: z.string().nullable(),
       dta_events: z.array(dtaEvent),
     }),

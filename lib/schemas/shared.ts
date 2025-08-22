@@ -92,3 +92,12 @@ export const seo = z.object({
   keywords: z.string().nullable(),
   structuredData: z.object({}).loose(),
 });
+
+export const event = document.extend({
+  title: z.string().nullable(),
+  shortDescription: z.string().nullable(),
+  location: z.string().nullable(),
+  dateTime: z.string().nullable(),
+  description: z.string().nullable(),
+  image: img.nullable(),
+});

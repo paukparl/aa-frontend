@@ -13,7 +13,7 @@ export default async function SchoolPeoplePage() {
       <div className="px-(--padding)">
         <SchoolNav activeSlug={"school-people"} />
         <div className="mb-10 mono">{`All ${people.length} ${people.length > 1 ? `People` : `Person`}`}</div>
-        <div className="1000:grid-cols-5 grid grid-cols-2 gap-(--padding) 700:grid-cols-4 1280:grid-cols-6">
+        <div className="grid grid-cols-2 gap-(--padding) 700:grid-cols-4 1024:grid-cols-5 1280:grid-cols-6">
           {people.map((person) => (
             <SchoolPeopleGridItem person={person} key={person.id} />
           ))}
@@ -43,9 +43,9 @@ export const SchoolPeopleGridItem = ({
           <Image
             src={person.representativeImage.url}
             fill
-            sizes="(max-width: 768px) 300px, 500px"
             alt={person.representativeImage.alternativeText ?? ""}
             className="object-cover"
+            sizes="50vw, (min-width: 700px) 25vw, (min-width: 1024px) 20vw, (min-width: 1280px) 16vw"
           />
         )}
       </div>

@@ -164,3 +164,8 @@ export function filterParamsByPrefix(
   }
   return urlSearchParams;
 }
+
+export const newTabProps = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+} as const;

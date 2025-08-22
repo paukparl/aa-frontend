@@ -54,9 +54,9 @@ export const DTAPeopleGridItem = ({
           <Image
             src={person.headshot.url}
             fill
-            sizes="fill"
             alt={person.headshot.alternativeText ?? ""}
             className="object-cover"
+            sizes="50vw, (min-width: 700px) 33vw, (min-width: 1024px) 25vw, (min-width: 1280px) 20vw, (min-width: 1500px) 16vw"
           />
         )}
       </div>

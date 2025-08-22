@@ -59,6 +59,7 @@ export const DTAInstitutionsGridItem = ({
             fill
             alt={institution.Display.alternativeText ?? ""}
             className="object-cover"
+            sizes="50vw, (min-width: 1024px) 33vw"
           />
         )}
       </div>

@@ -18,7 +18,9 @@ import {
   schoolApplyEntryDetail,
   schoolApplyEntryPreview,
   schoolEventPreview,
+  schoolFacilityDetail,
   schoolFacilityPreview,
+  schoolPersonDetail,
   schoolPersonPreview,
   schoolProgrammeDetail,
   schoolProgrammePreview,
@@ -31,6 +33,7 @@ import {
 } from "@/lib/schemas/school";
 import {
   document,
+  event,
   file,
   getManyRes,
   getOneRes,
@@ -53,6 +56,7 @@ export const schemas = {
   pagination,
   getOneRes,
   getManyRes,
+  event,
   dtaPersonPreview,
   dtaPersonDetail,
   dtaPracticePreview,
@@ -68,6 +72,7 @@ export const schemas = {
   dtaEvent,
   schoolEventPreview,
   schoolFacilityPreview,
+  schoolFacilityDetail,
   schoolProgrammePreview,
   schoolProgrammeDetail,
   schoolUnitPreview,
@@ -79,6 +84,7 @@ export const schemas = {
   schoolApplyEntryPreview,
   schoolApplyEntryDetail,
   schoolPersonPreview,
+  schoolPersonDetail,
 };
 
 export type Schema<
