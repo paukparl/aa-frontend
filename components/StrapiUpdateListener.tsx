@@ -10,7 +10,7 @@ export default function StrapiUpdateListener() {
     const handleMessage = (message: MessageEvent) => {
       if (
         message.origin === process.env.NEXT_PUBLIC_API_URL &&
-        message.data.type === "strapiUpdate"
+        message.data && message.data.type === "strapiUpdate"
       ) {
         router.refresh();
       }
