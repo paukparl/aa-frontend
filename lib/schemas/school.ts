@@ -57,7 +57,10 @@ export const schoolProgrammeDetail = schoolProgrammePreview.extend({
       z.object({
         id: z.number(),
         __component: z.literal("dynamic-zone.text-module"),
-        // text: z.string().nullable(),
+        bodyText: z
+          .string()
+          .nullable()
+          .transform((v) => (v ? sanitize(v) : null)),
       }),
       z.object({
         id: z.number(),
@@ -87,6 +90,7 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
       studentWorkItemTitle: z.string().nullable(),
       studentFirstLastName: z.string().nullable(),
       studentWorkItemImage: img.nullable(),
+      link: z.string().nullable(),
     }),
   ),
   brief: z
@@ -103,7 +107,10 @@ export const schoolUnitDetail = schoolUnitPreview.extend({
       z.object({
         id: z.number(),
         __component: z.literal("dynamic-zone.text-module"),
-        // text: z.string().nullable(),
+        bodyText: z
+          .string()
+          .nullable()
+          .transform((v) => (v ? sanitize(v) : null)),
       }),
       z.object({
         id: z.number(),
@@ -146,6 +153,13 @@ export const schoolVisitingSchoolCoursePreview = document.extend({
   representativeImage: img.nullable(),
 });
 
+export const schoolFacilityDetail = schoolFacilityPreview.extend({
+  description: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
+});
+
 export const schoolVisitingSchoolCourseDetail =
   schoolVisitingSchoolCoursePreview.extend({
     theme: z.string().nullable(),
@@ -165,7 +179,10 @@ export const schoolVisitingSchoolCourseDetail =
         z.object({
           id: z.number(),
           __component: z.literal("dynamic-zone.text-module"),
-          // text: z.string().nullable(),
+          bodyText: z
+            .string()
+            .nullable()
+            .transform((v) => (v ? sanitize(v) : null)),
         }),
         z.object({
           id: z.number(),
@@ -192,6 +209,7 @@ export const schoolSnippet = document.extend({
   applyLandingDescription: z.string().nullable(),
   applyLandingFinancialAssistanceLink: z.string().nullable(),
   applyLandingTuitionFees: z.string().nullable(),
+  facilityLandingPageText: z.string().nullable(),
   programOrdering: z.array(
     z.object({
       titleReference: z.string().nullable(),
@@ -218,4 +236,8 @@ export const schoolPersonPreview = document.extend({
   lastName: z.string().nullable(),
   title: z.string().nullable(),
   representativeImage: img.nullable(),
+});
+
+export const schoolPersonDetail = schoolPersonPreview.extend({
+  bio: z.string().nullable(),
 });
