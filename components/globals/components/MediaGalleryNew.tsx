@@ -42,6 +42,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
                   alt={thumb.alternativeText ?? ""}
                   className="object-contain"
                   onClick={() => handleClick(index)}
+                  sizes="4rem"
                 />
               </div>
             </div>
@@ -59,6 +60,7 @@ export const MediaGallery = ({ imgs, className }: MediaGalleryProps) => {
           src={activeImg.url}
           fill
           className="object-contain"
+          sizes="100vw"
         />
       </div>
       {activeImg.caption && (

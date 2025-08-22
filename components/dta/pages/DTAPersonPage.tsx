@@ -50,7 +50,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
             <div className="relative aspect-4/5">
               <Image
                 fill
-                sizes="50vw"
+                sizes="100vw, (min-width: 700px) 50vw"
                 src={person.headshot.url}
                 alt={person.headshot.alternativeText ?? ""}
                 className="object-cover"

@@ -31,7 +31,7 @@ export const ProgrammeTableVisitingSchool = ({
   return (
     <div className={className}>
       <div className="border-x border-t border-dotted">
-        <div className="grid grid-cols-[1fr_1fr] bg-school-visiting-school-bg md:grid-cols-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-2 bg-school-visiting-school-bg md:grid-cols-3 lg:grid-cols-4">
           <div className="flex justify-center border-r border-dotted p-[15px] mono">
             Title
           </div>
@@ -55,9 +55,9 @@ export const ProgrammeTableVisitingSchool = ({
                   unit.slug,
                 )}
                 key={unit.title}
-                className="mb-[-1px] block grid cursor-pointer grid-cols-[1fr_1fr] transition-[.1s] hover:bg-school-visiting-school-bg sm:min-h-[86px] md:grid-cols-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr]"
+                className="mb-[-1px] grid cursor-pointer grid-cols-2 transition-[.1s] hover:bg-school-visiting-school-bg sm:min-h-[86px] md:grid-cols-3 lg:grid-cols-4"
               >
-                <div className="block flex items-start border-y border-r border-dotted p-[15px] body">
+                <div className="flex items-start border-y border-r border-dotted p-[15px] body">
                   {unit.representativeImage && (
                     <Image
                       height="67"
@@ -65,6 +65,7 @@ export const ProgrammeTableVisitingSchool = ({
                       alt={unit.imgAlt ?? ``}
                       src={unit.representativeImage}
                       className="mr-[20px] hidden object-cover object-center sm:block"
+                      sizes="4rem"
                     />
                   )}
                   {unit.title}

@@ -30,17 +30,29 @@ export const ProgrammeGridStudentWork = ({
           </ButtonViewMore>
         )}
       </div>
-      <div className="grid grid-cols-2 gap-[10px] sm:gap-[30px] md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-10 700:grid-cols-3 700:gap-30 1024:grid-cols-4">
         {items.map((item, index) =>
           item.link ? (
             <Link href={item.link} key={`linked-${index}`}>
-              <Image width="500" height="500" src={item.imgSrc ?? ``} alt="" />
+              <Image
+                width="500"
+                height="500"
+                src={item.imgSrc ?? ``}
+                alt=""
+                sizes="50vw, (min-width: 700px) 33vw, (min-width: 1024px) 25vw"
+              />
               <div className="body !font-bold">{item.title}</div>
               <span className="body">{item.artist}</span>
             </Link>
           ) : (
             <div key={`unlinked-${index}`}>
-              <Image width="500" height="500" src={item.imgSrc ?? ``} alt="" />
+              <Image
+                width="500"
+                height="500"
+                src={item.imgSrc ?? ``}
+                alt=""
+                sizes="50vw, (min-width: 700px) 33vw, (min-width: 1024px) 25vw"
+              />
               <div className="mt-[10px] block body !font-bold">
                 {item.title}
               </div>

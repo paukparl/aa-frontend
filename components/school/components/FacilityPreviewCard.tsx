@@ -30,7 +30,7 @@ export const FacilityPreviewCard = ({
             src={facility.representativeImage.url}
             alt={facility.representativeImage.alternativeText ?? ""}
             fill
-            sizes="50vw, (min-width: 700px) 50vw"
+            sizes="100vw, (min-width: 700px) 50vw"
             className={cn("object-cover")}
           />
         </div>

@@ -77,9 +77,10 @@ export const MediaGallery = ({
               className={cn(
                 activeInd === index &&
                   `outline ${colorThemeDict[colorTheme].outline}`,
-                "h-[65px] w-[65px] cursor-pointer object-cover p-[3px] 700:h-[75px] 700:w-[75px] 700:p-[5px]",
+                "h-65 w-65 cursor-pointer object-cover p-3 700:h-75 700:w-75 700:p-5",
               )}
               onClick={() => handleClick(index)}
+              sizes="4rem"
             />
           ))}
         </div>

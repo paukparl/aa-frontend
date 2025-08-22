@@ -50,7 +50,7 @@ export async function DTAInstitutionPage({ slug }: { slug: string }) {
               >
                 <Image
                   fill
-                  sizes="50vw"
+                  sizes="100vw, (min-width: 700px) 50vw"
                   src={institution.Display.url}
                   alt={institution.Display.alternativeText ?? ""}
                 />
