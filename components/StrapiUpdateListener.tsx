@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function StrapiUpdateListener() {
   const router = useRouter();
   useEffect(() => {
-    const handleMessage = async (message: MessageEvent) => {
+    const handleMessage = (message: MessageEvent) => {
       if (
         message.origin === process.env.NEXT_PUBLIC_API_URL &&
         message.data.type === "strapiUpdate"
