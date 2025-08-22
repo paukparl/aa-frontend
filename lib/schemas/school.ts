@@ -19,6 +19,7 @@ export const schoolUnitPreview = document.extend({
   slug: z.string().nullable(),
   unitTitle: z.string().nullable(),
   term: z.string().nullable(),
+  requirementText: z.string().nullable(),
   representativeImage: img.nullable(),
   projectReviewLink: z.string().nullable(),
   school_people: z.array(
