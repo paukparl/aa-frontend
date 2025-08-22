@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { CSSProperties, ReactNode } from "react";
 import { DisableDraftMode } from "@/components/DisableDraftModeButton";
 import Layout from "@/components/Layout";
+import StrapiUpdateListener from "@/components/StrapiUpdateListener";
 import { PrevRouteProvider } from "@/contexts/PrevRouteContext";
 import { fonts } from "@/fonts";
 import { cn } from "@/lib/cn";
@@ -31,6 +32,7 @@ export default async function RootLayout({
           <Layout>{children}</Layout>
         </PrevRouteProvider>
         {(await draftMode()).isEnabled && <DisableDraftMode />}
+        <StrapiUpdateListener />
       </body>
     </html>
   );
