@@ -25,7 +25,7 @@ import PlaySvg from "@/components/svgs/PlaySvg";
 import useAnimationFrame from "@/hooks/useAnimationFrame";
 import { useSafeTimeout } from "@/hooks/useSafeTimeout";
 import { cn } from "@/lib/cn";
-// import { parseHtml } from "@/lib/parseHtml";
+import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 import { groupItemsByCoordinates } from "@/lib/utils";
@@ -277,9 +277,9 @@ export const DTAMap = ({
 
       <MapTitle showTitle={showTitle} />
 
-      {map?.Description && (
+      {map?.descriptionRichText && (
         <p className="absolute top-0 left-0 z-1 w-full mono">
-          {map.Description}
+          {parseHtml(map.descriptionRichText)}
         </p>
       )}
 
