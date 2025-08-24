@@ -251,5 +251,5 @@ export const schoolPersonDetail = schoolPersonPreview.extend({
   websiteLink: z.string().nullable(),
   linkedInLink: z.string().nullable(),
   instagramLink: z.string().nullable(),
-  // bio: z.string().nullable(),
+  bio: z.string().nullable(),
 });

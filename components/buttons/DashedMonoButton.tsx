@@ -31,7 +31,7 @@ export default function DashedMonoButton({
       disabled={disabled}
       {...props}
     >
-      <Slot.Slottable>{children}</Slot.Slottable>
+      {children}
     </Comp>
   );
 }
