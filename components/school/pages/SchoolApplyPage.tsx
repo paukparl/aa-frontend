@@ -12,7 +12,6 @@ export default async function SchoolApplyPage() {
     getSchoolSnippet(),
     getSchoolApplyEntries(),
   ]);
-  console.log(applyEntries);
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">

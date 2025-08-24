@@ -12,11 +12,15 @@ export const schoolProgrammePreview = document.extend({
   durationValue: z.number().nullable(),
   durationText: z.string().nullable(),
   rightAlign: z.boolean().nullable(),
-  applyLink: z.string().nullable(),
   shortDescription: z
     .string()
     .nullable()
     .transform((val) => (val ? sanitize(val) : null)),
+  schoolApply: z
+    .object({
+      slug: z.string(),
+    })
+    .nullable(),
 });
 
 export const schoolUnitPreview = document.extend({

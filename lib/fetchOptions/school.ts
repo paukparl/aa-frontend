@@ -6,7 +6,7 @@ export const schoolPersonPreviewFetchOptions = createFetchOptions({
 });
 
 export const schoolProgrammePreviewFetchOptions = createFetchOptions({
-  populate: { representativeImage: true },
+  populate: { representativeImage: true, schoolApply: true },
 });
 
 export const schoolUnitPreviewFetchOptions = createFetchOptions({
