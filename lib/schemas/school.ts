@@ -4,7 +4,7 @@ import { dtaLocation } from "@/lib/schemas/dta";
 import { document, event, file, img } from "@/lib/schemas/shared";
 
 export const schoolProgrammePreview = document.extend({
-  slug: z.string().nullable(),
+  slug: z.string(),
   programmeTitle: z.string().nullable(),
   representativeImage: img.nullable(),
   degreeAwarded: z.string().nullable(),
@@ -13,6 +13,10 @@ export const schoolProgrammePreview = document.extend({
   durationText: z.string().nullable(),
   rightAlign: z.boolean().nullable(),
   applyLink: z.string().nullable(),
+  shortDescription: z
+    .string()
+    .nullable()
+    .transform((val) => (val ? sanitize(val) : null)),
 });
 
 export const schoolUnitPreview = document.extend({
