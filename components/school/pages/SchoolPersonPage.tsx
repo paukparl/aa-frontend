@@ -4,7 +4,7 @@ import { getSchoolPerson } from "@/api/getSchoolPerson";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import UnderlinedButton from "@/components/buttons/UnderlinedButton";
 import { cn } from "@/lib/cn";
-// import { parseHtml } from "@/lib/parseHtml";
+import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { newTabProps } from "@/lib/urlUtils";
 
@@ -54,26 +54,28 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
               )}
             </div>
           </div>
-          <div className={cn("relative aspect-4/5 flex-1")}>
+          <div className={cn("flex-1")}>
             {person.representativeImage && (
-              <Image
-                src={person.representativeImage.url}
-                alt={person.representativeImage.alternativeText ?? ""}
-                fill
-                sizes="100vw, (min-width: 700px) 50vw"
-                className={cn("object-cover")}
-              />
+              <div className={cn("relative aspect-4/5")}>
+                <Image
+                  src={person.representativeImage.url}
+                  alt={person.representativeImage.alternativeText ?? ""}
+                  fill
+                  sizes="100vw, (min-width: 700px) 50vw"
+                  className={cn("object-cover")}
+                />
+              </div>
             )}
           </div>
         </div>
 
-        {/* {person.bio && (
+        {person.bio && (
           <div className={cn("mt-100 body-24")}>
             <h2 className={cn("!body-24")}>Biography</h2>
             <div className={cn("my-[0.6em] border-b-2 border-current")} />
             {parseHtml(person.bio)}
           </div>
-        )} */}
+        )}
       </div>
     </ViewTransitionTipinPage>
   );
