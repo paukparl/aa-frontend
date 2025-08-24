@@ -32,11 +32,11 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
               className={cn("mt-24 flex flex-col items-start gap-24 mono-18")}
             >
               {person.websiteLink && (
-                <div>
-                  WEBSITE
-                  <br />
-                  {person.websiteLink}
-                </div>
+                <UnderlinedButton asChild>
+                  <a href={person.websiteLink} {...newTabProps}>
+                    WEBSITE
+                  </a>
+                </UnderlinedButton>
               )}
               {person.linkedInLink && (
                 <UnderlinedButton asChild>
