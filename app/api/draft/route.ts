@@ -37,6 +37,8 @@ export async function GET(request: NextRequest) {
     path = routes.tipin2("dta", "people", slug);
   } else if (uid === "api::dta-practice.dta-practice" && slug) {
     path = routes.tipin2("dta", "practices", slug);
+  } else if (uid === "api::school-person.school-person" && slug) {
+    path = routes.tipin1("school-people", slug);
   } else if (uid === "api::school-apply.school-apply" && slug) {
     path = routes.tipin1("school-apply", slug);
   } else if (uid === "api::school-facility.school-facility" && slug) {
