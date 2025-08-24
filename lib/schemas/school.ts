@@ -6,6 +6,7 @@ import { document, event, file, img } from "@/lib/schemas/shared";
 export const schoolProgrammePreview = document.extend({
   slug: z.string(),
   programmeTitle: z.string().nullable(),
+  hexValue: z.string().nullable(),
   representativeImage: img.nullable(),
   degreeAwarded: z.string().nullable(),
   studyMode: z.enum(["full-time", "part-time"]).nullable(),

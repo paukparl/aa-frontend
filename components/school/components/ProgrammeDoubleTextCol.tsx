@@ -16,7 +16,7 @@ export const ProgrammeDoubleTextCol = ({
     <div
       className={clsx(
         className,
-        "grid-cols-1fr grid grid-cols-1 sm:grid-cols-[1fr_1fr] sm:gap-[30px]",
+        "grid-cols-1fr grid grid-cols-1 sm:grid-cols-[calc(50vw-15px)_1fr] sm:gap-[30px]",
       )}
     >
       <div>{col1Content}</div>

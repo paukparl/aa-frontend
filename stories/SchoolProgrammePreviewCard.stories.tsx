@@ -14,23 +14,25 @@ export default meta;
 type Story = StoryObj<typeof ProgrammePreviewCard>;
 
 const mockProgrammeData = {
-  id: 40,
-  documentId: "r7dma409n99a73estax9jcxf",
-  createdAt: "2025-08-07T18:08:40.182Z",
-  updatedAt: "2025-08-24T01:17:46.833Z",
-  publishedAt: "2025-08-24T01:17:46.918Z",
-  slug: "intermediate-programme",
-  programmeTitle: "Intermediate Programme",
+  id: 42,
+  documentId: "vkfwii6hmced1blgj99c5e99",
+  createdAt: "2025-08-07T21:24:49.073Z",
+  updatedAt: "2025-08-24T01:18:19.695Z",
+  publishedAt: "2025-08-24T01:18:19.787Z",
+  slug: "taught-postgraduate",
+  programmeTitle: "Taught Postgraduate",
+  hexValue: "#D3C2DA",
   representativeImage: null,
-  degreeAwarded: "BA (Hons) Architecture",
+  degreeAwarded: "MA, MSc, MArch, MFA, Taught MPhil",
   studyMode: "full-time" as const,
-  durationValue: 75,
-  durationText:
-    "Three years, full time (years one to three of the five-years course in architecture)",
+  durationValue: 25,
+  durationText: "12 or 18 months, full-time",
   rightAlign: null,
-  applyLink: "https://www.linkedbyair.net/",
   shortDescription:
-    "<p>The Intermediate Programme empowers students to question how architecture manifests in the world. The First Year focuses on learning through making within a shared, open studio, and provides students with the academic and technical tools to develop their interest in architecture. Students are encouraged to focus on the challenges of the 21st century, while interrogating the foundational principles of architecture. They create an end-of-year portfolio comprising work in a range of media that is informed by various modes of argumentation and representation.</p>",
+    "<p>The AA offers nine full-time Taught Postgraduate Programmes – advanced studies for students with prior academic and professional experience:<br><br>Architecture and Urbanism (DRL)&nbsp;<br>Design and Make<br>Emergent Technologies and Design<br>History and Critical Thinking<br>Housing and Urbanism<br>Landscape Urbanism<br>Spatial Performance and Design (AAIS)<br>Sustainable Environmental Design<br>Architecture and Urban Design (Projective Cities)</p>",
+  schoolApply: {
+    slug: "taught-postgraduate",
+  },
 };
 
 export const Primary: Story = {

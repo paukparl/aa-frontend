@@ -15,6 +15,7 @@ export const ProgrammePreviewCard = ({
   className,
   programme,
 }: ProgrammePreviewCardProps) => {
+  console.log(programme);
   const durationBarW = `${programme.durationValue}%`;
   return (
     <div className={cn(className, "pb-[50px]")}>
