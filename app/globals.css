@@ -184,20 +184,23 @@ h1 {
 }
 h1.tipin {
   font-family: var(--font-diatype);
-  font-size: var(--text-2xl);
+  font-size: var(--text-35);
   @media (min-width: 700px) {
-    font-size: var(--text-5xl);
+    font-size: var(--text-48);
+  }
+  @media (min-width: 1280px) {
+    font-size: var(--text-65);
   }
 }
 h2 {
   font-family: var(--font-nhg-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-20);
   font-weight: var(--font-weight-500);
   @media (min-width: 700px) {
-    font-size: var(--text-4xl);
+    font-size: var(--text-36);
   }
   @media (min-width: 1280px) {
-    font-size: var(--text-5xl);
+    font-size: var(--text-36);
   }
 }
 @utility body {

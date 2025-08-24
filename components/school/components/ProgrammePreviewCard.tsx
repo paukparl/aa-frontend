@@ -18,7 +18,7 @@ export const ProgrammePreviewCard = ({
   const durationBarW = `${programme.durationValue}%`;
   return (
     <div className={cn(className, "pb-[50px]")}>
-      <h1 className="flex items-end md:h-[90px]">{programme.programmeTitle}</h1>
+      <h2 className="flex items-end md:h-[90px]">{programme.programmeTitle}</h2>
       <Link
         scroll={false}
         href={routes.tipin1("school-programmes", programme.slug ?? ``)}
