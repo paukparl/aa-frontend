@@ -1,7 +1,7 @@
 "use client";
 
-import * as Collapsible from "@radix-ui/react-collapsible";
 import Image from "next/image";
+import { Collapsible } from "radix-ui";
 import React, { useState } from "react";
 import { cn } from "@/lib/cn";
 import { DTAFilterButton } from "./DTAFilterButton";

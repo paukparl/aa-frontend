@@ -1,6 +1,6 @@
 "use client";
 
-import * as Collapsible from "@radix-ui/react-collapsible";
+import { Collapsible } from "radix-ui";
 import * as React from "react";
 import { DTAFilterMultiSelectDropdown } from "@/components/dta/components/Filter/DTAFilterMultiSelectDropdown";
 import { DTAFilterButton } from "./DTAFilterButton";

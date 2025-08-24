@@ -12,7 +12,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@radix-ui/react-collapsible": "^1.1.11",
     "@types/fuzzy-search": "^2.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
