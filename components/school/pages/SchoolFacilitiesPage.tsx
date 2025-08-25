@@ -13,13 +13,12 @@ export default async function SchoolFacilitiesPage() {
     getSchoolFacilities(),
   ]);
 
-  const publicFacilities = facilities.filter(
-    (facility) => facility.publicFacility,
+  const bedfordSquareFacilities = facilities.filter(
+    (facility) => !facility.hookeParkFacility,
   );
   const hookeParkFacilities = facilities.filter(
     (facility) => facility.hookeParkFacility,
   );
-
   return (
     <ViewTransitionGroundPage panel="school">
       <div className={cn("px-(--padding) pb-(--padding)")}>
@@ -41,7 +40,7 @@ export default async function SchoolFacilitiesPage() {
             "mt-(--padding) grid grid-cols-1 gap-24 1024:grid-cols-2",
           )}
         >
-          {publicFacilities.map((facility) => (
+          {bedfordSquareFacilities.map((facility) => (
             <FacilityPreviewCard key={facility.id} facility={facility} />
           ))}
         </div>
