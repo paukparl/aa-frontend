@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getSchoolFacility } from "@/api/getSchoolFacility";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
+import { MediaGallery } from "@/components/globals/components/MediaGalleryNew";
 import { cn } from "@/lib/cn";
 import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
@@ -29,20 +30,7 @@ export async function SchoolFacilityPage({ slug }: { slug: string }) {
         >
           <div className={cn("flex-1")}>
             {facility.representativeImage && (
-              <figure>
-                <Image
-                  src={facility.representativeImage.url}
-                  alt={facility.representativeImage.alternativeText ?? ""}
-                  width={facility.representativeImage.width}
-                  height={facility.representativeImage.height}
-                  sizes="100vw, (min-width: 700px) 50vw"
-                />
-                {facility.representativeImage.caption && (
-                  <figcaption>
-                    {facility.representativeImage.caption}
-                  </figcaption>
-                )}
-              </figure>
+              <MediaGallery imgs={[facility.representativeImage]} />
             )}
           </div>
           <div className={cn("flex-1")}>
@@ -80,7 +68,7 @@ export async function SchoolFacilityPage({ slug }: { slug: string }) {
 
         {facility.aaEvents.length > 0 && (
           <>
-            <h2 className={cn("!mono-65 mt-100")}>Related Events</h2>
+            <h2 className={cn("mt-100 !mono-65")}>Related Events</h2>
             <div className={cn("mt-40 space-y-2")}>
               {facility.aaEvents.map((event) => (
                 <div
