@@ -57,10 +57,10 @@ export const ProgrammePreviewCard = ({
         >
           Learn More
         </ButtonViewMore>
-        {programme.applyLink && (
+        {programme.schoolApply?.slug && (
           <ButtonViewMore
             className="hover:bg-school-tint"
-            href={`/school-programmes/${programme.applyLink}`}
+            href={`/school-apply/${programme.schoolApply.slug}`}
           >
             How to Apply
           </ButtonViewMore>

@@ -6,17 +6,22 @@ import { document, event, file, img } from "@/lib/schemas/shared";
 export const schoolProgrammePreview = document.extend({
   slug: z.string(),
   programmeTitle: z.string().nullable(),
+  hexValue: z.string().nullable(),
   representativeImage: img.nullable(),
   degreeAwarded: z.string().nullable(),
   studyMode: z.enum(["full-time", "part-time"]).nullable(),
   durationValue: z.number().nullable(),
   durationText: z.string().nullable(),
   rightAlign: z.boolean().nullable(),
-  applyLink: z.string().nullable(),
   shortDescription: z
     .string()
     .nullable()
     .transform((val) => (val ? sanitize(val) : null)),
+  schoolApply: z
+    .object({
+      slug: z.string(),
+    })
+    .nullable(),
 });
 
 export const schoolUnitPreview = document.extend({

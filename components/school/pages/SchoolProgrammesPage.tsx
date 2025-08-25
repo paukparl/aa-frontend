@@ -5,7 +5,6 @@ import { SchoolNav } from "@/components/school/components/SchoolNav";
 
 export default async function SchoolProgrammesPage() {
   const _schoolSnippet = await getSchoolSnippet();
-  console.log(_schoolSnippet?.programOrdering);
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">

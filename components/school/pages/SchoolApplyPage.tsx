@@ -1,4 +1,3 @@
-import { getSchoolApplyEntries } from "@/api/getSchoolApplyEntries";
 import { getSchoolSnippet } from "@/api/getSchoolSnippet";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { RichText } from "@/components/globals/RichText";
@@ -8,11 +7,7 @@ import { ProgrammePreviewCard } from "@/components/school/components/ProgrammePr
 import { SchoolNav } from "@/components/school/components/SchoolNav";
 
 export default async function SchoolApplyPage() {
-  const [schoolSnippet, { data: applyEntries }] = await Promise.all([
-    getSchoolSnippet(),
-    getSchoolApplyEntries(),
-  ]);
-  console.log(applyEntries);
+  const schoolSnippet = await getSchoolSnippet();
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">

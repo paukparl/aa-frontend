@@ -1,25 +1,55 @@
 import { notFound } from "next/navigation";
 import { getSchoolApplyEntry } from "@/api/getSchoolApplyEntry";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
+import { RichText } from "@/components/globals/RichText";
+import { ButtonWindow } from "@/components/globals/components/ButtonWindow";
+import { ProgrammeDoubleTextCol } from "@/components/school/components/ProgrammeDoubleTextCol";
+import { ProgrammeTableInfo } from "@/components/school/components/ProgrammeTableInfo";
 import { routes } from "@/lib/routes";
 
 export async function SchoolApplyEntryPage({ slug }: { slug: string }) {
   const entry = await getSchoolApplyEntry(slug);
-
-  if (!entry) notFound();
-
+  if (!entry || !entry.schoolProgramme) notFound();
   return (
     <ViewTransitionTipinPage
       type="1"
-      bg={"var(--color-white)"}
+      bg={entry.schoolProgramme.hexValue ?? "var(--color-white)"}
       fg={"var(--color-black)"}
-      title={entry.schoolProgramme?.programmeTitle}
+      title={entry.schoolProgramme.programmeTitle}
       ancestors={[
         { title: "Programmes", path: routes.ground("school-programmes") },
       ]}
     >
       <div className="p-(--padding) pb-100">
-        <pre>{JSON.stringify(entry, null, 2)}</pre>
+        <h1 className="tipin">{`${entry.schoolProgramme.programmeTitle} Admissions`}</h1>
+        <ProgrammeTableInfo
+          degreeAwarded={entry.schoolProgramme.degreeAwarded}
+          durationText={entry.schoolProgramme.durationText}
+        />
+        <h1 className="tipin">How to Apply</h1>
+        <ProgrammeDoubleTextCol
+          className="mt-[2rem]"
+          col1Content={
+            <RichText className="body">
+              {entry.howToApplyRichText ?? ``}
+            </RichText>
+          }
+          col2Content={
+            <div className="flex w-full justify-center">
+              <ButtonWindow
+                colorTheme="school"
+                context="school"
+                links={[
+                  { displayText: "Start Application", link: "" },
+                  {
+                    displayText: "Discover the Program",
+                    link: `/school-programmes/${entry.schoolProgramme.slug}`,
+                  },
+                ]}
+              />
+            </div>
+          }
+        />
       </div>
     </ViewTransitionTipinPage>
   );
