@@ -14,12 +14,11 @@ export default async function SchoolFacilitiesPage() {
   ]);
 
   const publicFacilities = facilities.filter(
-    (facility) => facility.publicFacility,
+    (facility) => !facility.hookeParkFacility,
   );
   const hookeParkFacilities = facilities.filter(
     (facility) => facility.hookeParkFacility,
   );
-
   return (
     <ViewTransitionGroundPage panel="school">
       <div className={cn("px-(--padding) pb-(--padding)")}>
