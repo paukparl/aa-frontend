@@ -65,7 +65,7 @@ export async function SchoolVisitingSchoolPage() {
       ]}
     >
       <div className="p-(--padding)">
-        <h1 className="tipin">AA Visiting School</h1>
+        <h1 className="h1-mono">AA Visiting School</h1>
         <ProgrammeTextCol
           className="mt-(--padding)"
           col2content={

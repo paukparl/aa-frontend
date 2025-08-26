@@ -36,7 +36,7 @@ export async function SchoolTPProgrammePage({
       ]}
     >
       <div className="p-(--padding) pb-100">
-        <h1 className="tipin">{programme.programmeTitle}</h1>
+        <h1 className="h1-mono">{programme.programmeTitle}</h1>
         <MediaGallery
           className="mt-(--padding)"
           colorTheme="school-programmes"

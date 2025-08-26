@@ -24,18 +24,16 @@ export async function SchoolFacilityPage({ slug }: { slug: string }) {
       ]}
     >
       <div className="px-(--padding) pt-70 pb-100">
-        <h1 className={cn("!mono-65")}>{facility.name}</h1>
-        <div
-          className={cn("mt-100 flex flex-col gap-(--padding) 700:flex-row")}
-        >
+        <h1 className="h1-mono">{facility.name}</h1>
+        <div className="mt-100 flex flex-col gap-(--padding) 700:flex-row">
           <div className={cn("flex-1")}>
             {facility.representativeImage && (
               <MediaGallery imgs={[facility.representativeImage]} />
             )}
           </div>
-          <div className={cn("flex-1")}>
+          <div className="flex-1">
             {facility.hours && (
-              <div className={cn("mono-18 whitespace-pre")}>
+              <div className="mono-18 whitespace-pre">
                 HOURS
                 <br />
                 {facility.hours}
@@ -68,16 +66,14 @@ export async function SchoolFacilityPage({ slug }: { slug: string }) {
 
         {facility.aaEvents.length > 0 && (
           <>
-            <h2 className={cn("mt-100 !mono-65")}>Related Events</h2>
-            <div className={cn("mt-40 space-y-2")}>
+            <h2 className="mt-100 !mono-65">Related Events</h2>
+            <div className="mt-40 space-y-2">
               {facility.aaEvents.map((event) => (
                 <div
                   key={event.id}
-                  className={cn(
-                    "grid grid-cols-12 gap-24 bg-facilities-tint p-24",
-                  )}
+                  className="grid grid-cols-12 gap-24 bg-facilities-tint p-24"
                 >
-                  <div className={cn("relative col-span-2 aspect-3/2")}>
+                  <div className="relative col-span-2 aspect-3/2">
                     {event.image && (
                       <Image
                         src={event.image.url}
@@ -87,14 +83,14 @@ export async function SchoolFacilityPage({ slug }: { slug: string }) {
                       />
                     )}
                   </div>
-                  <h3 className={cn("col-span-4 title-24")}>{event.title}</h3>
-                  <p className={cn("col-span-2 font-diatype text-18/1.3")}>
+                  <h3 className="col-span-4 title-24">{event.title}</h3>
+                  <p className="col-span-2 font-diatype text-18/1.3">
                     {event.dateTime && format(event.dateTime, "d MMMM yyyy")}
                   </p>
-                  <p className={cn("col-span-2 font-diatype text-18/1.3")}>
+                  <p className="col-span-2 font-diatype text-18/1.3">
                     {event.dateTime && format(event.dateTime, "HH:mm")}
                   </p>
-                  <p className={cn("col-span-2 font-diatype text-18/1.3")}>
+                  <p className="col-span-2 font-diatype text-18/1.3">
                     {event.shortDescription}
                   </p>
                 </div>

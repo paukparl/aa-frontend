@@ -13,7 +13,7 @@ export const PageDTASearch = ({ className }: PageDTASearchProps) => {
     <div
       className={cn(
         className,
-        "text-dta-about-foreground 700:pb-[75px] 1280:w-[90%] flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] backdrop-blur-lg",
+        "flex min-h-[100vh] w-full flex-col bg-[rgba(255,255,255,.9)] pb-[50px] text-dta-about-foreground backdrop-blur-lg 700:pb-[75px] 1280:w-[90%]",
       )}
     >
       <div className="flex flex-col p-(--padding)">
@@ -23,7 +23,7 @@ export const PageDTASearch = ({ className }: PageDTASearchProps) => {
           colorTheme="dta-search"
         /> */}
         <DTASearchBar />
-        <h1>Search</h1>
+        <h1 className="h1">Search</h1>
       </div>
       <div className="flex flex-col gap-(--padding) p-(--padding)">
         {/* <DTARelatedContent colorTheme="people" gridType="people" />

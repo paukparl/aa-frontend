@@ -24,13 +24,11 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
       ancestors={[{ title: "People", path: routes.ground("school-people") }]}
     >
       <div className="px-(--padding) pt-70 pb-100">
-        <div className={cn("flex flex-col gap-(--padding) 700:flex-row")}>
-          <div className={cn("flex-1")}>
-            <h1 className={cn("!mono-65")}>{fullName}</h1>
-            <div className={cn("mt-24 mono-24")}>{person.title}</div>
-            <div
-              className={cn("mt-24 flex flex-col items-start gap-24 mono-18")}
-            >
+        <div className="flex flex-col gap-(--padding) 700:flex-row">
+          <div className="flex-1">
+            <h1 className="h1-mono">{fullName}</h1>
+            <div className="mt-24 mono-24">{person.title}</div>
+            <div className="mt-24 flex flex-col items-start gap-24 mono-18">
               {person.websiteLink && (
                 <UnderlinedButton asChild>
                   <a href={person.websiteLink} {...newTabProps}>
@@ -54,15 +52,15 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
               )}
             </div>
           </div>
-          <div className={cn("flex-1")}>
+          <div className="flex-1">
             {person.representativeImage && (
-              <div className={cn("relative aspect-4/5")}>
+              <div className="relative aspect-4/5">
                 <Image
                   src={person.representativeImage.url}
                   alt={person.representativeImage.alternativeText ?? ""}
                   fill
                   sizes="100vw, (min-width: 700px) 50vw"
-                  className={cn("object-cover")}
+                  className="object-cover"
                 />
               </div>
             )}
@@ -70,9 +68,9 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
         </div>
 
         {person.bio && (
-          <div className={cn("mt-100 body-24")}>
-            <h2 className={cn("!body-24")}>Biography</h2>
-            <div className={cn("my-[0.6em] border-b-2 border-current")} />
+          <div className="mt-100 body-24">
+            <h2 className="!body-24">Biography</h2>
+            <div className="my-[0.6em] border-b-2 border-current" />
             {parseHtml(person.bio)}
           </div>
         )}

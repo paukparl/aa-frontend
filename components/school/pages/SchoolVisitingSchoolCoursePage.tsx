@@ -25,7 +25,7 @@ export async function SchoolVisitingSchoolCoursePage({
       ]}
     >
       <div className="p-(--padding)">
-        <h1 className="tipin">{course?.title}</h1>
+        <h1 className="h1-mono">{course?.title}</h1>
         {course?.representativeImage?.url && (
           <MediaGallery
             className="mt-(--padding)"

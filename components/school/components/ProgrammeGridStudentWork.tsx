@@ -23,7 +23,7 @@ export const ProgrammeGridStudentWork = ({
   return (
     <div className={className}>
       <div className="mb-(--padding) flex items-center justify-between">
-        <h1 className="tipin">Student Work</h1>
+        <span className="h1-mono">Student Work</span>
         {projectReviewLink && (
           <ButtonViewMore className="h-fit" href={projectReviewLink}>
             See Projects Review ↗

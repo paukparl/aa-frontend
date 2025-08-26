@@ -38,7 +38,7 @@ export async function SchoolUnitPage({
       ]}
     >
       <div className="p-(--padding)">
-        <h1 className="tipin">{unit.unitTitle}</h1>
+        <h1 className="h1-mono">{unit.unitTitle}</h1>
         <MediaGallery
           className="mt-(--padding)"
           colorTheme="school-programmes"
@@ -58,7 +58,7 @@ export async function SchoolUnitPage({
             { type: "Term", content: `${unit.term}` },
           ]}
         />
-        <h1 className="tipin mb-(--padding)">Synopsis</h1>
+        <h1 className="mb-(--padding) h1-mono">Synopsis</h1>
         <ProgrammeDoubleTextCol
           col1Content={
             <div className="body">
@@ -104,7 +104,7 @@ export async function SchoolUnitPage({
             </div>
           }
         />
-        <h1 className="tipin my-(--padding) pt-(--padding)">Content</h1>
+        <h1 className="my-(--padding) pt-(--padding) h1-mono">Content</h1>
         <ProgrammeDoubleTextCol
           col1Content={
             <div className="body">
@@ -150,7 +150,7 @@ export async function SchoolUnitPage({
             </div>
           }
         />
-        <h1 className="tipin my-(--padding) pt-(--padding)">Output</h1>
+        <h1 className="my-(--padding) pt-(--padding) h1-mono">Output</h1>
         <ProgrammeDoubleTextCol
           col1Content={
             <UL>
