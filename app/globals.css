@@ -173,7 +173,7 @@
 p {
   margin-block-end: 2rem;
 }
-h1 {
+@utility h1 {
   font-family: var(--font-nhg-display);
   font-size: var(--text-24);
   font-weight: var(--font-weight-500);
@@ -182,7 +182,7 @@ h1 {
     font-size: var(--text-48);
   }
 }
-h1.tipin {
+@utility h1-mono {
   font-family: var(--font-diatype);
   font-size: var(--text-35);
   @media (min-width: 700px) {
@@ -192,7 +192,7 @@ h1.tipin {
     font-size: var(--text-65);
   }
 }
-h2 {
+@utility h2 {
   font-family: var(--font-nhg-display);
   font-size: var(--text-20);
   font-weight: var(--font-weight-500);

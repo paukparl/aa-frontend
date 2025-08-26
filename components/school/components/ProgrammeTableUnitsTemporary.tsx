@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { cn } from "@/lib/cn";
 import { Schema } from "@/lib/schemas";
 
 type UnitInfo = {
@@ -27,7 +26,7 @@ export const ProgrammeTableUnitsTemporary = ({
   units,
 }: ProgrammeTableUnitsTemporaryProps) => {
   return (
-    <div className={cn(className)}>
+    <div className={className}>
       <style>
         {`
               .temptable_unitrow:hover{

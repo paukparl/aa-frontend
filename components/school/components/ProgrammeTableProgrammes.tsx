@@ -13,7 +13,7 @@ export const ProgrammeTableProgrammes = ({
 }: ProgrammeTableProgrammesProps) => {
   return (
     <div className={className}>
-      <h1 className="tipin mb-[20px]">Programmes</h1>
+      <h1 className="mb-[20px] h1-mono">Programmes</h1>
       <div className="border-x border-t border-dotted">
         <div className="grid grid-cols-[2fr_1fr] bg-programmes-postgrad-accent md:grid-cols-[3fr_1fr]">
           <div className="flex justify-center border-r border-dotted p-[15px] mono">

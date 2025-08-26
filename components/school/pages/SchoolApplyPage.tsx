@@ -40,7 +40,7 @@ export default async function SchoolApplyPage() {
             }
           />
         )}
-        <h1 className="mt-40 mb-15 700:mb-0">Programmes</h1>
+        <h1 className="mt-40 mb-15 h1 700:mb-0">Programmes</h1>
         <div className="grid gap-(--padding) 1024:grid-cols-2 1280:grid-cols-3">
           {schoolSnippet?.programOrdering.map(
             (item) =>

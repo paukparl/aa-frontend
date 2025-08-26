@@ -43,7 +43,7 @@ export async function DTAPeoplePage({
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding) text-dta-people-foreground">
-        <h1>People</h1>
+        <h1 className="h1">People</h1>
         <DTAContentSingleCol>
           {snippets?.peopleLandingDescription ?? ``}
         </DTAContentSingleCol>

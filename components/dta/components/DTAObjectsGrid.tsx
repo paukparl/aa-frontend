@@ -39,7 +39,7 @@ export const DTAObjectsGridItem = ({
   const href = routes.tipin2("dta", "collections", object.slug);
   return (
     <Link
-      className={cn(className, "group block")}
+      className={cn("group block", className)}
       tabIndex={-1}
       href={href}
       scroll={false}

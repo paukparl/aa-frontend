@@ -13,7 +13,7 @@ export const DTAMapFooter = () => {
           link=""
           displayText={`Become\na Member`}
         /> */}
-        <h1 className="whitespace-pre">{`Architectural Association\nSchool of Architecture`}</h1>
+        <h1 className="h1 whitespace-pre">{`Architectural Association\nSchool of Architecture`}</h1>
       </div>
     </div>
   );

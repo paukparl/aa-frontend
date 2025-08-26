@@ -37,7 +37,7 @@ export async function DTAPracticePage({ slug }: { slug: string }) {
       ]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
-        <h1 className="tipin">{practice.name}</h1>
+        <h1 className="h1-mono">{practice.name}</h1>
         {practice.descriptionRichText && (
           <span className="body">
             {parseHtml(practice.descriptionRichText)}

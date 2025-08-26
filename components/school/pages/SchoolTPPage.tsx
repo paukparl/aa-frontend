@@ -26,7 +26,7 @@ export async function SchoolTPPage() {
       ]}
     >
       <div className="p-(--padding) pb-100">
-        <h1 className="tipin">{taughtPostgrad.programmeTitle}</h1>
+        <h1 className="h1-mono">{taughtPostgrad.programmeTitle}</h1>
         <ProgrammeTableInfo
           degreeAwarded={taughtPostgrad.degreeAwarded}
           durationText={taughtPostgrad.durationText}

@@ -11,7 +11,7 @@ export const DTAContentSingleCol = ({
   children,
 }: DTAContentSingleColProps) => {
   return (
-    <div className={cn(className, "w-full")}>
+    <div className={cn("w-full", className)}>
       <div className="w-full body 700:w-[58%] 1024:w-[75%] 1280:w-[50%]">
         {children}
       </div>

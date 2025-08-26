@@ -23,7 +23,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
       ]}
     >
       <div className="p-(--padding) pb-100">
-        <h1 className="tipin">{programme.programmeTitle}</h1>
+        <h1 className="h1-mono">{programme.programmeTitle}</h1>
         <ProgrammeTableInfo
           degreeAwarded={programme.degreeAwarded}
           durationText={programme.durationText}
@@ -82,7 +82,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
         </ProgrammeTextCol>
         {/* table below is temporary */}
         <div className="mt-(--padding) pt-(--padding)">
-          <h1 className="tipin mb-(--padding)">Design Units</h1>
+          <h1 className="mb-(--padding) h1-mono">Design Units</h1>
           <ProgrammeTableUnitsTemporary
             programmeColor={programme.hexValue}
             programmeSlug={programme.slug ?? ``}

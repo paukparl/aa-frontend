@@ -21,12 +21,12 @@ export async function SchoolApplyEntryPage({ slug }: { slug: string }) {
       ]}
     >
       <div className="p-(--padding) pb-100">
-        <h1 className="tipin">{`${entry.schoolProgramme.programmeTitle} Admissions`}</h1>
+        <h1 className="h1-mono">{`${entry.schoolProgramme.programmeTitle} Admissions`}</h1>
         <ProgrammeTableInfo
           degreeAwarded={entry.schoolProgramme.degreeAwarded}
           durationText={entry.schoolProgramme.durationText}
         />
-        <h1 className="tipin">How to Apply</h1>
+        <h1 className="h1-mono">How to Apply</h1>
         <ProgrammeDoubleTextCol
           className="mt-[2rem]"
           col1Content={

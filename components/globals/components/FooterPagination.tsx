@@ -55,7 +55,7 @@ export const FooterPagination = ({
   return (
     <nav
       aria-label="Pagination Navigation pt-[20px] 700:pt-[30px]"
-      className={cn(className)}
+      className={className}
     >
       <ul className="m-0 flex items-center gap-[10px] p-0 700:gap-[25px]">
         <span className="mono">Page:</span>

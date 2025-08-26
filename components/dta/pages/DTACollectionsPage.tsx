@@ -44,11 +44,11 @@ export async function DTACollectionsPage({
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
-        <h1>Collections</h1>
+        <h1 className="h1">Collections</h1>
         <DTAContentSingleCol>
           {snippets?.collectionsLandingDescription ?? ``}
         </DTAContentSingleCol>
-        <span className="mono mt-[10px]">{`All ${collections.length} record${collections.length > 1 ? `s` : ``}`}</span>
+        <span className="mt-[10px] mono">{`All ${collections.length} record${collections.length > 1 ? `s` : ``}`}</span>
         <DTAObjectsGrid>
           {collections.map((object) => (
             <DTAObjectsGridItem key={object.documentId} object={object} />

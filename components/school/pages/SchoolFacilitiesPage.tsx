@@ -28,13 +28,7 @@ export default async function SchoolFacilitiesPage() {
             {parseHtml(schoolSnippet.facilityLandingPageText)}
           </ProgrammeTextCol>
         )}
-        <h2
-          className={cn(
-            "mt-50 title-24 700:mt-100 700:!title-36 1024:!title-48",
-          )}
-        >
-          Bedford Square Facilities
-        </h2>
+        <h2 className="mt-50 h2">Bedford Square Facilities</h2>
         <div
           className={cn(
             "mt-(--padding) grid grid-cols-1 gap-24 1024:grid-cols-2",
@@ -44,13 +38,7 @@ export default async function SchoolFacilitiesPage() {
             <FacilityPreviewCard key={facility.id} facility={facility} />
           ))}
         </div>
-        <h2
-          className={cn(
-            "mt-50 title-24 700:mt-100 700:!title-36 1024:!title-48",
-          )}
-        >
-          Hooke Park Facilities
-        </h2>
+        <h2 className="mt-50 h2">Hooke Park Facilities</h2>
         <div
           className={cn(
             "mt-(--padding) grid grid-cols-1 gap-24 1024:grid-cols-2",

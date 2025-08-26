@@ -37,7 +37,7 @@ export async function DTAInstitutionPage({ slug }: { slug: string }) {
       ]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
-        <h1 className="tipin">{institution.Name}</h1>
+        <h1 className="h1-mono">{institution.Name}</h1>
         <div className="grid grid-cols-2 gap-24">
           <div className="relative">
             {institution.Display && (

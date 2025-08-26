@@ -1,5 +1,4 @@
 import { ComponentProps } from "react";
-import { cn } from "@/lib/cn";
 
 export default function PauseSvg({
   className,
@@ -11,7 +10,7 @@ export default function PauseSvg({
       width="1em"
       height="1em"
       viewBox="0 0 21 21"
-      className={cn(className)}
+      className={className}
       {...props}
     >
       <path d="M9 3H4V18H9V3Z" fill="currentColor" />

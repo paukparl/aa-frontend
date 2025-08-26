@@ -6,7 +6,7 @@ export async function HookeParkPage() {
   return (
     <ViewTransitionGroundPage panel="school" microsite="hooke-park">
       <div className="flex flex-col items-start gap-2 px-24">
-        <h1>Hooke Park</h1>
+        <h1 className="h1">Hooke Park</h1>
         <TempLink href={routes.ground("hooke-park")} scroll={false}>
           Hooke Park
         </TempLink>

@@ -36,7 +36,7 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
       ]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
-        <h1 className="tipin">{object.title}</h1>
+        <h1 className="h1-mono">{object.title}</h1>
         <span className="body">
           {object.additionalDescriptionRichText &&
             parseHtml(object.additionalDescriptionRichText)}

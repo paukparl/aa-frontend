@@ -11,5 +11,5 @@ type LineClampTextProps = {
 
 export const LineClampText = ({ children, className }: LineClampTextProps) => {
   //   const [isClamped, setIsClamped] = useState(null);
-  return <div className={cn(className, "h-fit")}>{children}</div>;
+  return <div className={cn("h-fit", className)}>{children}</div>;
 };

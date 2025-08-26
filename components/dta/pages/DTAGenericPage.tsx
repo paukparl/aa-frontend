@@ -20,11 +20,11 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
       ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
-        <h1>{page.pageTitle}</h1>
+        <h1 className="h1">{page.pageTitle}</h1>
         {page.dynamicZone.map((component) => (
           <Fragment key={component.id}>
             {component.__component === "dynamic-zone.subhead-module" && (
-              <h2>{component.text}</h2>
+              <h2 className="h2">{component.text}</h2>
             )}
             {component.__component === "dynamic-zone.text-module" && (
               <div>{/* {component.text} */}</div>

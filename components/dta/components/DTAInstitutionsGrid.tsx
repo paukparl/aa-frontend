@@ -47,7 +47,7 @@ export const DTAInstitutionsGridItem = ({
   });
   return (
     <Link
-      className={cn(className, "group block")}
+      className={cn("group block", className)}
       tabIndex={-1}
       href={href}
       scroll={false}

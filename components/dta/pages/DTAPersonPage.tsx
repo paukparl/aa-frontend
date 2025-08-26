@@ -40,7 +40,7 @@ export async function DTAPersonPage({ slug }: { slug: string }) {
       ]}
     >
       <div className="flex flex-col gap-20 p-(--padding) 700:gap-72">
-        <h1 className="tipin">
+        <h1 className="h1-mono">
           {person.firstName} {person.lastName}
           <br />
           {person.displayStudyYear}

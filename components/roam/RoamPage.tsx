@@ -6,7 +6,7 @@ export async function RoamPage() {
   return (
     <ViewTransitionGroundPage panel="public" microsite="roam">
       <div className="flex flex-col items-start gap-2 px-24">
-        <h1>ROAM</h1>
+        <h1 className="h1">ROAM</h1>
         <TempLink href={routes.ground("hooke-park")} scroll={false}>
           Hooke Park
         </TempLink>
