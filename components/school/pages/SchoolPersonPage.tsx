@@ -69,7 +69,7 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
 
         {person.bio && (
           <div className="mt-100 body-24">
-            <h2 className="!body-24">Biography</h2>
+            <h2 className="body">Biography</h2>
             <div className="my-[0.6em] border-b-2 border-current" />
             {parseHtml(person.bio)}
           </div>

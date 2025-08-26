@@ -24,7 +24,7 @@ export async function DTAGenericPage({ slug }: { slug: string }) {
         {page.dynamicZone.map((component) => (
           <Fragment key={component.id}>
             {component.__component === "dynamic-zone.subhead-module" && (
-              <h2>{component.text}</h2>
+              <h2 className="h2">{component.text}</h2>
             )}
             {component.__component === "dynamic-zone.text-module" && (
               <div>{/* {component.text} */}</div>

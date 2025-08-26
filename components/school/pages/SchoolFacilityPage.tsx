@@ -66,7 +66,7 @@ export async function SchoolFacilityPage({ slug }: { slug: string }) {
 
         {facility.aaEvents.length > 0 && (
           <>
-            <h2 className="mt-100 !mono-65">Related Events</h2>
+            <h1 className="mt-100 h1-mono">Related Events</h1>
             <div className="mt-40 space-y-2">
               {facility.aaEvents.map((event) => (
                 <div
