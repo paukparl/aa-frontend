@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getSchoolPerson } from "@/api/getSchoolPerson";
 import ViewTransitionTipinPage from "@/components/ViewTransitionTipinPage";
 import UnderlinedButton from "@/components/buttons/UnderlinedButton";
-import { cn } from "@/lib/cn";
 import { parseHtml } from "@/lib/parseHtml";
 import { routes } from "@/lib/routes";
 import { newTabProps } from "@/lib/urlUtils";
