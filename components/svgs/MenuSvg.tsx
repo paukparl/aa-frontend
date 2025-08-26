@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { ComponentProps } from "react";
-import { cn } from "@/lib/cn";
 
 export default function MenuSvg({
   className,
@@ -18,7 +17,7 @@ export default function MenuSvg({
       fill="none"
       stroke="currentColor"
       strokeWidth="6"
-      className={cn(className)}
+      className={className}
       {...props}
     >
       <motion.line

@@ -1,5 +1,4 @@
 import { ComponentProps } from "react";
-import { cn } from "@/lib/cn";
 
 export default function PlaySvg({
   className,
@@ -11,7 +10,7 @@ export default function PlaySvg({
       width="1em"
       height="1em"
       viewBox="0 0 21 21"
-      className={cn(className)}
+      className={className}
       {...props}
     >
       <path d="M4.5 3L16.5 10.5L4.5 18V3Z" fill="currentColor" />

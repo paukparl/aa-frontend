@@ -16,7 +16,7 @@ export const CardPublication = ({
 }: CardPublicationProps) => {
   return (
     <div
-      className={cn(className, "flex w-full justify-start 700:justify-center")}
+      className={cn("flex w-full justify-start 700:justify-center", className)}
     >
       <div className="relative w-[50%] 700:w-fit">
         <Image

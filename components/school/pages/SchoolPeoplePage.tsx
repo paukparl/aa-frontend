@@ -34,7 +34,7 @@ export const SchoolPeopleGridItem = ({
 }: SchoolPeopleGridItemProps) => {
   return (
     <Link
-      className={cn(className, "group block")}
+      className={cn("group block", className)}
       href={`/school-people/${person.slug}`}
       scroll={false}
     >

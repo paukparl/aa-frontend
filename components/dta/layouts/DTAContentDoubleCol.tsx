@@ -35,7 +35,7 @@ export const DTAContentDoubleCol = ({
     },
   };
   return (
-    <div className={cn(className, "grid grid-cols-1 1280:grid-cols-2")}>
+    <div className={cn("grid grid-cols-1 1280:grid-cols-2", className)}>
       {contentType === "publication" && (
         <>
           <div

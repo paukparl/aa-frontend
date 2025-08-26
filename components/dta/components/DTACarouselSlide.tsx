@@ -36,7 +36,7 @@ export const DTACarouselSlide = ({
     }
   }
   return (
-    <div className={cn(className, "relative w-fit")}>
+    <div className={cn("relative w-fit", className)}>
       <Image
         ref={imgRef}
         src={imgSrc}

@@ -7,7 +7,7 @@ type DTASearchBarProps = {
 
 export const DTASearchBar = ({ className }: DTASearchBarProps) => {
   return (
-    <div className={cn(className, "mb-[20px] w-[100%]")}>
+    <div className={cn("mb-[20px] w-[100%]", className)}>
       <div className="relative w-[100%]">
         <input
           type="text"

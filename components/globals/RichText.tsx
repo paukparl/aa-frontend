@@ -17,7 +17,7 @@ type RichTextProps = {
 export const RichText = ({ children, className }: RichTextProps) => {
   return (
     <div
-      className={cn(className, "whitespce-pre-line")}
+      className={cn("whitespce-pre-line", className)}
       dangerouslySetInnerHTML={sanitizeHTML(children)}
     ></div>
   );
