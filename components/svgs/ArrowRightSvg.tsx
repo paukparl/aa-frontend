@@ -11,8 +11,8 @@ export function ArrowRightSvg({ className, ...props }: ComponentProps<"svg">) {
       className={cn(className)}
       {...props}
     >
-      <path d="M2 18H32" stroke-width="5" />
-      <path d="M17 3L32 18L17 33" stroke-width="5" />
+      <path d="M2 18H32" strokeWidth="5" />
+      <path d="M17 3L32 18L17 33" strokeWidth="5" />
     </svg>
   );
 }
