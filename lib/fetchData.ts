@@ -84,6 +84,7 @@ export type StrapiFetchOneOptions = Pick<
 type FetchConfig = {
   headers?: Record<string, string>;
   next?: NextFetchRequestConfig;
+  cache?: RequestCache;
 };
 
 type FetchDataOptions = StrapiFetchOptions & FetchConfig;
@@ -104,7 +105,7 @@ async function fetchData(path: string, options: FetchDataOptions = {}) {
   const { isEnabled: draftModeEnabled } = await draftMode();
 
   const safePath = path.replace(/^\/|\/$|\?$/g, "");
-  const { headers, next, ...params } = options;
+  const { headers, next, cache, ...params } = options;
 
   const queryString = qs.stringify({
     ...params,
@@ -125,6 +126,7 @@ async function fetchData(path: string, options: FetchDataOptions = {}) {
       "Content-Type": "application/json",
       ...headers,
     },
+    cache: cache ?? "force-cache",
     next,
   });
 }
