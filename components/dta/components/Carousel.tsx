@@ -32,7 +32,10 @@ export function Carousel({
   options?: Parameters<typeof useEmblaCarousel>[0];
 } & ComponentProps<"div">) {
   const [_activeIndex, setActiveIndex] = useState(0);
-  const emblaCarousel = useEmblaCarousel(options);
+  const emblaCarousel = useEmblaCarousel({
+    skipSnaps: true,
+    ...options,
+  });
   const [, emblaApi] = emblaCarousel;
 
   useIsomorphicLayoutEffect(() => {
@@ -54,7 +57,7 @@ export function Carousel({
   );
 }
 
-export function CarouselArrows({ ...props }: ComponentProps<"div">) {
+export function CarouselArrows({ className, ...props }: ComponentProps<"div">) {
   const {
     emblaCarousel: [, emblaApi],
   } = useCarouselContext();
@@ -68,7 +71,7 @@ export function CarouselArrows({ ...props }: ComponentProps<"div">) {
   }, [emblaApi]);
 
   return (
-    <div className={cn("flex")} {...props}>
+    <div className={cn("flex gap-12", className)} {...props}>
       <CarouselArrowButton
         className={cn()}
         onClick={scrollPrev}

@@ -10,14 +10,21 @@ import { Schema } from "@/lib/schemas";
 
 export const FacilityPreviewCard = ({
   facility,
+  className,
 }: {
   facility: Schema<"schoolFacilityPreview">;
+  className?: string;
 }) => {
   return (
-    <div className={cn("grid grid-cols-2 gap-24 bg-school-tint p-24")}>
+    <div
+      className={cn(
+        "grid grid-cols-2 gap-(--padding) bg-school-tint p-(--padding)",
+        className,
+      )}
+    >
       <div className={cn("flex aspect-square flex-col items-start")}>
         <h3 className={cn("title-24 700:title-36")}>{facility.name}</h3>
-        <DashedMonoButton className={cn("mt-auto dashed-mono-btn-15")} asChild>
+        <DashedMonoButton className={cn("dashed-mono-btn-15 mt-auto")} asChild>
           <Link
             href={routes.tipin1("school-facilities", facility.slug ?? "-")}
             scroll={false}
