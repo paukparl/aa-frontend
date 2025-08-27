@@ -102,16 +102,16 @@ export const DTAFilterButton = ({
           <path
             className="stroke-white"
             d="M4.05273 3.55276L18.9999 18.5"
-            stroke-width="5"
-            stroke-linecap="square"
-            stroke-linejoin="round"
+            strokeWidth="5"
+            strokeLinecap="square"
+            strokeLinejoin="round"
           />
           <path
             className="stroke-white"
             d="M19 3.55276L4.05279 18.5"
-            stroke-width="5"
-            stroke-linecap="square"
-            stroke-linejoin="round"
+            strokeWidth="5"
+            strokeLinecap="square"
+            strokeLinejoin="round"
           />
         </svg>
       )}
