@@ -39,7 +39,7 @@ export const VisitingSchoolCoursePreviewCard = ({
         )}
       </div>
       <div className={cn("mt-auto mono")}>
-        {formatLocationText(course.onlineCourse, course.dta_locations)}
+        {locationText}
         {locationText && course.dateTextOverride && <br />}
         {course.dateTextOverride}
       </div>
