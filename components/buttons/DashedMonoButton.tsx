@@ -18,9 +18,9 @@ export default function DashedMonoButton({
   return (
     <Comp
       className={cn(
-        "relative inline-flex h-(--btn-h) cursor-pointer items-center dashed px-(--btn-px) font-diatype text-(length:--btn-text) text-current",
+        "relative inline-flex h-28 cursor-pointer items-center border border-dashed px-8 font-diatype text-15 text-current",
         composeVariants({
-          hover: "hover:solid",
+          hover: "hover:border-solid",
           // active: "active:opacity-30",
           // loading: "data-[loading]:cursor-wait data-[loading]:opacity-30",
           // appearDisabled: "data-[appear-disabled]:opacity-30",
