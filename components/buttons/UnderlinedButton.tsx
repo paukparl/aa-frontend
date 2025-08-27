@@ -22,7 +22,7 @@ export default function UnderlinedButton({
         composeVariants({
           hover: "hover:opacity-60",
           active: "active:opacity-30",
-          loading: "data-[loading]:cursor-wait data-[loading]:opacity-30",
+          loading: "data-[loading]:opacity-30",
           appearDisabled: "data-[appear-disabled]:opacity-30",
           disabled: "disabled:opacity-30",
         }),

@@ -36,10 +36,7 @@ export default function Button({
         "relative h-(--btn-h) w-(--btn-w) rounded-(--btn-r) px-(--btn-px) py-(--btn-py) outline-hidden",
         theme !== "minimal" &&
           "inline-flex items-center justify-center text-(length:--btn-text)",
-        !nonInteractive && [
-          "cursor-pointer disabled:cursor-not-allowed",
-          loading && "cursor-wait",
-        ],
+        !nonInteractive && ["cursor-pointer disabled:cursor-not-allowed"],
         // Themes
         theme === "minimal" && [
           "-mx-(--btn-px) -my-(--btn-py) text-current",
@@ -47,7 +44,7 @@ export default function Button({
             {
               hover: "hover:opacity-60",
               active: "active:opacity-30",
-              loading: "data-[loading]:cursor-wait data-[loading]:opacity-30",
+              loading: "data-[loading]:opacity-30",
               appearDisabled: "data-[appear-disabled]:opacity-30",
               disabled: "disabled:opacity-30",
             },
