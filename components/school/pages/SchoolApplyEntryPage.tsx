@@ -16,9 +16,7 @@ export async function SchoolApplyEntryPage({ slug }: { slug: string }) {
       bg={entry.schoolProgramme.hexValue ?? "var(--color-white)"}
       fg={"var(--color-black)"}
       title={entry.schoolProgramme.programmeTitle}
-      ancestors={[
-        { title: "Programmes", path: routes.ground("school-programmes") },
-      ]}
+      ancestors={[{ title: "Programmes", path: routes.schoolProgrammes }]}
     >
       <div className="p-(--padding) pb-100">
         <h1 className="h1-mono">{`${entry.schoolProgramme.programmeTitle} Admissions`}</h1>

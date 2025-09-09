@@ -40,7 +40,7 @@ export async function DTAPeoplePage({
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-green)"
       title="People"
-      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.dta }]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding) text-dta-people-foreground">
         <h1 className="h1">People</h1>

@@ -17,10 +17,10 @@ export async function SchoolVisitingSchoolCoursePage({
       fg="var(--color-black)"
       title={course?.title ?? ""}
       ancestors={[
-        { title: "Programmes", path: routes.ground("school-programmes") },
+        { title: "Programmes", path: routes.schoolProgrammes },
         {
           title: "AA Visiting School",
-          path: routes.tipin1("school-programmes", "aa-visiting-school"),
+          path: routes.schoolProgramme("aa-visiting-school"),
         },
       ]}
     >

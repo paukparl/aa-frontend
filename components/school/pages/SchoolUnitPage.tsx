@@ -30,10 +30,10 @@ export async function SchoolUnitPage({
       fg={"var(--color-black)"}
       title={unit.unitTitle}
       ancestors={[
-        { title: "Programmes", path: routes.ground("school-programmes") },
+        { title: "Programmes", path: routes.schoolProgrammes },
         {
           title: programme.programmeTitle ?? "",
-          path: routes.tipin1("school-programmes", parentSlug),
+          path: routes.schoolProgramme(parentSlug),
         },
       ]}
     >

@@ -41,7 +41,7 @@ export async function DTAPracticesPage({
       bg="var(--color-dta-tipin-1-background)"
       fg="var(--color-dta-practices-foreground)"
       title="Practices"
-      ancestors={[{ title: "DTA Archive", path: routes.ground("dta") }]}
+      ancestors={[{ title: "DTA Archive", path: routes.dta }]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">
         <h1 className="h1">Practices</h1>

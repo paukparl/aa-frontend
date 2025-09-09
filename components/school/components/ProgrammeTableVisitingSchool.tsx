@@ -49,8 +49,7 @@ export const ProgrammeTableVisitingSchool = ({
           (unit) =>
             unit.slug && (
               <Link
-                href={routes.tipin2(
-                  "school-programmes",
+                href={routes.schoolProgrammeUnit(
                   "aa-visiting-school",
                   unit.slug,
                 )}

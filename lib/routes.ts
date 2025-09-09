@@ -1,91 +1,129 @@
-export const schoolGroundSlugs = [
-  "school",
-  "school-programmes",
-  "school-apply",
-  "school-facilities",
-  "school-calendar",
-  "school-locations",
-  "school-people",
-  "school-about",
-  "school-governance",
-  "school-documents",
-] as const;
-export const publicGroundSlugs = ["public", "public-whats-on"] as const;
-export const hookeParkGroundSlugs = ["hooke-park"] as const;
-export const dtaGroundSlugs = ["dta"] as const;
-export const roamGroundSlugs = ["roam"] as const;
-export const groundSlugs = [
-  ...schoolGroundSlugs,
-  ...publicGroundSlugs,
-  ...hookeParkGroundSlugs,
-  ...dtaGroundSlugs,
-  ...roamGroundSlugs,
-] as const;
-
-// export const schoolTipin1Slugs = [] as const;
-// export const publicTipin1Slugs = [] as const;
-// export const hookeParkTipin1Slugs = [] as const;
-// export const dtaTipin1Slugs = [
-//   "people",
-//   "practices",
-//   "institutions",
-//   "collections",
-//   "search",
-// ] as const;
-// export const roamTipin1Slugs = [] as const;
-
-export type GroundSlug = (typeof groundSlugs)[number];
-export type Tipin1Slug = string;
-export type Tipin2Slug = string;
+import { isEqual } from "lodash";
 
 export const routes = {
   home: "/",
 
-  ground: <T extends GroundSlug>(ground: T) => `/${ground}`,
+  school: "/school",
+  schoolProgrammes: "/school/programmes",
+  schoolProgramme: (slug: string) => `/school/programmes/${slug}`,
+  schoolProgrammeUnit: (slug1: string, slug2: string) =>
+    `/school/programmes/${slug1}/${slug2}`,
+  schoolApply: "/school/apply",
+  schoolApplyEntry: (slug: string) => `/school/apply/${slug}`,
+  schoolFacilities: "/school/facilities",
+  schoolFacility: (slug: string) => `/school/facilities/${slug}`,
+  schoolCalendar: "/school/calendar",
+  schoolLocations: "/school/locations",
+  schoolPeople: "/school/people",
+  schoolPerson: (slug: string) => `/school/people/${slug}`,
+  schoolPage: (slug: string) => `/school/pages/${slug}`,
+  schoolGovernance: "/school/governance",
+  schoolDocuments: "/school/documents",
 
-  tipin1: <T extends GroundSlug>(ground: T, tipin1: Tipin1Slug) =>
-    `/${ground}/${tipin1}`,
+  dta: "/public/dta",
+  dtaPeople: "/public/dta/people",
+  dtaPerson: (slug: string) => `/public/dta/people/${slug}`,
+  dtaPractices: "/public/dta/practices",
+  dtaPractice: (slug: string) => `/public/dta/practices/${slug}`,
+  dtaInstitutions: "/public/dta/institutions",
+  dtaInstitution: (slug: string) => `/public/dta/institutions/${slug}`,
+  dtaCollections: "/public/dta/collections",
+  dtaCollection: (slug: string) => `/public/dta/collections/${slug}`,
+  dtaPage: (slug: string) => `/public/dta/${slug}`,
 
-  tipin2: <T extends GroundSlug>(
-    ground: T,
-    tipin1: Tipin1Slug,
-    tipin2: Tipin2Slug,
-  ) => `/${ground}/${tipin1}/${tipin2}`,
-};
+  public: "/public",
 
-// Match 0-3 segments
-const regex = new RegExp(
-  `^(/(?<ground>(${groundSlugs.join("|")}))(/(?<tipin1>[^/]+)(/(?<tipin2>[^/]+))?)?)?/?$`,
-);
+  hookePark: "/public/hooke-park",
+
+  roam: "/public/roam",
+} as const;
+
+function startsWith(prefix: unknown[], arr: unknown[]) {
+  return (
+    prefix.length <= arr.length && prefix.every((val, i) => arr[i] === val)
+  );
+}
 
 export function parseRoute(pathname: string) {
-  const res = regex.exec(pathname);
-  if (res?.groups) {
-    const { ground, tipin1, tipin2 } = res.groups;
-    if (!ground || (ground && !tipin1 && !tipin2)) {
-      return {
-        type: "ground" as const,
-        ground: ground as undefined | GroundSlug,
-        tipin1: undefined,
-        tipin2: undefined,
-      };
+  const slugs = pathname.split("/").filter(Boolean);
+
+  if (isEqual([], slugs)) {
+    return { ground: "home" } as const;
+  }
+
+  if (startsWith(["school"], slugs)) {
+    if (isEqual(["school"], slugs)) {
+      return { ground: "school" } as const;
     }
-    if (ground && tipin1 && !tipin2) {
-      return {
-        type: "tipin1" as const,
-        ground: ground as GroundSlug,
-        tipin1: tipin1 as Tipin1Slug,
-        tipin2: undefined,
-      };
+
+    if (startsWith(["school", "hooke-park"], slugs)) {
+      if (isEqual(["school", "hooke-park"], slugs)) {
+        return { ground: "hookePark" } as const;
+      }
     }
-    if (ground && tipin1 && tipin2) {
-      return {
-        type: "tipin2" as const,
-        ground: ground as GroundSlug,
-        tipin1: tipin1 as Tipin1Slug,
-        tipin2: tipin2 as Tipin2Slug,
-      };
+
+    const tipin1 = slugs.at(2);
+    const tipin2 = slugs.at(3);
+
+    if (startsWith(["school", "programmes"], slugs)) {
+      return { ground: "schoolProgrammes", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "apply"], slugs)) {
+      return { ground: "schoolApply", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "facilities"], slugs)) {
+      return { ground: "schoolFacilities", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "calendar"], slugs)) {
+      return { ground: "schoolCalendar", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "locations"], slugs)) {
+      return { ground: "schoolLocations", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "people"], slugs)) {
+      return { ground: "schoolPeople", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "about"], slugs)) {
+      return { ground: "schoolAbout", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "governance"], slugs)) {
+      return { ground: "schoolGovernance", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["school", "documents"], slugs)) {
+      return { ground: "schoolDocuments", tipin1, tipin2 } as const;
     }
   }
+
+  if (startsWith(["public"], slugs)) {
+    if (isEqual(["public"], slugs)) {
+      return { ground: "public" } as const;
+    }
+
+    const tipin1 = slugs.at(2);
+    const tipin2 = slugs.at(3);
+
+    if (startsWith(["public", "dta"], slugs)) {
+      if (isEqual(["public", "dta"], slugs)) {
+        return { ground: "dta" } as const;
+      }
+
+      return { ground: "dta", tipin1, tipin2 } as const;
+    }
+
+    if (startsWith(["public", "roam"], slugs)) {
+      if (isEqual(["public", "roam"], slugs)) {
+        return { ground: "roam" } as const;
+      }
+    }
+  }
+
   return null;
 }

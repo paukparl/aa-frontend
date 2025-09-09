@@ -8,7 +8,7 @@ export default async function SchoolProgrammesPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
-        <SchoolNav activeSlug={"school-programmes"} />
+        <SchoolNav />
         <div className="grid gap-(--padding) 1024:grid-cols-2 1280:grid-cols-3">
           {_schoolSnippet &&
             _schoolSnippet.programOrdering.map(

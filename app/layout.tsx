@@ -10,8 +10,12 @@ import "./globals.css";
 
 export default async function RootLayout({
   children,
+  tipin1,
+  tipin2,
 }: {
   children: ReactNode;
+  tipin1: ReactNode;
+  tipin2: ReactNode;
 }) {
   // TODO: fetch data
   const homeColor = "#91ff8b";
@@ -29,7 +33,11 @@ export default async function RootLayout({
     >
       <body>
         <PrevRouteProvider>
-          <Layout>{children}</Layout>
+          <Layout>
+            {children}
+            {tipin1}
+            {tipin2}
+          </Layout>
         </PrevRouteProvider>
         {(await draftMode()).isEnabled && <DisableDraftMode />}
         <StrapiUpdateListener />

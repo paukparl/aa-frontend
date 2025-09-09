@@ -15,42 +15,42 @@ export const DTAMapNav = ({ className }: DTAMapNavProps) => {
       <div className="hidden h-[70px] w-[100%] items-center justify-between border-b border-dotted border-white 700:flex">
         <div className="flex gap-[50px]">
           <Link
-            href={routes.ground("dta")}
+            href={routes.dta}
             className="decoration-dotted underline-offset-5 hover:underline"
             scroll={false}
           >
             <span className="body">Map</span>
           </Link>
           <Link
-            href={routes.tipin1("dta", "people")}
+            href={routes.dtaPeople}
             className="decoration-dotted underline-offset-5 hover:underline"
             scroll={false}
           >
             <span className="body">People</span>
           </Link>
           <Link
-            href={routes.tipin1("dta", "practices")}
+            href={routes.dtaPractices}
             className="decoration-dotted underline-offset-5 hover:underline"
             scroll={false}
           >
             <span className="body">Practices</span>
           </Link>
           <Link
-            href={routes.tipin1("dta", "institutions")}
+            href={routes.dtaInstitutions}
             className="decoration-dotted underline-offset-5 hover:underline"
             scroll={false}
           >
             <span className="body">Institutions</span>
           </Link>
           <Link
-            href={routes.tipin1("dta", "collections")}
+            href={routes.dtaCollections}
             className="decoration-dotted underline-offset-5 hover:underline"
             scroll={false}
           >
             <span className="body">Collections</span>
           </Link>
           <Link
-            href={routes.tipin1("dta", "about")}
+            href={routes.dtaPage("about")}
             className="decoration-dotted underline-offset-5 hover:underline"
             scroll={false}
           >

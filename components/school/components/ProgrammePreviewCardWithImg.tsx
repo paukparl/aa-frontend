@@ -34,7 +34,7 @@ export const ProgrammePreviewCardWithImg = ({
       </div>
       <div className={cn("mt-auto")}>
         <DashedMonoButton asChild>
-          <Link href={routes.tipin1("school-programmes", programme.slug)}>
+          <Link href={routes.schoolProgramme(programme.slug)} scroll={false}>
             Read more
           </Link>
         </DashedMonoButton>

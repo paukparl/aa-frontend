@@ -26,7 +26,7 @@ export const FacilityPreviewCard = ({
         <h3 className={cn("title-24 700:title-36")}>{facility.name}</h3>
         <DashedMonoButton className={cn("mt-auto")} asChild>
           <Link
-            href={routes.tipin1("school-facilities", facility.slug ?? "-")}
+            href={routes.schoolFacility(facility.slug ?? "-")}
             scroll={false}
           >
             Learn More

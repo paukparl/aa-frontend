@@ -18,9 +18,7 @@ export async function SchoolProgrammePage({ slug }: { slug: string }) {
       bg={"var(--color-white)"}
       fg={"var(--color-black)"}
       title={programme.programmeTitle}
-      ancestors={[
-        { title: "Programmes", path: routes.ground("school-programmes") },
-      ]}
+      ancestors={[{ title: "Programmes", path: routes.schoolProgrammes }]}
     >
       <div className="p-(--padding) pb-100">
         <h1 className="h1-mono">{programme.programmeTitle}</h1>

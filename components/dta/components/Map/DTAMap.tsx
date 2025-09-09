@@ -204,11 +204,7 @@ export const DTAMap = ({
                                 {idx > 0 && ", "}
                                 <UnderlinedButton asChild>
                                   <Link
-                                    href={routes.tipin2(
-                                      "dta",
-                                      "people",
-                                      person.slug ?? "-",
-                                    )}
+                                    href={routes.dtaPerson(person.slug ?? "-")}
                                   >
                                     {person.firstName} {person.lastName}
                                   </Link>
@@ -228,9 +224,7 @@ export const DTAMap = ({
                                   {idx > 0 && ", "}
                                   <UnderlinedButton asChild>
                                     <Link
-                                      href={routes.tipin2(
-                                        "dta",
-                                        "institutions",
+                                      href={routes.dtaInstitution(
                                         institution.slug ?? "-",
                                       )}
                                     >
@@ -252,9 +246,7 @@ export const DTAMap = ({
                                 {idx > 0 && ", "}
                                 <UnderlinedButton asChild>
                                   <Link
-                                    href={routes.tipin2(
-                                      "dta",
-                                      "practices",
+                                    href={routes.dtaPractice(
                                       practice.slug ?? "-",
                                     )}
                                   >

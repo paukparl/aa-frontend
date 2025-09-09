@@ -24,33 +24,31 @@ export async function GET(request: NextRequest) {
 
   let path;
   if (uid === "api::dta-collection.dta-collection") {
-    path = routes.tipin1("dta", "collections");
+    path = routes.dtaCollections;
   } else if (uid === "api::dta-institution.dta-institution" && slug) {
     const institution = await getDTAInstitution(slug);
-    if (institution)
-      path = routes.tipin2("dta", "institutions", institution.slug ?? "-");
+    if (institution) path = routes.dtaInstitution(institution.slug ?? "-");
   } else if (uid === "api::dta-object.dta-object" && slug) {
-    path = routes.tipin2("dta", "collections", slug);
+    path = routes.dtaCollection(slug);
   } else if (uid === "api::dta-page.dta-page" && slug) {
-    path = routes.tipin2("dta", "pages", slug);
+    path = routes.dtaPage(slug);
   } else if (uid === "api::dta-person.dta-person" && slug) {
-    path = routes.tipin2("dta", "people", slug);
+    path = routes.dtaPerson(slug);
   } else if (uid === "api::dta-practice.dta-practice" && slug) {
-    path = routes.tipin2("dta", "practices", slug);
+    path = routes.dtaPractice(slug);
   } else if (uid === "api::school-person.school-person" && slug) {
-    path = routes.tipin1("school-people", slug);
+    path = routes.schoolPerson(slug);
   } else if (uid === "api::school-apply.school-apply" && slug) {
-    path = routes.tipin1("school-apply", slug);
+    path = routes.schoolApplyEntry(slug);
   } else if (uid === "api::school-facility.school-facility" && slug) {
-    path = routes.tipin1("school-facilities", slug);
+    path = routes.schoolFacility(slug);
   } else if (uid === "api::school-programme.school-programme" && slug) {
-    path = routes.tipin1("school-programmes", slug);
+    path = routes.schoolProgramme(slug);
   } else if (uid === "api::school-unit.school-unit" && slug) {
     const unit = await getSchoolUnit(slug);
     const firstProgramme = unit?.school_programmes[0] ?? null;
     if (unit && firstProgramme)
-      path = routes.tipin2(
-        "school-programmes",
+      path = routes.schoolProgrammeUnit(
         firstProgramme.slug ?? "-",
         unit.slug ?? "-",
       );
@@ -58,17 +56,17 @@ export async function GET(request: NextRequest) {
     uid === "api::school-visiting-school.school-visiting-school" &&
     slug
   ) {
-    path = routes.tipin2("school-programmes", "aa-visiting-school", slug);
+    path = routes.schoolProgrammeUnit("aa-visiting-school", slug);
   } else if (uid === "api::dta-map.dta-map") {
-    path = routes.ground("dta");
+    path = routes.dta;
   } else if (uid === "api::dta-nav.dta-nav") {
-    path = routes.ground("dta");
+    path = routes.dta;
   } else if (uid === "api::dta-snippet.dta-snippet") {
-    path = routes.ground("dta");
+    path = routes.dta;
   } else if (uid === "api::taught-postgraduate.taught-postgraduate") {
-    path = routes.tipin1("school-programmes", "taught-postgraduate");
+    path = routes.schoolProgramme("taught-postgraduate");
   } else if (uid === "api::visiting-school-snippet.visiting-school-snippet") {
-    path = routes.tipin1("school-programmes", "aa-visiting-school");
+    path = routes.schoolProgramme("aa-visiting-school");
   }
 
   if (!path) return new Response("Not found", { status: 404 });

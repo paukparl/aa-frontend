@@ -11,7 +11,7 @@ export default async function SchoolApplyPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
-        <SchoolNav activeSlug={"school-apply"} />
+        <SchoolNav />
         {schoolSnippet?.applyLandingDescription && (
           <ProgrammeDoubleTextCol
             col1Content={

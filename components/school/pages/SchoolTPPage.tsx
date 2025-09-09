@@ -21,9 +21,7 @@ export async function SchoolTPPage() {
       bg={"var(--color-white)"}
       fg={"var(--color-black)"}
       title={taughtPostgrad.programmeTitle}
-      ancestors={[
-        { title: "Programmes", path: routes.ground("school-programmes") },
-      ]}
+      ancestors={[{ title: "Programmes", path: routes.schoolProgrammes }]}
     >
       <div className="p-(--padding) pb-100">
         <h1 className="h1-mono">{taughtPostgrad.programmeTitle}</h1>

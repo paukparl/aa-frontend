@@ -22,7 +22,7 @@ export default async function SchoolFacilitiesPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className={cn("px-(--padding) pb-(--padding)")}>
-        <SchoolNav activeSlug={"school-facilities"} />
+        <SchoolNav />
         {schoolSnippet?.facilityLandingPageText && (
           <ProgrammeTextCol className={cn()}>
             {parseHtml(schoolSnippet.facilityLandingPageText)}

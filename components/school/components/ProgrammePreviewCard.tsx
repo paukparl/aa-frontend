@@ -23,7 +23,7 @@ export const ProgrammePreviewCard = ({
       </h2>
       <Link
         scroll={false}
-        href={routes.tipin1("school-programmes", programme.slug ?? ``)}
+        href={routes.schoolProgramme(programme.slug ?? ``)}
         className="group mt-[10px] block border border-dotted transition-all hover:border-solid hover:bg-school-tint sm:mt-[20px]"
       >
         {programme.degreeAwarded && (
@@ -55,14 +55,14 @@ export const ProgrammePreviewCard = ({
       <div className="mt-(--padding) flex gap-10">
         <ButtonViewMore
           className="hover:bg-school-tint"
-          href={routes.tipin1("school-programmes", programme.slug)}
+          href={routes.schoolProgramme(programme.slug)}
         >
           Learn More
         </ButtonViewMore>
         {programme.schoolApply?.slug && (
           <ButtonViewMore
             className="hover:bg-school-tint"
-            href={`/school-apply/${programme.schoolApply.slug}`}
+            href={routes.schoolApplyEntry(programme.schoolApply.slug)}
           >
             How to Apply
           </ButtonViewMore>

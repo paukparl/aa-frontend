@@ -20,6 +20,7 @@ export const ButtonViewMore = ({
         className,
         "block w-fit border border-dotted px-10 py-5 mono hover:border-solid",
       )}
+      scroll={false}
     >
       {children}
     </Link>

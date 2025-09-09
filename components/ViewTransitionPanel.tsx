@@ -61,7 +61,7 @@ function Panel({
 }: {
   type: "home" | "school" | "public";
   panel: "home" | "school" | "public";
-  microsite: "hooke-park" | "dta" | "roam" | null;
+  microsite: "hookePark" | "dta" | "roam" | null;
   headerHidden?: boolean;
 }) {
   return (
@@ -100,7 +100,7 @@ function Panel({
             : type === "school"
               ? "bg-main-school"
               : "bg-main-public",
-          microsite === "hooke-park" && "bg-white shadow-[0_0_0_1px_#000]",
+          microsite === "hookePark" && "bg-white shadow-[0_0_0_1px_#000]",
           microsite === "dta" && "bg-[#1d453f] shadow-[0_0_0_1px_#fff]",
           microsite === "roam" && "bg-[#fdfff0] shadow-[0_0_0_1px_#000]",
         )}

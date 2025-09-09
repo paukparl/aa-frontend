@@ -20,7 +20,7 @@ export async function SchoolPersonPage({ slug }: { slug: string }) {
       bg={"var(--color-white)"}
       fg={"var(--color-black)"}
       title={fullName}
-      ancestors={[{ title: "People", path: routes.ground("school-people") }]}
+      ancestors={[{ title: "People", path: routes.schoolPeople }]}
     >
       <div className="px-(--padding) pt-70 pb-100">
         <div className="flex flex-col gap-(--padding) 700:flex-row">

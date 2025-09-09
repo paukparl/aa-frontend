@@ -39,7 +39,7 @@ export const DTAPeopleGridItem = ({
   const urlSearchParams = useSearchParams();
   if (!person.slug) return null;
   const href = composeUrl({
-    path: routes.tipin2("dta", "people", person.slug),
+    path: routes.dtaPerson(person.slug),
     params: urlSearchParams,
   });
   return (

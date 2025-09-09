@@ -4,6 +4,7 @@ import { getSchoolPeople } from "@/api/getSchoolPeople";
 import ViewTransitionGroundPage from "@/components/ViewTransitionGroundPage";
 import { SchoolNav } from "@/components/school/components/SchoolNav";
 import { cn } from "@/lib/cn";
+import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 
 export default async function SchoolPeoplePage() {
@@ -11,7 +12,7 @@ export default async function SchoolPeoplePage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="px-(--padding)">
-        <SchoolNav activeSlug={"school-people"} />
+        <SchoolNav />
         <div className="mb-10 mono">{`All ${people.length} ${people.length > 1 ? `People` : `Person`}`}</div>
         <div className="grid grid-cols-2 gap-(--padding) 700:grid-cols-4 1024:grid-cols-5 1280:grid-cols-6">
           {people.map((person) => (
@@ -35,7 +36,7 @@ export const SchoolPeopleGridItem = ({
   return (
     <Link
       className={cn("group block", className)}
-      href={`/school-people/${person.slug}`}
+      href={routes.schoolPerson(person.slug ?? "-")}
       scroll={false}
     >
       <div className="relative mb-5 block aspect-[4/5] school-griditem-bg 700:mb-10">

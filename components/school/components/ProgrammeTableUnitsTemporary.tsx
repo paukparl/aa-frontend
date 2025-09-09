@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { routes } from "@/lib/routes";
 import { Schema } from "@/lib/schemas";
 
 type UnitInfo = {
@@ -47,7 +48,7 @@ export const ProgrammeTableUnitsTemporary = ({
         {units.map((unit, index) => (
           <Link
             scroll={false}
-            href={`/school-programmes/${programmeSlug}/${unit.slug}`}
+            href={routes.schoolProgrammeUnit(programmeSlug, unit.slug ?? "-")}
             key={index}
             className="temptable_unitrow mb-[-1px] grid cursor-pointer grid-cols-[2fr_1fr] transition-[.1s] md:grid-cols-[3fr_1fr]"
           >

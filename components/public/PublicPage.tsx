@@ -6,13 +6,13 @@ export default function PublicPage() {
   return (
     <ViewTransitionGroundPage panel="public">
       <div className="flex flex-col items-start gap-2 px-24">
-        <TempLink href={routes.ground("hooke-park")} scroll={false}>
+        <TempLink href={routes.hookePark} scroll={false}>
           Hooke Park
         </TempLink>
-        <TempLink href={routes.ground("dta")} scroll={false}>
+        <TempLink href={routes.dta} scroll={false}>
           DTA
         </TempLink>
-        <TempLink href={routes.ground("roam")} scroll={false}>
+        <TempLink href={routes.roam} scroll={false}>
           Roam
         </TempLink>
       </div>

@@ -169,3 +169,10 @@ export const newTabProps = {
   target: "_blank",
   rel: "noopener noreferrer",
 } as const;
+
+export function slugToPathname(slug?: string[]) {
+  const slugs = slug?.map((slug) =>
+    slug.replace("(...)", "").replace("(.)", ""),
+  );
+  return `/${slugs ? slugs.join("/") : ""}`;
+}

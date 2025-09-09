@@ -18,6 +18,12 @@ const eslintConfig = [
       "plugin:storybook/recommended",
     ],
     rules: {
+      "react-hooks/exhaustive-deps": [
+        "warn",
+        {
+          additionalHooks: "(useIsomorphicLayoutEffect|useSomeOtherCustomHook)",
+        },
+      ],
       "@typescript-eslint/no-unused-vars": [
         "error",
         {

@@ -60,9 +60,7 @@ export async function SchoolVisitingSchoolPage() {
       bg="var(--color-white)"
       fg="var(--color-black)"
       title="AA Visiting School"
-      ancestors={[
-        { title: "Programmes", path: routes.ground("school-programmes") },
-      ]}
+      ancestors={[{ title: "Programmes", path: routes.schoolProgrammes }]}
     >
       <div className="p-(--padding)">
         <h1 className="h1-mono">AA Visiting School</h1>

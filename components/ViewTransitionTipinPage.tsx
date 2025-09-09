@@ -21,11 +21,8 @@ import {
   pushAnimation,
 } from "@/hooks/useViewTransitionsStore";
 import { cn } from "@/lib/cn";
-import {
-  parseMenuOpen,
-  parseTipin1PagePath,
-  parseTipin2PagePath,
-} from "@/lib/layoutUtils";
+import { parseMenuOpen } from "@/lib/layoutUtils";
+import { parseRoute } from "@/lib/routes";
 import { composeUrl, filterParamsByPrefix } from "@/lib/urlUtils";
 
 type TipinType = "1" | "2";
@@ -63,13 +60,13 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
   const pathname = usePathname();
   const prev = usePrevRoute();
   const isMenuOpen = parseMenuOpen(searchParams);
-  const tipin1PagePath = parseTipin1PagePath(pathname);
-  const tipin2PagePath = parseTipin2PagePath(pathname);
-  const prevTipin1PagePath = prev.pathname
-    ? parseTipin1PagePath(prev.pathname)
+  const tipin1 = parseRoute(pathname)?.tipin1;
+  const tipin2 = parseRoute(pathname)?.tipin2;
+  const prevTipin1 = prev.pathname
+    ? parseRoute(prev.pathname)?.tipin1
     : undefined;
-  const prevTipin2PagePath = prev.pathname
-    ? parseTipin2PagePath(prev.pathname)
+  const prevTipin2 = prev.pathname
+    ? parseRoute(prev.pathname)?.tipin2
     : undefined;
 
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -78,7 +75,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
     ? 0
     : type === "2"
       ? 1
-      : tipin2PagePath === null
+      : tipin2 === undefined
         ? 1
         : 0;
   const closeBtnOpacityMV = useMotionValue(closeBtnOpacity);
@@ -102,14 +99,18 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
       update="none"
       default={
         type === "1"
-          ? !prevTipin1PagePath
+          ? !prevTipin1
             ? "first-tipin"
-            : "first-tipin-with-delay"
-          : prevTipin1PagePath === tipin1PagePath && !prevTipin2PagePath
+            : prevTipin1 === tipin1
+              ? "sit-still"
+              : "first-tipin-with-delay"
+          : !prevTipin2
             ? "second-tipin"
-            : "second-tipin-with-delay"
+            : prevTipin2 === tipin2
+              ? "none"
+              : "second-tipin-with-delay"
       }
-      exit={type === "1" ? "first-tipin" : "second-tipin"}
+      exit={type === "1" ? "first-tipin-exiting" : "second-tipin"}
       onEnter={(tran) => {
         const anim = tran.new.getAnimations()[0] as Animation | undefined;
         if (anim) {
@@ -150,12 +151,7 @@ export default function ViewTransitionTipinPage<T extends TipinType>({
         <Dialog.Overlay
           ref={overlayRef}
           className="fixed inset-0 top-0 left-0 z-40 flex w-full overflow-y-auto text-(--tipin-fg)"
-          style={
-            {
-              "--tipin-bg": bg,
-              "--tipin-fg": fg,
-            } as React.CSSProperties
-          }
+          style={{ "--tipin-bg": bg, "--tipin-fg": fg } as React.CSSProperties}
         >
           <Dialog.Content
             className={cn(

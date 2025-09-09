@@ -31,8 +31,8 @@ export async function DTAObjectPage({ slug }: { slug: string }) {
       fg="var(--color-dta-collections-foreground)"
       title={object.title}
       ancestors={[
-        { title: "DTA Archive", path: routes.ground("dta") },
-        { title: "Collections", path: routes.tipin1("dta", "collections") },
+        { title: "DTA Archive", path: routes.dta },
+        { title: "Collections", path: routes.dtaCollections },
       ]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">

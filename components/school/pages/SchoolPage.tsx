@@ -31,7 +31,7 @@ export default async function SchoolPage() {
   return (
     <ViewTransitionGroundPage panel="school">
       <div className="min-h-[90vh] px-(--padding) pb-100">
-        <SchoolNav activeSlug="school" />
+        <SchoolNav />
         <ProgrammeTextCol
           className="mt-(--padding) mb-70"
           col2content={
@@ -72,7 +72,7 @@ export default async function SchoolPage() {
           >
             <h2 className={cn("h1")}>Programmes</h2>
             <DashedMonoButton className={cn("ml-24 max-700:hidden")} asChild>
-              <Link href={routes.ground("school-programmes")} scroll={false}>
+              <Link href={routes.schoolProgrammes} scroll={false}>
                 See all
               </Link>
             </DashedMonoButton>
@@ -102,7 +102,7 @@ export default async function SchoolPage() {
           </CarouselViewport>
           <div className={cn("mt-(--padding) px-(--padding) 700:hidden")}>
             <DashedMonoButton className={cn("")} asChild>
-              <Link href={routes.ground("school-programmes")} scroll={false}>
+              <Link href={routes.schoolProgrammes} scroll={false}>
                 See all
               </Link>
             </DashedMonoButton>
@@ -125,7 +125,7 @@ export default async function SchoolPage() {
           >
             <h2 className={cn("h1")}>Facilities</h2>
             <DashedMonoButton className={cn("ml-24 max-700:hidden")} asChild>
-              <Link href={routes.ground("school-facilities")} scroll={false}>
+              <Link href={routes.schoolFacilities} scroll={false}>
                 See all
               </Link>
             </DashedMonoButton>
@@ -156,7 +156,7 @@ export default async function SchoolPage() {
             <h2 className={cn("h1")}>Visiting School</h2>
             <DashedMonoButton className={cn("ml-24")} asChild>
               <Link
-                href={routes.tipin1("school-programmes", "aa-visiting-school")}
+                href={routes.schoolProgramme("aa-visiting-school")}
                 scroll={false}
               >
                 See all

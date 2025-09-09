@@ -114,6 +114,27 @@
 
   /* Tipins & Menu */
 
+  ::view-transition-group(.sit-still) {
+    z-index: 40;
+  }
+  ::view-transition-new(.sit-still) {
+    animation: var(--slide-duration) var(--transition-easing) backwards
+      sit-still;
+  }
+  ::view-transition-old(.sit-still) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both sit-still;
+  }
+
+  ::view-transition-group(.first-tipin-exiting) {
+    z-index: 30;
+  }
+  ::view-transition-new(.first-tipin-exiting) {
+    animation: var(--slide-duration) var(--transition-easing) backwards slide-in;
+  }
+  ::view-transition-old(.first-tipin-exiting) {
+    animation: var(--slide-out-duration) var(--slide-out-easing) both slide-out;
+  }
+
   ::view-transition-group(.first-tipin) {
     z-index: 40;
   }
@@ -316,5 +337,14 @@
     to {
       transform: translate(-100%, 0);
     }
+  }
+}
+
+@keyframes sit-still {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 0);
   }
 }

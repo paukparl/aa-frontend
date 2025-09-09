@@ -1,26 +1,68 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import * as React from "react";
 import { cn } from "@/lib/cn";
-import { routes, schoolGroundSlugs } from "@/lib/routes";
+import { parseRoute, routes } from "@/lib/routes";
 
 const links = [
-  { title: "Programmes", slug: "school-programmes" },
-  { title: "Apply", slug: "school-apply" },
-  { title: "Facilities", slug: "school-facilities" },
-  { title: "Academic Calendar", slug: "school-calendar" },
-  { title: "Locations", slug: "school-locations" },
-  { title: "People", slug: "school-people" },
-  { title: "About", slug: "school-about" },
-  { title: "Governance", slug: "school-governance" },
-  { title: "Documents", slug: "school-documents" },
-] satisfies { title: string; slug: (typeof schoolGroundSlugs)[number] }[];
+  {
+    title: "Programmes",
+    href: routes.schoolProgrammes,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolProgrammes",
+  },
+  {
+    title: "Apply",
+    href: routes.schoolApply,
+    match: (pathname: string) => parseRoute(pathname)?.ground === "schoolApply",
+  },
+  {
+    title: "Facilities",
+    href: routes.schoolFacilities,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolFacilities",
+  },
+  {
+    title: "Academic Calendar",
+    href: routes.schoolCalendar,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolCalendar",
+  },
+  {
+    title: "Locations",
+    href: routes.schoolLocations,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolLocations",
+  },
+  {
+    title: "People",
+    href: routes.schoolPeople,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolPeople",
+  },
+  {
+    title: "About",
+    href: routes.schoolPage("about"),
+    match: (pathname: string) => parseRoute(pathname)?.ground === "schoolAbout",
+  },
+  {
+    title: "Governance",
+    href: routes.schoolGovernance,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolGovernance",
+  },
+  {
+    title: "Documents",
+    href: routes.schoolDocuments,
+    match: (pathname: string) =>
+      parseRoute(pathname)?.ground === "schoolDocuments",
+  },
+];
 
-type SchoolNavProps = {
-  className?: string;
-  activeSlug: (typeof schoolGroundSlugs)[number];
-};
-
-export const SchoolNav = ({ className, activeSlug }: SchoolNavProps) => {
+export const SchoolNav = ({ className }: { className?: string }) => {
+  const pathname = usePathname();
   return (
     <div
       className={cn(
@@ -28,13 +70,13 @@ export const SchoolNav = ({ className, activeSlug }: SchoolNavProps) => {
         className,
       )}
     >
-      {links.map(({ title, slug }, index) => (
+      {links.map(({ title, href, match }, index) => (
         <Link
           key={index}
-          href={routes.ground(slug)}
+          href={href}
           className={cn(
             "mt-[-1px] ml-[-1px] block border-[1px] border-school-tint py-[7px] pl-[20px] capitalize hover:bg-school-tint",
-            slug === activeSlug && "bg-school-tint",
+            match(pathname) && "bg-school-tint",
           )}
         >
           <span className="mono">{title}</span>

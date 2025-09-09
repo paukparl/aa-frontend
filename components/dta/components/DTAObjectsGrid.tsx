@@ -36,7 +36,7 @@ export const DTAObjectsGridItem = ({
   className,
 }: DTAObjectsGridItemProps) => {
   if (!object.slug) return null;
-  const href = routes.tipin2("dta", "collections", object.slug);
+  const href = routes.dtaCollection(object.slug);
   return (
     <Link
       className={cn("group block", className)}

@@ -7,13 +7,13 @@ export async function RoamPage() {
     <ViewTransitionGroundPage panel="public" microsite="roam">
       <div className="flex flex-col items-start gap-2 px-24">
         <h1 className="h1">ROAM</h1>
-        <TempLink href={routes.ground("hooke-park")} scroll={false}>
+        <TempLink href={routes.hookePark} scroll={false}>
           Hooke Park
         </TempLink>
-        <TempLink href={routes.ground("dta")} scroll={false}>
+        <TempLink href={routes.dta} scroll={false}>
           DTA
         </TempLink>
-        <TempLink href={routes.ground("roam")} scroll={false}>
+        <TempLink href={routes.roam} scroll={false}>
           ROAM
         </TempLink>
       </div>

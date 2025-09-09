@@ -7,5 +7,12 @@ export default function MountTest() {
   useEffect(() => {
     console.log("Component mounted");
   }, []);
-  return <div onClick={() => setCount((c) => c + 1)}>Increment: {count}</div>;
+  return (
+    <div
+      className="fixed top-20 right-20 z-50"
+      onClick={() => setCount((c) => c + 1)}
+    >
+      Increment: {count}
+    </div>
+  );
 }

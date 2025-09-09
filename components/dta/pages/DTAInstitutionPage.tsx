@@ -32,8 +32,8 @@ export async function DTAInstitutionPage({ slug }: { slug: string }) {
       fg="var(--color-dta-institutions-foreground)"
       title={institution.Name}
       ancestors={[
-        { title: "DTA Archive", path: routes.ground("dta") },
-        { title: "Institutions", path: routes.tipin1("dta", "institutions") },
+        { title: "DTA Archive", path: routes.dta },
+        { title: "Institutions", path: routes.dtaInstitutions },
       ]}
     >
       <div className="flex flex-col gap-(--padding) p-(--padding)">

@@ -8,7 +8,7 @@ import { parseMicrosite, parsePanel } from "@/lib/layoutUtils";
 
 type ViewTransitionGroundPageProps = {
   panel: "home" | "school" | "public";
-  microsite?: "hooke-park" | "dta" | "roam";
+  microsite?: "hookePark" | "dta" | "roam";
   children?: ReactNode;
   className?: string;
 };
